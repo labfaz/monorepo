@@ -16,6 +16,7 @@ import { sendConfirmationEmail } from "Mailer/emailConfirmation";
 import DeficiencyRepository from "Repository/DeficiencyRepository";
 import { Deficiency } from "Entities/Deficiency";
 import { In } from "typeorm";
+import { separeteNewAndExistentDeficiencies } from "./utils/deficienciesUtils";
 
 interface CreateUserDeps {
   UserRepo: UserRepository;
@@ -46,14 +47,7 @@ export const CreateUser: (
     )!;
 
     const requestDeficiencies = req.user_info?.deficiencies ?? [];
-    const customDeficiencies = <string[]>requestDeficiencies.filter(e => e?.name).map(e => e.name);
-    const deficienciesId = <string[]>requestDeficiencies.filter(e => e?.id).map(e => e.id);
-
-    let deficiencies: Deficiency[]
-    if(deficienciesId.length)
-      deficiencies = await deficiencyRepo.find({where: {id: In(deficienciesId)}});
-    else
-      deficiencies = []
+    const deficiences = await separeteNewAndExistentDeficiencies(requestDeficiencies, deficiencyRepo);
 
     return UserRepo.createUser(
       email,
@@ -62,8 +56,8 @@ export const CreateUser: (
       artistCurriculum,
       artistProfilePicture,
       {
-        custom: customDeficiencies,
-        deficiencies,
+        new: deficiences.new,
+        existent: deficiences.existent,
       }
     )
      .then((user) => {

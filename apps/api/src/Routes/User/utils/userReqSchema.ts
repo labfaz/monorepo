@@ -8,6 +8,7 @@ import {
 import { Residency } from "Entities/Address";
 import { Formation, CNPJ } from "Entities/Technical";
 import { TechFormation } from "Entities/Area";
+import { addOrCreateUserDeficiency } from "./deficienciesReqSchema";
 
 export const userTechnicalSchema = yup
   .object()
@@ -112,25 +113,6 @@ export const userArtistSchema = yup
     address: addressSchema,
     contact: userContactSchema,
     technical: userTechnicalSchema,
-  });
-
-  export const addUserDeficiencySchema = yup.object().shape({
-    id: yup.string().required()
-  })
-
-  export const createDeficiencySchema = yup.object().shape({
-    name: yup.string().required()
-  })
-
-  export const addOrCreateUserDeficiency = yup.mixed()
-
-  addOrCreateUserDeficiency.when({
-    is: (v: Record<string, unknown>) => v?.id,
-    then: addUserDeficiencySchema
-  });
-  addOrCreateUserDeficiency.when({
-    is: (v: Record<string, unknown>) => v?.name,
-    then: createDeficiencySchema
   });
 
 export const userSchema = yup.object({

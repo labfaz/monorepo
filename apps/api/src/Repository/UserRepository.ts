@@ -48,7 +48,7 @@ export class UserRepository extends Repository<User> {
     artist: ArtistInfo,
     curriculum: UploadedFile | undefined,
     profilePicture: UploadedFile,
-    userDeficiencies: {deficiencies?: Deficiency[], custom?: string[]}
+    userDeficiencies: {existent?: Deficiency[], new?: string[]}
   ) {
     const hashedPwd = await this.generateHash(rawPassword);
 
@@ -184,14 +184,14 @@ export class UserRepository extends Repository<User> {
     createdUser.isVerified = false;
     createdUser.banned = false;
     createdUser.artist = createdArtist;
-    createdUser.deficiencies = userDeficiencies.deficiencies || [];
+    createdUser.deficiencies = userDeficiencies.existent || [];
 
     createdArtist.user = createdUser;
     
     const savedUser = await createdUser.save()
     
-    if(userDeficiencies?.custom?.length){ 
-      let customDeficiencies = userDeficiencies.custom.map(deficiency =>
+    if(userDeficiencies?.new?.length){ 
+      let customDeficiencies = userDeficiencies.new.map(deficiency =>
         Deficiency.create({
           isCustom: true, 
           name: deficiency, 
