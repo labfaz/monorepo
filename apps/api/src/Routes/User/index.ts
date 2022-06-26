@@ -56,7 +56,7 @@ const UserRouter: Router<UserDeps> = (deps, options) => {
       ]),
       ensureAuthenticated,
       ParseUpdateUser,
-      UpdateUser({ UserRepo })
+      UpdateUser({ UserRepo, DeficiencyRepo })
     )
     .get("/search", SearchUsers({ UserRepo }))
     .get("/me", ensureAuthenticated, ShowCurrentUser({ UserRepo }))
