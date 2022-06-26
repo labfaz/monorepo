@@ -16,6 +16,7 @@ import Contact from "Entities/Contact";
 import Technical, { Formation } from "Entities/Technical";
 import Area, { TechFormation } from "Entities/Area";
 import Idiom from "Entities/Idiom";
+import { Deficiency } from "Entities/Deficiency";
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
@@ -46,7 +47,8 @@ export class UserRepository extends Repository<User> {
     rawPassword: string,
     artist: ArtistInfo,
     curriculum: UploadedFile | undefined,
-    profilePicture: UploadedFile
+    profilePicture: UploadedFile,
+    userDeficiencies: {deficiencies?: Deficiency[], custom?: string[]}
   ) {
     const hashedPwd = await this.generateHash(rawPassword);
 
@@ -182,10 +184,27 @@ export class UserRepository extends Repository<User> {
     createdUser.isVerified = false;
     createdUser.banned = false;
     createdUser.artist = createdArtist;
+    createdUser.deficiencies = userDeficiencies.deficiencies || [];
 
     createdArtist.user = createdUser;
+    
+    const savedUser = await createdUser.save()
+    
+    if(userDeficiencies?.custom?.length){ 
+      let customDeficiencies = userDeficiencies.custom.map(deficiency =>
+        Deficiency.create({
+          isCustom: true, 
+          name: deficiency, 
+          createdBy: createdUser.id 
+        })
+      )
+      
+      await Deficiency.save(customDeficiencies)
+      customDeficiencies.forEach(e => createdUser.deficiencies.push(e))
+      await savedUser.save()
+    }
 
-    return createdUser.save().then(() => createdUser);
+    return savedUser;
   }
 
   async updateUser(
