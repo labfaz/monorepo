@@ -13,16 +13,20 @@ import { ParsedUser } from "./ParseUser";
 import { ParsedFiles } from "Middlewares/parseFiles";
 import { removeCircularity } from "Utils/stringifyCircular";
 import { sendConfirmationEmail } from "Mailer/emailConfirmation";
+import DeficiencyRepository from "Repository/DeficiencyRepository";
+import { Deficiency } from "Entities/Deficiency";
+import { In } from "typeorm";
 
 interface CreateUserDeps {
   UserRepo: UserRepository;
+  DeficiencyRepo: DeficiencyRepository
 }
 
 export const CreateUser: (
   deps: CreateUserDeps
 ) => RouteHandler<
   Req<{}, ParsedUser & ParsedFiles<"profilePicture" | "curriculum">>
-> = ({ UserRepo }: CreateUserDeps) => async (req, res) => {
+> = ({ UserRepo, DeficiencyRepo: deficiencyRepo }: CreateUserDeps) => async (req, res) => {
   const { email, password, artist } = req.user_info! ?? {};
 
   const checkUserExists = await UserRepo.findByEmail(email);
@@ -41,12 +45,26 @@ export const CreateUser: (
       (file) => file.fieldname === "profilePicture"
     )!;
 
+    const requestDeficiencies = req.user_info?.deficiencies ?? [];
+    const customDeficiencies = <string[]>requestDeficiencies.filter(e => e?.name).map(e => e.name);
+    const deficienciesId = <string[]>requestDeficiencies.filter(e => e?.id).map(e => e.id);
+
+    let deficiencies: Deficiency[]
+    if(deficienciesId.length)
+      deficiencies = await deficiencyRepo.find({where: {id: In(deficienciesId)}});
+    else
+      deficiencies = []
+
     return UserRepo.createUser(
       email,
       password,
       artist,
       artistCurriculum,
-      artistProfilePicture
+      artistProfilePicture,
+      {
+        custom: customDeficiencies,
+        deficiencies,
+      }
     )
      .then((user) => {
         sendConfirmationEmail(user);

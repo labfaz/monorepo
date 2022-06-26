@@ -114,10 +114,30 @@ export const userArtistSchema = yup
     technical: userTechnicalSchema,
   });
 
+  export const addUserDeficiencySchema = yup.object().shape({
+    id: yup.string().required()
+  })
+
+  export const createDeficiencySchema = yup.object().shape({
+    name: yup.string().required()
+  })
+
+  export const addOrCreateUserDeficiency = yup.mixed()
+
+  addOrCreateUserDeficiency.when({
+    is: (v: Record<string, unknown>) => v?.id,
+    then: addUserDeficiencySchema
+  });
+  addOrCreateUserDeficiency.when({
+    is: (v: Record<string, unknown>) => v?.name,
+    then: createDeficiencySchema
+  });
+
 export const userSchema = yup.object({
   email: yup.string().required().email(),
   password: yup.string().required().min(6),
   artist: userArtistSchema,
+  deficiencies: yup.array().of(addOrCreateUserDeficiency),
 });
 
 export interface UserInfo extends yup.Asserts<typeof userSchema> {}
