@@ -27,6 +27,7 @@ import { Step1 } from './Step1'
 import { Step2 } from './Step2'
 import { Step3 } from './Step3'
 import { Step4 } from './Step4'
+import { STEP4_2 } from './STEP4_2'
 import { Step5 } from './Step5'
 import { Step6 } from './Step6'
 import { Step7 } from './Step7'
@@ -62,6 +63,8 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
           password: '',
           confirm_password: '',
           other_idiom: '',
+          other_deficiency: '',
+          deficiency: [],
           use_terms: '',
           profilePicture: null,
           curriculum: null,
@@ -221,6 +224,14 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
 
         <FormikStep
           validationSchema={yup.object({
+            deficiency: yup.array(),
+          })}
+        >
+          <STEP4_2 />
+        </FormikStep>
+
+        <FormikStep
+          validationSchema={yup.object({
             artist: yup.object({
               technical: yup.object({
                 formation: yup.string().required('Formação obrigatória'),
@@ -361,6 +372,16 @@ function FormikStepper({
             values.artist.technical.idiom.push(values.other_idiom)
 
             delete values.other_idiom
+          }
+
+          if (values.other_deficiency) {
+            const index = values.artist.technical.deficiency.indexOf('Outro')
+
+            values.artist.technical.deficiency.splice(index, 1)
+
+            values.artist.technical.deficiency.push(values.other_deficiency)
+
+            delete values.other_deficiency
           }
 
           if (values.artist.other_gender) {

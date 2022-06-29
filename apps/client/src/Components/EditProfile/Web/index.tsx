@@ -17,6 +17,7 @@ import { Step1 } from './Step1'
 import { Step2 } from './Step2'
 import { Step3 } from './Step3'
 import { Step4 } from './Step4'
+import { STEP4_2 } from './STEP4_2'
 import { Step5 } from './Step5'
 import { Step6 } from './Step6'
 import { Step7 } from './Step7'
@@ -56,6 +57,7 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
           confirm_password: '',
           old_password: '',
           other_idiom: '',
+          other_deficiency: '',
           use_terms: '',
           profilePicture: data?.artist.photo_url,
           curriculum: data?.artist.curriculum,
@@ -114,6 +116,7 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
                 ),
               },
               idiom: data?.artist.technical.idiom.map((idiom) => idiom.name),
+              deficiency: data?.deficiency.map((deficiency) => deficiency.name),
             },
           },
           buttonType,
@@ -223,6 +226,14 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
           })}
         >
           <Step3 />
+        </FormikStep>
+
+        <FormikStep
+          validationSchema={yup.object({
+            deficiency: yup.array(),
+          })}
+        >
+          <STEP4_2 />
         </FormikStep>
 
         <FormikStep
@@ -364,6 +375,16 @@ function FormikStepper({
             values.artist.technical.idiom.push(values.other_idiom)
 
             delete values.other_idiom
+          }
+
+          if (values.other_deficiency) {
+            const index = values.artist.technical.deficiency.indexOf('Outro')
+
+            values.artist.technical.deficiency.splice(index, 1)
+
+            values.artist.technical.deficiency.push(values.other_deficiency)
+
+            delete values.other_deficiency
           }
 
           if (values.artist.other_gender) {

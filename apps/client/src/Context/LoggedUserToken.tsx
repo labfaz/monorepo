@@ -80,6 +80,10 @@ export interface IArtist {
   technical: ITechnical
 }
 
+export interface IDeficiency {
+  name: string
+}
+
 export interface User {
   id: string
   email: string
@@ -89,6 +93,7 @@ export interface User {
   updated_at: Date
   created_at: Date
   artist: IArtist
+  deficiency: IDeficiency[]
 }
 
 type notLoggedIn = {
