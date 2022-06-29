@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { useState } from 'react'
 import { IoMdArrowDropdownCircle } from 'react-icons/io'
 
-import { formationOptions, idiomOptions } from 'Utils/selectOptionsData'
+import { formationOptions, idiomOptions, deficiencyOptions } from 'Utils/selectOptionsData'
 
 import {
   Container,
@@ -15,7 +15,7 @@ import {
   LabelText,
   InputRadio,
   InputSelect,
-  IdiomOptionsContainer,
+  OptionsContainer,
   CheckboxContainer,
   InputCheckbox,
   InputText,
@@ -23,6 +23,7 @@ import {
 } from './style'
 
 interface Step11Props {
+  deficiency: string[]
   artist: {
     technical: {
       formation: string
@@ -35,11 +36,16 @@ export const Step11: FC = () => {
   const { values, errors } = useFormikContext<Step11Props>()
 
   const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false)
+  const [isDeficiencyOptionsOpen, setIsDeficiencyOptionsOpen] = useState(false)
   const modalRef = useRef<HTMLInputElement | null>(null)
+  const modalRefDeficiency = useRef<HTMLInputElement | null>(null)
 
   const closeModal = (e: any) => {
     if (modalRef.current === e.target) {
       setIsIdiomOptionsOpen(false)
+    }
+    if (modalRefDeficiency.current === e.target) {
+      setIsDeficiencyOptionsOpen(false)
     }
   }
 
@@ -90,10 +96,36 @@ export const Step11: FC = () => {
               />
             </InputTextContainer>
           )}
+
+          <SelectContainer
+            onClick={() => setIsDeficiencyOptionsOpen(!isDeficiencyOptionsOpen)}
+          >
+            <label>Voce possui alguma condição especial?</label>
+            <InputSelect>
+              {values.deficiency[0]
+                ? values.deficiency[0]
+                : 'Selecione'}
+              <IoMdArrowDropdownCircle />
+            </InputSelect>
+          </SelectContainer>
+
+          {values.deficiency.find(
+            (values: any) => values === 'Outro'
+          ) && (
+            <InputTextContainer>
+              <LabelText>Qual outra condição?</LabelText>
+
+              <InputText
+                name="other_deficiency"
+                placeholder="Digite sua condição"
+                width={14.4}
+              />
+            </InputTextContainer>
+          )}
         </Content>
       </ContentContainer>
 
-      <IdiomOptionsContainer
+      <OptionsContainer
         ref={modalRef}
         onClick={closeModal}
         isOpen={isIdiomOptionsOpen}
@@ -109,7 +141,25 @@ export const Step11: FC = () => {
             />
           ))}
         </CheckboxContainer>
-      </IdiomOptionsContainer>
+      </OptionsContainer>
+
+      <OptionsContainer
+        ref={modalRefDeficiency}
+        onClick={closeModal}
+        isOpen={isDeficiencyOptionsOpen}
+      >
+        <CheckboxContainer>
+          {deficiencyOptions.map((deficiencyOption, index) => (
+            <InputCheckbox 
+              key={index}
+              inputRightSide
+              name="deficiency"
+              value={deficiencyOption.value}
+              label={deficiencyOption.label}
+            />
+          ))}
+        </CheckboxContainer>
+      </OptionsContainer>
     </Container>
   )
 }

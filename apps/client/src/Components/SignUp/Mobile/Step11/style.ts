@@ -120,7 +120,7 @@ export const InputSelect = styled.div`
   }
 `
 
-export const IdiomOptionsContainer = styled.div<ContentProps>`
+export const OptionsContainer = styled.div<ContentProps>`
   display: ${(({isOpen}) => isOpen ? 'flex' : 'none')};
 
   position: absolute;

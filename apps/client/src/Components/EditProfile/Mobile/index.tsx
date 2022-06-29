@@ -64,6 +64,8 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           password: '',
           confirm_password: '',
           other_idiom: '',
+          other_deficiency: '',
+          deficiency: data?.deficiency,
           use_terms: '',
           profilePicture: data?.artist.photo_url,
           curriculum: data?.artist.curriculum,
@@ -449,6 +451,16 @@ function FormikStepper({
             values.artist.technical.idiom.push(values.other_idiom)
 
             delete values.other_idiom
+          }
+
+          if (values.other_deficiency) {
+            const index = values.deficiency.indexOf('Outro')
+
+            values.deficiency.splice(index, 1)
+
+            values.deficiency.push(values.other_deficiency)
+
+            delete values.other_deficiency
           }
 
           if (values.artist.other_gender) {
