@@ -15,7 +15,7 @@ import {
 } from "./style";
 
 interface ErrorProps {
-  deficiency: string[];
+  deficiencies: string[];
   artist: {
     technical: {
       formation: string;
@@ -41,7 +41,7 @@ export const STEP4_2: FC = () => {
               />
             </InputCheckBoxContainer>
           ))}
-          {values.deficiency.find((values: any) => values === "Outro") && (
+          {values.deficiencies.find((values: any) => values === "Outro") && (
             <TextInputContainer>
               <label>Qual outra condição você possui?</label>
               <TextInput

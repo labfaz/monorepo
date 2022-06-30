@@ -23,7 +23,7 @@ import {
 } from './style'
 
 interface Step11Props {
-  deficiency: string[]
+  deficiencies: string[]
   artist: {
     technical: {
       formation: string
@@ -38,13 +38,13 @@ export const Step11: FC = () => {
   const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false)
   const [isDeficiencyOptionsOpen, setIsDeficiencyOptionsOpen] = useState(false)
   const modalRef = useRef<HTMLInputElement | null>(null)
-  const modalRefDeficiency = useRef<HTMLInputElement | null>(null)
+  const modalRefDeficiencies = useRef<HTMLInputElement | null>(null)
 
   const closeModal = (e: any) => {
     if (modalRef.current === e.target) {
       setIsIdiomOptionsOpen(false)
     }
-    if (modalRefDeficiency.current === e.target) {
+    if (modalRefDeficiencies.current === e.target) {
       setIsDeficiencyOptionsOpen(false)
     }
   }
@@ -102,14 +102,14 @@ export const Step11: FC = () => {
           >
             <label>Voce possui alguma condição especial?</label>
             <InputSelect>
-              {values.deficiency[0]
-                ? values.deficiency[0]
+              {values.deficiencies[0]
+                ? values.deficiencies[0]
                 : 'Selecione'}
               <IoMdArrowDropdownCircle />
             </InputSelect>
           </SelectContainer>
 
-          {values.deficiency.find(
+          {values.deficiencies.find(
             (values: any) => values === 'Outro'
           ) && (
             <InputTextContainer>
@@ -144,7 +144,7 @@ export const Step11: FC = () => {
       </OptionsContainer>
 
       <OptionsContainer
-        ref={modalRefDeficiency}
+        ref={modalRefDeficiencies}
         onClick={closeModal}
         isOpen={isDeficiencyOptionsOpen}
       >

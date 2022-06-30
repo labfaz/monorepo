@@ -64,7 +64,7 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
           confirm_password: '',
           other_idiom: '',
           other_deficiency: '',
-          deficiency: [],
+          deficiencies: [],
           use_terms: '',
           profilePicture: null,
           curriculum: null,
@@ -224,7 +224,7 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
 
         <FormikStep
           validationSchema={yup.object({
-            deficiency: yup.array(),
+            deficiencies: yup.array(),
           })}
         >
           <STEP4_2 />
@@ -375,11 +375,11 @@ function FormikStepper({
           }
 
           if (values.other_deficiency) {
-            const index = values.artist.technical.deficiency.indexOf('Outro')
+            const index = values.deficiencies.indexOf('Outro')
 
-            values.artist.technical.deficiency.splice(index, 1)
+            values.deficiencies.splice(index, 1)
 
-            values.artist.technical.deficiency.push(values.other_deficiency)
+            values.deficiencies.push(values.other_deficiency)
 
             delete values.other_deficiency
           }

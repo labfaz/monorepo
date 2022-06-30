@@ -58,6 +58,7 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
           old_password: '',
           other_idiom: '',
           other_deficiency: '',
+          deficiencies: data?.deficiencies.map((deficiency) => deficiency.name),
           use_terms: '',
           profilePicture: data?.artist.photo_url,
           curriculum: data?.artist.curriculum,
@@ -116,7 +117,6 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
                 ),
               },
               idiom: data?.artist.technical.idiom.map((idiom) => idiom.name),
-              deficiency: data?.deficiency.map((deficiency) => deficiency.name),
             },
           },
           buttonType,
@@ -230,7 +230,7 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
 
         <FormikStep
           validationSchema={yup.object({
-            deficiency: yup.array(),
+            deficiencies: yup.array(),
           })}
         >
           <STEP4_2 />
@@ -378,11 +378,11 @@ function FormikStepper({
           }
 
           if (values.other_deficiency) {
-            const index = values.artist.technical.deficiency.indexOf('Outro')
+            const index = values.deficiencies.indexOf('Outro')
 
-            values.artist.technical.deficiency.splice(index, 1)
+            values.deficiencies.splice(index, 1)
 
-            values.artist.technical.deficiency.push(values.other_deficiency)
+            values.deficiencies.push(values.other_deficiency)
 
             delete values.other_deficiency
           }

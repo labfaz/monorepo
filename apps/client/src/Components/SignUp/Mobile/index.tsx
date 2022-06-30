@@ -73,7 +73,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           confirm_password: '',
           other_idiom: '',
           other_deficiency: '',
-          deficiency: [],
+          deficiencies: [],
           use_terms: '',
           profilePicture: null,
           curriculum: null,
@@ -300,6 +300,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
 
         <FormikStep
         validationSchema={yup.object({
+          deficiencies: yup.array(),
           artist: yup.object({
             technical: yup.object({
               formation: yup.string().required('Formação obrigatória'),
@@ -467,11 +468,11 @@ function FormikStepper({
           }
 
           if (values.other_deficiency) {
-            const index = values.deficiency.indexOf('Outro')
+            const index = values.deficiencies.indexOf('Outro')
 
-            values.deficiency.splice(index, 1)
+            values.deficiencies.splice(index, 1)
 
-            values.deficiency.push(values.other_deficiency)
+            values.deficiencies.push(values.other_deficiency)
 
             delete values.other_deficiency
           }

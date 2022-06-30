@@ -93,7 +93,7 @@ export interface User {
   updated_at: Date
   created_at: Date
   artist: IArtist
-  deficiency: IDeficiency[]
+  deficiencies: IDeficiency[]
 }
 
 type notLoggedIn = {
