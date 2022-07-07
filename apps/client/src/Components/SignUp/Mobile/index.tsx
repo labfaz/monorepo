@@ -74,6 +74,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           other_idiom: '',
           other_deficiency: '',
           deficiencies: [],
+          isPcd: false,
           use_terms: '',
           profilePicture: null,
           curriculum: null,
@@ -300,6 +301,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
 
         <FormikStep
         validationSchema={yup.object({
+          isPcd: yup.boolean(),
           deficiencies: yup.array(),
           artist: yup.object({
             technical: yup.object({
@@ -423,7 +425,7 @@ function FormikStepper({
     FormikStepProps
   >[]
 
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState(10)
   const currentChild = childrenArray[step]
 
   const history = useHistory()

@@ -77,3 +77,39 @@ export const TextInputContainer = styled.div`
     `)}
   }
 `;
+
+export const InputRadioContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 1.8rem;
+
+  ${DesktopSmall(css`
+    margin-bottom: 1rem;
+  `)}
+`;
+
+export const FileContainer = styled.div`
+  margin-top: 2rem;
+
+  .fileLabel {
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: var(--font-size-large);
+
+    position: relative;
+
+    color: #fafafa;
+
+    ${DesktopSmall(css`
+      font-size: var(--font-size-short);
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    `)}
+  }
+
+  ${DesktopSmall(css`
+    margin-top: 0.5rem;
+  `)}
+`;

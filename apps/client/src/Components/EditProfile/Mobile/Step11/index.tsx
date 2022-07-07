@@ -1,10 +1,16 @@
-import { useFormikContext } from 'formik'
-import React, { FC } from 'react'
-import { useRef } from 'react'
-import { useState } from 'react'
-import { IoMdArrowDropdownCircle } from 'react-icons/io'
+import { useFormikContext } from "formik";
+import React, { FC } from "react";
+import { useRef } from "react";
+import { useState } from "react";
+import { IoMdArrowDropdownCircle } from "react-icons/io";
+import { RadioInput } from "Components/Inputs/RadioInput";
+import { FileInput } from "Components/Inputs/FileInput";
 
-import { formationOptions, idiomOptions, deficiencyOptions } from 'Utils/selectOptionsData'
+import {
+  formationOptions,
+  idiomOptions,
+  deficiencyOptions,
+} from "Utils/selectOptionsData";
 
 import {
   Container,
@@ -20,34 +26,36 @@ import {
   InputCheckbox,
   InputText,
   InputTextContainer,
-} from './style'
+  FileContainer,
+} from "./style";
 
 interface Step11Props {
-  deficiencies: string[]
+  deficiencies: string[];
+  isPcd: string;
   artist: {
     technical: {
-      formation: string
-      idiom: string[]
-    }
-  }
+      formation: string;
+      idiom: string[];
+    };
+  };
 }
 
 export const Step11: FC = () => {
-  const { values, errors } = useFormikContext<Step11Props>()
+  const { values, errors } = useFormikContext<Step11Props>();
 
-  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false)
-  const [isDeficiencyOptionsOpen, setIsDeficiencyOptionsOpen] = useState(false)
-  const modalRef = useRef<HTMLInputElement | null>(null)
-  const modalRefDeficiencies = useRef<HTMLInputElement | null>(null)
+  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false);
+  const [isDeficiencyOptionsOpen, setIsDeficiencyOptionsOpen] = useState(false);
+  const modalRef = useRef<HTMLInputElement | null>(null);
+  const modalRefDeficiencies = useRef<HTMLInputElement | null>(null);
 
   const closeModal = (e: any) => {
     if (modalRef.current === e.target) {
-      setIsIdiomOptionsOpen(false)
+      setIsIdiomOptionsOpen(false);
     }
     if (modalRefDeficiencies.current === e.target) {
-      setIsDeficiencyOptionsOpen(false)
+      setIsDeficiencyOptionsOpen(false);
     }
-  }
+  };
 
   return (
     <Container>
@@ -56,7 +64,9 @@ export const Step11: FC = () => {
           <LabelText>
             Formação escolar <p className="obrigatory"> *</p>
             {errors.artist?.technical?.formation && (
-              <span className="errorMessage">{errors.artist.technical.formation}</span>
+              <span className="errorMessage">
+                {errors.artist.technical.formation}
+              </span>
             )}
           </LabelText>
 
@@ -78,13 +88,13 @@ export const Step11: FC = () => {
             <InputSelect>
               {values.artist?.technical?.idiom[0]
                 ? values.artist.technical.idiom[0]
-                : 'Selecione'}
+                : "Selecione"}
               <IoMdArrowDropdownCircle />
             </InputSelect>
           </SelectContainer>
 
           {values.artist?.technical?.idiom.find(
-            (values: any) => values === 'Outro'
+            (values: any) => values === "Outro"
           ) && (
             <InputTextContainer>
               <LabelText>Qual outro idioma?</LabelText>
@@ -97,27 +107,44 @@ export const Step11: FC = () => {
             </InputTextContainer>
           )}
 
+          <LabelText>Você é uma pessoa com deficiência?</LabelText>
+          <InputRadioContainer>
+            <RadioInput name="isPcd" value="true" label="Sim" />
+          </InputRadioContainer>
+          <InputRadioContainer>
+            <RadioInput name="isPcd" value="false" label="Não" />
+          </InputRadioContainer>
           <SelectContainer
             onClick={() => setIsDeficiencyOptionsOpen(!isDeficiencyOptionsOpen)}
           >
-            <label>Voce possui alguma condição especial?</label>
-            <InputSelect>
-              {values.deficiencies[0]
-                ? values.deficiencies[0]
-                : 'Selecione'}
-              <IoMdArrowDropdownCircle />
-            </InputSelect>
+            {values.isPcd === "true" && (
+              <InputSelect>
+                {values.deficiencies[0] ? values.deficiencies[0] : "Selecione"}
+                <IoMdArrowDropdownCircle />
+              </InputSelect>
+            )}
           </SelectContainer>
+          {values.isPcd === "true" && (
+            <FileContainer>
+              <label htmlFor="medical_report" className="fileLabel">
+                Laudo médico
+              </label>
 
-          {values.deficiencies.find(
-            (values: any) => values === 'Outro'
-          ) && (
+              <FileInput
+                name="medical_report"
+                value="medical_report"
+                label="Enviar laudo"
+              />
+            </FileContainer>
+          )}
+
+          {values.deficiencies.find((values: any) => values === "Outro") && (
             <InputTextContainer>
-              <LabelText>Qual outra condição?</LabelText>
+              <LabelText>Qual outra deficiência?</LabelText>
 
               <InputText
                 name="other_deficiency"
-                placeholder="Digite sua condição"
+                placeholder="Digite sua deficiência"
                 width={14.4}
               />
             </InputTextContainer>
@@ -132,7 +159,7 @@ export const Step11: FC = () => {
       >
         <CheckboxContainer>
           {idiomOptions.map((idiomOption, index) => (
-            <InputCheckbox 
+            <InputCheckbox
               key={index}
               inputRightSide
               name="artist.technical.idiom"
@@ -150,7 +177,7 @@ export const Step11: FC = () => {
       >
         <CheckboxContainer>
           {deficiencyOptions.map((deficiencyOption, index) => (
-            <InputCheckbox 
+            <InputCheckbox
               key={index}
               inputRightSide
               name="deficiency"
@@ -161,5 +188,5 @@ export const Step11: FC = () => {
         </CheckboxContainer>
       </OptionsContainer>
     </Container>
-  )
-}
+  );
+};

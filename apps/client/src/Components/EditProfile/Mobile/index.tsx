@@ -66,6 +66,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           other_idiom: '',
           other_deficiency: '',
           deficiencies: data?.deficiencies,
+          isPcd: false,
           use_terms: '',
           profilePicture: data?.artist.photo_url,
           curriculum: data?.artist.curriculum,
@@ -294,6 +295,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
 
         <FormikStep
         validationSchema={yup.object({
+          isPcd: yup.boolean(),
           deficiencies: yup.array(),
           artist: yup.object({
             technical: yup.object({

@@ -65,6 +65,7 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
           other_idiom: '',
           other_deficiency: '',
           deficiencies: [],
+          isPcd: false,
           use_terms: '',
           profilePicture: null,
           curriculum: null,
@@ -224,6 +225,7 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
 
         <FormikStep
           validationSchema={yup.object({
+            isPcd: yup.boolean(),
             deficiencies: yup.array(),
           })}
         >
