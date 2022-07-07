@@ -6,6 +6,7 @@ import { DesktopSmall } from "Utils/breakpoints";
 
 export const Container = styled.div`
   display: flex;
+  height: 100%;
 
   background-color: #111010;
 `;
@@ -26,6 +27,8 @@ export const LabelText = styled(Text)`
 export const Box = styled.div`
   width: 71rem;
   height: 50rem;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
 
   border-right: 2px dashed #262626;
   margin: 2.27rem 3.3rem 6.2rem 3.3rem;
@@ -40,8 +43,18 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
 `;
+export const PCDOptions = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
 
 export const BoxContent = styled.div`
+  display: grid;
+  height: 80%;
+  grid-template-rows: auto 1fr;
+`;
+
+export const DeficiencyContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
 `;
@@ -56,18 +69,16 @@ export const InputCheckBox = styled(Field)`
 
 export const InputCheckBoxContainer = styled.div`
   font-weight: 600;
-  margin-bottom: 2.21rem;
-  margin-top: 2rem;
+  margin: auto 0;
   display: flex;
 
-  ${DesktopSmall(css`
-    margin-top: 1.5rem;
-    margin-bottom: 0;
-  `)}
 `;
 
 export const TextInputContainer = styled.div`
-  label {
+    height: min-content;
+    margin-bottom: 0;
+    label {
+    height: min-content;
     color: #ffffff;
     display: block;
     margin-bottom: 0.5rem;

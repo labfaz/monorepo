@@ -11,9 +11,11 @@ import {
   Container,
   Box,
   BoxContent,
+  DeficiencyContainer,
   LabelText,
   InputCheckBoxContainer,
   TextInputContainer,
+  PCDOptions,
   InputRadioContainer,
   FileContainer,
 } from "./style";
@@ -35,27 +37,31 @@ export const STEP4_2: FC = () => {
     <Container>
       <Box>
         <LabelText>Você é uma pessoa com deficiência?</LabelText>
-        <InputRadioContainer>
-          <RadioInput name="isPcd" value="true" label="Sim" />
-        </InputRadioContainer>
-        <InputRadioContainer>
-          <RadioInput name="isPcd" value="false" label="Não" />
-        </InputRadioContainer>
+        <PCDOptions>
+          <InputRadioContainer>
+            <RadioInput name="isPcd" value="true" label="Sim" />
+          </InputRadioContainer>
+          <InputRadioContainer>
+            <RadioInput name="isPcd" value="false" label="Não" />
+          </InputRadioContainer>
+        </PCDOptions>
         {values.isPcd === "true" && (
           <BoxContent>
             <TextInputContainer>
               <label>Qual sua deficiência?</label>
             </TextInputContainer>
-            {deficiencyOptions.map((deficiencyOption, index) => (
-              <InputCheckBoxContainer key={index}>
-                <CheckboxInput
-                  type="checkbox"
-                  name="deficiency"
-                  value={deficiencyOption.value}
-                  label={deficiencyOption.label}
-                />
-              </InputCheckBoxContainer>
-            ))}
+            <DeficiencyContainer>
+              {deficiencyOptions.map((deficiencyOption, index) => (
+                <InputCheckBoxContainer key={index}>
+                  <CheckboxInput
+                    type="checkbox"
+                    name="deficiency"
+                    value={deficiencyOption.value}
+                    label={deficiencyOption.label}
+                  />
+                </InputCheckBoxContainer>
+              ))}
+            </DeficiencyContainer>
 
             <FileContainer>
               <label htmlFor="medical_report" className="fileLabel">
