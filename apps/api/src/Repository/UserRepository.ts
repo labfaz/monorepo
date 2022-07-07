@@ -48,7 +48,8 @@ export class UserRepository extends Repository<User> {
     artist: ArtistInfo,
     curriculum: UploadedFile | undefined,
     profilePicture: UploadedFile,
-    userDeficiencies: {existent?: Deficiency[], new?: string[]}
+    userDeficiencies: {existent?: Deficiency[], new?: string[]},
+    medicalReport: UploadedFile | undefined
   ) {
     const hashedPwd = await this.generateHash(rawPassword);
 
@@ -164,6 +165,9 @@ export class UserRepository extends Repository<User> {
     createdArtist.photo_url = profilePicture.url;
     if (curriculum)
       createdArtist.curriculum = curriculum.url;
+    
+    if (medicalReport)
+      createdArtist.medicalReport = medicalReport.url;
 
     createdArtist.address = createdAddress;
     createdArtist.contact = createdContact;
@@ -212,6 +216,7 @@ export class UserRepository extends Repository<User> {
     artist?: ArtistUpdateInfo,
     password?: string,
     curriculum?: UploadedFile,
+    medicalReport?: UploadedFile,
     profilePicture?: UploadedFile
   ) {
     if (password) {
@@ -404,6 +409,10 @@ export class UserRepository extends Repository<User> {
 
     if (curriculum) {
       user.artist.curriculum = curriculum.url;
+    }
+
+    if (medicalReport){
+      user.artist.medicalReport = medicalReport.url;
     }
 
     if (profilePicture) {
