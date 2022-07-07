@@ -44,7 +44,7 @@ export const STEP4_2: FC = () => {
         {values.isPcd === "true" && (
           <BoxContent>
             <TextInputContainer>
-              <label>Qual sua outra deficiência?</label>
+              <label>Qual sua deficiência?</label>
             </TextInputContainer>
             {deficiencyOptions.map((deficiencyOption, index) => (
               <InputCheckBoxContainer key={index}>
