@@ -44,6 +44,7 @@ const UserRouter: Router<UserDeps> = (deps, options) => {
       parseFiles([
         { fieldName: "profilePicture", type: FileType.image, max: 1, min: 1, maxSize: 15 * 1024 * 1024 },
         { fieldName: "curriculum", type: FileType.pdf , max: 1, min: 0, maxSize: 20 * 1024 * 1024 },
+        { fieldName: "medicalReport", type: FileType.pdf , max: 1, min: 0, maxSize: 20 * 1024 * 1024 },
       ]),
       ParseUser,
       CreateUser({ UserRepo, DeficiencyRepo })
@@ -53,6 +54,7 @@ const UserRouter: Router<UserDeps> = (deps, options) => {
       parseFiles([
         { fieldName: "profilePicture", type: FileType.image, max: 1, min: 0, maxSize: 15 * 1024 * 1024 },
         { fieldName: "curriculum", type: FileType.pdf , max: 1, min: 0, maxSize: 20 * 1024 * 1024 },
+        { fieldName: "medicalReport", type: FileType.pdf , max: 1, min: 0, maxSize: 20 * 1024 * 1024 },
       ]),
       ensureAuthenticated,
       ParseUpdateUser,
