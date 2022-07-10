@@ -22,7 +22,7 @@ import {
 
 interface ErrorProps {
   deficiencies: string[];
-  isPcd: string;
+  isPcd?: string;
   artist: {
     technical: {
       formation: string;
@@ -64,13 +64,13 @@ export const STEP4_2: FC = () => {
             </DeficiencyContainer>
 
             <FileContainer>
-              <label htmlFor="medical_report" className="fileLabel">
+              <label htmlFor="medicalReport" className="fileLabel">
                 Laudo médico
               </label>
 
               <FileInput
-                name="medical_report"
-                value="medical_report"
+                name="medicalReport"
+                value="medicalReport"
                 label="Enviar laudo"
               />
             </FileContainer>

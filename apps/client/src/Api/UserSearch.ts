@@ -142,7 +142,7 @@ const isLGBTQ = (user: User) =>
   !(user.artist.gender_specifics === GenderSpecific.CIS || user.artist.gender_specifics === GenderSpecific.NONE) ||
   !(user.artist.sexual_orientation === "heterosexual" || isPrefiroNao(user.artist.sexual_orientation))
 const isMale = (user: User) => !(user.artist.gender === "masculino" || isPrefiroNao(user.artist.gender))
-const isPcd = (user: User) => !(user.deficiencies.length > 0)
+const isPcd = (user: User) => !(user.artist?.medicalReport != null)
 const isCpnj = (user: User) => user.artist?.technical?.is_cnpj
 const isDrt = (user: User) => user.artist?.technical?.is_drt
 const isCeac = (user: User) => user.artist?.technical?.is_ceac
