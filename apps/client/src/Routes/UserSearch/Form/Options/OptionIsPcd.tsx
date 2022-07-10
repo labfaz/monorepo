@@ -20,37 +20,37 @@ export const OptionIsPcd: FC<OptionsProps> = ({ setFunction }) => {
       <Title level={4}> PCD </Title>
       <OptionWrapper>
         <BadgeDiv>
+          <label> Sim </label>
           <BadgeInput
             type="radio"
             name="isPcd"
-            value={"true"}
-            key="isPcd"
+            value="pcdOnly"
             onChange={() =>
               setFunction((formData) => {
                 const updateFormData = { ...formData };
-                updateFormData["pcdOnly"] = true;
+                updateFormData['pcdOnly'] = true;;
+                updateFormData['showNothing'] = false
                 return updateFormData;
               })
             }
           />
-          <label> Sim </label>
         </BadgeDiv>
 
         <BadgeDiv>
+          <label> Não </label>
           <BadgeInput
             type="radio"
             name="isPcd"
-            value={"true"}
-            key="isPcd"
+            value="pcdOnly"
             onChange={() =>
               setFunction((formData) => {
                 const updateFormData = { ...formData };
-                updateFormData["pcdOnly"] = false;
+                updateFormData['pcdOnly'] = false;
+                updateFormData['showNothing'] = false
                 return updateFormData;
               })
             }
           />
-          <label> Não </label>
         </BadgeDiv>
       </OptionWrapper>
     </OptionDiv>
