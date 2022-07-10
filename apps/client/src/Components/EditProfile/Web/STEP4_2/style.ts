@@ -6,9 +6,16 @@ import { DesktopSmall } from "Utils/breakpoints";
 
 export const Container = styled.div`
   display: flex;
-  height: 100%;
 
   background-color: #111010;
+  width: 71rem;
+  font-size: var(--font-size-default);
+
+    ${DesktopSmall(css`
+    width: 47.6rem;
+    font-size: var(--font-size-short);
+    `)}
+
 `;
 
 export const LabelText = styled(Text)`
