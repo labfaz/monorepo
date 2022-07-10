@@ -14,8 +14,8 @@ import { ParsedFiles } from "Middlewares/parseFiles";
 import { removeCircularity } from "Utils/stringifyCircular";
 import { sendConfirmationEmail } from "Mailer/emailConfirmation";
 import DeficiencyRepository from "Repository/DeficiencyRepository";
-import { Deficiency } from "Entities/Deficiency";
-import { In } from "typeorm";
+// import { Deficiency } from "Entities/Deficiency";
+// import { In } from "typeorm";
 import { separeteNewAndExistentDeficiencies } from "./utils/deficienciesUtils";
 
 interface CreateUserDeps {
@@ -40,7 +40,6 @@ export const CreateUser: (
     const medicalReport = req.parsedFiles?.medicalReport ?? [];
 
     const profilePicture = req.parsedFiles?.profilePicture ?? [];
-    
     const files = await UploadFiles([...curriculum, ...profilePicture, ...medicalReport]);
 
     const artistMedicalReport = files.find(
