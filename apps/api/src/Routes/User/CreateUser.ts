@@ -26,7 +26,7 @@ interface CreateUserDeps {
 export const CreateUser: (
   deps: CreateUserDeps
 ) => RouteHandler<
-  Req<{}, ParsedUser & ParsedFiles<"profilePicture" | "curriculum">>
+  Req<{}, ParsedUser & ParsedFiles<"profilePicture" | "curriculum" | "medicalReport">>
 > = ({ UserRepo, DeficiencyRepo: deficiencyRepo }: CreateUserDeps) => async (req, res) => {
   const { email, password, artist } = req.user_info! ?? {};
 
@@ -36,8 +36,16 @@ export const CreateUser: (
 
   try {
     const curriculum = req.parsedFiles?.curriculum ?? [];
+
+    const medicalReport = req.parsedFiles?.medicalReport ?? [];
+
     const profilePicture = req.parsedFiles?.profilePicture ?? [];
-    const files = await UploadFiles([...curriculum, ...profilePicture]);
+    
+    const files = await UploadFiles([...curriculum, ...profilePicture, ...medicalReport]);
+
+    const artistMedicalReport = files.find(
+      (file) => file.fieldname === "medicalReport"
+    )!;
 
     const artistCurriculum = files.find(
       (file) => file.fieldname === "curriculum"
@@ -58,7 +66,8 @@ export const CreateUser: (
       {
         new: deficiences.new,
         existent: deficiences.existent,
-      }
+      },
+      artistMedicalReport
     )
      .then((user) => {
         sendConfirmationEmail(user);

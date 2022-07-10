@@ -103,6 +103,9 @@ export class Artist {
   @Column({ nullable: true })
   curriculum?: string;
 
+  @Column({ nullable: true }) //adicionado 12:27
+  medicalReport?: string;
+
   @Column()
   name: string;
 

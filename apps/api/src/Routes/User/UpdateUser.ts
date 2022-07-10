@@ -28,7 +28,7 @@ export const UpdateUser: (
 ) => RouteHandler<
   Req<
     {},
-    UserJWTPayload & ParsedUser & ParsedFiles<"profilePicture" | "curriculum">
+    UserJWTPayload & ParsedUser & ParsedFiles<"profilePicture" | "curriculum"| "medicalReport">
   >
 > = ({ UserRepo, DeficiencyRepo: deficiencyRepo }: CreateUserInterface) => async (req, res) => {
   const { id } = req.user ?? { id: "" };
@@ -68,11 +68,19 @@ export const UpdateUser: (
   try {
     const curriculum = req.parsedFiles?.curriculum ?? [];
     const profilePicture = req.parsedFiles?.profilePicture ?? [];
-    const files = await UploadFiles([...curriculum, ...profilePicture]);
+
+    const medicalReport = req.parsedFiles?.medicalReport ?? [];
+
+    const files = await UploadFiles([...curriculum, ...profilePicture, ...medicalReport]);
 
     const artistCurriculum = files.find(
       (file) => file.fieldname === "curriculum"
     )!;
+
+    const artistMedicalReport = files.find(
+      (file) => file.fieldname === "medicalReport"
+    )!;
+
     const artistProfilePicture = files.find(
       (file) => file.fieldname === "profilePicture"
     )!;
@@ -86,7 +94,8 @@ export const UpdateUser: (
       artist,
       password,
       artistCurriculum,
-      artistProfilePicture,
+      artistMedicalReport,
+      artistProfilePicture
     )
       .then((user) => {
         // remove password and send user back

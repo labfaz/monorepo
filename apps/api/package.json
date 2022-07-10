@@ -37,7 +37,8 @@
     "db:build": "yarn typeorm migration:run",
     "db:build:force": "if-env NODE_ENV=development && yarn typeorm schema:sync",
     "db:build:force:extreme": "yarn typeorm schema:sync",
-    "db:reset": "yarn db:drop && yarn db:build"
+    "db:reset": "yarn db:drop && yarn db:build",
+    "db:mig": "yarn run typeorm migration:generate -n"
   },
   "bugs": {
     "url": "https://github.com/rafael-g-depaulo/labfaz/issues"
