@@ -15,9 +15,12 @@ import { ParsedUser } from "./ParesUpdateUser";
 import { ParsedFiles } from "Middlewares/parseFiles";
 
 import { UploadFiles } from "Utils/awsConfig";
+import DeficiencyRepository from "Repository/DeficiencyRepository";
+import { separeteNewAndExistentDeficiencies } from "./utils/deficienciesUtils";
 
 interface CreateUserInterface {
   UserRepo: UserRepository;
+  DeficiencyRepo: DeficiencyRepository;
 }
 
 export const UpdateUser: (
@@ -27,7 +30,7 @@ export const UpdateUser: (
     {},
     UserJWTPayload & ParsedUser & ParsedFiles<"profilePicture" | "curriculum"| "medicalReport">
   >
-> = ({ UserRepo }: CreateUserInterface) => async (req, res) => {
+> = ({ UserRepo, DeficiencyRepo: deficiencyRepo }: CreateUserInterface) => async (req, res) => {
   const { id } = req.user ?? { id: "" };
 
   const { password, artist, oldpassword } = req.user_info! ?? {};
@@ -82,8 +85,12 @@ export const UpdateUser: (
       (file) => file.fieldname === "profilePicture"
     )!;
 
+    const requestDeficiencies = req.user_info?.deficiencies ?? [];
+    const deficiencies = await separeteNewAndExistentDeficiencies(requestDeficiencies, deficiencyRepo)
+
     return UserRepo.updateUser(
       user,
+      deficiencies,
       artist,
       password,
       artistCurriculum,

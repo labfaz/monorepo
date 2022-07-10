@@ -18,6 +18,10 @@ import Area, { TechFormation } from "Entities/Area";
 import Idiom from "Entities/Idiom";
 import { Deficiency } from "Entities/Deficiency";
 
+type NewDeficiencies = {new: string[]};
+type ExistentDeficiencies = {existent: Deficiency[]};
+type ExistentOrNewDeficiencies = Partial<NewDeficiencies> & ExistentDeficiencies;
+
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
   findByEmail(email: string) {
@@ -48,7 +52,7 @@ export class UserRepository extends Repository<User> {
     artist: ArtistInfo,
     curriculum: UploadedFile | undefined,
     profilePicture: UploadedFile,
-    userDeficiencies: {existent?: Deficiency[], new?: string[]},
+    userDeficiencies: ExistentOrNewDeficiencies,
     medicalReport: UploadedFile | undefined
   ) {
     const hashedPwd = await this.generateHash(rawPassword);
@@ -188,31 +192,20 @@ export class UserRepository extends Repository<User> {
     createdUser.isVerified = false;
     createdUser.banned = false;
     createdUser.artist = createdArtist;
-    createdUser.deficiencies = userDeficiencies.existent || [];
+    createdUser.deficiencies = userDeficiencies?.existent || [];
 
     createdArtist.user = createdUser;
     
     const savedUser = await createdUser.save()
     
-    if(userDeficiencies?.new?.length){ 
-      let customDeficiencies = userDeficiencies.new.map(deficiency =>
-        Deficiency.create({
-          isCustom: true, 
-          name: deficiency, 
-          createdBy: createdUser.id 
-        })
-      )
-      
-      await Deficiency.save(customDeficiencies)
-      customDeficiencies.forEach(e => createdUser.deficiencies.push(e))
-      await savedUser.save()
-    }
+    await this.createCustomDeficienciesAndAddInUser(userDeficiencies, savedUser);
 
     return savedUser;
   }
 
   async updateUser(
     user: User,
+    deficiencies: ExistentOrNewDeficiencies,
     artist?: ArtistUpdateInfo,
     password?: string,
     curriculum?: UploadedFile,
@@ -419,7 +412,15 @@ export class UserRepository extends Repository<User> {
       user.artist.photo_url = profilePicture.url;
     }
 
-    return user.save().then(() => user);
+    user.deficiencies = user.deficiencies.filter(e => 
+      deficiencies.existent.find(existent => existent.id === e.id)
+    )
+
+    await user.save()
+
+    await this.createCustomDeficienciesAndAddInUser(deficiencies, user);
+
+    return user;
   }
 
   findById(id: string) {
@@ -454,6 +455,26 @@ export class UserRepository extends Repository<User> {
 
     const token = sign({ id: user.id }, secret, { expiresIn });
     return token;
+  }
+
+  private async createCustomDeficienciesAndAddInUser(deficiencies: ExistentOrNewDeficiencies, user: User){
+    if(!this.isNewDeficiencies(deficiencies)) return;
+
+    let customDeficiencies = deficiencies.new.map(deficiency =>
+      Deficiency.create({
+        isCustom: true, 
+        name: deficiency, 
+        createdBy: user.id 
+      })
+    )
+      
+    await Deficiency.save(customDeficiencies)
+    customDeficiencies.forEach(e => user.deficiencies.push(e))
+    await user.save()
+  }
+
+  private isNewDeficiencies(deficiencies: ExistentOrNewDeficiencies): deficiencies is Required<ExistentOrNewDeficiencies> {
+    return !!deficiencies?.new && deficiencies.new.length > 0
   }
 }
 
