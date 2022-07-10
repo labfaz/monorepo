@@ -70,6 +70,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           use_terms: '',
           profilePicture: data?.artist.photo_url,
           curriculum: data?.artist.curriculum,
+          medicalReport: data?.artist.medicalReport,
           Other_TechnicalArea: '',
           artist: {
             name: data?.artist.name,
@@ -297,6 +298,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
         validationSchema={yup.object({
           isPcd: yup.boolean(),
           deficiencies: yup.array(),
+          medicalReport: yup.string(),
           artist: yup.object({
             technical: yup.object({
               formation: yup.string().required('Formação obrigatória'),

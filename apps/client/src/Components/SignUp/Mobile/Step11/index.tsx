@@ -32,6 +32,7 @@ import {
 interface Step11Props {
   deficiencies: string[];
   isPcd: string;
+  medicalReport?: string;
   artist: {
     technical: {
       formation: string;
@@ -126,13 +127,13 @@ export const Step11: FC = () => {
           </SelectContainer>
           {values.isPcd === "true" && (
             <FileContainer>
-              <label htmlFor="medical_report" className="fileLabel">
+              <label htmlFor="medicalReport" className="fileLabel">
                 Laudo médico
               </label>
 
               <FileInput
-                name="medical_report"
-                value="medical_report"
+                name="medicalReport"
+                value="medicalReport"
                 label="Enviar laudo"
               />
             </FileContainer>

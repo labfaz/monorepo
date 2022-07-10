@@ -78,6 +78,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           use_terms: '',
           profilePicture: null,
           curriculum: null,
+          medicalReport: null,
           Other_TechnicalArea: '',
           artist: {
             name: '',
@@ -304,6 +305,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           isPcd: yup.boolean(),
           deficiencies: yup.array(),
           artist: yup.object({
+            medicalReport: yup.string(),
             technical: yup.object({
               formation: yup.string().required('Formação obrigatória'),
               idiom: yup.array(),

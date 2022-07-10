@@ -78,6 +78,7 @@ export interface IArtist {
   address: IAddress
   contact: IContact
   technical: ITechnical
+  medicalReport?: string
 }
 
 export interface IDeficiency {
