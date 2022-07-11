@@ -72,6 +72,7 @@ export const STEP4_2: FC = () => {
                 name="medicalReport"
                 value="medicalReport"
                 label="Enviar laudo"
+                accept="application/pdf"
               />
             </FileContainer>
           </BoxContent>
