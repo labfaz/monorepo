@@ -7,6 +7,7 @@ import UserRouter from "./User"
 import SessionRouter from './Session'
 import CourseRoute from "./Courses"
 import { actionSuccessful } from "Utils/endpointReturns"
+import DeficiencesRouter from "./deficiencies.routes"
 
 export interface RouterDeps {
   conn: Connection
@@ -30,5 +31,6 @@ const Routes: Router<BaseRouterDeps> = ({ conn }, options = defaultOptions) => e
   .use("/user", UserRouter({ conn }, options))
   .use("/sessions", SessionRouter({ conn }, options))
   .use("/courses", CourseRoute({ conn }, options))
+  .use('/deficiencies', DeficiencesRouter({ conn }, options))
 
 export default Routes

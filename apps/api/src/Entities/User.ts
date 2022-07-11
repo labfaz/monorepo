@@ -2,16 +2,18 @@ import {
   Column,
   Entity,
   PrimaryColumn,
-  BeforeInsert,
   CreateDateColumn,
   UpdateDateColumn,
   OneToOne,
   OneToMany,
   BaseEntity,
+  ManyToMany,
+  JoinTable,
 } from "typeorm";
 import { nanoid } from "nanoid";
 import Artist from "./Artist";
 import Request from "./Requests"
+import { Deficiency } from "./Deficiency";
 
 export interface IUser {
   email: string;
@@ -22,7 +24,7 @@ export interface IUser {
 @Entity()
 export class User extends BaseEntity {
   @PrimaryColumn()
-  id: string;
+  id: string = nanoid();
 
   @OneToOne(() => Artist, (artist) => artist.user, {
     eager: true,
@@ -32,6 +34,10 @@ export class User extends BaseEntity {
 
   @OneToMany(() => Request, request => request.course)
   courses: Request[]
+
+  @ManyToMany(() => Deficiency, { eager: true })
+  @JoinTable()
+  deficiencies: Deficiency[]
 
   @Column()
   email: string;
@@ -53,11 +59,6 @@ export class User extends BaseEntity {
 
   @UpdateDateColumn()
   updated_at: Date;
-
-  @BeforeInsert()
-  addId() {
-    this.id = nanoid();
-  }
 }
 
 export default User;

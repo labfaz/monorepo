@@ -11,15 +11,18 @@ import CreateUser from "./CreateUser";
 import { RouteHandler } from "Utils/routeHandler";
 import { Req } from "Utils/request";
 import { UserInfo } from "./utils/userReqSchema";
+import DeficiencyRepository from "Repository/DeficiencyRepository";
 
 describe.skip("CreateUser Route Handler", () => {
   let UserRepo: UserRepository;
+  let DeficiencyRepo: DeficiencyRepository;
   let createUserRoute: RouteHandler<Req<UserInfo>>;
   let mockTable: User[] = [];
 
   beforeAll(() => {
     UserRepo = new UserRepository();
-    createUserRoute = CreateUser({ UserRepo });
+    DeficiencyRepo = new DeficiencyRepository();
+    createUserRoute = CreateUser({ UserRepo, DeficiencyRepo });
 
     jest.spyOn(UserRepo, "create").mockImplementation((info) => {
       const user = { ...info, id: `${info.password}` } as User;

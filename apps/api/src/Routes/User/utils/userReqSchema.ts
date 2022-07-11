@@ -8,6 +8,7 @@ import {
 import { Residency } from "Entities/Address";
 import { Formation, CNPJ } from "Entities/Technical";
 import { TechFormation } from "Entities/Area";
+import { addOrCreateUserDeficiency } from "./deficienciesReqSchema";
 
 export const userTechnicalSchema = yup
   .object()
@@ -118,6 +119,7 @@ export const userSchema = yup.object({
   email: yup.string().required().email(),
   password: yup.string().required().min(6),
   artist: userArtistSchema,
+  deficiencies: yup.array().of(addOrCreateUserDeficiency),
 });
 
 export interface UserInfo extends yup.Asserts<typeof userSchema> {}

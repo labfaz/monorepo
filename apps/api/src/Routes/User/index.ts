@@ -16,6 +16,7 @@ import { ParseUpdateUser  } from "./ParesUpdateUser"
 import { CreateUser } from "./CreateUser"
 import ShowCurrentUser from "./ShowCurrentUser"
 import ResendEmail from "./ResendEmail"
+import DeficiencyRepository from "Repository/DeficiencyRepository"
 
 // import subscribeToCourse from "./SubscribeToCourse";
 // import CourseRepository from "Repository/CourseRepository";
@@ -24,10 +25,15 @@ import ResendEmail from "./ResendEmail"
 type UserDeps = {
   conn: Connection;
   UserRepo?: UserRepository;
+  DeficiencyRepo?: DeficiencyRepository;
 };
 
 const UserRouter: Router<UserDeps> = (deps, options) => {
-  const { conn, UserRepo = conn.getCustomRepository(UserRepository) } = deps;
+  const { 
+    conn, 
+    UserRepo = conn.getCustomRepository(UserRepository), 
+    DeficiencyRepo = conn.getCustomRepository(DeficiencyRepository) 
+  } = deps;
   // const CourseRepo = conn.getCustomRepository(CourseRepository)
   // const RequestRepo = conn.getCustomRepository(RequestRepository)
 
@@ -38,19 +44,21 @@ const UserRouter: Router<UserDeps> = (deps, options) => {
       parseFiles([
         { fieldName: "profilePicture", type: FileType.image, max: 1, min: 1, maxSize: 15 * 1024 * 1024 },
         { fieldName: "curriculum", type: FileType.pdf , max: 1, min: 0, maxSize: 20 * 1024 * 1024 },
+        { fieldName: "medicalReport", type: FileType.pdf , max: 1, min: 0, maxSize: 20 * 1024 * 1024 },
       ]),
       ParseUser,
-      CreateUser({ UserRepo })
+      CreateUser({ UserRepo, DeficiencyRepo })
     )
     .put(
       "/update",
       parseFiles([
         { fieldName: "profilePicture", type: FileType.image, max: 1, min: 0, maxSize: 15 * 1024 * 1024 },
         { fieldName: "curriculum", type: FileType.pdf , max: 1, min: 0, maxSize: 20 * 1024 * 1024 },
+        { fieldName: "medicalReport", type: FileType.pdf , max: 1, min: 0, maxSize: 20 * 1024 * 1024 },
       ]),
       ensureAuthenticated,
       ParseUpdateUser,
-      UpdateUser({ UserRepo })
+      UpdateUser({ UserRepo, DeficiencyRepo })
     )
     .get("/search", SearchUsers({ UserRepo }))
     .get("/me", ensureAuthenticated, ShowCurrentUser({ UserRepo }))
