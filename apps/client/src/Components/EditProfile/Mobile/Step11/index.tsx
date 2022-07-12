@@ -30,8 +30,9 @@ import {
 } from "./style";
 
 interface Step11Props {
-  deficiencies: string[];
-  isPcd: string;
+
+  deficiencies?: string[];
+  isPcd?: string;
   medicalReport?: string;
   artist: {
     technical: {
@@ -120,7 +121,9 @@ export const Step11: FC = () => {
           >
             {values.isPcd === "true" && (
               <InputSelect>
-                {values.deficiencies[0] ? values.deficiencies[0] : "Selecione"}
+                {values.deficiencies && values.deficiencies[0]
+                  ? values.deficiencies[0]
+                  : "Selecione"}
                 <IoMdArrowDropdownCircle />
               </InputSelect>
             )}
@@ -135,11 +138,12 @@ export const Step11: FC = () => {
                 name="medicalReport"
                 value="medicalReport"
                 label="Enviar laudo"
+                accept="application/pdf"
               />
             </FileContainer>
           )}
 
-          {values.deficiencies.find((values: any) => values === "Outro") && (
+          {values.deficiencies?.find((values: any) => values === "Outro") && (
             <InputTextContainer>
               <LabelText>Qual outra deficiência?</LabelText>
 
@@ -181,7 +185,7 @@ export const Step11: FC = () => {
             <InputCheckbox
               key={index}
               inputRightSide
-              name="deficiency"
+              name="deficiencies"
               value={deficiencyOption.value}
               label={deficiencyOption.label}
             />

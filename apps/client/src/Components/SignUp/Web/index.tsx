@@ -233,16 +233,7 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
           validationSchema={yup.object({
             isPcd: yup.boolean(),
             deficiencies: yup.array(),
-            medicalReport: yup
-              .mixed()
-              .test(
-                "fileSize",
-                "Arquivo muito grande",
-                (value) =>
-                  (value && !value.name) ||
-                  value === null ||
-                  (value && value.size <= medicalReportMaxSize)
-              ),
+            medicalReport: yup.string(),
           })}
         >
           <STEP4_2 />
