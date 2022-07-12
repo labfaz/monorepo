@@ -257,6 +257,7 @@ export const Step5: FC = () => {
               name="curriculum"
               value="curriculum"
               label="Enviar curriculo"
+              accept="application/pdf"
             />
           </FileContainer>
         </RightSideContent>

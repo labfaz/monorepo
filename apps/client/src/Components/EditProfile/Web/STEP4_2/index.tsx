@@ -21,7 +21,7 @@ import {
 } from "./style";
 
 interface ErrorProps {
-  deficiencies: string[];
+  deficiencies?: string[];
   isPcd?: string;
   artist: {
     technical: {
@@ -55,7 +55,7 @@ export const STEP4_2: FC = () => {
                 <InputCheckBoxContainer key={index}>
                   <CheckboxInput
                     type="checkbox"
-                    name="deficiency"
+                    name="deficiencies"
                     value={deficiencyOption.value}
                     label={deficiencyOption.label}
                   />
@@ -72,11 +72,12 @@ export const STEP4_2: FC = () => {
                 name="medicalReport"
                 value="medicalReport"
                 label="Enviar laudo"
+                accept="application/pdf"
               />
             </FileContainer>
           </BoxContent>
         )}
-        {values.deficiencies.find((values: any) => values === "Outro") && (
+        {values.deficiencies?.find((values: any) => values === "Outro") && (
           <TextInputContainer>
             <label>Qual outra deficiência você possui?</label>
             <TextInput

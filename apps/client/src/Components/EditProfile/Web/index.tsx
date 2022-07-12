@@ -39,7 +39,7 @@ import { useHistory } from 'react-router'
 import { User } from 'Context/LoggedUserToken'
 import { EditProfile } from 'Api/EditProfile'
 import { ErrorObject } from 'Api'
-import { medicalReportMaxSize, curriculumMaxSize, profilePictureMaxSize } from 'Utils/userUtils'
+import { curriculumMaxSize, profilePictureMaxSize } from 'Utils/userUtils'
 
 interface ButtonProps {
   buttonType: 'button' | 'submit' | 'reset' | undefined
@@ -231,16 +231,7 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
         <FormikStep
           validationSchema={yup.object({
             deficiencies: yup.array(),
-            medicalReport: yup
-              .mixed()
-              .test(
-                "fileSize",
-                "Arquivo muito grande",
-                (value) =>
-                  (value && !value.name) ||
-                  value === null ||
-                  (value && value.size <= medicalReportMaxSize)
-              ),
+            medicalReport: yup.string(),
           })}
         >
           <STEP4_2 />
