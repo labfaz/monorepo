@@ -53,7 +53,7 @@ interface ButtonProps {
 
 const profileSize = 2 * 1024 * 1024
 const curriculumSize = 10 * 1024 * 1024
-const medicalReportMaxSize = 10 * 1024 * 1024
+// const medicalReportMaxSize = 10 * 1024 * 1024
 
 export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
   return (
@@ -308,16 +308,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
         <FormikStep
           validationSchema={yup.object({
             deficiencies: yup.array(),
-            medicalReport: yup
-              .mixed()
-              .test(
-                "fileSize",
-                "Arquivo muito grande",
-                (value) =>
-                  (value && !value.name) ||
-                  value === null ||
-                  (value && value.size <= medicalReportMaxSize)
-              ),
+            medicalReport: yup.string(),
           })}
         >
           <Step11 />

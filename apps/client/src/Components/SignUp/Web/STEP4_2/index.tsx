@@ -21,8 +21,8 @@ import {
 } from "./style";
 
 interface ErrorProps {
-  deficiencies: string[];
-  isPcd: string;
+  deficiencies?: string[];
+  isPcd?: string;
   artist: {
     technical: {
       formation: string;
@@ -77,7 +77,7 @@ export const STEP4_2: FC = () => {
             </FileContainer>
           </BoxContent>
         )}
-        {values.deficiencies.find((values: any) => values === "Outro") && (
+        {values.deficiencies?.find((values: any) => values === "Outro") && (
           <TextInputContainer>
             <label>Qual outra deficiência você possui?</label>
             <TextInput
