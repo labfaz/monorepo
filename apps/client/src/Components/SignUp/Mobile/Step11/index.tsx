@@ -182,7 +182,7 @@ export const Step11: FC = () => {
             <InputCheckbox
               key={index}
               inputRightSide
-              name="deficiency"
+              name="deficiencies"
               value={deficiencyOption.value}
               label={deficiencyOption.label}
             />

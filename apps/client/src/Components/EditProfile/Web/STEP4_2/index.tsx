@@ -55,7 +55,7 @@ export const STEP4_2: FC = () => {
                 <InputCheckBoxContainer key={index}>
                   <CheckboxInput
                     type="checkbox"
-                    name="deficiency"
+                    name="deficiencies"
                     value={deficiencyOption.value}
                     label={deficiencyOption.label}
                   />
