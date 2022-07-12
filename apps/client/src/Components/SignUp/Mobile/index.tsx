@@ -424,7 +424,7 @@ function FormikStepper({
     FormikStepProps
   >[]
 
-  const [step, setStep] = useState(10)
+  const [step, setStep] = useState(0)
   const currentChild = childrenArray[step]
 
   const history = useHistory()

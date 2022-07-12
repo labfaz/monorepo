@@ -70,26 +70,6 @@ export const Step11: FC = () => {
               </span>
             )}
           </LabelText>
-            <LabelText>
-              deficiencias
-              {errors.deficiencies && (
-                <span className="errorMessage">{errors.deficiencies}</span>
-              )}
-            </LabelText>
-            <br/>
-            <LabelText>
-              isPcd
-              {errors.isPcd && (
-                <span className="errorMessage">{errors.isPcd}</span>
-              )}
-            </LabelText>
-            <br/>
-            <LabelText>
-              medicalReport
-              {values.medicalReport && (
-                <span className="errorMessage">{values.medicalReport}</span>
-              )}
-            </LabelText>
 
           {formationOptions.map((formationOption, index) => (
             <InputRadioContainer key={index}>
