@@ -304,7 +304,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           isPcd: yup.boolean(),
           deficiencies: yup.array(),
           artist: yup.object({
-            medicalReport: yup.string(),
+             medicalReport: yup.string().nullable(),
             technical: yup.object({
               formation: yup.string().required('Formação obrigatória'),
               idiom: yup.array(),

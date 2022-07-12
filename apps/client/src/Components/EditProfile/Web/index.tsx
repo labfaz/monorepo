@@ -231,7 +231,7 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
         <FormikStep
           validationSchema={yup.object({
             deficiencies: yup.array(),
-            medicalReport: yup.string(),
+             medicalReport: yup.string().nullable(),
           })}
         >
           <STEP4_2 />

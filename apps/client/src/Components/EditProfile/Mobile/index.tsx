@@ -308,7 +308,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
         <FormikStep
           validationSchema={yup.object({
             deficiencies: yup.array(),
-            medicalReport: yup.string(),
+             medicalReport: yup.string().nullable(),
           })}
         >
           <Step11 />

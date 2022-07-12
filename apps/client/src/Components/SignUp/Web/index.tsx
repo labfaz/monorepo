@@ -233,7 +233,7 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
           validationSchema={yup.object({
             isPcd: yup.boolean(),
             deficiencies: yup.array(),
-            medicalReport: yup.string(),
+            medicalReport: yup.string().nullable(),
           })}
         >
           <STEP4_2 />
@@ -350,7 +350,7 @@ function FormikStepper({
     FormikStepProps
   >[]
 
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState(3)
   const currentChild = childrenArray[step]
 
   const modalRef = useRef<HTMLInputElement | null>(null)
