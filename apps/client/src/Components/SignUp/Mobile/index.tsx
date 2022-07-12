@@ -56,7 +56,7 @@ import {
 import { useSocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz'
 import { useHistory } from 'react-router'
 import { ErrorObject } from 'Api'
-import { curriculumMaxSize, profilePictureMaxSize } from 'Utils/userUtils'
+import { medicalReportMaxSize, curriculumMaxSize, profilePictureMaxSize } from 'Utils/userUtils'
 
 interface ButtonProps {
   buttonType: 'button' | 'submit' | 'reset' | undefined
@@ -301,6 +301,8 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
 
         <FormikStep
         validationSchema={yup.object({
+          isPcd: yup.boolean(),
+          deficiencies: yup.array(),
           artist: yup.object({
             medicalReport: yup.string(),
             technical: yup.object({

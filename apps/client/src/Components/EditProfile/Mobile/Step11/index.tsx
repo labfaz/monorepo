@@ -30,6 +30,7 @@ import {
 } from "./style";
 
 interface Step11Props {
+
   deficiencies?: string[];
   isPcd?: string;
   medicalReport?: string;

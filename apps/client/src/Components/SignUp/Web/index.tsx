@@ -48,7 +48,7 @@ import {
 import { useSocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz'
 import { useHistory } from 'react-router'
 import { ErrorObject } from 'Api'
-import { curriculumMaxSize, profilePictureMaxSize } from 'Utils/userUtils'
+import { medicalReportMaxSize, curriculumMaxSize, profilePictureMaxSize } from 'Utils/userUtils'
 
 interface ButtonProps {
   buttonType: 'button' | 'submit' | 'reset' | undefined
