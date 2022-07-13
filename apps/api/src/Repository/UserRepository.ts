@@ -359,6 +359,10 @@ export class UserRepository extends Repository<User> {
         user.artist.birthday = artist.birthday;
       }
 
+      if (artist.birthday) {
+        user.artist.acessibilityResourcesDescription = artist.acessibilityResourcesDescription;
+      }
+
       if (artist.cpf) {
         user.artist.cpf = artist.cpf;
       }

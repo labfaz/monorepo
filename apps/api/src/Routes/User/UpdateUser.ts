@@ -95,7 +95,7 @@ export const UpdateUser: (
       password,
       artistCurriculum,
       artistMedicalReport,
-      artistProfilePicture
+      artistProfilePicture,
     )
       .then((user) => {
         // remove password and send user back

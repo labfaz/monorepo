@@ -1,0 +1,136 @@
+diff --git a/apps/api/src/Entities/Artist.ts b/apps/api/src/Entities/Artist.ts
+index 5c947b2..272a902 100644
+--- a/apps/api/src/Entities/Artist.ts
++++ b/apps/api/src/Entities/Artist.ts
+@@ -103,6 +103,9 @@ export class Artist {
+   @Column({ nullable: true })
+   curriculum?: string;
+ 
++  @Column({ nullable: true }) //adicionado 12:27
++  medicalReport?: string;
++
+   @Column()
+   name: string;
+ 
+diff --git a/apps/api/src/Repository/UserRepository.ts b/apps/api/src/Repository/UserRepository.ts
+index 5906f6d..ec57582 100644
+--- a/apps/api/src/Repository/UserRepository.ts
++++ b/apps/api/src/Repository/UserRepository.ts
+@@ -46,6 +46,7 @@ export class UserRepository extends Repository<User> {
+     rawPassword: string,
+     artist: ArtistInfo,
+     curriculum: UploadedFile | undefined,
++    medicalReport: UploadedFile | undefined,
+     profilePicture: UploadedFile
+   ) {
+     const hashedPwd = await this.generateHash(rawPassword);
+@@ -162,6 +163,9 @@ export class UserRepository extends Repository<User> {
+     createdArtist.photo_url = profilePicture.url;
+     if (curriculum)
+       createdArtist.curriculum = curriculum.url;
++    
++    if (medicalReport)
++      createdArtist.medicalReport = medicalReport.url;
+ 
+     createdArtist.address = createdAddress;
+     createdArtist.contact = createdContact;
+@@ -193,6 +197,7 @@ export class UserRepository extends Repository<User> {
+     artist?: ArtistUpdateInfo,
+     password?: string,
+     curriculum?: UploadedFile,
++    medicalReport?: UploadedFile,
+     profilePicture?: UploadedFile
+   ) {
+     if (password) {
+@@ -387,6 +392,10 @@ export class UserRepository extends Repository<User> {
+       user.artist.curriculum = curriculum.url;
+     }
+ 
++    if (medicalReport){
++      user.artist.medicalReport = medicalReport.url;
++    }
++
+     if (profilePicture) {
+       user.artist.photo_url = profilePicture.url;
+     }
+diff --git a/apps/api/src/Routes/User/CreateUser.ts b/apps/api/src/Routes/User/CreateUser.ts
+index 2f2925e..63c6d92 100644
+--- a/apps/api/src/Routes/User/CreateUser.ts
++++ b/apps/api/src/Routes/User/CreateUser.ts
+@@ -21,7 +21,7 @@ interface CreateUserDeps {
+ export const CreateUser: (
+   deps: CreateUserDeps
+ ) => RouteHandler<
+-  Req<{}, ParsedUser & ParsedFiles<"profilePicture" | "curriculum">>
++  Req<{}, ParsedUser & ParsedFiles<"profilePicture" | "curriculum" | "medicalReport">>
+ > = ({ UserRepo }: CreateUserDeps) => async (req, res) => {
+   const { email, password, artist } = req.user_info! ?? {};
+ 
+@@ -31,8 +31,16 @@ export const CreateUser: (
+ 
+   try {
+     const curriculum = req.parsedFiles?.curriculum ?? [];
++
++    const medicalReport = req.parsedFiles?.medicalReport ?? [];
++
+     const profilePicture = req.parsedFiles?.profilePicture ?? [];
+-    const files = await UploadFiles([...curriculum, ...profilePicture]);
++    
++    const files = await UploadFiles([...curriculum, ...profilePicture, ...medicalReport]);
++
++    const artistMedicalReport = files.find(
++      (file) => file.fieldname === "medicalReport"
++    )!;
+ 
+     const artistCurriculum = files.find(
+       (file) => file.fieldname === "curriculum"
+@@ -46,6 +54,7 @@ export const CreateUser: (
+       password,
+       artist,
+       artistCurriculum,
++      artistMedicalReport,
+       artistProfilePicture
+     )
+      .then((user) => {
+diff --git a/apps/api/src/Routes/User/UpdateUser.ts b/apps/api/src/Routes/User/UpdateUser.ts
+index 9e74934..79b2804 100644
+--- a/apps/api/src/Routes/User/UpdateUser.ts
++++ b/apps/api/src/Routes/User/UpdateUser.ts
+@@ -25,7 +25,7 @@ export const UpdateUser: (
+ ) => RouteHandler<
+   Req<
+     {},
+-    UserJWTPayload & ParsedUser & ParsedFiles<"profilePicture" | "curriculum">
++    UserJWTPayload & ParsedUser & ParsedFiles<"profilePicture" | "curriculum"| "medicalReport">
+   >
+ > = ({ UserRepo }: CreateUserInterface) => async (req, res) => {
+   const { id } = req.user ?? { id: "" };
+@@ -65,11 +65,19 @@ export const UpdateUser: (
+   try {
+     const curriculum = req.parsedFiles?.curriculum ?? [];
+     const profilePicture = req.parsedFiles?.profilePicture ?? [];
+-    const files = await UploadFiles([...curriculum, ...profilePicture]);
++
++    const medicalReport = req.parsedFiles?.medicalReport ?? [];
++
++    const files = await UploadFiles([...curriculum, ...profilePicture, ...medicalReport]);
+ 
+     const artistCurriculum = files.find(
+       (file) => file.fieldname === "curriculum"
+     )!;
++
++    const artistMedicalReport = files.find(
++      (file) => file.fieldname === "medicalReport"
++    )!;
++
+     const artistProfilePicture = files.find(
+       (file) => file.fieldname === "profilePicture"
+     )!;
+@@ -79,6 +87,7 @@ export const UpdateUser: (
+       artist,
+       password,
+       artistCurriculum,
++      artistMedicalReport,
+       artistProfilePicture
+     )
+       .then((user) => {
