@@ -107,7 +107,7 @@ export class Artist {
   @Column({ nullable: true }) //adicionado 12:27
   medicalReport?: string;
 
-  @Column()
+  @Column({ nullable: true })
   acessibilityResourcesDescription?: string;
 
   @Column()
