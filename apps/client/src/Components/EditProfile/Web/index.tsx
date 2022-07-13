@@ -18,6 +18,7 @@ import { Step2 } from './Step2'
 import { Step3 } from './Step3'
 import { Step4 } from './Step4'
 import { Step5 } from './Step5'
+import { Step6 } from './Step6'
 import { Step7 } from './Step7'
 import { Step8 } from './Step8'
 import { Step9 } from './Step9'
@@ -79,6 +80,7 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
             rg: data?.artist.rg,
             expedition_department: data?.artist.expedition_department,
             race: data?.artist.race,
+            acessibilityResourcesDescription: data?.artist.acessibilityResourcesDescription,
             address: {
               city: data?.artist.address.city,
               cep: data?.artist.address.cep,
@@ -240,6 +242,16 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
+              acessibilityResourcesDescription: yup.string(),
+            }),
+          })}
+        >
+          <Step5 />
+        </FormikStep>
+
+        <FormikStep
+          validationSchema={yup.object({
+            artist: yup.object({
               technical: yup.object({
                 formation: yup.string().required("Formação obrigatória"),
                 idiom: yup.array(),
@@ -247,7 +259,7 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
             }),
           })}
         >
-          <Step5 />
+          <Step6 />
         </FormikStep>
 
         <FormikStep

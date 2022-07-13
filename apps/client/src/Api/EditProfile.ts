@@ -30,6 +30,7 @@ const bodyFormParse = (values: any) => {
   formData.append('artist[is_trans]', values.artist.is_trans)
   formData.append('artist[sexual_orientation]', values.artist?.sexual_orientation)
   formData.append('artist[race]', values.artist.race)
+  formData.append('artist[acessibilityResourcesDescription]', values.artist.acessibilityResourcesDescription)
 
   formData.append('artist[address][city]', values.artist?.address?.city)
   formData.append('artist[address][cep]', values.artist?.address?.cep)

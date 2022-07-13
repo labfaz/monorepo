@@ -28,6 +28,7 @@ import { Step2 } from './Step2'
 import { Step3 } from './Step3'
 import { Step4 } from './Step4'
 import { Step5 } from './Step5'
+import { Step6 } from './Step6'
 import { Step7 } from './Step7'
 import { Step8 } from './Step8'
 import { Step9 } from './Step9'
@@ -86,6 +87,7 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
             expedition_department: "",
             is_trans: "",
             race: "",
+            acessibilityResourcesDescription: "",
             address: {
               city: "",
               cep: "",
@@ -242,6 +244,16 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
+              acessibilityResourcesDescription: yup.string(),
+            }),
+          })}
+        >
+          <Step5 />
+        </FormikStep>
+
+        <FormikStep
+          validationSchema={yup.object({
+            artist: yup.object({
               technical: yup.object({
                 formation: yup.string().required("Formação obrigatória"),
                 idiom: yup.array(),
@@ -249,7 +261,7 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
             }),
           })}
         >
-          <Step5 />
+          <Step6 />
         </FormikStep>
 
         <FormikStep
@@ -350,7 +362,7 @@ function FormikStepper({
     FormikStepProps
   >[]
 
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState(4)
   const currentChild = childrenArray[step]
 
   const modalRef = useRef<HTMLInputElement | null>(null)
