@@ -1,9 +1,11 @@
 import React, { FC } from 'react'
 import { useFormikContext } from 'formik'
 
+import { CheckboxInput } from 'Components/Inputs/CheckboxInput'
 import { TextInput } from 'Components/Inputs/TextInput'
 import { RadioInput } from 'Components/Inputs/RadioInput'
-import { FileInput } from 'Components/Inputs/FileInput'
+
+import { formationOptions, idiomOptions } from 'Utils/selectOptionsData'
 
 import {
   Container,
@@ -11,20 +13,18 @@ import {
   LeftSideContent,
   RightSide,
   RightSideContent,
+  LabelText,
   InputRadioContainer,
-  SelectContainer,
-  FileContainer,
-  OtherTechnicalArea,
+  InputCheckBoxContainer,
+  TextInputContainer,
 } from './style'
+
 
 interface ErrorProps {
   artist: {
     technical: {
-      areas: {
-        name: string
-        technical_formation: string
-        started_year: string
-      }
+      formation: string
+      idiom: string[]
     }
   }
 }
@@ -36,230 +36,61 @@ export const Step5: FC = () => {
     <Container>
       <LeftSide>
         <LeftSideContent>
-          <label htmlFor="TecnicalArea" className="radioLabel">
-            O seu trabalho na técnica está ligado à qual dessas áreas?
+          <LabelText>
+            Você domina outro idioma além do português?
+
             <p className="obrigatory"> *</p>
-            {errors.artist?.technical?.areas?.name && (
-              <span className="errorMessage">
-                {errors.artist.technical.areas.name}
-              </span>
+            
+            {errors.artist?.technical?.idiom && (
+              <span className="errorMessage">Campo obrigatório</span>
             )}
-          </label>
 
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Áudio"
-              label="Áudio"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Iluminação"
-              label="Iluminação"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Cenografia"
-              label="Cenografia"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Figurino"
-              label="Figurino"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Maquiagem/Visagismo"
-              label="Maquiagem/Visagismo"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Audiovisual"
-              label="Audiovisual"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Montagem de palco e infra-estrutura"
-              label="Montagem de palco e infra-estrutura"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Montagem de exposições"
-              label="Montagem de exposições"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Produção Técnica"
-              label="Produção Técnica"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Produção Operacional e logística"
-              label="Produção Operacional e logística"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Novas tecnologias"
-              label="Novas tecnologias"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Tecnologias Assistivas"
-              label="Tecnologias Assistivas"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Serviços Gerais"
-              label="Serviços Gerais"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Outro"
-              label="Outro"
-            />
-          </InputRadioContainer>
-
-          {values.artist.technical.areas.name === 'Outro' && (
-            <OtherTechnicalArea
-              label="Qual outra area?"
-              name="Other_TechnicalArea"
-              placeholder="Informe sua area"
-            />
-          )}
+          </LabelText>
+          {idiomOptions.map((idiomOption, index) => (
+            <InputCheckBoxContainer key={index}>
+              <CheckboxInput
+                type="checkbox"
+                name="artist.technical.idiom"
+                value={idiomOption.value}
+                label={idiomOption.label}
+              />
+            </InputCheckBoxContainer>
+          ))}
         </LeftSideContent>
       </LeftSide>
 
       <RightSide>
         <RightSideContent>
-          <label htmlFor="TecnicalArea" className="radioLabel">
-            Qual a sua profissão dentro desse setor?
-          </label>
+          <LabelText>
+            Formação escolar
 
-          <SelectContainer className="selectContent">
-            <TextInput
-              name="artist.technical.profession"
-              placeholder="Digite sua profissão"
-            />
-          </SelectContainer>
+            <p className="obrigatory"> *</p>
 
-          <label htmlFor="TecnicalArea" className="radioLabel">
-            Em qual ano você começou a trabalhar nessa área?
-            {errors.artist?.technical?.areas && (
-              <span className="errorMessage">
-                {errors.artist.technical.areas.started_year}
-              </span>
+            {errors.artist?.technical?.formation && (
+              <span className="errorMessage">Campo obrigatório</span>
             )}
-          </label>
+          
+          </LabelText>
 
-          <SelectContainer className="selectContent">
-            <TextInput
-              name="artist.technical.areas.started_year"
-              inputMask="9999"
-              placeholder="2010"
-            />
-          </SelectContainer>
+          {formationOptions.map((formationOption, index) => (
+            <InputRadioContainer key={index}>
+              <RadioInput
+                type="radio"
+                name="artist.technical.formation"
+                value={formationOption.value}
+                label={formationOption.label}
+              />
+            </InputRadioContainer>
+          ))}
 
-          <label htmlFor="technical_formation" className="radioLabel">
-            Formação técnica e profissional <p className="obrigatory"> *</p>
-            {errors.artist?.technical?.areas && (
-              <span className="errorMessage">
-                {errors.artist.technical.areas.technical_formation}
-              </span>
-            )}
-          </label>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.technical_formation"
-              value="autodidata"
-              label="Autodidata"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.technical_formation"
-              value="curso especializado"
-              label="Curso especializado na área"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.technical_formation"
-              value="tecnico"
-              label="Formação Técnica"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              name="artist.technical.areas.technical_formation"
-              value="tecnologica"
-              label="Formação Tecnológica"
-            />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              type="radio"
-              name="artist.technical.areas.technical_formation"
-              value="universitaria"
-              label="Formação Universitária"
-            />
-          </InputRadioContainer>
-
-          <FileContainer>
-            <label htmlFor="curriculum" className="fileLabel">
-              Curriculo  (opcional)
-            </label>
-
-            <FileInput
-              name="curriculum"
-              value="curriculum"
-              label="Enviar curriculo"
-              accept="application/pdf"
-            />
-          </FileContainer>
+          {values.artist.technical.idiom.find(
+            (values: any) => values === 'Outro'
+          ) && (
+            <TextInputContainer>
+              <label>Qual outro idioma você domina?</label>
+              <TextInput name="other_idiom" placeholder="Digite outro idioma" />
+            </TextInputContainer>
+          )}
         </RightSideContent>
       </RightSide>
     </Container>

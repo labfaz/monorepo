@@ -24,12 +24,12 @@ import { Step8 } from './Step8'
 import { Step9 } from './Step9'
 import { Step10 } from './Step10'
 import { Step11 } from './Step11'
-import { Step12 } from './Step12'
-import { STEP12_2 } from './Step12_2'
 import { Step13 } from './Step13'
 import { Step14 } from './Step14'
 import { Step15 } from './Step15'
 import { Step16 } from './Step16'
+import { Step17 } from './Step17'
+import { Step18 } from './Step18'
 
 import {
   FormTitle,
@@ -327,7 +327,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
             }),
           })}
         >
-          <Step12 />
+          <Step13 />
         </FormikStep>
 
         <FormikStep
@@ -343,7 +343,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           }),
         })}
         >
-          <STEP12_2 />
+          <Step14 />
         </FormikStep>
 
         <FormikStep
@@ -358,7 +358,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           }),
         })}
         >
-          <Step13 />
+          <Step15 />
         </FormikStep>
 
         <FormikStep
@@ -371,7 +371,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           }),
         })}
         >
-          <Step14 />
+          <Step16 />
         </FormikStep>
 
         <FormikStep
@@ -383,7 +383,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           }),
         })}
         >
-          <Step15 />
+          <Step17 />
         </FormikStep>
 
         <FormikStep
@@ -404,7 +404,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           use_terms: yup.string().required('Termos de uso obrigatório'),
         })}
         >
-          <Step16 />
+          <Step18 />
         </FormikStep>
       </FormikStepper>
     </>
