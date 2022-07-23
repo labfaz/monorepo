@@ -73,6 +73,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           profilePicture: data?.artist.photo_url,
           curriculum: data?.artist.curriculum,
           medicalReport: data?.artist.medicalReport,
+          acessibilityResourcesDescription: data?.artist.acessibilityResourcesDescription,
           Other_TechnicalArea: "",
           artist: {
             name: data?.artist.name,
