@@ -79,6 +79,7 @@ export interface IArtist {
   contact: IContact
   technical: ITechnical
   medicalReport?: string
+  acessibilityResourcesDescription?: string;
 }
 
 export interface IDeficiency {

@@ -58,7 +58,7 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
             </UserPhoto>
           </UserPhotoContainer>
           {showEditProfile && PersonalProfilePage && (
-            <GoGear onClick={() => handleRedirectToEditProfile()}/>
+            <GoGear onClick={() => handleRedirectToEditProfile()} />
           )}
         </Header>
         <Content>
@@ -76,19 +76,27 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
               </div>
               <div className="downloadables">
                 {data.artist.curriculum && (
-                  <a className="downloadFile" href={data.artist.curriculum} download>
+                  <a
+                    className="downloadFile"
+                    href={data.artist.curriculum}
+                    download
+                  >
                     {/* <button className="downloadFile"> */}
-                      <IoMdCloudDownload />
-                      CV
+                    <IoMdCloudDownload />
+                    CV
                     {/* </button> */}
                   </a>
                 )}
-                
+
                 {data.artist.medicalReport && (
-                  <a className="downloadFile" href={data.artist.medicalReport} download>
+                  <a
+                    className="downloadFile"
+                    href={data.artist.medicalReport}
+                    download
+                  >
                     {/* <button className="downloadFile"> */}
-                      <IoMdCloudDownload />
-                      Laudo
+                    <IoMdCloudDownload />
+                    Laudo
                     {/* </button> */}
                   </a>
                 )}
@@ -113,7 +121,7 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
                   parseInt(data.artist.technical.area[0].started_year)}
                 ANOS
               </li>
-              {data.artist.technical.cnpj_type !== 'Nenhum' && (
+              {data.artist.technical.cnpj_type !== "Nenhum" && (
                 <li>{data.artist.technical.cnpj_type.toUpperCase()}</li>
               )}
 
@@ -125,6 +133,9 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
           <UserInformation>
             <div className="Header">
               <a href="#Sobre">Sobre</a>
+              {data.artist.acessibilityResourcesDescription && (
+                <a href="#RecursosDeAcessibilidade">Recursos De Acessibilidade</a>
+              )}
               <a href="#Formacao">Formação</a>
               <a href="#Certificacoes">Certificações</a>
 
@@ -141,6 +152,18 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
               </div>
             </div>
 
+            {data.artist.acessibilityResourcesDescription && (
+              <div className="profileInformation" id="RecursosDeAcessibilidade">
+                <ContentTitle level={1}>Reursos de acessibilidade</ContentTitle>
+
+                <div>
+                  <ContentText>
+                    {data.artist.acessibilityResourcesDescription}
+                  </ContentText>
+                </div>
+              </div>
+            )}
+
             <div className="profileInformation" id="Formacao">
               <ContentTitle level={1}>Formação</ContentTitle>
 
@@ -153,7 +176,7 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
                   {data.artist.technical.idiom &&
                     data.artist.technical.idiom.map((idiom, index) => (
                       <li key={index}>
-                        <img src={idiom_icon} alt="" />{' '}
+                        <img src={idiom_icon} alt="" />{" "}
                         {idiom.name.toUpperCase()}
                       </li>
                     ))}
@@ -195,7 +218,7 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
         </Content>
       </ProfileContentContainer>
     </Container>
-  )
+  );
 }
 
 export default Mobile

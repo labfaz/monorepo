@@ -142,7 +142,17 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
               </ul>
             </div>
           </div>
+          {data.artist.acessibilityResourcesDescription && (
+            <div className="profileInformation" id="RecursosDeAcessibilidade">
+              <ContentTitle level={1}>Recursos De Acessibilidade</ContentTitle>
 
+              <span>
+                {data.artist.acessibilityResourcesDescription}
+              </span>
+
+            </div>
+          )}
+          
           <div className="profileInformation" id="Formacao">
             <ContentTitle level={1}>Formação</ContentTitle>
 
