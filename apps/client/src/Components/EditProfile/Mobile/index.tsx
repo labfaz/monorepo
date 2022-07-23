@@ -13,6 +13,7 @@ import { Step8 } from './Step8'
 import { Step9 } from './Step9'
 import { Step10 } from './Step10'
 import { Step11 } from './Step11'
+import { Step12 } from './Step12'
 import { Step13 } from './Step13'
 import { Step14 } from './Step14'
 import { Step15 } from './Step15'
@@ -305,14 +306,23 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           <Step10 />
         </FormikStep>
 
-        <FormikStep
-          validationSchema={yup.object({
-            deficiencies: yup.array(),
-             medicalReport: yup.string().nullable(),
-          })}
-        >
+        <FormikStep>
           <Step11 />
         </FormikStep>
+
+        <FormikStep
+          validationSchema={yup.object({
+            isPcd: yup.boolean(),
+            deficiencies: yup.array(),
+            artist: yup.object({
+              medicalReport: yup.string().nullable(),
+              acessibilityResourcesDescription: yup.string().nullable(),
+            }),
+          })}
+        >
+          <Step12 />
+        </FormikStep>
+
 
         <FormikStep
           validationSchema={yup.object({
