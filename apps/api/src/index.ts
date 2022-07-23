@@ -21,7 +21,7 @@ Db()
   // const users = await conn.manager.find(User)
   // console.log("Loaded users: ", users)
 
-  const port = process.env.PORT ?? 5430
+  const port = process.env.PORT ?? 5000
   
   // Foi preciso colocar o admin bro antes dos middlewares por conta do body parser
   const adminBro = getAdminBro(conn)
