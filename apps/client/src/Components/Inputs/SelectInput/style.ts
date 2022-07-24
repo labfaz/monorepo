@@ -158,6 +158,10 @@ export const Container = styled.div<ContainerProps>`
       ${Mobile(css`
         font-size: var(--font-size-large);
       `)}
+
+      &[value=""] {
+        display: none;
+      }
     }
   }
 
