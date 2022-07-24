@@ -24,6 +24,17 @@ import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData'
 
 export const Step1: FC = () => {
   const { values, setFieldValue } = useFormikContext<any>()
+  const checkCEP = (cep: string) => {
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then(res => res.json())
+      .then(data => {
+        setFieldValue('artist.address.address', data.logradouro)
+        setFieldValue('artist.address.neighbourhood', data.bairro)
+        setFieldValue('artist.address.city', data.localidade)
+        setFieldValue('artist.address.state', data.uf)
+        setFieldValue('artist.address.complement', data.complemento)
+      })
+  }
 
   return (
     <Container>
@@ -200,9 +211,12 @@ export const Step1: FC = () => {
                 placeholder="Digite seu cep"
                 inputMask="99999-999"
                 // obrigatory
-                onChange={(ev: any) =>
+                onChange={(ev: any) => {
+                  if (OnlyNumbers(ev.target.value).length === 8) {
+                    checkCEP(OnlyNumbers(ev.target.value))
+                  }
                   setFieldValue('cep', OnlyNumbers(ev.target.value))
-                }
+                }}
               />
             </InputTextContainer>
           </div>
@@ -210,7 +224,7 @@ export const Step1: FC = () => {
           <div className="residencyContainer">
             <InputTextContainer>
               <TextInput
-                name="artist.address.complement"
+                name="artist.address.address"
                 label="Endereco"
                 placeholder="Digite seu logradouro"
                 // obrigatory
@@ -242,7 +256,7 @@ export const Step1: FC = () => {
 
             <InputTextContainer>
               <TextInput
-                name="artist.address.address"
+                name="artist.address.complement"
                 label="Complemento"
                 placeholder="Digite seu complemento"
               />
