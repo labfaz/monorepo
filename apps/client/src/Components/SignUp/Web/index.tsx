@@ -233,7 +233,7 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
           validationSchema={yup.object({
             isPcd: yup.boolean(),
             deficiencies: yup.array(),
-            medicalReport: yup.string().nullable(),
+            medicalReport: yup.string(),
           })}
         >
           <STEP4_2 />
