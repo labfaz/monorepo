@@ -277,11 +277,11 @@ export const Step2: FC = () => {
                 name="artist.sexual_orientation"
                 value="lésbica"
                 label="Homossexualidade Lésbica"
-                information="é a denominação em que uma mulher sente-se atraída afetiva e/ou sexual com outra mulher"
+                information="é a denominação em que uma mulher sente-se atraída afetiva e/ou sexualmente por outra mulher"
               />
               <InformartionText>
                 é a denominação em que uma mulher sente-se atraída afetiva e/ou
-                sexual com outra mulher
+                sexualmente por outra mulher
               </InformartionText>
             </InputRadioContainer>
 
@@ -290,11 +290,11 @@ export const Step2: FC = () => {
                 name="artist.sexual_orientation"
                 value="gay"
                 label="Homossexualidade Gay"
-                information="é a denominação em que um homem sente-se atraído afetivo e/ou sexual por outra homem"
+                information="é a denominação em que um homem sente-se atraído afetiva e/ou sexualmente por outro homem"
               />
               <InformartionText>
-                é a denominação em que um homem sente-se atraído afetivo e/ou
-                sexual por outra homem
+                é a denominação em que um homem sente-se atraído afetiva e/ou
+                sexualmente por outro homem
               </InformartionText>
             </InputRadioContainer>
 
