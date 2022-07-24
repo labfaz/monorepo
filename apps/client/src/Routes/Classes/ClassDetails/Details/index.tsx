@@ -51,7 +51,7 @@ export const Details: FC<Props> = ({
   return (
     <Container>
       <ImageContainer>
-        <Image src={banner} alt="" />
+        <Image src={banner} alt="Imagem do banner" />
       </ImageContainer>
       <TextContainer>
         <TextSubContainer>

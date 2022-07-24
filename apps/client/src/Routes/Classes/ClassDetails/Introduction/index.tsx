@@ -29,7 +29,7 @@ export const Introduction: FC<Props> = ({ title, description, tags }) => {
       <TagsWrapper>
         <LabelContainer>
           {tags?.map((name) => (
-            <Label name={name} image={undefined} />
+            <Label name={name} alt={name} image={undefined} />
           ))}
         </LabelContainer>
       </TagsWrapper>

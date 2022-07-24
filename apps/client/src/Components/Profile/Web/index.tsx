@@ -157,7 +157,7 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
                 {data.artist.technical.idiom &&
                   data.artist.technical.idiom.map((idiom, index) => (
                     <li key={index}>
-                      <img src={idiom_icon} alt="" /> {idiom.name}
+                      <img src={idiom_icon} alt={idiom.name} /> {idiom.name}
                     </li>
                   ))}
               </ul>
