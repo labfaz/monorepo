@@ -4,7 +4,6 @@ import Form from "../Form";
 import SelectInput from "../Form/Select";
 import OptionGender from "../Form/Options/OptionGender";
 import OptionsExperience from "../Form/Options/OptionsExperience";
-import OptionIsPcD from "../Form/Options/OptionIsPcd";
 import UserCard from "../UserCard";
 import Wireframe from "Components/Wireframe";
 import Loading from "Components/Loading";
@@ -37,7 +36,6 @@ export const Display: FC<UserSearchInterface> = ({title, description}) => {
     cpnjOnly: false,
     ceacOnly: false,
     meiOnly: false,
-    pcdOnly: false,
     showNothing: true,
   });
 
@@ -57,7 +55,6 @@ export const Display: FC<UserSearchInterface> = ({title, description}) => {
             <SelectInput label="area" setInput={setFormData}  />
             <OptionGender setFunction={setFormData}  />
             <OptionsExperience setFunction={setFormData} />
-            <OptionIsPcD setFunction={setFormData} />
           </OptionsDiv>
       </Form>
       </FormDiv>

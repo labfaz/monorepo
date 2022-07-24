@@ -15,12 +15,9 @@ import { ParsedUser } from "./ParesUpdateUser";
 import { ParsedFiles } from "Middlewares/parseFiles";
 
 import { UploadFiles } from "Utils/awsConfig";
-import DeficiencyRepository from "Repository/DeficiencyRepository";
-import { separeteNewAndExistentDeficiencies } from "./utils/deficienciesUtils";
 
 interface CreateUserInterface {
   UserRepo: UserRepository;
-  DeficiencyRepo: DeficiencyRepository;
 }
 
 export const UpdateUser: (
@@ -28,9 +25,9 @@ export const UpdateUser: (
 ) => RouteHandler<
   Req<
     {},
-    UserJWTPayload & ParsedUser & ParsedFiles<"profilePicture" | "curriculum"| "medicalReport">
+    UserJWTPayload & ParsedUser & ParsedFiles<"profilePicture" | "curriculum">
   >
-> = ({ UserRepo, DeficiencyRepo: deficiencyRepo }: CreateUserInterface) => async (req, res) => {
+> = ({ UserRepo }: CreateUserInterface) => async (req, res) => {
   const { id } = req.user ?? { id: "" };
 
   const { password, artist, oldpassword } = req.user_info! ?? {};
@@ -68,33 +65,20 @@ export const UpdateUser: (
   try {
     const curriculum = req.parsedFiles?.curriculum ?? [];
     const profilePicture = req.parsedFiles?.profilePicture ?? [];
-
-    const medicalReport = req.parsedFiles?.medicalReport ?? [];
-
-    const files = await UploadFiles([...curriculum, ...profilePicture, ...medicalReport]);
+    const files = await UploadFiles([...curriculum, ...profilePicture]);
 
     const artistCurriculum = files.find(
       (file) => file.fieldname === "curriculum"
     )!;
-
-    const artistMedicalReport = files.find(
-      (file) => file.fieldname === "medicalReport"
-    )!;
-
     const artistProfilePicture = files.find(
       (file) => file.fieldname === "profilePicture"
     )!;
 
-    const requestDeficiencies = req.user_info?.deficiencies ?? [];
-    const deficiencies = await separeteNewAndExistentDeficiencies(requestDeficiencies, deficiencyRepo)
-
     return UserRepo.updateUser(
       user,
-      deficiencies,
       artist,
       password,
       artistCurriculum,
-      artistMedicalReport,
       artistProfilePicture
     )
       .then((user) => {

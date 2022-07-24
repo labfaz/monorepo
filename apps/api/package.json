@@ -1,6 +1,6 @@
 {
   "name": "@labfaz/api",
-  "version": "21.1.0",
+  "version": "21.0.1",
   "description": "express.js api in typescript",
   "keywords": [
     "api",
@@ -37,8 +37,7 @@
     "db:build": "yarn typeorm migration:run",
     "db:build:force": "if-env NODE_ENV=development && yarn typeorm schema:sync",
     "db:build:force:extreme": "yarn typeorm schema:sync",
-    "db:reset": "yarn db:drop && yarn db:build",
-    "db:mig": "yarn run typeorm migration:generate -n"
+    "db:reset": "yarn db:drop && yarn db:build"
   },
   "bugs": {
     "url": "https://github.com/rafael-g-depaulo/labfaz/issues"

@@ -42,7 +42,7 @@ export const getTypeOrmConfig = () => {
   const dbFoldersRoot = getDbFoldersRoot()
 
   return {
-    synchronize: false,
+    synchronize: process.env.IS_SERVING_BUNDLE !== "true" && process.env.NODE_ENV !== "production",
     logging: false,
 
     migrations: [

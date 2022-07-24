@@ -78,11 +78,6 @@ export interface IArtist {
   address: IAddress
   contact: IContact
   technical: ITechnical
-  medicalReport?: string
-}
-
-export interface IDeficiency {
-  name: string
 }
 
 export interface User {
@@ -94,7 +89,6 @@ export interface User {
   updated_at: Date
   created_at: Date
   artist: IArtist
-  deficiencies: IDeficiency[]
 }
 
 type notLoggedIn = {

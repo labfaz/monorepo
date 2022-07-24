@@ -87,12 +87,6 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
               </a>
             )}
 
-            {data.artist.medicalReport && (
-              <a className="downloadCurriculum" href={data.artist.medicalReport} download>
-                <IoMdCloudDownload /> BAIXAR LAUDO
-              </a>
-            )}
-
             {showEditProfile && personalProfilePage && (
               <button
                 type="button"
