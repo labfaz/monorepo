@@ -231,7 +231,16 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
         <FormikStep
           validationSchema={yup.object({
             deficiencies: yup.array(),
-            medicalReport: yup.string(),
+            medicalReport: yup
+              .mixed()
+              .test(
+                "fileSize",
+                "Arquivo muito grande",
+                (value) =>
+                  (value && !value.name) ||
+                  value === null ||
+                  (value && value.size <= medicalReportMaxSize)
+              ),
           })}
         >
           <STEP4_2 />

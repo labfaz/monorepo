@@ -82,13 +82,13 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
 
           <ButtonContainer>
             {data.artist.curriculum && (
-              <a className="downloadFile" href={data.artist.curriculum} download>
+              <a className="downloadCurriculum" href={data.artist.curriculum} download>
                 <IoMdCloudDownload /> BAIXAR CV
               </a>
             )}
 
             {data.artist.medicalReport && (
-              <a className="downloadFile" href={data.artist.medicalReport} download>
+              <a className="downloadCurriculum" href={data.artist.medicalReport} download>
                 <IoMdCloudDownload /> BAIXAR LAUDO
               </a>
             )}

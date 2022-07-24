@@ -74,6 +74,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           other_idiom: '',
           other_deficiency: '',
           deficiencies: [],
+          isPcd: false,
           use_terms: '',
           profilePicture: null,
           curriculum: null,
@@ -304,7 +305,16 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           isPcd: yup.boolean(),
           deficiencies: yup.array(),
           artist: yup.object({
-            medicalReport: yup.string(),
+            medicalReport: yup
+              .mixed()
+              .test(
+                "fileSize",
+                "Arquivo muito grande",
+                (value) =>
+                  (value && !value.name) ||
+                  value === null ||
+                  (value && value.size <= medicalReportMaxSize)
+              ),
             technical: yup.object({
               formation: yup.string().required('Formação obrigatória'),
               idiom: yup.array(),

@@ -19,7 +19,6 @@ interface InputProps {
   inputMask?: string
   onChange?: (ev: any) => void
   options?: OptionsProps[]
-  accept?: string
 }
 
 export const FileInput: FC<InputProps> = ({
@@ -30,7 +29,6 @@ export const FileInput: FC<InputProps> = ({
   inputMask,
   height,
   options,
-  accept,
   ...props
 }) => {
   const [, meta] = useField(props)
@@ -47,7 +45,7 @@ export const FileInput: FC<InputProps> = ({
             <input
               id="file"
               type="file"
-              accept={accept || "image/*"}
+              accept="image/*"
               onChange={(event: any) => {
                 setFieldValue(`${value}`, event.currentTarget.files[0])
               }}
