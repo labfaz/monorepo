@@ -44,7 +44,6 @@ export const Step13: FC = () => {
               name="curriculum"
               value="curriculum"
               label="Clique para enviar curriculo"
-              accept="application/pdf"
             />
           </FileContainer>
         </Content>

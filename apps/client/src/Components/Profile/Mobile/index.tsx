@@ -74,25 +74,15 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
                   </UserVerified>
                 )}
               </div>
-              <div className="downloadables">
-                {data.artist.curriculum && (
-                  <a className="downloadFile" href={data.artist.curriculum} download>
-                    {/* <button className="downloadFile"> */}
-                      <IoMdCloudDownload />
-                      CV
-                    {/* </button> */}
-                  </a>
-                )}
-                
-                {data.artist.medicalReport && (
-                  <a className="downloadFile" href={data.artist.medicalReport} download>
-                    {/* <button className="downloadFile"> */}
-                      <IoMdCloudDownload />
-                      Laudo
-                    {/* </button> */}
-                  </a>
-                )}
-              </div>
+
+              {data.artist.curriculum && (
+                <a className="downloadCurriculum" href={data.artist.curriculum} download>
+                  {/* <button className="downloadCurriculum"> */}
+                    <IoMdCloudDownload />
+                    CV
+                  {/* </button> */}
+                </a>
+              )}
             </div>
             <div className="container">
               <div>

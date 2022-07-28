@@ -53,7 +53,6 @@ interface ButtonProps {
 
 const profileSize = 2 * 1024 * 1024
 const curriculumSize = 10 * 1024 * 1024
-// const medicalReportMaxSize = 10 * 1024 * 1024
 
 export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
   return (
@@ -62,17 +61,13 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
       <FormikStepper
         initialValues={{
           email: data?.email,
-          password: "",
-          confirm_password: "",
-          other_idiom: "",
-          other_deficiency: "",
-          deficiencies: data?.deficiencies,
-          isPcd: data?.artist.medicalReport != null,
-          use_terms: "",
+          password: '',
+          confirm_password: '',
+          other_idiom: '',
+          use_terms: '',
           profilePicture: data?.artist.photo_url,
           curriculum: data?.artist.curriculum,
-          medicalReport: data?.artist.medicalReport,
-          Other_TechnicalArea: "",
+          Other_TechnicalArea: '',
           artist: {
             name: data?.artist.name,
             social_name: data?.artist.social_name,
@@ -81,7 +76,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             gender: data?.artist.gender,
             sexual_orientation: data?.artist.sexual_orientation,
             gender_specific: data?.artist.gender_specifics,
-            other_gender: "",
+            other_gender: '',
             cpf: data?.artist.cpf,
             birthday: data?.artist.birthday,
             rg: data?.artist.rg,
@@ -117,16 +112,13 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
               cnpj_type: data?.artist.technical.cnpj_type,
               profession: data?.artist.technical.profession,
               areas: {
-                technical_formation:
-                  data?.artist.technical.area[0].technical_formation,
+                technical_formation: data?.artist.technical.area[0].technical_formation,
                 name: data?.artist.technical.area[0].name,
                 describe: data?.artist.technical.area[0].describe,
                 started_year: data?.artist.technical.area[0].started_year,
-                certificate: data?.artist.technical.area[0].certificate.map(
-                  (certificate) => certificate.name
-                ),
+                certificate: data?.artist.technical.area[0].certificate.map(certificate => certificate.name),
               },
-              idiom: data?.artist.technical.idiom.map((idiom) => idiom.name),
+              idiom: data?.artist.technical.idiom.map(idiom => idiom.name),
             },
           },
           buttonType,
@@ -136,180 +128,177 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
         onSubmit={() => {}}
       >
         <FormikStep
-          validationSchema={yup.object({
-            artist: yup.object({
-              name: yup.string().required("Nome obrigatório"),
-              social_name: yup.string(),
-              artistic_name: yup.string(),
-            }),
-          })}
+        validationSchema={yup.object({
+          artist: yup.object({
+            name: yup.string().required('Nome obrigatório'),
+            social_name: yup.string(),
+            artistic_name: yup
+              .string(),
+          }),
+        })}
         >
           <Step1 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            profilePicture: yup
-              .mixed()
-              .test(
-                "fileSize",
-                "Arquivo muito grande",
-                (value) =>
-                  (value && !value.name) ||
-                  value === null ||
-                  (value && value.size <= profileSize)
-              ),
-            artist: yup.object({
-              show_name: yup.string().required("Como quer ser chamado?"),
-            }),
-          })}
+        validationSchema={yup.object({
+          profilePicture: yup.mixed().test("fileSize", "Arquivo muito grande", value => (value && !value.name) || value === null || (value &&  value.size <= profileSize)),
+          artist: yup.object({
+            show_name: yup.string().required('Como quer ser chamado?'),
+          }),
+        })}
         >
           <Step2 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            artist: yup.object({
-              cpf: yup
-                .string()
-                // .required('Cpf obrigatório')
-                .min(11, "Cpf incompleto"),
-              birthday: yup
-                .string()
-                .required("Data de nascimento obrigatório")
-                .min(8, "Data incompleta"),
-              rg: yup
-                .string()
-                // .required('Rg é obrigatório')
-                .min(7, "Rg incompleto"),
-              expedition_department: yup.string(),
+        validationSchema={yup.object({
+          artist: yup.object({
+            cpf: yup
+              .string()
+              // .required('Cpf obrigatório')
+              .min(11, 'Cpf incompleto'),
+            birthday: yup
+              .string()
+              .required('Data de nascimento obrigatório')
+              .min(8, 'Data incompleta'),
+            rg: yup
+              .string()
+              // .required('Rg é obrigatório')
+              .min(7, 'Rg incompleto'),
+            expedition_department: yup
+              .string()
               // .required('Orgão expedidor obrigatório'),
-            }),
-          })}
+          }),
+        })}
         >
           <Step3 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            artist: yup.object({
-              gender: yup.string().required("Campo obrigatório"),
-              gender_specific: yup.string().required("Campo obrigatório"),
-            }),
-          })}
+        validationSchema={yup.object({
+          artist: yup.object({
+            gender: yup.string().required('Campo obrigatório'),
+            gender_specific: yup.string().required('Campo obrigatório'),
+          }),
+        })}
         >
           <Step4 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            artist: yup.object({
-              sexual_orientation: yup.string().required("Campo obrigatório"),
-            }),
-          })}
+        validationSchema={yup.object({
+          artist: yup.object({
+            sexual_orientation: yup.string().required('Campo obrigatório'),
+          }),
+        })}
         >
           <Step5 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            artist: yup.object({
-              race: yup.string().required("Campo obrigatório"),
-            }),
-          })}
+        validationSchema={yup.object({
+          artist: yup.object({
+            race: yup.string().required('Campo obrigatório'),
+          }),
+        })}
         >
           <Step6 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            email: yup
-              .string()
-              .email("Email inválido")
-              .required("Email obrigatório"),
-            artist: yup.object({
-              contact: yup.object({
-                whatsapp: yup.string(),
-                facebook: yup
-                  .string()
-                  .trim()
-                  .matches(facebookUserRegex, "formato inválido"),
-                instagram: yup
-                  .string()
-                  .trim()
-                  .matches(instagramUserRegex, "formato inválido"),
-              }),
+        validationSchema={yup.object({
+          email: yup
+            .string()
+            .email('Email inválido')
+            .required('Email obrigatório'),
+          artist: yup.object({
+            contact: yup.object({
+              whatsapp: yup.string(),
+              facebook: yup
+                .string()
+                .trim()
+                .matches(facebookUserRegex, 'formato inválido'),
+              instagram: yup
+                .string()
+                .trim()
+                .matches(instagramUserRegex, 'formato inválido'),
             }),
-          })}
+          }),
+        })}
         >
           <Step7 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            artist: yup.object({
-              contact: yup.object({
-                twitter: yup
-                  .string()
-                  .trim()
-                  .matches(twitterUserRegex, "formato inválido"),
-                linkedin: yup
-                  .string()
-                  .trim()
-                  .matches(linkedinUserRegex, "formato inválido"),
-                tiktok: yup
-                  .string()
-                  .trim()
-                  .matches(tiktokUserRegex, "formato inválido"),
-                youtube: yup
-                  .string()
-                  .trim()
-                  .matches(youtubeUserRegex, "formato inválido"),
-              }),
+        validationSchema={yup.object({
+          artist: yup.object({
+            contact: yup.object({
+              twitter: yup
+                .string()
+                .trim()
+                .matches(twitterUserRegex, 'formato inválido'),
+              linkedin: yup
+                .string()
+                .trim()
+                .matches(linkedinUserRegex, 'formato inválido'),
+              tiktok: yup
+                .string()
+                .trim()
+                .matches(tiktokUserRegex, 'formato inválido'),
+              youtube: yup
+                .string()
+                .trim()
+                .matches(youtubeUserRegex, 'formato inválido'),
             }),
-          })}
+          }),
+        })}
         >
           <Step8 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            artist: yup.object({
-              address: yup.object({
-                city: yup.string().required("Cidade obrigatória"),
-                state: yup
-                  .string()
-                  .required("Estado obrigatório")
-                  .default("Distrito Federal"),
-                residency: yup.string(),
+        validationSchema={yup.object({
+          artist: yup.object({
+            address: yup.object({
+              city: yup.string().required('Cidade obrigatória'),
+              state: yup
+                .string()
+                .required('Estado obrigatório')
+                .default('Distrito Federal'),
+              residency: yup.string()
                 // .required('Campo obrigatório'),
-              }),
             }),
-          })}
+          }),
+        })}
         >
           <Step9 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            artist: yup.object({
-              address: yup.object({
-                cep: yup.string(), //.required('CEP obrigatório'),
-                neighbourhood: yup.string(), //.required('Bairro obrigatório'),
-                number: yup.string(), //.required('Número obrigatório'),
-                complement: yup.string(), //.required('Endereço obrigatório'),
-              }),
+        validationSchema={yup.object({
+          artist: yup.object({
+            address: yup.object({
+              cep: yup.string(), //.required('CEP obrigatório'),
+              neighbourhood: yup.string(), //.required('Bairro obrigatório'),
+              number: yup.string(), //.required('Número obrigatório'),
+              complement: yup.string(), //.required('Endereço obrigatório'),
             }),
-          })}
+          }),
+        })}
         >
           <Step10 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            deficiencies: yup.array(),
-             medicalReport: yup.string().nullable(),
-          })}
+        validationSchema={yup.object({
+          artist: yup.object({
+            technical: yup.object({
+              formation: yup.string().required('Formação obrigatória'),
+              idiom: yup.array(),
+            }),
+          }),
+        })}
         >
           <Step11 />
         </FormikStep>
@@ -319,8 +308,8 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             artist: yup.object({
               technical: yup.object({
                 areas: yup.object({
-                  name: yup.string().required("Campo obrigatório"),
-                  started_year: yup.string().required("Campo obrigatório"),
+                  name: yup.string().required('Campo obrigatório'),
+                  started_year: yup.string().required('Campo obrigatório'),
                 }),
               }),
             }),
@@ -330,87 +319,84 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            artist: yup.object({
-              technical: yup.object({
-                areas: yup.object({
-                  technical_formation: yup
-                    .string()
-                    .required("Campo obrigatório"),
-                }),
+        validationSchema={yup.object({
+          artist: yup.object({
+            technical: yup.object({
+              areas: yup.object({
+                technical_formation: yup
+                  .string()
+                  .required('Campo obrigatório'),
               }),
             }),
-          })}
+          }),
+        })}
         >
           <STEP12_2 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            curriculum: yup
-              .mixed()
-              .test(
-                "fileSize",
-                "Arquivo muito grande",
-                (value) =>
-                  (value && !value.name) ||
-                  value === null ||
-                  (value && value.size <= curriculumSize)
-              ),
-            artist: yup.object({
-              technical: yup.object({
-                areas: yup.object({
-                  describe: yup.string().required("Campo obrigatório"),
-                }),
+        validationSchema={yup.object({
+          curriculum: yup.mixed().test("fileSize", "Arquivo muito grande", value => (value && !value.name) || value === null || (value && value.size <= curriculumSize)),
+          artist: yup.object({
+            technical: yup.object({
+              areas: yup.object({
+                describe: yup.string().required('Campo obrigatório'),
               }),
             }),
-          })}
+          }),
+        })}
         >
           <Step13 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            artist: yup.object({
-              technical: yup.object({
-                is_drt: yup.boolean().required("Campo obrigatório"),
-                is_ceac: yup.boolean().required("Campo obrigatório"),
-              }),
+        validationSchema={yup.object({
+          artist: yup.object({
+            technical: yup.object({
+              is_drt: yup.boolean().required('Campo obrigatório'),
+              is_ceac: yup.boolean().required('Campo obrigatório'),
             }),
-          })}
+          }),
+        })}
         >
           <Step14 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            artist: yup.object({
-              technical: yup.object({
-                is_cnpj: yup.boolean().required("Campo obrigatório"),
-              }),
+        validationSchema={yup.object({
+          artist: yup.object({
+            technical: yup.object({
+              is_cnpj: yup.boolean().required('Campo obrigatório'),
             }),
-          })}
+          }),
+        })}
         >
           <Step15 />
         </FormikStep>
 
         <FormikStep
-          validationSchema={yup.object({
-            old_password: yup.string().min(6, "Senha no minimo 6 digítos"),
-            password: yup.string().min(6, "Senha no minimo 6 digítos"),
-            confirm_password: yup.string().when("password", {
+        validationSchema={yup.object({
+          old_password: yup
+            .string()
+            .min(6, 'Senha no minimo 6 digítos'),
+          password: yup
+            .string()
+            .min(6, 'Senha no minimo 6 digítos'),
+          confirm_password: yup
+            .string()
+            .when('password', {
               is: (val) => (val && val.length > 0 ? true : false),
               then: yup
                 .string()
-                .oneOf([yup.ref("password")], "Senhas não são iguais."),
+                .oneOf([yup.ref('password')], 'Senhas não são iguais.'),
             }),
-          })}
+        })}
         >
           <Step16 />
         </FormikStep>
       </FormikStepper>
     </>
-  );
+  )
 }
 
 export interface FormikStepProps
@@ -463,16 +449,6 @@ function FormikStepper({
             values.artist.technical.idiom.push(values.other_idiom)
 
             delete values.other_idiom
-          }
-
-          if (values.other_deficiency) {
-            const index = values.deficiencies.indexOf('Outro')
-
-            values.deficiencies.splice(index, 1)
-
-            values.deficiencies.push(values.other_deficiency)
-
-            delete values.other_deficiency
           }
 
           if (values.artist.other_gender) {

@@ -9,19 +9,16 @@ import createTestApp from "Utils/createTestApp"
 import { Race, ShowName } from "Entities/Artist"
 import { ErrorObj, SuccessObj } from "Utils/response"
 import { UserInfo } from "./utils/userReqSchema"
-import DeficiencyRepository from "Repository/DeficiencyRepository"
 
 describe('User Router', () => {
 
   let UserRepo: UserRepository
-  let DeficiencyRepo: DeficiencyRepository
   let mockTable: User[] = []
 
   UserRepo = new UserRepository()
-  DeficiencyRepo = new DeficiencyRepository()
 
   const conn = {} as Connection
-  const UserRoutes = UserRouterFactory({ conn, UserRepo, DeficiencyRepo })
+  const UserRoutes = UserRouterFactory({ conn, UserRepo })
   const agent = createTestApp(UserRoutes, '/user')
 
   beforeAll(() => {
@@ -77,10 +74,6 @@ describe('User Router', () => {
         } as UserInfo["artist"],
         email: 'johndoe@email.com',
         password: '123456',
-        deficiencies: [
-          { id: 'um-id' },
-          { name: 'Um nome de deficiência'}
-        ]
       }
 
       const { password: _, ...userWithoutPwd } = userInfo

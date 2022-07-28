@@ -35,7 +35,6 @@ export interface UserSearchParams {
   cpnjOnly: boolean
   ceacOnly: boolean
   meiOnly: boolean
-  pcdOnly: boolean;
   // nrOnly: boolean
   showNothing?: boolean
 }
@@ -85,18 +84,15 @@ const filterUser = ({
   ceacOnly,
   meiOnly,
   nonMenOnly,
-  pcdOnly,
   // nrOnly,
   area,
   city,
   nameOrProfession,
 }: UserSearchParams) => (user: User): boolean => {
-  console.log("pcdOnly", pcdOnly)
 
   // if a *_filer value is true, the user passes the filter
   const LGBTQ_filter      = !LBTQOnly   || isLGBTQ(user)
   const nonMenOnly_filter = !nonMenOnly || isMale(user)
-  const pcdOnly_filter    = !pcdOnly    || isPcd(user)
   const cpnj_filter       = !cpnjOnly   || isCpnj(user)
   const drt_filter        = !drtOnly    || isDrt(user)
   const ceact_filter      = !ceacOnly   || isCeac(user)
@@ -108,11 +104,11 @@ const filterUser = ({
   const nameOrProfession_filter = nameOrProfession === "" || hasNameOrProfession(user, nameOrProfession)
 
   return (
-    LGBTQ_filter && nonMenOnly_filter && 
-    pcdOnly_filter && cpnj_filter  && 
-    drt_filter && ceact_filter && 
-    mei_filter && area_filter &&
-    city_filter && nameOrProfession_filter
+    LGBTQ_filter && nonMenOnly_filter &&
+    cpnj_filter  && drt_filter &&
+    ceact_filter && mei_filter &&
+    area_filter  && city_filter &&
+    nameOrProfession_filter
   )
 }
 
@@ -143,7 +139,6 @@ const isLGBTQ = (user: User) =>
   !(user.artist.gender_specifics === GenderSpecific.CIS || user.artist.gender_specifics === GenderSpecific.NONE) ||
   !(user.artist.sexual_orientation === "heterosexual" || isPrefiroNao(user.artist.sexual_orientation))
 const isMale = (user: User) => !(user.artist.gender === "masculino" || isPrefiroNao(user.artist.gender))
-const isPcd = (user: User) => !(user.artist?.medicalReport === null)
 const isCpnj = (user: User) => user.artist?.technical?.is_cnpj
 const isDrt = (user: User) => user.artist?.technical?.is_drt
 const isCeac = (user: User) => user.artist?.technical?.is_ceac

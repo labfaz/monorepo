@@ -73,13 +73,7 @@ export const UserBasicInformation = styled.div`
       height: 28px;
     }
 
-    .downloadables {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .downloadFile {
+    .downloadCurriculum {
       display: flex;
       /* display: inline-flex; */
       flex-direction: column;

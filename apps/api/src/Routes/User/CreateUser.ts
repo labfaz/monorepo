@@ -13,21 +13,16 @@ import { ParsedUser } from "./ParseUser";
 import { ParsedFiles } from "Middlewares/parseFiles";
 import { removeCircularity } from "Utils/stringifyCircular";
 import { sendConfirmationEmail } from "Mailer/emailConfirmation";
-import DeficiencyRepository from "Repository/DeficiencyRepository";
-// import { Deficiency } from "Entities/Deficiency";
-// import { In } from "typeorm";
-import { separeteNewAndExistentDeficiencies } from "./utils/deficienciesUtils";
 
 interface CreateUserDeps {
   UserRepo: UserRepository;
-  DeficiencyRepo: DeficiencyRepository
 }
 
 export const CreateUser: (
   deps: CreateUserDeps
 ) => RouteHandler<
-  Req<{}, ParsedUser & ParsedFiles<"profilePicture" | "curriculum" | "medicalReport">>
-> = ({ UserRepo, DeficiencyRepo: deficiencyRepo }: CreateUserDeps) => async (req, res) => {
+  Req<{}, ParsedUser & ParsedFiles<"profilePicture" | "curriculum">>
+> = ({ UserRepo }: CreateUserDeps) => async (req, res) => {
   const { email, password, artist } = req.user_info! ?? {};
 
   const checkUserExists = await UserRepo.findByEmail(email);
@@ -36,15 +31,8 @@ export const CreateUser: (
 
   try {
     const curriculum = req.parsedFiles?.curriculum ?? [];
-
-    const medicalReport = req.parsedFiles?.medicalReport ?? [];
-
     const profilePicture = req.parsedFiles?.profilePicture ?? [];
-    const files = await UploadFiles([...curriculum, ...profilePicture, ...medicalReport]);
-
-    const artistMedicalReport = files.find(
-      (file) => file.fieldname === "medicalReport"
-    )!;
+    const files = await UploadFiles([...curriculum, ...profilePicture]);
 
     const artistCurriculum = files.find(
       (file) => file.fieldname === "curriculum"
@@ -53,20 +41,12 @@ export const CreateUser: (
       (file) => file.fieldname === "profilePicture"
     )!;
 
-    const requestDeficiencies = req.user_info?.deficiencies ?? [];
-    const deficiences = await separeteNewAndExistentDeficiencies(requestDeficiencies, deficiencyRepo);
-
     return UserRepo.createUser(
       email,
       password,
       artist,
       artistCurriculum,
-      artistProfilePicture,
-      {
-        new: deficiences.new,
-        existent: deficiences.existent,
-      },
-      artistMedicalReport
+      artistProfilePicture
     )
      .then((user) => {
         sendConfirmationEmail(user);

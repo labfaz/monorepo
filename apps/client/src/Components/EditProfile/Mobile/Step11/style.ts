@@ -120,7 +120,7 @@ export const InputSelect = styled.div`
   }
 `
 
-export const OptionsContainer = styled.div<ContentProps>`
+export const IdiomOptionsContainer = styled.div<ContentProps>`
   display: ${(({isOpen}) => isOpen ? 'flex' : 'none')};
 
   position: absolute;
@@ -191,16 +191,5 @@ export const InputText = styled(TextInput)``
 export const InputTextContainer = styled.div`
   p {
     margin-bottom: 0rem;
-  }
-`
-export const FileContainer = styled.div`
-  color: white;
-  margin-top: 1rem;
-  width: 14.4rem;
-  display: flex;
-  flex-direction: column;
-
-  input {
-    width: 100%;
   }
 `

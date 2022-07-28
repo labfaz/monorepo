@@ -1,16 +1,10 @@
-import { useFormikContext } from "formik";
-import React, { FC } from "react";
-import { useRef } from "react";
-import { useState } from "react";
-import { IoMdArrowDropdownCircle } from "react-icons/io";
-import { RadioInput } from "Components/Inputs/RadioInput";
-import { FileInput } from "Components/Inputs/FileInput";
+import { useFormikContext } from 'formik'
+import React, { FC } from 'react'
+import { useRef } from 'react'
+import { useState } from 'react'
+import { IoMdArrowDropdownCircle } from 'react-icons/io'
 
-import {
-  formationOptions,
-  idiomOptions,
-  deficiencyOptions,
-} from "Utils/selectOptionsData";
+import { formationOptions, idiomOptions } from 'Utils/selectOptionsData'
 
 import {
   Container,
@@ -21,42 +15,33 @@ import {
   LabelText,
   InputRadio,
   InputSelect,
-  OptionsContainer,
+  IdiomOptionsContainer,
   CheckboxContainer,
   InputCheckbox,
   InputText,
   InputTextContainer,
-  FileContainer,
-} from "./style";
+} from './style'
 
 interface Step11Props {
-  deficiencies?: string[];
-  isPcd?: string;
-  medicalReport?: string;
   artist: {
     technical: {
-      formation: string;
-      idiom: string[];
-    };
-  };
+      formation: string
+      idiom: string[]
+    }
+  }
 }
 
 export const Step11: FC = () => {
-  const { values, errors } = useFormikContext<Step11Props>();
+  const { values, errors } = useFormikContext<Step11Props>()
 
-  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false);
-  const [isDeficiencyOptionsOpen, setIsDeficiencyOptionsOpen] = useState(false);
-  const modalRef = useRef<HTMLInputElement | null>(null);
-  const modalRefDeficiencies = useRef<HTMLInputElement | null>(null);
+  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false)
+  const modalRef = useRef<HTMLInputElement | null>(null)
 
   const closeModal = (e: any) => {
     if (modalRef.current === e.target) {
-      setIsIdiomOptionsOpen(false);
+      setIsIdiomOptionsOpen(false)
     }
-    if (modalRefDeficiencies.current === e.target) {
-      setIsDeficiencyOptionsOpen(false);
-    }
-  };
+  }
 
   return (
     <Container>
@@ -65,9 +50,7 @@ export const Step11: FC = () => {
           <LabelText>
             Formação escolar <p className="obrigatory"> *</p>
             {errors.artist?.technical?.formation && (
-              <span className="errorMessage">
-                {errors.artist.technical.formation}
-              </span>
+              <span className="errorMessage">{errors.artist.technical.formation}</span>
             )}
           </LabelText>
 
@@ -89,13 +72,13 @@ export const Step11: FC = () => {
             <InputSelect>
               {values.artist?.technical?.idiom[0]
                 ? values.artist.technical.idiom[0]
-                : "Selecione"}
+                : 'Selecione'}
               <IoMdArrowDropdownCircle />
             </InputSelect>
           </SelectContainer>
 
           {values.artist?.technical?.idiom.find(
-            (values: any) => values === "Outro"
+            (values: any) => values === 'Outro'
           ) && (
             <InputTextContainer>
               <LabelText>Qual outro idioma?</LabelText>
@@ -107,61 +90,17 @@ export const Step11: FC = () => {
               />
             </InputTextContainer>
           )}
-
-          <LabelText>Você é uma pessoa com deficiência?</LabelText>
-          <InputRadioContainer>
-            <RadioInput name="isPcd" value="true" label="Sim" />
-          </InputRadioContainer>
-          <InputRadioContainer>
-            <RadioInput name="isPcd" value="false" label="Não" />
-          </InputRadioContainer>
-          <SelectContainer
-            onClick={() => setIsDeficiencyOptionsOpen(!isDeficiencyOptionsOpen)}
-          >
-            {values.isPcd === "true" && (
-              <InputSelect>
-                {values.deficiencies && values.deficiencies[0] ? values.deficiencies[0] : "Selecione"}
-                <IoMdArrowDropdownCircle />
-              </InputSelect>
-            )}
-          </SelectContainer>
-          {values.isPcd === "true" && (
-            <FileContainer>
-              <label htmlFor="medicalReport" className="fileLabel">
-                Laudo médico
-              </label>
-
-              <FileInput
-                name="medicalReport"
-                value="medicalReport"
-                label="Enviar laudo"
-                accept="application/pdf"
-              />
-            </FileContainer>
-          )}
-
-          {values.deficiencies?.find((values: any) => values === "Outro") && (
-            <InputTextContainer>
-              <LabelText>Qual outra deficiência?</LabelText>
-
-              <InputText
-                name="other_deficiency"
-                placeholder="Digite sua deficiência"
-                width={14.4}
-              />
-            </InputTextContainer>
-          )}
         </Content>
       </ContentContainer>
 
-      <OptionsContainer
+      <IdiomOptionsContainer
         ref={modalRef}
         onClick={closeModal}
         isOpen={isIdiomOptionsOpen}
       >
         <CheckboxContainer>
           {idiomOptions.map((idiomOption, index) => (
-            <InputCheckbox
+            <InputCheckbox 
               key={index}
               inputRightSide
               name="artist.technical.idiom"
@@ -170,25 +109,7 @@ export const Step11: FC = () => {
             />
           ))}
         </CheckboxContainer>
-      </OptionsContainer>
-
-      <OptionsContainer
-        ref={modalRefDeficiencies}
-        onClick={closeModal}
-        isOpen={isDeficiencyOptionsOpen}
-      >
-        <CheckboxContainer>
-          {deficiencyOptions.map((deficiencyOption, index) => (
-            <InputCheckbox
-              key={index}
-              inputRightSide
-              name="deficiencies"
-              value={deficiencyOption.value}
-              label={deficiencyOption.label}
-            />
-          ))}
-        </CheckboxContainer>
-      </OptionsContainer>
+      </IdiomOptionsContainer>
     </Container>
-  );
-};
+  )
+}

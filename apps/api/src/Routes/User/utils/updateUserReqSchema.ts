@@ -4,7 +4,6 @@ import { Residency } from "Entities/Address";
 import { Formation, CNPJ } from "Entities/Technical";
 import { TechFormation } from "Entities/Area";
 import { userContactSchema } from "./userReqSchema"
-import { addOrCreateUserDeficiency } from "./deficienciesReqSchema";
 
 export const userUpdateTechnicalSchema = yup.object().required().shape({
   formation: yup
@@ -86,7 +85,6 @@ export const userUpdateSchema = yup.object({
   password: yup.string().min(6),
   oldpassword: yup.string().min(6),
   artist: userUpdateArtistSchema,
-  deficiencies: yup.array().of(addOrCreateUserDeficiency)
 });
 
 

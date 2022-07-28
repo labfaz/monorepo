@@ -51,4 +51,3 @@ export const getFacebookLink = (linkOrHandle: string) => `https://www.facebook.c
 
 export const profilePictureMaxSize = 15 * 1024 * 1024
 export const curriculumMaxSize = 20 * 1024 * 1024
-export const medicalReportMaxSize = 20 * 1024 * 1024

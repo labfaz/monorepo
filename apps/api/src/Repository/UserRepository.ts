@@ -16,11 +16,6 @@ import Contact from "Entities/Contact";
 import Technical, { Formation } from "Entities/Technical";
 import Area, { TechFormation } from "Entities/Area";
 import Idiom from "Entities/Idiom";
-import { Deficiency } from "Entities/Deficiency";
-
-type NewDeficiencies = {new: string[]};
-type ExistentDeficiencies = {existent: Deficiency[]};
-type ExistentOrNewDeficiencies = Partial<NewDeficiencies> & ExistentDeficiencies;
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
@@ -51,9 +46,7 @@ export class UserRepository extends Repository<User> {
     rawPassword: string,
     artist: ArtistInfo,
     curriculum: UploadedFile | undefined,
-    profilePicture: UploadedFile,
-    userDeficiencies: ExistentOrNewDeficiencies,
-    medicalReport: UploadedFile | undefined
+    profilePicture: UploadedFile
   ) {
     const hashedPwd = await this.generateHash(rawPassword);
 
@@ -169,9 +162,6 @@ export class UserRepository extends Repository<User> {
     createdArtist.photo_url = profilePicture.url;
     if (curriculum)
       createdArtist.curriculum = curriculum.url;
-    
-    if (medicalReport)
-      createdArtist.medicalReport = medicalReport.url;
 
     createdArtist.address = createdAddress;
     createdArtist.contact = createdContact;
@@ -192,24 +182,17 @@ export class UserRepository extends Repository<User> {
     createdUser.isVerified = false;
     createdUser.banned = false;
     createdUser.artist = createdArtist;
-    createdUser.deficiencies = userDeficiencies?.existent || [];
 
     createdArtist.user = createdUser;
-    
-    const savedUser = await createdUser.save()
-    
-    await this.createCustomDeficienciesAndAddInUser(userDeficiencies, savedUser);
 
-    return savedUser;
+    return createdUser.save().then(() => createdUser);
   }
 
   async updateUser(
     user: User,
-    deficiencies: ExistentOrNewDeficiencies,
     artist?: ArtistUpdateInfo,
     password?: string,
     curriculum?: UploadedFile,
-    medicalReport?: UploadedFile,
     profilePicture?: UploadedFile
   ) {
     if (password) {
@@ -404,23 +387,11 @@ export class UserRepository extends Repository<User> {
       user.artist.curriculum = curriculum.url;
     }
 
-    if (medicalReport){
-      user.artist.medicalReport = medicalReport.url;
-    }
-
     if (profilePicture) {
       user.artist.photo_url = profilePicture.url;
     }
 
-    user.deficiencies = user.deficiencies.filter(e => 
-      deficiencies.existent.find(existent => existent.id === e.id)
-    )
-
-    await user.save()
-
-    await this.createCustomDeficienciesAndAddInUser(deficiencies, user);
-
-    return user;
+    return user.save().then(() => user);
   }
 
   findById(id: string) {
@@ -455,26 +426,6 @@ export class UserRepository extends Repository<User> {
 
     const token = sign({ id: user.id }, secret, { expiresIn });
     return token;
-  }
-
-  private async createCustomDeficienciesAndAddInUser(deficiencies: ExistentOrNewDeficiencies, user: User){
-    if(!this.isNewDeficiencies(deficiencies)) return;
-
-    let customDeficiencies = deficiencies.new.map(deficiency =>
-      Deficiency.create({
-        isCustom: true, 
-        name: deficiency, 
-        createdBy: user.id 
-      })
-    )
-      
-    await Deficiency.save(customDeficiencies)
-    customDeficiencies.forEach(e => user.deficiencies.push(e))
-    await user.save()
-  }
-
-  private isNewDeficiencies(deficiencies: ExistentOrNewDeficiencies): deficiencies is Required<ExistentOrNewDeficiencies> {
-    return !!deficiencies?.new && deficiencies.new.length > 0
   }
 }
 
