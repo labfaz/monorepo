@@ -63,7 +63,7 @@ export const BoxContent = styled.div`
 
 export const DeficiencyContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  // grid-template-columns: 1fr 1fr;
 `;
 
 export const InputCheckBox = styled(Field)`
