@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import VLibras from "@djpfs/react-vlibras";  
 
 import { showRoutes } from 'FeatureFlags'
 import GlobalContext from 'Context'
@@ -16,6 +17,7 @@ export const App = () => {
 
   return (
     <>
+      <VLibras />
       <GlobalStyles />
       <GlobalContext>
         { showRoutes
