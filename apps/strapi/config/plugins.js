@@ -1,5 +1,5 @@
 module.exports = ({ env }) => {
-  if (env.bool('DISABLE_AWS')) {
+  if (!env.bool('USE_AWS')) {
     return {
       upload: {
         config: {
