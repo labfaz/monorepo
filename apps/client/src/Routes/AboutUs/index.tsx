@@ -1,11 +1,9 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import { Router } from "Routes";
 
 import usePageview from "Hooks/usePageView";
-
-import LoadingFullPage from "Components/LoadingFullPage";
 
 const AboutUsPage = lazy(() => import("./AboutUsPage"));
 
@@ -18,9 +16,7 @@ export const AboutUs: Router = ({ match }) => {
     <Switch>
       <Route path={path}>
         {() => (
-          <Suspense fallback={<LoadingFullPage />}>
-            <AboutUsPage />
-          </Suspense>
+          <AboutUsPage />
         )}
       </Route>
     </Switch>
