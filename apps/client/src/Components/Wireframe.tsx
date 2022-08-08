@@ -1,5 +1,6 @@
 import React, { FC } from "react"
 import styled from "styled-components"
+import { SkipNavContent } from "@reach/skip-nav"
 
 import FullPage from "Components/FullPage"
 import Footer from "Components/Footer"
@@ -21,13 +22,12 @@ const Content = styled.div`
   justify-content: center;
 `
 
-export const Wireframe: FC = ({
-  children
-}) => {
+export const Wireframe: FC = ({ children }) => {
   return (
     <Container>
       <Header />
       <Content>
+        <SkipNavContent />
         {children}
       </Content>
       <Footer />
