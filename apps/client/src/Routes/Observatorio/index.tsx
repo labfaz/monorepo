@@ -9,7 +9,6 @@ const ObservatorioPage = lazy(() => import('./ObservatorioPage'));
 
 export const Observatorio: Router = ({ match }) => {
   const { path = '/observatorio' } = match ?? {};
-
   usePageview({ name: 'observatorio', path });
 
   return (

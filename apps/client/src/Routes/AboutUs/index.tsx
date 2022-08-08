@@ -9,7 +9,6 @@ const AboutUsPage = lazy(() => import('./AboutUsPage'));
 
 export const AboutUs: Router = ({ match }) => {
   const { path = '/about-us' } = match ?? {};
-
   usePageview({ name: 'sobre', path: path });
 
   return (
