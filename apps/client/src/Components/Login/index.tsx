@@ -77,7 +77,7 @@ export const Login: FC<LoginComponentProps> = ({ buttonType }) => {
       <FormContainer openToastMessage={toastMessage}>
         <div className="formContainer">
           <LeftSide>
-            <Img src={infoData?.imagem?.url ?? Icon} alt="" />
+            <Img src={infoData?.imagem?.url ?? Icon} alt="Imagem da página de login" />
           </LeftSide>
           <RightSide>
             <Formik

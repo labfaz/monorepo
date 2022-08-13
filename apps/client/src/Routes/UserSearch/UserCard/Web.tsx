@@ -49,7 +49,7 @@ export const Web: FC<UserCardData> = ({ data }) => {
         <LabelWrapper>
           {area.map((a) => {
             return (
-              <Label name={a.name} image={getIcon(a.name)} lightMode={true} />
+              <Label name={a.name} alt={a.name} image={getIcon(a.name)} lightMode={true} />
             );
           })}
         </LabelWrapper>

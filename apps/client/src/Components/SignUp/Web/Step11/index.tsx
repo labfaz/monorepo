@@ -12,14 +12,14 @@ import {
 } from './style'
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput'
 
-interface Step10Prosp {
+interface Step11Props {
   profilePicture: string
 
   use_terms: string
 }
 
 export const Step11: FC = () => {
-  const { values, errors } = useFormikContext<Step10Prosp>()
+  const { values, errors } = useFormikContext<Step11Props>()
 
   return (
     <Container>

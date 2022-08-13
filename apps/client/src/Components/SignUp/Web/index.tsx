@@ -362,7 +362,7 @@ function FormikStepper({
     FormikStepProps
   >[]
 
-  const [step, setStep] = useState(4)
+  const [step, setStep] = useState(0)
   const currentChild = childrenArray[step]
 
   const modalRef = useRef<HTMLInputElement | null>(null)

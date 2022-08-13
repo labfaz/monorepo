@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
-import { IoMdCloudDownload } from 'react-icons/io'
-import { MdContactPhone } from 'react-icons/md'
-import { GoGear } from 'react-icons/go'
+import React, { FC } from "react";
+import { IoMdCloudDownload } from "react-icons/io";
+import { MdContactPhone } from "react-icons/md";
+import { GoGear } from "react-icons/go";
 
-import { User } from 'Context/LoggedUserToken'
+import { User } from "Context/LoggedUserToken";
 
-import { FaCheckCircle, FaCheckSquare } from 'react-icons/fa'
+import { FaCheckCircle, FaCheckSquare } from "react-icons/fa";
 
 import {
   Container,
@@ -23,28 +23,28 @@ import {
   UserPhotoContainer,
   UserInformation,
   UserVerified,
-} from './style'
+} from "./style";
 
-import idiom_icon from '../idiomIcon.svg'
-import isVerified from '../isVerified.svg'
-import { getUserName } from 'Utils/userUtils'
-import { SocialMediaLinks } from '../SocialMediaLink'
-import { useHistory } from 'react-router'
-import { showEditProfile } from 'FeatureFlags'
+import idiom_icon from "../idiomIcon.svg";
+import isVerified from "../isVerified.svg";
+import { getUserName } from "Utils/userUtils";
+import { SocialMediaLinks } from "../SocialMediaLink";
+import { useHistory } from "react-router";
+import { showEditProfile } from "FeatureFlags";
 
 interface ProfileProps {
-  data: User
-  PersonalProfilePage: boolean
+  data: User;
+  PersonalProfilePage: boolean;
 }
 
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
 const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
-  const history = useHistory()
+  const history = useHistory();
 
   const handleRedirectToEditProfile = () => {
-    history.push('/edit-profile')
-  }
+    history.push("/edit-profile");
+  };
 
   return (
     <Container>
@@ -134,7 +134,9 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
             <div className="Header">
               <a href="#Sobre">Sobre</a>
               {data.artist.acessibilityResourcesDescription && (
-                <a href="#RecursosDeAcessibilidade">Recursos De Acessibilidade</a>
+                <a href="#RecursosDeAcessibilidade">
+                  Recursos De Acessibilidade
+                </a>
               )}
               <a href="#Formacao">Formação</a>
               <a href="#Certificacoes">Certificações</a>
@@ -219,6 +221,6 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
       </ProfileContentContainer>
     </Container>
   );
-}
+};
 
-export default Mobile
+export default Mobile;

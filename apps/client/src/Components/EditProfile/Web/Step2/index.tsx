@@ -109,7 +109,7 @@ export const Step2: FC = () => {
                 />
               </InputRadioContainer>
 
-              {values.artist.gender === 'outro' && (
+              {values.artist.gender === "outro" && (
                 <div className="textInputContainer">
                   <InputText
                     label="Qual outro gênero?"
@@ -175,23 +175,17 @@ export const Step2: FC = () => {
               <RadioInput
                 name="artist.gender_specific"
                 value="não-binário"
-                label="Não-binário(a)"
-                information="pessoa transexual/transgênero é o(a) indivíduo(a) que se
-                identifica com um gênero diferente daquele que lhe foi atribuído
-                biologicamente no nascimento. Por exemplo: uma pessoa que nasce
-                com características masculinas (do ponto de vista biológico),
-                mas que se sente do gênero feminino; ou o indivíduo que possui
-                características físicas femininas, mas que se identifica como um
-                homem."
+                label="Não-binárie"
+                information="pessoa não binárie é quem não se identifica com 
+                um gênero exclusivamente, podem não se reconhecer com a 
+                identidade de gênero 'homem' ou 'mulher', ou podem
+                se caracterizar como uma mistura entre os dois."
               />
               <InformartionText>
-                pessoa transexual/transgênero é o(a) indivíduo(a) que se
-                identifica com um gênero diferente daquele que lhe foi atribuído
-                biologicamente no nascimento. Por exemplo: uma pessoa que nasce
-                com características masculinas (do ponto de vista biológico),
-                mas que se sente do gênero feminino; ou o indivíduo que possui
-                características físicas femininas, mas que se identifica como um
-                homem.
+              pessoa não binárie é quem não se identifica com 
+              um gênero exclusivamente, podem não se reconhecer com a 
+              identidade de gênero 'homem' ou 'mulher', ou podem
+              se caracterizar como uma mistura entre os dois.
               </InformartionText>
             </InputRadioContainer>
 
@@ -277,11 +271,11 @@ export const Step2: FC = () => {
                 name="artist.sexual_orientation"
                 value="lésbica"
                 label="Homossexualidade Lésbica"
-                information="é a denominação em que uma mulher sente-se atraída afetiva e/ou sexual com outra mulher"
+                information="é a denominação em que uma mulher sente-se atraída afetiva e/ou sexualmente por outra mulher"
               />
               <InformartionText>
                 é a denominação em que uma mulher sente-se atraída afetiva e/ou
-                sexual com outra mulher
+                sexualmente por outra mulher
               </InformartionText>
             </InputRadioContainer>
 
@@ -290,11 +284,11 @@ export const Step2: FC = () => {
                 name="artist.sexual_orientation"
                 value="gay"
                 label="Homossexualidade Gay"
-                information="é a denominação em que um homem sente-se atraído afetivo e/ou sexual por outra homem"
+                information="é a denominação em que um homem sente-se atraído afetiva e/ou sexualmente por outro homem"
               />
               <InformartionText>
-                é a denominação em que um homem sente-se atraído afetivo e/ou
-                sexual por outra homem
+                é a denominação em que um homem sente-se atraído afetiva e/ou
+                sexualmente por outro homem
               </InformartionText>
             </InputRadioContainer>
 
@@ -309,5 +303,5 @@ export const Step2: FC = () => {
         </RightSideContent>
       </RightSide>
     </Container>
-  )
+  );
 }

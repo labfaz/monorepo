@@ -65,7 +65,7 @@ export const Card: FC<CardProps> = ({
   return (
     <Container>
       <Link to={route}>
-        <Image src={banner} alt="" />
+        <Image src={banner} alt="Imagem do banner" />
       </Link>
       <TextWrapper>
         <CardTitle>{name}</CardTitle>
@@ -73,7 +73,7 @@ export const Card: FC<CardProps> = ({
           <CardDescription>{short_description}</CardDescription>
         </DescriptionWrapper>
         <LabelWrapper>
-          <Label name={tag} image={undefined} />
+          <Label name={tag} alt={name} image={undefined} />
         </LabelWrapper>
         <SubscribeWrapper>
           {/* {!!date && */}
