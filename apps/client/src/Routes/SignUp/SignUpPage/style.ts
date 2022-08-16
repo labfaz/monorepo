@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { Mobile } from 'Utils/breakpoints'
+import styled, { css } from 'styled-components';
+import { Mobile } from 'Utils/breakpoints';
 
 export const LoginContainer = styled.div`
   display: flex;
@@ -9,4 +9,4 @@ export const LoginContainer = styled.div`
   ${Mobile(css`
     display: block;
   `)}
-`
+`;

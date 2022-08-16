@@ -1,19 +1,19 @@
-import React, { lazy, Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import { Router } from "Routes";
+import { Router } from 'Routes';
 
-import usePageview from "Hooks/usePageView";
+import usePageview from 'Hooks/usePageView';
 
-import LoadingFullPage from "Components/LoadingFullPage";
+import LoadingFullPage from 'Components/LoadingFullPage';
 
-const ObservatorioPage = lazy(() => import("./ObservatorioPage"));
+const ObservatorioPage = lazy(() => import('./ObservatorioPage'));
 // const PostPage = lazy(() => import("./PostPage"));
 
 export const Observatorio: Router = ({ match }) => {
-  const { path = "/observatorio" } = match ?? {};
+  const { path = '/observatorio' } = match ?? {};
 
-  usePageview({ name: "observatorio", path });
+  usePageview({ name: 'observatorio', path });
 
   return (
     <Switch>

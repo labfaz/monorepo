@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
-import { TextInput } from 'Components/Inputs/TextInput'
-import { RadioInput } from 'Components/Inputs/RadioInput'
-import { FileInput } from 'Components/Inputs/FileInput'
+import { TextInput } from 'Components/Inputs/TextInput';
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { FileInput } from 'Components/Inputs/FileInput';
 
 import {
   Container,
@@ -15,22 +15,22 @@ import {
   SelectContainer,
   FileContainer,
   OtherTechnicalArea,
-} from './style'
+} from './style';
 
 interface ErrorProps {
   artist: {
     technical: {
       areas: {
-        name: string
-        technical_formation: string
-        started_year: string
-      }
-    }
-  }
+        name: string;
+        technical_formation: string;
+        started_year: string;
+      };
+    };
+  };
 }
 
 export const Step5: FC = () => {
-  const { values, errors } = useFormikContext<ErrorProps>()
+  const { values, errors } = useFormikContext<ErrorProps>();
 
   return (
     <Container>
@@ -263,5 +263,5 @@ export const Step5: FC = () => {
         </RightSideContent>
       </RightSide>
     </Container>
-  )
-}
+  );
+};

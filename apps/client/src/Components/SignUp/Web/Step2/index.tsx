@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
 import {
   Container,
@@ -10,20 +10,20 @@ import {
   InputRadioContainer,
   InformartionText,
   InputText,
-} from './style'
-import { RadioInput } from 'Components/Inputs/RadioInput'
+} from './style';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
 interface ErrorProps {
   artist: {
-    gender: string
-    sexual_orientation: string
-    gender_specific: string
-    race: string
-  }
+    gender: string;
+    sexual_orientation: string;
+    gender_specific: string;
+    race: string;
+  };
 }
 
 export const Step2: FC = () => {
-  const { values, errors } = useFormikContext<ErrorProps>()
+  const { values, errors } = useFormikContext<ErrorProps>();
 
   return (
     <Container>
@@ -309,5 +309,5 @@ export const Step2: FC = () => {
         </RightSideContent>
       </RightSide>
     </Container>
-  )
-}
+  );
+};

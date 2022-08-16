@@ -1,17 +1,17 @@
-import { TextInput } from 'Components/Inputs/TextInput'
-import { useFormikContext } from 'formik'
-import React, { FC } from 'react'
-import { OnlyNumbers } from 'Utils/inputRegex'
+import { TextInput } from 'Components/Inputs/TextInput';
+import { useFormikContext } from 'formik';
+import React, { FC } from 'react';
+import { OnlyNumbers } from 'Utils/inputRegex';
 
 import {
   Container,
   ContentContainer,
   Content,
   InputTextContainer,
-} from './style'
+} from './style';
 
 export const Step10: FC = () => {
-  const { setFieldValue } = useFormikContext()
+  const { setFieldValue } = useFormikContext();
 
   return (
     <Container>
@@ -39,7 +39,10 @@ export const Step10: FC = () => {
                 placeholder={`Número`}
                 width={5.55}
                 onChange={(ev: any) =>
-                  setFieldValue('artist.address.number', OnlyNumbers(ev.target.value))
+                  setFieldValue(
+                    'artist.address.number',
+                    OnlyNumbers(ev.target.value)
+                  )
                 }
                 // obrigatory
               />
@@ -77,5 +80,5 @@ export const Step10: FC = () => {
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

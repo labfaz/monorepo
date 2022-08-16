@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledTitle = styled.h1`
   margin: 0;
@@ -15,11 +15,11 @@ export const StyledTitle = styled.h1`
   &.level-3 {
     font-size: var(--font-size-title-small);
   }
-  
+
   &.level-4 {
     font-size: var(--font-size-default);
   }
-  
+
   &.level-5 {
     font-size: var(--font-size-large);
   }
@@ -27,4 +27,4 @@ export const StyledTitle = styled.h1`
   &.level-6 {
     font-size: var(--font-size-medium);
   }
-`
+`;

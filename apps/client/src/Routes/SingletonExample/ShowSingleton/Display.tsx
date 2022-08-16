@@ -1,25 +1,20 @@
-import React, { FC } from "react"
+import React, { FC } from 'react';
 
-import { SingletonExample } from "Api/SingletonExample"
+import { SingletonExample } from 'Api/SingletonExample';
 
 export interface DisplayProps {
-  data: SingletonExample
+  data: SingletonExample;
 }
 
-export const Display: FC<DisplayProps> = ({
-  data
-}) => {
-  const { text, image } = data
+export const Display: FC<DisplayProps> = ({ data }) => {
+  const { text, image } = data;
   return (
     <div>
       <p>{text}</p>
 
-      <img
-        src={image.url}
-        alt={image.alternativeText}
-      />
+      <img src={image.url} alt={image.alternativeText} />
     </div>
-  )
-}
+  );
+};
 
-export default Display
+export default Display;

@@ -1,9 +1,13 @@
-import styled, { css } from 'styled-components'
-import { Mobile, MobileSmall, DesktopSmall, MobileLarge, } from 'Utils/breakpoints'
-
+import styled, { css } from 'styled-components';
+import {
+  Mobile,
+  MobileSmall,
+  DesktopSmall,
+  MobileLarge,
+} from 'Utils/breakpoints';
 
 interface ImageCircleProps {
-  image: string,
+  image: string;
 }
 
 export const StaffGrid = styled.div`
@@ -11,7 +15,7 @@ export const StaffGrid = styled.div`
   grid-gap: 1.6rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, auto));
   padding: 0 0.8rem;
-  
+
   justify-items: center;
 
   max-width: 90vw;
@@ -57,7 +61,7 @@ export const StaffHeader = styled.div`
       max-width: 293px;
     }
   `)}
-`
+`;
 
 export const Card = styled.div`
   display: flex;
@@ -80,7 +84,7 @@ export const Card = styled.div`
     max-height: 100%;
     min-width: 81%;
     min-height: 247px;
-    `)}
+  `)}
 
 
   ${MobileLarge(css`
@@ -98,9 +102,9 @@ export const Card = styled.div`
   `)}
 
   ${DesktopSmall(css`
-    padding-left: calc((100% - 560px)/2)
+    padding-left: calc((100% - 560px) / 2);
   `)}
-`
+`;
 
 export const CardThumb = styled.div`
   display: flex;
@@ -137,18 +141,16 @@ export const CardThumb = styled.div`
     max-width: 80%;
     min-height: 124px;
 
-
     p {
       font-size: var(--font-size-short);
       padding-top: 0.28rem;
     }
-
   `)}
 
 
   ${DesktopSmall(css`
-      max-width: 75%;
-      max-height: 130px;
+    max-width: 75%;
+    max-height: 130px;
   `)}
 
   ${MobileSmall(css`
@@ -194,7 +196,6 @@ export const CardBody = styled.div`
       padding-top: 2.5%;
       font-size: var(--font-size-short);
     }
-    
   `)}
 
   ${DesktopSmall(css`
@@ -227,7 +228,7 @@ export const CardBody = styled.div`
       }
 
       > p:last-child {
-        padding-bottom: .5rem;
+        padding-bottom: 0.5rem;
       }
     `)}
 
@@ -245,8 +246,8 @@ export const CardBody = styled.div`
       padding-top: 0;
     }
     > p:last-child {
-        padding-bottom: .5rem;
-      }
+      padding-bottom: 0.5rem;
+    }
   `)}
 `;
 
@@ -257,7 +258,7 @@ export const ImageCircle = styled.div<ImageCircleProps>`
   min-height: 126px;
   border-radius: 50%;
 
-  background-image: url(${props => props.image});
+  background-image: url(${(props) => props.image});
   background-size: cover;
   background-position: center;
 
@@ -276,8 +277,7 @@ export const ImageCircle = styled.div<ImageCircleProps>`
     min-width: 110px;
     min-height: 110px;
   `)}
-
-`
+`;
 
 export const Circle = styled.div`
   max-width: 126px;
@@ -299,7 +299,7 @@ export const Circle = styled.div`
     max-width: 91px;
     max-height: 91px;
     min-width: 91px;
-    min-height: 91px;    
+    min-height: 91px;
     top: 7px;
     right: 90px;
   `)}
@@ -317,4 +317,4 @@ export const Circle = styled.div`
     top: 7px;
     right: 88px;
   `)}
-`
+`;

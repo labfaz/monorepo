@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { Text } from 'Components/Typography/Text'
-import { DesktopSmall } from 'Utils/breakpoints'
+import { Text } from 'Components/Typography/Text';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const NewsletterContainer = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export const NewsletterContainer = styled.div`
   ${DesktopSmall(css`
     height: 5.5rem;
   `)}
-`
+`;
 
 export const Title = styled(Text)`
   && {
@@ -24,12 +24,12 @@ export const Title = styled(Text)`
       font-size: var(--font-size-short);
     `)}
   }
-`
+`;
 
 export const FormContainer = styled.div`
   display: flex;
   background-color: var(--color-text-yellow);
-`
+`;
 
 export const Input = styled.input`
   max-width: 15rem;
@@ -56,7 +56,7 @@ export const Input = styled.input`
     font-size: var(--font-size-short);
     max-width: 8rem;
   `)}
-`
+`;
 
 export const Button = styled.button`
   background-color: var(--backgound-black-gray);
@@ -66,9 +66,9 @@ export const Button = styled.button`
   font-size: var(--font-size-medium);
   padding: 0 1rem;
   cursor: pointer;
-  
+
   ${DesktopSmall(css`
     font-size: var(--font-size-short);
     padding: 0 0.5rem;
   `)}
-`
+`;

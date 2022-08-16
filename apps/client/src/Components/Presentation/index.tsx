@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import Display from "./Display";
+import Display from './Display';
 
 export interface PresentationProps {
   title: string;

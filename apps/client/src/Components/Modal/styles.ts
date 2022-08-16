@@ -1,9 +1,13 @@
-import styled, { css } from "styled-components"
-import { MobileSmall, Mobile, DesktopSmall, DesktopLarge } from "Utils/breakpoints"
-
+import styled, { css } from 'styled-components';
+import {
+  MobileSmall,
+  Mobile,
+  DesktopSmall,
+  DesktopLarge,
+} from 'Utils/breakpoints';
 
 interface ModalProps {
-  isVisible: boolean
+  isVisible: boolean;
 }
 
 export const ModalDiv = styled.div`
@@ -78,14 +82,19 @@ export const ModalDiv = styled.div`
       margin-top: 0;
     }
   `)}
-`
+`;
 
 export const ModalLine = styled.div`
   min-height: 2px;
   min-width: 80%;
-  box-shadow: 0px 3px 5px #0B0B0B;
+  box-shadow: 0px 3px 5px #0b0b0b;
   margin-bottom: 2.3rem;
-  background: linear-gradient(to right, rgba(40, 40, 40, 0.1), rgba(40, 40, 40, 1), rgba(40, 40, 40, 0.1) );
+  background: linear-gradient(
+    to right,
+    rgba(40, 40, 40, 0.1),
+    rgba(40, 40, 40, 1),
+    rgba(40, 40, 40, 0.1)
+  );
 `;
 
 export const ModalContent = styled.div`
@@ -160,13 +169,10 @@ export const ModalContent = styled.div`
   }
 
   ${MobileSmall(css`
-
-
     p {
       font-size: var(--font-size-short);
       max-width: 80%;
     }
-
 
     button {
       max-width: 80%;
@@ -211,7 +217,6 @@ export const ModalContent = styled.div`
       max-width: 80%;
     }
 
-
     div {
       margin-top: 1em;
     }
@@ -234,14 +239,12 @@ export const ModalContent = styled.div`
     div {
       margin-top: 1em;
     }
-
   `)}
 
-`
-
+`;
 
 export const Container = styled.div<ModalProps>`
-  display: ${props => props.isVisible ? "grid" : "none"};
+  display: ${(props) => (props.isVisible ? 'grid' : 'none')};
   position: fixed;
   top: 10vh;
   left: 0;
@@ -252,9 +255,7 @@ export const Container = styled.div<ModalProps>`
   max-height: 85vh;
   background-color: rgba(255, 255, 255, 0);
   backdrop-filter: blur(15px);
-
-`
-
+`;
 
 export const Button = styled.button`
   max-width: 150px;
@@ -270,4 +271,4 @@ export const Button = styled.button`
   background-color: rgba(252, 0, 97, 1);
 
   cursor: pointer;
-`
+`;

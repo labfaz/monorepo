@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components"
-import { DesktopSmall, Mobile } from "Utils/breakpoints"
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 interface ContainerProps {
-  validationError: boolean
+  validationError: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -23,7 +23,7 @@ export const Container = styled.div<ContainerProps>`
     z-index: 2;
 
     background-color: #111010;
-    
+
     ${DesktopSmall(css`
       padding: 0px 9px;
       left: 0.8rem;
@@ -36,7 +36,6 @@ export const Container = styled.div<ContainerProps>`
       left: 0.4rem;
       top: -60%;
       background-color: #000000;
-
     `)}
   }
 
@@ -51,7 +50,6 @@ export const Container = styled.div<ContainerProps>`
     height: fit-content;
 
     span {
-      
       display: inline;
 
       position: absolute;
@@ -100,9 +98,9 @@ export const Container = styled.div<ContainerProps>`
     .obrigatory {
       display: inline;
       color: red;
-      
+
       font-size: var(--font-size-default);
-    
+
       ${DesktopSmall(css`
         font-size: var(--font-size-short);
       `)}
@@ -114,34 +112,30 @@ export const Container = styled.div<ContainerProps>`
     height: 2.55rem;
 
     font-size: var(--font-size-medium);
-    
+
     background-color: #090909;
     color: rgba(255, 255, 255, 0.25);
-    border: ${({validationError}) => validationError ? '1px solid red' : '1px solid rgba(250, 250, 250, 0.7)' };
-
+    border: ${({ validationError }) =>
+      validationError ? '1px solid red' : '1px solid rgba(250, 250, 250, 0.7)'};
 
     ${DesktopSmall(css`
       width: 14.48rem;
       height: 1.8rem;
       font-size: var(--font-size-short);
       margin-bottom: 0.5rem;
-
     `)}
 
-    
-    
     padding: 0.7rem 0.2rem 0.7rem 0.7rem;
 
     &::placeholder {
-      color: ${({ validationError }) => validationError ? '#090909' : 'rgba(255, 255, 255, 0.25)'};
+      color: ${({ validationError }) =>
+        validationError ? '#090909' : 'rgba(255, 255, 255, 0.25)'};
       font-weight: 600;
       font-size: var(--font-size-medium);
 
       ${DesktopSmall(css`
         font-size: var(--font-size-small);
-    	`)}
-
+      `)}
     }
   }
-
-`
+`;

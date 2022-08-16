@@ -1,9 +1,9 @@
-import React, { FC } from "react"
-import styled from "styled-components"
+import React, { FC } from 'react';
+import styled from 'styled-components';
 
-import FullPage from "Components/FullPage"
-import Footer from "Components/Footer"
-import Header from "Components/Header"
+import FullPage from 'Components/FullPage';
+import Footer from 'Components/Footer';
+import Header from 'Components/Header';
 
 const Container = styled(FullPage)`
   display: flex;
@@ -11,7 +11,7 @@ const Container = styled(FullPage)`
 
   --background-color: var(--background-black);
   background-color: var(--background-color);
-`
+`;
 
 const Content = styled.div`
   flex-grow: 1;
@@ -19,20 +19,16 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-`
+`;
 
-export const Wireframe: FC = ({
-  children
-}) => {
+export const Wireframe: FC = ({ children }) => {
   return (
     <Container>
       <Header />
-      <Content>
-        {children}
-      </Content>
+      <Content>{children}</Content>
       <Footer />
     </Container>
-  )
-}
+  );
+};
 
-export default Wireframe
+export default Wireframe;

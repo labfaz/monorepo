@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 import {
   Container,
   CardContainer,
@@ -15,9 +15,9 @@ import {
   ButtonLayer,
   Button,
   ButtonText,
-} from "./styles";
-import { CoursePresentation } from "Api/CoursePresentation";
-import { format } from "date-fns";
+} from './styles';
+import { CoursePresentation } from 'Api/CoursePresentation';
+import { format } from 'date-fns';
 
 interface DisplayProps {
   courses: CoursePresentation[];
@@ -55,20 +55,20 @@ const Card: FC<DisplayProps> = ({ courses, isMobile }): JSX.Element => {
                   <BottomWrapper>
                     <DateWrapper>
                       <DateText>
-                        {item.finished ? "Encerrado em" : "Aberto até"}
+                        {item.finished ? 'Encerrado em' : 'Aberto até'}
                       </DateText>
                       <DateText>
-                        {format(item.finish_date, "DD-MM-YYYY")
-                          .replace("-", "/")
-                          .replace("-", "/")}
+                        {format(item.finish_date, 'DD-MM-YYYY')
+                          .replace('-', '/')
+                          .replace('-', '/')}
                       </DateText>
                     </DateWrapper>
                     <ButtonWrapper>
                       <ButtonLayer
                         colors={
                           item.finished
-                            ? "var(--background-pink)"
-                            : "var(--background-black)"
+                            ? 'var(--background-pink)'
+                            : 'var(--background-black)'
                         }
                         border="none"
                       />
@@ -76,24 +76,24 @@ const Card: FC<DisplayProps> = ({ courses, isMobile }): JSX.Element => {
                         href=""
                         colors={
                           item.finished
-                            ? "var(--background-pink)"
-                            : "var(--background-yellow)"
+                            ? 'var(--background-pink)'
+                            : 'var(--background-yellow)'
                         }
                         border={
                           item.finished
-                            ? "var(--background-black)"
-                            : "var(--background-pink)"
+                            ? 'var(--background-black)'
+                            : 'var(--background-pink)'
                         }
                       >
                         <ButtonText
                           colors={
                             item.finished
-                              ? "var(--color-text-black)"
-                              : "var(--background-pink)"
+                              ? 'var(--color-text-black)'
+                              : 'var(--background-pink)'
                           }
                           border="none"
                         >
-                          {item.finished ? "saiba mais" : "inscreva-se"}
+                          {item.finished ? 'saiba mais' : 'inscreva-se'}
                         </ButtonText>
                       </Button>
                     </ButtonWrapper>

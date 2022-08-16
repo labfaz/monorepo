@@ -1,36 +1,43 @@
-import React, { FC, lazy, Suspense } from 'react'
+import React, { FC, lazy, Suspense } from 'react';
 import {
   BrowserRouter as BaseRouter,
   match,
   Route,
   Switch,
-} from 'react-router-dom'
+} from 'react-router-dom';
 
-import LoadingFullPage from 'Components/LoadingFullPage'
-import { showAboutUs, showBlog, showCourses, showEditProfile, showForgotPassword, showObservatorio } from 'FeatureFlags'
+import LoadingFullPage from 'Components/LoadingFullPage';
+import {
+  showAboutUs,
+  showBlog,
+  showCourses,
+  showEditProfile,
+  showForgotPassword,
+  showObservatorio,
+} from 'FeatureFlags';
 
-const Home = lazy(() => import('./Home'))
+const Home = lazy(() => import('./Home'));
 // const PeopleExample = lazy(() => import("./PeopleExample"))
 // const SingletonExample = lazy(() => import("./SingletonExample"))
-const Blog = lazy(() => import("./Blog"))
-const Observatorio = lazy(() => import('./Observatorio'))
-const AboutUs = lazy(() => import("./AboutUs"))
-const Classes = lazy(() => import("./Classes"))
-const NotFound = lazy(() => import("../Pages/NotFound"))
-const Register = lazy(() => import('./SignUp'))
-const Login = lazy(() => import('./Login'))
-const EmailConfirmation = lazy(() => import('./ConfirmEmail'))
-const Profile = lazy(() => import('./Profile'))
-const Recover = lazy(() => import("./PasswordRecover"));
-const EditProfile = lazy(() => import('./EditProfile'))
-const UserSearch = lazy(() => import("./UserSearch"))
+const Blog = lazy(() => import('./Blog'));
+const Observatorio = lazy(() => import('./Observatorio'));
+const AboutUs = lazy(() => import('./AboutUs'));
+const Classes = lazy(() => import('./Classes'));
+const NotFound = lazy(() => import('../Pages/NotFound'));
+const Register = lazy(() => import('./SignUp'));
+const Login = lazy(() => import('./Login'));
+const EmailConfirmation = lazy(() => import('./ConfirmEmail'));
+const Profile = lazy(() => import('./Profile'));
+const Recover = lazy(() => import('./PasswordRecover'));
+const EditProfile = lazy(() => import('./EditProfile'));
+const UserSearch = lazy(() => import('./UserSearch'));
 
 export type RouterProps<MatchParams = {}> = {
-  history?: History
-  location?: Location
-  match: match<MatchParams> | null
-}
-export type Router<T = {}> = FC<RouterProps<T>>
+  history?: History;
+  location?: Location;
+  match: match<MatchParams> | null;
+};
+export type Router<T = {}> = FC<RouterProps<T>>;
 
 const Routes: FC = () => {
   return (
@@ -77,15 +84,15 @@ const Routes: FC = () => {
         )}
 
         {/* classes router */}
-        { showCourses &&
-        <Route path={["/classes"]}>
-          {({ match }) => (
-            <Suspense fallback={<LoadingFullPage />}>
-              <Classes match={match} />
-            </Suspense>
-          )}
-        </Route>
-        }
+        {showCourses && (
+          <Route path={['/classes']}>
+            {({ match }) => (
+              <Suspense fallback={<LoadingFullPage />}>
+                <Classes match={match} />
+              </Suspense>
+            )}
+          </Route>
+        )}
 
         {/* strapi collection example router */}
         {/* <Route path="/people-example">
@@ -117,14 +124,16 @@ const Routes: FC = () => {
           </Route>
         )}
 
-        <Route path={["/sign-up", "/signup", "/SignUp", "/cadastro", "/cadastre-se"]}>
+        <Route
+          path={['/sign-up', '/signup', '/SignUp', '/cadastro', '/cadastre-se']}
+        >
           {({ match }) => (
             <Suspense fallback={<LoadingFullPage />}>
               <Register match={match} />
             </Suspense>
           )}
         </Route>
-        
+
         <Route path={['/perfil', '/profile']}>
           {({ match }) => (
             <Suspense fallback={<LoadingFullPage />}>
@@ -133,18 +142,20 @@ const Routes: FC = () => {
           )}
         </Route>
 
-        { showEditProfile && <Route path={['/edit-profile', '/editar-perfil']}>
-          {({ match }) => (
-            <Suspense fallback={<LoadingFullPage />}>
-              <EditProfile match={match} />
-          </Suspense>
-          )}
-        </Route>}
+        {showEditProfile && (
+          <Route path={['/edit-profile', '/editar-perfil']}>
+            {({ match }) => (
+              <Suspense fallback={<LoadingFullPage />}>
+                <EditProfile match={match} />
+              </Suspense>
+            )}
+          </Route>
+        )}
 
-        <Route path={["/login", "/SignIn", "/logar", "/entrar"]}>
+        <Route path={['/login', '/SignIn', '/logar', '/entrar']}>
           {({ match }) => (
             <Suspense fallback={<LoadingFullPage />}>
-                <Login match={match} />
+              <Login match={match} />
             </Suspense>
           )}
         </Route>
@@ -159,16 +170,33 @@ const Routes: FC = () => {
         </Route>
 
         {/* recover router */}
-        { showForgotPassword && <Route path={["/recover", "/forgot-password", "/password-reset","/criar-nova-senha"]}>
-          {({ match }) => (
-            <Suspense fallback={<LoadingFullPage />}>
-              <Recover match={match} />
-            </Suspense>
-          )}
-        </Route>}
+        {showForgotPassword && (
+          <Route
+            path={[
+              '/recover',
+              '/forgot-password',
+              '/password-reset',
+              '/criar-nova-senha',
+            ]}
+          >
+            {({ match }) => (
+              <Suspense fallback={<LoadingFullPage />}>
+                <Recover match={match} />
+              </Suspense>
+            )}
+          </Route>
+        )}
 
         {/* user search */}
-        <Route path={["/banco-profissionais", "/user-search", "/busca-usuários", "/professionals", "/busca-profissionais"]}>
+        <Route
+          path={[
+            '/banco-profissionais',
+            '/user-search',
+            '/busca-usuários',
+            '/professionals',
+            '/busca-profissionais',
+          ]}
+        >
           {({ match }) => (
             <Suspense fallback={<LoadingFullPage />}>
               <UserSearch match={match} />
@@ -182,10 +210,9 @@ const Routes: FC = () => {
             <NotFound />
           </Suspense>
         </Route>
-
       </Switch>
     </BaseRouter>
-  )
-}
+  );
+};
 
-export default Routes
+export default Routes;

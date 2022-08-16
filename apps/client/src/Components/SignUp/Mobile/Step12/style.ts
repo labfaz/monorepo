@@ -1,17 +1,17 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { Text } from 'Components/Typography/Text'
-import { TextInput } from 'Components/Inputs/TextInput'
+import { Text } from 'Components/Typography/Text';
+import { TextInput } from 'Components/Inputs/TextInput';
 
 interface ContentProps {
-  isOpen: boolean
+  isOpen: boolean;
 }
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -23,11 +23,11 @@ export const ContentContainer = styled.div`
   width: 100vw;
 
   scroll-snap-align: start;
-`
+`;
 
 export const Content = styled.div`
   margin-top: 2rem;
-`
+`;
 
 export const LabelText = styled(Text)`
   margin-top: 1rem;
@@ -49,7 +49,7 @@ export const LabelText = styled(Text)`
     left: 0;
     top: 3rem;
   }
-`
+`;
 
 export const InputRadioContainer = styled.div`
   margin-bottom: 0.5rem;
@@ -58,10 +58,9 @@ export const InputRadioContainer = styled.div`
     font-size: vaR(--font-size-medium);
     color: #fafafa;
   }
-`
+`;
 
 export const SelectContainer = styled.label`
-
   width: 13.3rem;
   display: block;
   margin-bottom: 1rem;
@@ -72,13 +71,13 @@ export const SelectContainer = styled.label`
     font-weight: 600;
     font-size: var(--font-size-large);
     display: block;
-    
+
     line-height: 1rem;
 
     margin-bottom: 1.2rem;
     color: #fafafa;
   }
-`
+`;
 
 export const InputSelect = styled.div`
   display: flex;
@@ -93,14 +92,14 @@ export const InputSelect = styled.div`
   border: 0;
   padding-left: 0.83rem;
   padding-right: 0.83rem;
-  color: #C4C4C4;
+  color: #c4c4c4;
 
   font-size: var(--font-size-medium);
 
   background-color: #090909;
 
   border: 1px solid rgba(250, 250, 250, 0.7);
-  
+
   &:hover {
     cursor: pointer;
   }
@@ -116,10 +115,10 @@ export const InputSelect = styled.div`
 
     pointer-events: none;
   }
-`
+`;
 
 export const IdiomOptionsContainer = styled.div<ContentProps>`
-  display: ${(({isOpen}) => isOpen ? 'flex' : 'none')};
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 
   position: absolute;
 
@@ -131,19 +130,19 @@ export const IdiomOptionsContainer = styled.div<ContentProps>`
 
   z-index: 10;
 
-  background: rgba(196, 196, 196, 0.0);
+  background: rgba(196, 196, 196, 0);
   backdrop-filter: blur(1.5px);
 
   touch-action: none;
 
   top: 0;
-` 
+`;
 
 export const CheckboxContainer = styled.div`
   width: 13.8rem;
   height: 24.7rem;
 
-  background-color:  #000000;
+  background-color: #000000;
 
   display: flex;
   flex-direction: column;
@@ -159,7 +158,7 @@ export const CheckboxContainer = styled.div`
     flex-direction: row-reverse;
     align-items: center;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 
     padding-bottom: 0.66rem;
     padding-top: 0.66rem;
@@ -181,8 +180,8 @@ export const CheckboxContainer = styled.div`
     margin-left: 0;
     font-size: var(--font-size-small);
   }
-`
+`;
 
 export const OtherTechnicalArea = styled(TextInput)`
   margin: 2rem 0;
-`
+`;

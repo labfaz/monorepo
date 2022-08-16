@@ -1,58 +1,58 @@
-import React from "react";
-import render from "Utils/render";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import render from 'Utils/render';
+import { BrowserRouter } from 'react-router-dom';
 
-import HomePageDisplay from "./Display";
-import { HomepageBannerInfo } from "Api/HomepageBannerInfo";
-import { HomePartners } from "Api/HomePartners";
-import { Homepage } from "Api/Homepage";
+import HomePageDisplay from './Display';
+import { HomepageBannerInfo } from 'Api/HomepageBannerInfo';
+import { HomePartners } from 'Api/HomePartners';
+import { Homepage } from 'Api/Homepage';
 // import { CoursePresentation } from "Api/CoursePresentation";
 
 const mockedData: HomepageBannerInfo = {
-  title: "LABFAZ",
+  title: 'LABFAZ',
   subtitle:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ligula nibh, nec interdum nunc maximus at.",
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ligula nibh, nec interdum nunc maximus at.',
   image: {
     url:
-      "https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg",
-    alternativeText: "Homepage Banner Image",
-    caption: "string",
+      'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
+    alternativeText: 'Homepage Banner Image',
+    caption: 'string',
     width: 20,
     height: 20,
-    ext: "jpeg",
+    ext: 'jpeg',
   },
 };
 
-const mockedTitle: string = "Exemplo";
-const mockedSubtitle: string = "Exemplo";
-const mockedVideo: string = "https://www.youtube.com/watch?v=UrUJyKsLQeU";
+const mockedTitle: string = 'Exemplo';
+const mockedSubtitle: string = 'Exemplo';
+const mockedVideo: string = 'https://www.youtube.com/watch?v=UrUJyKsLQeU';
 const mockedPartners: HomePartners[] = [
   {
-    name: "Partner1",
+    name: 'Partner1',
     logo: [
       {
         url:
-          "https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png",
+          'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
       },
     ],
   },
   {
-    name: "Partner2",
+    name: 'Partner2',
     logo: [
       {
         url:
-          "https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png",
+          'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
       },
     ],
   },
 ];
 
 const mockedCoursesTexts: Homepage = {
-  course_presentation_title: "Lorem Ipsum",
+  course_presentation_title: 'Lorem Ipsum',
   course_presentation_first_text:
-    "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus.",
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus.',
   course_presentation_second_text:
-    "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus.",
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus.',
 };
 
 // const mockedCoursesData: CoursePresentation[] = [
@@ -75,8 +75,8 @@ const mockedCoursesTexts: Homepage = {
 //   },
 // ];
 
-describe("Home Page", () => {
-  it("renders without exploding", () => {
+describe('Home Page', () => {
+  it('renders without exploding', () => {
     expect(() =>
       render(
         <BrowserRouter>
@@ -94,7 +94,7 @@ describe("Home Page", () => {
     ).not.toThrow();
   });
 
-  it("displays the data message", () => {
+  it('displays the data message', () => {
     const { getAllByRole } = render(
       <BrowserRouter>
         <HomePageDisplay
@@ -110,11 +110,11 @@ describe("Home Page", () => {
     );
 
     // expect retrieved data to be displayed
-    expect(getAllByRole("heading", { level: 1 })[0]).toHaveTextContent(
-      "LABFAZ"
+    expect(getAllByRole('heading', { level: 1 })[0]).toHaveTextContent(
+      'LABFAZ'
     );
-    expect(getAllByRole("heading", { level: 2 })[0]).toHaveTextContent(
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ligula nibh, nec interdum nunc maximus at."
+    expect(getAllByRole('heading', { level: 2 })[0]).toHaveTextContent(
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ligula nibh, nec interdum nunc maximus at.'
     );
   });
 });

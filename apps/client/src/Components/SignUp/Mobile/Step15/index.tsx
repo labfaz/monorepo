@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
-import { RadioInput } from 'Components/Inputs/RadioInput'
+import { RadioInput } from 'Components/Inputs/RadioInput';
 // import { TextInput } from 'Components/Inputs/TextInput'
-import { OnlyNumbers } from 'Utils/inputRegex'
+import { OnlyNumbers } from 'Utils/inputRegex';
 
 import {
   Container,
@@ -15,18 +15,18 @@ import {
   CnpjContainer,
   CpnjContent,
   InputText,
-} from './style'
+} from './style';
 
 interface Step15Props {
   artist: {
     technical: {
-      is_cnpj: string
-    }
-  }
+      is_cnpj: string;
+    };
+  };
 }
 
 export const Step15: FC = () => {
-  const { values, setFieldValue, errors } = useFormikContext<Step15Props>()
+  const { values, setFieldValue, errors } = useFormikContext<Step15Props>();
 
   return (
     <Container>
@@ -150,5 +150,5 @@ export const Step15: FC = () => {
         </CnpjContainer>
       )}
     </Container>
-  )
-}
+  );
+};

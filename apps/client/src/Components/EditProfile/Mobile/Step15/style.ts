@@ -1,12 +1,12 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { Text } from 'Components/Typography/Text'
-import { TextInput } from 'Components/Inputs/TextInput'
+import { Text } from 'Components/Typography/Text';
+import { TextInput } from 'Components/Inputs/TextInput';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -15,13 +15,12 @@ export const ContentContainer = styled.div`
 
   position: relative;
 
-
   width: 100vw;
 
   scroll-snap-align: start;
 
   svg {
-    color: #A3A3A3;
+    color: #a3a3a3;
     position: absolute;
     bottom: 10rem;
 
@@ -35,22 +34,21 @@ export const ContentContainer = styled.div`
   }
 
   @keyframes MoveUpDown {
-    0%, 100% {
+    0%,
+    100% {
       bottom: 0;
     }
     50% {
       bottom: 20px;
     }
   }
-`
-
-
+`;
 
 export const Content = styled.div`
   margin-top: 6.02rem;
-  
+
   width: 13.3rem;
-`
+`;
 
 export const LabelText = styled(Text)`
   margin-bottom: 0.8rem;
@@ -73,29 +71,28 @@ export const LabelText = styled(Text)`
     display: inline;
     color: red;
   }
-`
+`;
 
 export const InputRadioContainer = styled.div`
   margin-bottom: 0.5rem;
-`
+`;
 
 export const TextContainer = styled.div`
   margin-top: 3.5rem;
   margin-bottom: 2rem;
-
-`
+`;
 
 export const CnpjTextContainer = styled.div`
   margin-top: 1.79rem;
-`
+`;
 
 export const CnpjContainer = styled.div`
   scroll-snap-align: start;
-`
+`;
 
 export const CpnjContent = styled.div`
   margin-top: 5rem;
   width: 13.3rem;
-`
+`;
 
-export const InputText = styled(TextInput)``
+export const InputText = styled(TextInput)``;

@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
-import { CheckboxInput } from 'Components/Inputs/CheckboxInput'
-import { TextInput } from 'Components/Inputs/TextInput'
-import { RadioInput } from 'Components/Inputs/RadioInput'
+import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
-import { formationOptions, idiomOptions } from 'Utils/selectOptionsData'
+import { formationOptions, idiomOptions } from 'Utils/selectOptionsData';
 
 import {
   Container,
@@ -17,20 +17,19 @@ import {
   InputRadioContainer,
   InputCheckBoxContainer,
   TextInputContainer,
-} from './style'
-
+} from './style';
 
 interface ErrorProps {
   artist: {
     technical: {
-      formation: string
-      idiom: string[]
-    }
-  }
+      formation: string;
+      idiom: string[];
+    };
+  };
 }
 
 export const Step4: FC = () => {
-  const { values, errors } = useFormikContext<ErrorProps>()
+  const { values, errors } = useFormikContext<ErrorProps>();
 
   return (
     <Container>
@@ -38,13 +37,10 @@ export const Step4: FC = () => {
         <LeftSideContent>
           <LabelText>
             Você domina outro idioma além do português?
-
             <p className="obrigatory"> *</p>
-            
             {errors.artist?.technical?.idiom && (
               <span className="errorMessage">Campo obrigatório</span>
             )}
-
           </LabelText>
           {idiomOptions.map((idiomOption, index) => (
             <InputCheckBoxContainer key={index}>
@@ -63,13 +59,10 @@ export const Step4: FC = () => {
         <RightSideContent>
           <LabelText>
             Formação escolar
-
             <p className="obrigatory"> *</p>
-
             {errors.artist?.technical?.formation && (
               <span className="errorMessage">Campo obrigatório</span>
             )}
-          
           </LabelText>
 
           {formationOptions.map((formationOption, index) => (
@@ -94,5 +87,5 @@ export const Step4: FC = () => {
         </RightSideContent>
       </RightSide>
     </Container>
-  )
-}
+  );
+};

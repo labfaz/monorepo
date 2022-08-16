@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import Display from "./Display";
+import Display from './Display';
 
 // import Error from "Pages/Error";
 // import LoadingFullPage from "Components/LoadingFullPage";
@@ -29,7 +29,7 @@ export const ObservatorioPage: FC = () => {
   //   return <Display />
   // }
 
-  return <Display />
+  return <Display />;
 };
 
 export default ObservatorioPage;

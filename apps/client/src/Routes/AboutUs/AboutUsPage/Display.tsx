@@ -1,16 +1,16 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import { AboutUsData, TeamsData } from "Api/AboutUs";
-import { AboutUsBannerInfo } from "Api/AboutUsBannerInfo";
+import { AboutUsData, TeamsData } from 'Api/AboutUs';
+import { AboutUsBannerInfo } from 'Api/AboutUsBannerInfo';
 
-import Wireframe from "Components/Wireframe";
-import Banner from "Components/Banner";
+import Wireframe from 'Components/Wireframe';
+import Banner from 'Components/Banner';
 
-import WelcomeComponent from "./WelcomeComponent";
-import About from "./AboutUsComponent";
-import Staff from "./StaffComponent";
+import WelcomeComponent from './WelcomeComponent';
+import About from './AboutUsComponent';
+import Staff from './StaffComponent';
 
-import { Spacer } from "./styles";
+import { Spacer } from './styles';
 
 export interface DisplayProps {
   about_data: AboutUsData | null;

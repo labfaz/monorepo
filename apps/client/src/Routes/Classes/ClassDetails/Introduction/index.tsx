@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import { Container, MainTitle, Subtitle, TagsWrapper } from "./styles";
+import { Container, MainTitle, Subtitle, TagsWrapper } from './styles';
 
-import Label from "Components/Label";
-import styled from "styled-components"
+import Label from 'Components/Label';
+import styled from 'styled-components';
 export interface Props {
   title: string;
   description: string;
@@ -19,7 +19,7 @@ const LabelContainer = styled.div`
   p {
     padding: 0 0.8em;
   }
-`
+`;
 
 export const Introduction: FC<Props> = ({ title, description, tags }) => {
   return (

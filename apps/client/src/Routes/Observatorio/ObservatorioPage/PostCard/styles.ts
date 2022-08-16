@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
-import { Mobile } from "Utils/breakpoints";
-import { Title } from "Components/Typography/Title";
-import { Text } from "Components/Typography/Text";
-import { InternalLinkButton } from "Components/Buttons/InternalLinkButton";
-import { Link } from "react-router-dom";
+import styled, { css } from 'styled-components';
+import { Mobile } from 'Utils/breakpoints';
+import { Title } from 'Components/Typography/Title';
+import { Text } from 'Components/Typography/Text';
+import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
+import { Link } from 'react-router-dom';
 
 interface DateProps {
   size: string;
@@ -16,8 +16,8 @@ export const Container = styled.div`
   grid-template-columns: minmax(5%, auto) minmax(450px, 800px) minmax(5%, auto);
   grid-template-rows: minmax(0, 3fr) auto;
   grid-template-areas:
-    ". content ."
-    ".    .    .";
+    '. content .'
+    '.    .    .';
 
   ${Mobile(css`
     grid-template-columns: minmax(8%, auto) minmax(250px, 700px) minmax(
@@ -136,7 +136,7 @@ export const ButtonLayer = styled.div`
   ${Mobile(css`
     width: 150px;
     height: 35px;
-    top: -39px;    
+    top: -39px;
   `)}
 `;
 
@@ -156,7 +156,6 @@ export const Button = styled(InternalLinkButton)`
   background-color: rbga(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
 
-
   :hover {
     box-shadow: 3px 3px 0px rgba(255, 236, 153, 1);
     opacity: 1;
@@ -174,7 +173,6 @@ export const ButtonText = styled(Text)`
   font-weight: 700;
   color: var(--color-text-beige);
   text-transform: uppercase;
-
 
   ${Mobile(css`
     font-size: var(--font-size-short);
@@ -208,7 +206,7 @@ export const DateContainer = styled.div`
 
 export const Date = styled(Text)<DateProps>`
   width: 100%;
-  font-size: ${(p) => p.size ? p.size : "var(--font-size-subtitle)"};;
+  font-size: ${(p) => (p.size ? p.size : 'var(--font-size-subtitle)')};
   font-weight: 600;
   color: var(--background-pink);
   text-align: center;
@@ -219,6 +217,4 @@ export const Date = styled(Text)<DateProps>`
     font-size: var(--font-size-medium);
     margin: 0 0 5px 0;
   `)}
-
-
 `;

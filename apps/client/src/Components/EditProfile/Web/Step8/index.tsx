@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
-import { RadioInput } from 'Components/Inputs/RadioInput'
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
-import { OnlyNumbers } from 'Utils/inputRegex'
+import { OnlyNumbers } from 'Utils/inputRegex';
 
 import {
   Container,
@@ -14,28 +14,28 @@ import {
   InputText,
   CnpjText,
   InputRadioContainer,
-} from './style'
+} from './style';
 
 interface Step8Props {
   artist: {
     technical: {
-      is_drt: string
-      is_ceac: string
-      is_cnpj: string
-    }
-  }
+      is_drt: string;
+      is_ceac: string;
+      is_cnpj: string;
+    };
+  };
 
-  is_drt: string
-  drt_number: string
-  is_ceac: string
-  ceac_number: string
-  is_cnpj: string
-  company_name: string
-  cnpj_number: string
+  is_drt: string;
+  drt_number: string;
+  is_ceac: string;
+  ceac_number: string;
+  is_cnpj: string;
+  company_name: string;
+  cnpj_number: string;
 }
 
 export const Step8: FC = () => {
-  const { values, setFieldValue, errors } = useFormikContext<Step8Props>()
+  const { values, setFieldValue, errors } = useFormikContext<Step8Props>();
 
   return (
     <Container>
@@ -241,5 +241,5 @@ export const Step8: FC = () => {
         </RightSideContent>
       </RightSide>
     </Container>
-  )
-}
+  );
+};

@@ -1,12 +1,12 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { Text } from 'Components/Typography/Text'
+import { Text } from 'Components/Typography/Text';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -18,11 +18,11 @@ export const ContentContainer = styled.div`
   width: 100vw;
 
   scroll-snap-align: start;
-`
+`;
 
 export const Content = styled.div`
   margin-top: 2rem;
-`
+`;
 
 export const LabelText = styled(Text)`
   margin-top: 1rem;
@@ -43,14 +43,13 @@ export const LabelText = styled(Text)`
     left: 0;
     top: 1.2rem;
   }
-`
+`;
 
 export const InputRadioContainer = styled.div`
-
   margin-bottom: 1rem;
 
   label {
     font-size: vaR(--font-size-medium);
     color: #fafafa;
   }
-`
+`;

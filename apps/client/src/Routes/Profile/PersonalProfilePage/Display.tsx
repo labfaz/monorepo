@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import Profile from 'Components/Profile'
-import Wireframe from 'Components/Wireframe'
-import { User } from 'Context/LoggedUserToken'
+import Profile from 'Components/Profile';
+import Wireframe from 'Components/Wireframe';
+import { User } from 'Context/LoggedUserToken';
 
 interface DisplayProps {
-  data: User
+  data: User;
 }
 
 export const Display: FC<DisplayProps> = ({ data }) => {
@@ -15,7 +15,7 @@ export const Display: FC<DisplayProps> = ({ data }) => {
         <Profile data={data} personalProfilePage={true} />
       </Wireframe>
     </>
-  )
-}
+  );
+};
 
-export default Display
+export default Display;

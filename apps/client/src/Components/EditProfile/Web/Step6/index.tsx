@@ -1,20 +1,20 @@
-import { useFormikContext } from 'formik'
-import React, { FC } from 'react'
+import { useFormikContext } from 'formik';
+import React, { FC } from 'react';
 
-import { Container, Content, TextLabel, InputText } from './style'
+import { Container, Content, TextLabel, InputText } from './style';
 
 interface ErrorProps {
   artist: {
     technical: {
       areas: {
-        describe: string
-      }
-    }
-  }
+        describe: string;
+      };
+    };
+  };
 }
 
 export const Step6: FC = () => {
-  const { errors } = useFormikContext<ErrorProps>()
+  const { errors } = useFormikContext<ErrorProps>();
 
   return (
     <Container>
@@ -26,12 +26,17 @@ export const Step6: FC = () => {
           </TextLabel>
 
           {errors.artist?.technical?.areas?.describe && (
-            <span className="errorMessage">{errors.artist.technical.areas.describe}</span>
+            <span className="errorMessage">
+              {errors.artist.technical.areas.describe}
+            </span>
           )}
 
-          <InputText component="textarea" name="artist.technical.areas.describe" />
+          <InputText
+            component="textarea"
+            name="artist.technical.areas.describe"
+          />
         </Content>
       </div>
     </Container>
-  )
-}
+  );
+};

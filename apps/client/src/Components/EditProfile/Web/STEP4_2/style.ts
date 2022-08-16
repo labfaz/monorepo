@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
-import { Field } from "formik";
+import styled, { css } from 'styled-components';
+import { Field } from 'formik';
 
-import { Text } from "Components/Typography/Text";
-import { DesktopSmall } from "Utils/breakpoints";
+import { Text } from 'Components/Typography/Text';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;
@@ -11,11 +11,10 @@ export const Container = styled.div`
   width: 71rem;
   font-size: var(--font-size-default);
 
-    ${DesktopSmall(css`
+  ${DesktopSmall(css`
     width: 47.6rem;
     font-size: var(--font-size-short);
-    `)}
-
+  `)}
 `;
 
 export const LabelText = styled(Text)`
@@ -78,13 +77,12 @@ export const InputCheckBoxContainer = styled.div`
   font-weight: 600;
   margin: auto 0;
   display: flex;
-
 `;
 
 export const TextInputContainer = styled.div`
-    height: min-content;
-    margin-bottom: 0;
-    label {
+  height: min-content;
+  margin-bottom: 0;
+  label {
     height: min-content;
     color: #ffffff;
     display: block;

@@ -1,13 +1,13 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const PaginationControls = styled.div`
   .rc-pagination {
     font-size: 12px;
     font-family: 'Arial';
     -webkit-user-select: none;
-      -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     padding: 0;
   }
   .rc-pagination > li {
@@ -23,7 +23,7 @@ export const PaginationControls = styled.div`
     margin: 0 8px 0 0;
   }
   .rc-pagination:after {
-    content: " ";
+    content: ' ';
     display: block;
     height: 0;
     clear: both;
@@ -44,7 +44,7 @@ export const PaginationControls = styled.div`
   }
   .rc-pagination-item a {
     text-decoration: none;
-    color: #FFF;
+    color: #fff;
     font-weight: 400;
   }
   .rc-pagination-item:hover {
@@ -74,7 +74,7 @@ export const PaginationControls = styled.div`
   }
   .rc-pagination-jump-prev:after,
   .rc-pagination-jump-next:after {
-    content: "•••";
+    content: '•••';
     display: block;
     letter-spacing: 2px;
     color: #ccc;
@@ -86,10 +86,10 @@ export const PaginationControls = styled.div`
     color: #2db7f5;
   }
   .rc-pagination-jump-prev:hover:after {
-    content: "«";
+    content: '«';
   }
   .rc-pagination-jump-next:hover:after {
-    content: "»";
+    content: '»';
   }
   .rc-pagination-jump-prev-custom-icon,
   .rc-pagination-jump-next-custom-icon {
@@ -103,8 +103,8 @@ export const PaginationControls = styled.div`
     bottom: 0;
     left: 0;
     margin: auto;
-    transition: all .2s;
-    content: "•••";
+    transition: all 0.2s;
+    content: '•••';
     opacity: 1;
     display: block;
     letter-spacing: 2px;
@@ -117,7 +117,7 @@ export const PaginationControls = styled.div`
   .rc-pagination-jump-prev-custom-icon .custom-icon-jump-next,
   .rc-pagination-jump-next-custom-icon .custom-icon-jump-next {
     opacity: 0;
-    transition: all .2s;
+    transition: all 0.2s;
   }
   .rc-pagination-jump-prev-custom-icon:hover:after,
   .rc-pagination-jump-next-custom-icon:hover:after {
@@ -155,14 +155,13 @@ export const PaginationControls = styled.div`
     svg {
       color: white;
     }
-
   }
   .rc-pagination-prev a:after {
-    content: "‹";
+    content: '‹';
     display: block;
   }
   .rc-pagination-next a:after {
-    content: "›";
+    content: '›';
     display: block;
   }
   .rc-pagination-prev,
@@ -237,7 +236,7 @@ export const PaginationControls = styled.div`
     font-weight: 500;
     text-align: center;
     -ms-touch-action: manipulation;
-        touch-action: manipulation;
+    touch-action: manipulation;
     cursor: pointer;
     background-image: none;
     border: 1px solid transparent;
@@ -247,9 +246,9 @@ export const PaginationControls = styled.div`
     border-radius: 6px;
     height: 28px;
     -webkit-user-select: none;
-      -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     position: relative;
     color: rgba(0, 0, 0, 0.65);
@@ -298,7 +297,7 @@ export const PaginationControls = styled.div`
     font-weight: 500;
     text-align: center;
     -ms-touch-action: manipulation;
-        touch-action: manipulation;
+    touch-action: manipulation;
     cursor: pointer;
     background-image: none;
     border: 1px solid transparent;
@@ -308,9 +307,9 @@ export const PaginationControls = styled.div`
     border-radius: 6px;
     height: 26px;
     -webkit-user-select: none;
-      -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     position: relative;
     color: rgba(0, 0, 0, 0.65);
@@ -330,4 +329,4 @@ export const PaginationControls = styled.div`
       display: none;
     }
   }
-`
+`;

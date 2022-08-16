@@ -1,17 +1,16 @@
-import { Text } from 'Components/Typography/Text'
-import { Title } from 'Components/Typography/Title'
-import styled, { css } from 'styled-components'
-import { DesktopSmall } from 'Utils/breakpoints'
+import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+import styled, { css } from 'styled-components';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;
-  
+
   margin: 5.9rem auto 8.77rem auto;
-  
 
   max-width: 90vw;
   width: 78.5rem;
-`
+`;
 
 export const ProfileContentContainer = styled.div`
   display: flex;
@@ -19,7 +18,7 @@ export const ProfileContentContainer = styled.div`
   width: 100%;
 
   min-height: 90rem;
-`
+`;
 
 export const Aside = styled.aside`
   width: 16.6rem;
@@ -41,7 +40,7 @@ export const Aside = styled.aside`
     height: 85%;
     left: 17rem;
     top: 6rem;
-  
+
     position: absolute;
 
     ${DesktopSmall(css`
@@ -52,20 +51,18 @@ export const Aside = styled.aside`
   ${DesktopSmall(css`
     width: 13rem;
   `)}
-
-`
+`;
 
 export const AsideHeader = styled.div`
   margin-bottom: 2.65rem;
-`
+`;
 
 export const UserPhoto = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background-color: #FC0061;
+  background-color: #fc0061;
   margin-bottom: 1.22rem;
-
 
   ${DesktopSmall(css`
     width: 240px;
@@ -86,14 +83,14 @@ export const UserPhoto = styled.div`
       height: 240px;
     `)}
   }
-`
+`;
 
 export const NickName = styled(Title)`
   margin-left: 2.2rem;
   font-size: var(--font-size-title);
   font-weight: 600;
-  color: #FAFAFA;
-`
+  color: #fafafa;
+`;
 
 export const UserVerified = styled.div`
   display: flex;
@@ -101,32 +98,32 @@ export const UserVerified = styled.div`
 
   column-gap: 0.8rem;
 
-  color: #FAFAFA;
+  color: #fafafa;
   margin-left: 2.2rem;
   font-size: var(--font-size-default);
-  
+
   img {
     width: 22px;
     height: 22px;
   }
-`
+`;
 
 export const UserName = styled(Title)`
   margin-left: 2.2rem;
   font-size: var(--font-size-title-smaller);
   font-weight: 600;
-  color: #FAFAFA;
-`
+  color: #fafafa;
+`;
 
 export const UserLocation = styled(Text)`
   margin-left: 2.2rem;
-  color: #FAFAFA;
-`
+  color: #fafafa;
+`;
 
 export const SocialMedias = styled.ul`
   list-style-type: none;
   margin: 0;
-  color: #FAFAFA;
+  color: #fafafa;
 
   justify-content: center;
 
@@ -135,7 +132,7 @@ export const SocialMedias = styled.ul`
   li {
     display: flex;
     align-items: center;
-    
+
     span {
       width: 9.5rem;
       overflow: hidden;
@@ -148,10 +145,10 @@ export const SocialMedias = styled.ul`
 
       margin-right: 0.94rem;
 
-      color: #FC0061;
+      color: #fc0061;
     }
   }
-`
+`;
 
 export const ButtonContainer = styled.div`
   display: flex;
@@ -159,10 +156,11 @@ export const ButtonContainer = styled.div`
   align-items: center;
 
   flex-direction: column;
-  
+
   row-gap: 3.5rem;
 
-  button, .downloadFile {
+  button,
+  .downloadFile {
     width: 13.3rem;
     height: 2.37rem;
 
@@ -192,7 +190,7 @@ export const ButtonContainer = styled.div`
     &:hover {
       cursor: pointer;
     }
-    
+
     ${DesktopSmall(css`
       width: 10rem;
       height: 2rem;
@@ -201,8 +199,8 @@ export const ButtonContainer = styled.div`
 
   .downloadFile {
     display: inline-flex;
-    background-color: #FC0061;
-    color: #FFEC99;
+    background-color: #fc0061;
+    color: #ffec99;
 
     filter: drop-shadow(3px 3px 4px rgba(130, 0, 50, 0.5));
     border-radius: 1px;
@@ -210,12 +208,11 @@ export const ButtonContainer = styled.div`
 
   .editProfile {
     background-color: inherit;
-    color: #FC0061;
+    color: #fc0061;
 
-    border-bottom: 1px solid #FC0061;;
+    border-bottom: 1px solid #fc0061;
   }
-
-`
+`;
 
 export const Button = styled.button`
   width: 9.72rem;
@@ -232,7 +229,7 @@ export const Button = styled.button`
   &:hover {
     cursor: pointer;
   }
-`
+`;
 
 export const Content = styled.section`
   max-width: 95vw;
@@ -413,30 +410,29 @@ export const Content = styled.section`
       margin-top: 0;
     }
   }
-`
+`;
 
 export const ContentHeader = styled.div`
   display: flex;
   justify-content: space-around;
 
-  width: 100%; 
+  width: 100%;
 
-  color: #FAFAFA;
-  
+  color: #fafafa;
+
   border-bottom: 2px solid #282828;
-  box-shadow: 0px 3px 5px #0B0B0B;
+  box-shadow: 0px 3px 5px #0b0b0b;
 
   padding: 1.5rem 0rem 1.5rem 5.88rem;
 
   margin-bottom: 2.94rem;
 
   a {
-
     font-weight: 700;
 
     display: flex;
     align-items: center;
-    
+
     height: 1rem;
 
     /* border-right: 1px solid white; */
@@ -456,22 +452,22 @@ export const ContentHeader = styled.div`
       font-size: var(--font-size-medium);
     }
   `)}
-`
+`;
 
 export const ContentTitle = styled(Title)`
   font-size: var(--font-size-title-medium);
-  color: #FAFAFA;
+  color: #fafafa;
 
   border-bottom: 2px solid #282828;
-`
+`;
 
 export const ContentText = styled(Text)`
   font-size: var(--font-size-title-smaller);
-  color: #FAFAFA;
+  color: #fafafa;
   font-weight: 400;
   line-height: 2.39rem;
 
   ${DesktopSmall(css`
     font-size: var(--font-size-default);
   `)}
-`
+`;

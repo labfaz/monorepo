@@ -1,20 +1,20 @@
-import React, { FC } from 'react'
-import { useField } from 'formik'
-import InputMask from 'react-input-mask'
+import React, { FC } from 'react';
+import { useField } from 'formik';
+import InputMask from 'react-input-mask';
 
-import { Container, Input } from './style'
-import { IoMdInformationCircle } from 'react-icons/io'
+import { Container, Input } from './style';
+import { IoMdInformationCircle } from 'react-icons/io';
 
 export interface InputProps {
-  label?: string
-  placeholder?: string
-  name: string
-  width?: number
-  height?: number
-  inputMask?: string
-  informationText?: string
-  obrigatory?: boolean
-  onChange?: (ev: any) => void
+  label?: string;
+  placeholder?: string;
+  name: string;
+  width?: number;
+  height?: number;
+  inputMask?: string;
+  informationText?: string;
+  obrigatory?: boolean;
+  onChange?: (ev: any) => void;
 }
 
 export const TextInput: FC<InputProps> = ({
@@ -28,7 +28,7 @@ export const TextInput: FC<InputProps> = ({
   children,
   ...props
 }) => {
-  const [inputProps, meta] = useField(props)
+  const [inputProps, meta] = useField(props);
 
   return (
     <Container
@@ -71,5 +71,5 @@ export const TextInput: FC<InputProps> = ({
         )}
       </Input>
     </Container>
-  )
-}
+  );
+};

@@ -1,11 +1,11 @@
-import React, { FC, useRef, useState } from 'react'
-import { useFormikContext } from 'formik'
-import { IoMdArrowDropdownCircle } from 'react-icons/io'
+import React, { FC, useRef, useState } from 'react';
+import { useFormikContext } from 'formik';
+import { IoMdArrowDropdownCircle } from 'react-icons/io';
 
-import { TextInput } from 'Components/Inputs/TextInput'
-import { RadioInput } from 'Components/Inputs/RadioInput'
+import { TextInput } from 'Components/Inputs/TextInput';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
-import { certificationOptionsMobile } from 'Utils/selectOptionsData'
+import { certificationOptionsMobile } from 'Utils/selectOptionsData';
 
 import {
   Container,
@@ -18,29 +18,29 @@ import {
   CertificationOptionsContainer,
   InputCheckbox,
   InputSelect,
-  TechnicalContainer
-} from './style'
+  TechnicalContainer,
+} from './style';
 
 interface ErrorProps {
   artist: {
     technical: {
-      is_drt: string
-      is_ceac: string
-    }
-  }
+      is_drt: string;
+      is_ceac: string;
+    };
+  };
 }
 
 export const Step14: FC = () => {
-  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false)
-  const modalRef = useRef<HTMLInputElement | null>(null)
+  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false);
+  const modalRef = useRef<HTMLInputElement | null>(null);
 
-  const { values, errors } = useFormikContext<ErrorProps>()
+  const { values, errors } = useFormikContext<ErrorProps>();
 
   const closeModal = (e: any) => {
     if (modalRef.current === e.target) {
-      setIsIdiomOptionsOpen(false)
+      setIsIdiomOptionsOpen(false);
     }
-  }
+  };
 
   return (
     <Container>
@@ -146,10 +146,10 @@ export const Step14: FC = () => {
               value={certification.value}
             >
               {certification.label}
-            </InputCheckbox>  
+            </InputCheckbox>
           ))}
         </CheckboxContainer>
       </CertificationOptionsContainer>
     </Container>
-  )
-}
+  );
+};

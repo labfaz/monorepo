@@ -1,23 +1,23 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { RadioInput } from 'Components/Inputs/RadioInput'
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
 import {
   Container,
   ContentContainer,
   Content,
   InputRadioContainer,
-} from './style'
-import { useFormikContext } from 'formik'
+} from './style';
+import { useFormikContext } from 'formik';
 
 interface ErrorProps {
   artist: {
-    race: string
-  }
+    race: string;
+  };
 }
 
 export const Step6: FC = () => {
-  const { errors } = useFormikContext<ErrorProps>()
+  const { errors } = useFormikContext<ErrorProps>();
 
   return (
     <Container>
@@ -25,7 +25,9 @@ export const Step6: FC = () => {
         <Content>
           <label htmlFor="race" className="radioLabel">
             Etnia <p className="obrigatory"> *</p>
-            {errors.artist?.race && <span className="errorMessage">{errors.artist.race}</span>}
+            {errors.artist?.race && (
+              <span className="errorMessage">{errors.artist.race}</span>
+            )}
           </label>
           <InputRadioContainer>
             <RadioInput
@@ -78,5 +80,5 @@ export const Step6: FC = () => {
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

@@ -1,16 +1,16 @@
-import { useFormikContext } from "formik";
-import React, { FC } from "react";
-import { useRef } from "react";
-import { useState } from "react";
-import { IoMdArrowDropdownCircle } from "react-icons/io";
-import { RadioInput } from "Components/Inputs/RadioInput";
-import { FileInput } from "Components/Inputs/FileInput";
+import { useFormikContext } from 'formik';
+import React, { FC } from 'react';
+import { useRef } from 'react';
+import { useState } from 'react';
+import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { FileInput } from 'Components/Inputs/FileInput';
 
 import {
   formationOptions,
   idiomOptions,
   deficiencyOptions,
-} from "Utils/selectOptionsData";
+} from 'Utils/selectOptionsData';
 
 import {
   Container,
@@ -27,7 +27,7 @@ import {
   InputText,
   InputTextContainer,
   FileContainer,
-} from "./style";
+} from './style';
 
 interface Step11Props {
   deficiencies?: string[];
@@ -89,13 +89,13 @@ export const Step11: FC = () => {
             <InputSelect>
               {values.artist?.technical?.idiom[0]
                 ? values.artist.technical.idiom[0]
-                : "Selecione"}
+                : 'Selecione'}
               <IoMdArrowDropdownCircle />
             </InputSelect>
           </SelectContainer>
 
           {values.artist?.technical?.idiom.find(
-            (values: any) => values === "Outro"
+            (values: any) => values === 'Outro'
           ) && (
             <InputTextContainer>
               <LabelText>Qual outro idioma?</LabelText>
@@ -118,14 +118,16 @@ export const Step11: FC = () => {
           <SelectContainer
             onClick={() => setIsDeficiencyOptionsOpen(!isDeficiencyOptionsOpen)}
           >
-            {values.isPcd === "true" && (
+            {values.isPcd === 'true' && (
               <InputSelect>
-                {values.deficiencies && values.deficiencies[0] ? values.deficiencies[0] : "Selecione"}
+                {values.deficiencies && values.deficiencies[0]
+                  ? values.deficiencies[0]
+                  : 'Selecione'}
                 <IoMdArrowDropdownCircle />
               </InputSelect>
             )}
           </SelectContainer>
-          {values.isPcd === "true" && (
+          {values.isPcd === 'true' && (
             <FileContainer>
               <label htmlFor="medicalReport" className="fileLabel">
                 Laudo médico
@@ -140,7 +142,7 @@ export const Step11: FC = () => {
             </FileContainer>
           )}
 
-          {values.deficiencies?.find((values: any) => values === "Outro") && (
+          {values.deficiencies?.find((values: any) => values === 'Outro') && (
             <InputTextContainer>
               <LabelText>Qual outra deficiência?</LabelText>
 

@@ -1,34 +1,33 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
-export const ContentContainer = styled.div`  
+export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 100vw;  
+  width: 100vw;
 
   scroll-snap-align: start;
-`
+`;
 
 export const Content = styled.div`
-  
-  margin-top: 2rem; 
+  margin-top: 2rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 export const AvatarInput = styled.div`
   width: 256px;
   height: 256px;
   border-radius: 50%;
-  border: 3px solid #FC0061;
-  background-color: #A3A3A3;
+  border: 3px solid #fc0061;
+  background-color: #a3a3a3;
   margin-bottom: 1.94rem;
 
   img {
@@ -37,13 +36,12 @@ export const AvatarInput = styled.div`
     border-radius: 50%;
     object-fit: cover;
   }
-`
+`;
 
 export const SelectContainer = styled.label`
-  
   margin-top: 2.9rem;
-`
+`;
 
 export const FileInputContainer = styled.div`
   width: 13.3rem;
-`
+`;

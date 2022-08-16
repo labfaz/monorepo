@@ -1,28 +1,24 @@
-import React, { FC } from "react"
+import React, { FC } from 'react';
 
-import { useSingletonExample } from "Api/SingletonExample"
-import LoadingFullPage from "Components/LoadingFullPage"
+import { useSingletonExample } from 'Api/SingletonExample';
+import LoadingFullPage from 'Components/LoadingFullPage';
 
 export const ShowSingleton: FC = () => {
+  const result = useSingletonExample();
 
-  const result = useSingletonExample()
+  if (result.error) return <div>error: {result.error.message}</div>;
 
-  if (result.error) return <div>error: { result.error.message }</div>
+  if (result.isLoading) return <LoadingFullPage />;
 
-  if (result.isLoading) return <LoadingFullPage />
-
-  const { text, image } = result.data
+  const { text, image } = result.data;
 
   return (
     <div>
       <p>{text}</p>
 
-      <img
-        src={image.url}
-        alt={image.alternativeText}
-      />
+      <img src={image.url} alt={image.alternativeText} />
     </div>
-  )
-}
+  );
+};
 
-export default ShowSingleton
+export default ShowSingleton;

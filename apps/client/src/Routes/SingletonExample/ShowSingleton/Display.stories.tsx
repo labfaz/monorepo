@@ -16,4 +16,4 @@
 //   .addParameters({ component: ShowSingleton })
 //   .add("default", () => <ShowSingleton data={singletonMock}/>)
 
-export {}
+export {};

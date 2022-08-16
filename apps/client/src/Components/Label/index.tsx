@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import { Container, LabelText, LabelImage } from "./styles";
+import { Container, LabelText, LabelImage } from './styles';
 
 export interface LabelProps {
   name: string;
@@ -11,7 +11,7 @@ export interface LabelProps {
 export const Label: FC<LabelProps> = ({ name, image, lightMode = false }) => {
   return (
     <Container lightMode={lightMode}>
-      { image && <LabelImage src={image} alt="" icon /> }
+      {image && <LabelImage src={image} alt="" icon />}
       <LabelText lightMode={lightMode}>{name}</LabelText>
     </Container>
   );

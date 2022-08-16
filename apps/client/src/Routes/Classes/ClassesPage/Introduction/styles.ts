@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { Title } from "Components/Typography/Title";
-import { Text } from "Components/Typography/Text";
-import { DesktopSmall, Mobile, MobileLarge } from "Utils/breakpoints";
+import styled, { css } from 'styled-components';
+import { Title } from 'Components/Typography/Title';
+import { Text } from 'Components/Typography/Text';
+import { DesktopSmall, Mobile, MobileLarge } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   width: 100%;

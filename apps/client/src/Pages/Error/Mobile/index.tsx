@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import Image from "../Image";
+import React, { FC } from 'react';
+import Image from '../Image';
 import {
   ErrorContainer,
   TitleText,
@@ -7,7 +7,7 @@ import {
   MobileRectangle,
   ImageRectangle,
   TopWrapper,
-} from "./styles";
+} from './styles';
 
 export interface Props {
   status: number | undefined;
@@ -25,7 +25,7 @@ export const Mobile: FC<Props> = ({ status, message }) => {
       <MobileRectangle invert={true}>
         <SubtitleText level={2}>
           Error {status ?? 401}:
-          <br /> {message ?? "Acesso negado devido a credenciais não válidas."}
+          <br /> {message ?? 'Acesso negado devido a credenciais não válidas.'}
         </SubtitleText>
         <TitleText level={1}>
           Ops...

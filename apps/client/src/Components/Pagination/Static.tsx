@@ -1,33 +1,43 @@
-import React, { PropsWithChildren, ReactElement, ReactNode, useCallback, useMemo, useState } from "react"
-import RcPagination, { PaginationProps as PagProps } from "rc-pagination"
+import React, {
+  PropsWithChildren,
+  ReactElement,
+  ReactNode,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react';
+import RcPagination, { PaginationProps as PagProps } from 'rc-pagination';
 
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
-import { PaginationControls } from "./styles"
-import isFunction from "Utils/isFunction"
+import { PaginationControls } from './styles';
+import isFunction from 'Utils/isFunction';
 
 export interface PaginationProps<T> {
-  baseProps?: PagProps
-  children?: ((pageItems: T[]) => ReactNode) | ReactNode
-  itemsPerPage?: number
-  items: T[]
+  baseProps?: PagProps;
+  children?: ((pageItems: T[]) => ReactNode) | ReactNode;
+  itemsPerPage?: number;
+  items: T[];
 }
 
-export const Pagination = <T extends any> ({
+export const Pagination = <T extends any>({
   items,
   baseProps = {},
   itemsPerPage = 10,
   children,
 }: PropsWithChildren<PaginationProps<T>>): ReactElement<PaginationProps<T>> => {
-    const [page, setPage] = useState(1)
+  const [page, setPage] = useState(1);
 
-    const renderedItems = useMemo<T[]>(() => {
-      const slicedItems = items.slice((page-1)*itemsPerPage, page*itemsPerPage)
-      return slicedItems
-    }, [itemsPerPage, page, items])
+  const renderedItems = useMemo<T[]>(() => {
+    const slicedItems = items.slice(
+      (page - 1) * itemsPerPage,
+      page * itemsPerPage
+    );
+    return slicedItems;
+  }, [itemsPerPage, page, items]);
 
-    const onChange = useCallback(page => setPage(page), [setPage])
-    return (
+  const onChange = useCallback((page) => setPage(page), [setPage]);
+  return (
     <>
       {isFunction(children) ? children(renderedItems) : children}
 
@@ -38,9 +48,9 @@ export const Pagination = <T extends any> ({
           current={page}
           total={items.length}
           locale={{
-            items_per_page: "itens por página",
-            next_page: "próxima",
-            prev_page: "anterior",
+            items_per_page: 'itens por página',
+            next_page: 'próxima',
+            prev_page: 'anterior',
           }}
           prevIcon={<FaAngleLeft />}
           nextIcon={<FaAngleRight />}
@@ -49,7 +59,7 @@ export const Pagination = <T extends any> ({
         />
       </PaginationControls>
     </>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;

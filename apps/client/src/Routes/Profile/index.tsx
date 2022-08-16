@@ -1,39 +1,43 @@
-import React, { lazy, Suspense } from "react"
-import { Route, RouteComponentProps, Switch, Redirect } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+import { Route, RouteComponentProps, Switch, Redirect } from 'react-router-dom';
 
-import { Router } from "Routes"
+import { Router } from 'Routes';
 
-import usePageview from "Hooks/usePageView"
-import { useCurrentUserToken } from "Context/LoggedUserToken";
-import LoadingFullPage from "Components/LoadingFullPage";
+import usePageview from 'Hooks/usePageView';
+import { useCurrentUserToken } from 'Context/LoggedUserToken';
+import LoadingFullPage from 'Components/LoadingFullPage';
 
-const PersonalProfilePage = lazy(() => import("./PersonalProfilePage"))
-const UsersProfilePage = lazy(() => import("./UsersProfilePage"))
+const PersonalProfilePage = lazy(() => import('./PersonalProfilePage'));
+const UsersProfilePage = lazy(() => import('./UsersProfilePage'));
 
-export const Profile: Router = ({
-  match,
-}) => {
-  const { token } = useCurrentUserToken()
-  const { path = "/profile" } = match ?? {}
+export const Profile: Router = ({ match }) => {
+  const { token } = useCurrentUserToken();
+  const { path = '/profile' } = match ?? {};
   usePageview({ name: 'profile', path: path });
 
   return (
     <Switch>
       <Route path={[`${path}/eu`, `${path}/me`]}>
-        {() => (
-          !token ? <Redirect to="/" /> :
-          <Suspense fallback={<LoadingFullPage />}>
-            <PersonalProfilePage token={token}/>
-          </Suspense>
-        )}
+        {() =>
+          !token ? (
+            <Redirect to="/" />
+          ) : (
+            <Suspense fallback={<LoadingFullPage />}>
+              <PersonalProfilePage token={token} />
+            </Suspense>
+          )
+        }
       </Route>
       <Route exact path={path}>
-        {() => (
-          !token ? <Redirect to="/" /> :
-          <Suspense fallback={<LoadingFullPage />}>
-            <PersonalProfilePage token={token}/>
-          </Suspense>
-        )}
+        {() =>
+          !token ? (
+            <Redirect to="/" />
+          ) : (
+            <Suspense fallback={<LoadingFullPage />}>
+              <PersonalProfilePage token={token} />
+            </Suspense>
+          )
+        }
       </Route>
 
       <Route path={`${path}/:id`}>
@@ -44,7 +48,7 @@ export const Profile: Router = ({
         )}
       </Route>
     </Switch>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

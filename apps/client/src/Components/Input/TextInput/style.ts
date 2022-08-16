@@ -1,9 +1,9 @@
-import { Field } from "formik"
-import styled, { css } from "styled-components"
-import { DesktopSmall, Mobile } from "Utils/breakpoints"
+import { Field } from 'formik';
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 interface ContainerProps {
-  validationError: boolean
+  validationError: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -149,7 +149,8 @@ export const Container = styled.div<ContainerProps>`
       font-size: var(--font-size-medium);
     `)}
     
-    border: ${({ validationError }) => validationError ? '1px solid red' : '1px solid rgba(250, 250, 250, 0.7)'};
+    border: ${({ validationError }) =>
+      validationError ? '1px solid red' : '1px solid rgba(250, 250, 250, 0.7)'};
     padding: 0.7rem 0.2rem 0.7rem 0.7rem;
     &::placeholder {
       color: rgba(255, 255, 255, 0.25);
@@ -157,7 +158,7 @@ export const Container = styled.div<ContainerProps>`
       font-size: var(--font-size-large);
       ${DesktopSmall(css`
         font-size: var(--font-size-small);
-    `)}
+      `)}
       ${Mobile(css`
         font-size: var(--font-size-medium);
         display: block;
@@ -165,6 +166,6 @@ export const Container = styled.div<ContainerProps>`
       `)}
     }
   }
-`
+`;
 
-export const Input = styled(Field)``
+export const Input = styled(Field)``;

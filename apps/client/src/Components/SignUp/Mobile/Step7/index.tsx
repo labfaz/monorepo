@@ -1,13 +1,18 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { TextInput } from 'Components/Inputs/TextInput'
-import { useFormikContext } from 'formik'
-import { OnlyNumbers } from 'Utils/inputRegex'
+import { TextInput } from 'Components/Inputs/TextInput';
+import { useFormikContext } from 'formik';
+import { OnlyNumbers } from 'Utils/inputRegex';
 
-import { Container, ContentContainer, Content, InputTextContainer } from './style'
+import {
+  Container,
+  ContentContainer,
+  Content,
+  InputTextContainer,
+} from './style';
 
 export const Step7: FC = () => {
-  const { setFieldValue } = useFormikContext()
+  const { setFieldValue } = useFormikContext();
 
   return (
     <Container>
@@ -52,5 +57,5 @@ export const Step7: FC = () => {
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

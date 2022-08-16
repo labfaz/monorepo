@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 import {
   Container,
@@ -12,11 +12,11 @@ import {
   ActivityTitle,
   ActivityItem,
   ListsList,
-} from "./styles";
+} from './styles';
 
-import { format } from "date-fns";
+import { format } from 'date-fns';
 
-import { Button } from "../../SubscriptionButton";
+import { Button } from '../../SubscriptionButton';
 
 export interface Props {
   id: string;
@@ -45,9 +45,9 @@ export const Details: FC<Props> = ({
   available,
   has_subscription,
 }) => {
-  const now = (new Date()).getTime()
-  const finish = (new Date(finish_date)).getTime()
-  const passedFinish = finish < now
+  const now = new Date().getTime();
+  const finish = new Date(finish_date).getTime();
+  const passedFinish = finish < now;
   return (
     <Container>
       <ImageContainer>
@@ -56,23 +56,22 @@ export const Details: FC<Props> = ({
       <TextContainer>
         <TextSubContainer>
           <TextBackground>
-            {finish_date &&
-            <SubscribeText>
-              {passedFinish ? "Inscrições encerraram em" : "Inscrições até"}
-              {" "}
-              {format(finish_date, "DD-MM-YYYY")
-                .replace("-", "/")
-                .replace("-", "/")}
-            </SubscribeText>
-            }
+            {finish_date && (
+              <SubscribeText>
+                {passedFinish ? 'Inscrições encerraram em' : 'Inscrições até'}{' '}
+                {format(finish_date, 'DD-MM-YYYY')
+                  .replace('-', '/')
+                  .replace('-', '/')}
+              </SubscribeText>
+            )}
             <Button
               courseId={id}
               isAvailabe={available}
               link={link}
               hasSubscription={has_subscription}
             >
-              {" "}
-              INSCREVA-SE{" "}
+              {' '}
+              INSCREVA-SE{' '}
             </Button>
 
             <ListsList>
@@ -95,7 +94,6 @@ export const Details: FC<Props> = ({
                 ))}
               </ActivityContainer>
             </ListsList>
-
           </TextBackground>
         </TextSubContainer>
       </TextContainer>

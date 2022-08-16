@@ -1,7 +1,6 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const Container = styled.div`
-
   display: flex;
   flex-direction: column;
   margin-bottom: 1.6rem;
@@ -13,7 +12,8 @@ export const Container = styled.div`
     margin-bottom: 0.75rem;
   }
 
-  input[type="text"], input[type="password"] {
+  input[type='text'],
+  input[type='password'] {
     width: 12.4rem;
     height: 2.4rem;
     border: 0;
@@ -23,4 +23,4 @@ export const Container = styled.div`
       color: rgba(0, 0, 0, 0.25);
     }
   }
-`
+`;

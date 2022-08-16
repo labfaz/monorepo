@@ -1,7 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledButton = styled.a`
-
   cursor: pointer;
   border: 0;
   padding: 0.5rem 2rem;
@@ -16,4 +15,4 @@ export const StyledButton = styled.a`
   border-color: var(--button-color-yellow);
   /* TODO border-radius: ; */
   /* TODO color: ; */
-`
+`;

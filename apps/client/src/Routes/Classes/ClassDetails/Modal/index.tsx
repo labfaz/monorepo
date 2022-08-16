@@ -1,9 +1,9 @@
-import React, { FC, useState, useRef } from "react";
+import React, { FC, useState, useRef } from 'react';
 
-import { Container, LinkModal, Button, Notification } from "./styles";
+import { Container, LinkModal, Button, Notification } from './styles';
 
-import { format } from "date-fns";
-import { timeDifference } from "Utils/formatPostDate";
+import { format } from 'date-fns';
+import { timeDifference } from 'Utils/formatPostDate';
 
 export interface Props {
   available: boolean;
@@ -36,8 +36,8 @@ export const ClassModal: FC<Props> = ({
           <div className="contact">
             <p>
               {classOpen
-                ? "Clique no link abaixo para a acessar sua atividade."
-                : "O link de acesso para a sua atividade está indisponível."}
+                ? 'Clique no link abaixo para a acessar sua atividade.'
+                : 'O link de acesso para a sua atividade está indisponível.'}
             </p>
             {classOpen ? (
               <Button href={link}>Aula online</Button>
@@ -52,9 +52,9 @@ export const ClassModal: FC<Props> = ({
               <Notification>
                 <p>Disponível em:</p>
                 <p>
-                  {format(start_date, "DD-MM-YYYY")
-                    .replace("-", "/")
-                    .replace("-", "/")}
+                  {format(start_date, 'DD-MM-YYYY')
+                    .replace('-', '/')
+                    .replace('-', '/')}
                 </p>
               </Notification>
             )}

@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
-import { FileInput } from 'Components/Inputs/FileInput'
-import { SelectInput } from 'Components/Inputs/SelectInput'
+import { FileInput } from 'Components/Inputs/FileInput';
+import { SelectInput } from 'Components/Inputs/SelectInput';
 
 import {
   Container,
@@ -11,32 +11,32 @@ import {
   AvatarInput,
   SelectContainer,
   FileInputContainer,
-} from './style'
+} from './style';
 
 interface FileProps {
-  name: string
-  size: number
-  type: string
+  name: string;
+  size: number;
+  type: string;
 }
 
 interface Step2Props {
-  profilePicture: string
+  profilePicture: string;
   artist: {
-    name: string
-    social_name: string
-    artistic_name: string
-    photo_url: FileProps
-  }
+    name: string;
+    social_name: string;
+    artistic_name: string;
+    photo_url: FileProps;
+  };
 }
 
 export const Step2: FC = () => {
-  const { values } = useFormikContext<Step2Props>()
+  const { values } = useFormikContext<Step2Props>();
 
   const options = [
     { value: 'nome', label: values.artist?.name },
     { value: 'nome social', label: values.artist?.social_name },
     { value: 'nome artistico', label: values.artist?.artistic_name },
-  ]
+  ];
 
   return (
     <Container>
@@ -72,5 +72,5 @@ export const Step2: FC = () => {
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

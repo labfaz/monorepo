@@ -1,13 +1,10 @@
-import React, { FC } from 'react'
-import { IoMdCloudDownload } from 'react-icons/io'
-import { GoGear } from 'react-icons/go'
+import React, { FC } from 'react';
+import { IoMdCloudDownload } from 'react-icons/io';
+import { GoGear } from 'react-icons/go';
 
-import { User } from 'Context/LoggedUserToken'
+import { User } from 'Context/LoggedUserToken';
 
-import {
-  FaCheckCircle,
-  FaCheckSquare,
-} from 'react-icons/fa'
+import { FaCheckCircle, FaCheckSquare } from 'react-icons/fa';
 
 import {
   Container,
@@ -25,28 +22,28 @@ import {
   ContentTitle,
   ContentText,
   UserVerified,
-} from './style'
+} from './style';
 
-import idiom_icon from '../idiomIcon.svg'
-import isVerified from '../isVerified.svg'
-import { getUserName } from 'Utils/userUtils'
-import { SocialMediaLinks } from '../SocialMediaLink'
-import { useHistory } from 'react-router'
-import { showEditProfile } from 'FeatureFlags'
+import idiom_icon from '../idiomIcon.svg';
+import isVerified from '../isVerified.svg';
+import { getUserName } from 'Utils/userUtils';
+import { SocialMediaLinks } from '../SocialMediaLink';
+import { useHistory } from 'react-router';
+import { showEditProfile } from 'FeatureFlags';
 
 interface ProfileProps {
-  data: User
-  personalProfilePage: boolean
+  data: User;
+  personalProfilePage: boolean;
 }
 
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
 const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
-  const history = useHistory()
+  const history = useHistory();
 
   const handleRedirectToEditProfile = () => {
-    history.push('/edit-profile')
-  }
+    history.push('/edit-profile');
+  };
 
   return (
     <Container>
@@ -82,13 +79,21 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
 
           <ButtonContainer>
             {data.artist.curriculum && (
-              <a className="downloadFile" href={data.artist.curriculum} download>
+              <a
+                className="downloadFile"
+                href={data.artist.curriculum}
+                download
+              >
                 <IoMdCloudDownload /> BAIXAR CV
               </a>
             )}
 
             {data.artist.medicalReport && (
-              <a className="downloadFile" href={data.artist.medicalReport} download>
+              <a
+                className="downloadFile"
+                href={data.artist.medicalReport}
+                download
+              >
                 <IoMdCloudDownload /> BAIXAR LAUDO
               </a>
             )}
@@ -195,7 +200,7 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
         </Content>
       </ProfileContentContainer>
     </Container>
-  )
-}
+  );
+};
 
-export default Web
+export default Web;
