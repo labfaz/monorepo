@@ -52,7 +52,7 @@ export const Web: FC<TSkipNavProps> = (props) => {
       </a>
       <span>|</span>
       <button id="high-contrast-btn" onClick={() => toggleHighContrast()}>
-        Alto-contraste <span className="keysNum">3</span>
+        Alto Contraste <span className="keysNum">3</span>
       </button>
     </SkipContent>
   );

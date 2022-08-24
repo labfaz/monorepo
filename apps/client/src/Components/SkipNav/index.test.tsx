@@ -36,6 +36,6 @@ describe("Check href successfully leading to sections", () => {
   });
 
   it("check anchor of high contrast", () => {
-    expect(getByText("Alto-contraste").closest("a")).toBeDefined();
+    expect(getByText("Alto Contraste").closest("a")).toBeDefined();
   });
 });
