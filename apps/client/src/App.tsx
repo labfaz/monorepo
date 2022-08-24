@@ -9,15 +9,11 @@ import Routes from 'Routes'
 import useGoogleAnalytics from 'Hooks/useInitializeGA'
 import Contruction from 'Pages/Construction'
 
-import { SkipNavLink } from '@reach/skip-nav'
-import '@reach/skip-nav/styles.css'
-
 export const App = () => {
   useGoogleAnalytics()
 
   return (
     <>
-      <SkipNavLink>Pular para o conteúdo principal</SkipNavLink>
       <GlobalStyles />
       <GlobalContext>
         { showRoutes
