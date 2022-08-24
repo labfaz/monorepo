@@ -8,17 +8,15 @@ import Mobile from './Mobile'
 
 export interface ComposerProps {
   data: SocialNetworksLabfaz
-  id?: string
 }
 
 export const Composer: FC<ComposerProps> = ({
-  data,
-  id
+  data
 }) => {
   const width = useMobile()
   
   if (width) return <Mobile data={data}/>
-  return <Web id={id} data={data} />
+  return <Web data={data} />
 }
 
 export default Composer

@@ -1,10 +1,10 @@
-import React, { FC, useState } from "react";
-import styled from "styled-components";
+import React, { FC } from "react"
+import styled from "styled-components"
+import { SkipNavContent } from "@reach/skip-nav"
 
-import FullPage from "Components/FullPage";
-import Footer from "Components/Footer";
-import Header from "Components/Header";
-import SkipNav from "Components/SkipNav";
+import FullPage from "Components/FullPage"
+import Footer from "Components/Footer"
+import Header from "Components/Header"
 
 const Container = styled(FullPage)`
   display: flex;
@@ -12,13 +12,7 @@ const Container = styled(FullPage)`
 
   --background-color: var(--background-black);
   background-color: var(--background-color);
-
-  &.contrast * {
-    color: #ff0 !important;
-    text-shadow: 1px 1px 0 #000 !important;
-    filter: contrast(120%);
-  }
-`;
+`
 
 const Content = styled.div`
   flex-grow: 1;
@@ -26,19 +20,19 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-`;
+`
 
 export const Wireframe: FC = ({ children }) => {
-  const [isContrasted, setIsContrasted] = useState(false);
-
   return (
-    <Container className={isContrasted ? "contrast" : ""}>
-      <SkipNav setIsContrasted={setIsContrasted} />
+    <Container>
       <Header />
-      <Content id="content">{children}</Content>
-      <Footer id="footer" />
+      <Content>
+        <SkipNavContent />
+        {children}
+      </Content>
+      <Footer />
     </Container>
-  );
-};
+  )
+}
 
-export default Wireframe;
+export default Wireframe
