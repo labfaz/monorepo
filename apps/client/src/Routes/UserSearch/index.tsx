@@ -1,15 +1,12 @@
-import React, { Suspense, lazy } from "react"
+import React, { lazy } from "react"
 import { Route, Switch } from "react-router-dom"
 
 import { Router } from "Routes"
 import usePageview from "Hooks/usePageView"
-import LoadingFullPage from "Components/LoadingFullPage"
 
 const UserSearchPage = lazy(() => import("./UserSearchPage/index"))
 
-export const UserSearch: Router = ({
-  match
-}) => {
+export const UserSearch: Router = ({ match }) => {
   const { path = "/banco-profissionais" } = match ?? {}
   usePageview({ name: 'banco-profissionais', path: path })
 
@@ -17,9 +14,7 @@ export const UserSearch: Router = ({
     <Switch>
       <Route exact path={path}>
         {() => (
-          <Suspense fallback={<LoadingFullPage />}>
-            <UserSearchPage />
-          </Suspense>
+          <UserSearchPage />
         )}
       </Route>
     </Switch>

@@ -9,9 +9,7 @@ import Routes from 'Routes'
 import useGoogleAnalytics from 'Hooks/useInitializeGA'
 import Contruction from 'Pages/Construction'
 
-
 export const App = () => {
-
   useGoogleAnalytics()
 
   return (

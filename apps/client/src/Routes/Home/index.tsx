@@ -1,18 +1,12 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import { Router } from "Routes";
-
 import usePageview from "Hooks/usePageView";
-
-import LoadingFullPage from "Components/LoadingFullPage";
-
-const HomePage = lazy(() => import("./HomePage"));
-// const ListItems = lazy(() => import("./ListItems"))
+import HomePage from "./HomePage";
 
 export const Home: Router = ({ match }) => {
-  const { path = "" } = match ?? {};
-
+  const path = match?.path ?? "";
   usePageview({ name: "home", path });
 
   return (
@@ -20,21 +14,9 @@ export const Home: Router = ({ match }) => {
       {/* base home route */}
       <Route exact path={path}>
         {() => (
-          <Suspense fallback={<LoadingFullPage />}>
-            <HomePage />
-          </Suspense>
+          <HomePage />
         )}
       </Route>
-
-      {/* route to list things */}
-      {/* 
-      <Route path={`${path}/:id`}>
-        {({ match }: RouteComponentProps<{ id: string }>) => (
-          <Suspense fallback={<Loading />}>
-            <ListItems id={match.params.id}/>
-          </Suspense>
-        )}
-      </Route> */}
     </Switch>
   );
 };
