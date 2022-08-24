@@ -12,6 +12,17 @@ import {
 
 export const Step10: FC = () => {
   const { setFieldValue } = useFormikContext()
+  const checkCEP = (cep: string) => {
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then(res => res.json())
+      .then(data => {
+        setFieldValue('artist.address.address', data.logradouro)
+        setFieldValue('artist.address.neighbourhood', data.bairro)
+        setFieldValue('artist.address.city', data.localidade)
+        setFieldValue('artist.address.state', data.uf)
+        setFieldValue('artist.address.complement', data.complemento)
+      })
+  }
 
   return (
     <Container>
@@ -24,9 +35,12 @@ export const Step10: FC = () => {
                 label="CEP"
                 placeholder="Digite seu cep"
                 inputMask="99999-999"
-                onChange={(ev: any) =>
+                onChange={(ev: any) => {
+                  if (OnlyNumbers(ev.target.value).length === 8) {
+                    checkCEP(OnlyNumbers(ev.target.value))
+                  }
                   setFieldValue('cep', OnlyNumbers(ev.target.value))
-                }
+                }}
                 width={8.18}
                 // obrigatory
               />
