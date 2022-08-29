@@ -1,155 +1,86 @@
-import React, { FC, useRef, useState } from 'react';
-import { useFormikContext } from 'formik';
-import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import React, { FC } from 'react'
+import { useFormikContext } from 'formik'
 
-import { TextInput } from 'Components/Inputs/TextInput';
-import { RadioInput } from 'Components/Inputs/RadioInput';
-
-import { certificationOptionsMobile } from 'Utils/selectOptionsData';
+import { RadioInput } from 'Components/Inputs/RadioInput'
 
 import {
   Container,
   ContentContainer,
   Content,
   InputRadioContainer,
-  SelectContainer,
-  LabelText,
-  CheckboxContainer,
-  CertificationOptionsContainer,
-  InputCheckbox,
-  InputSelect,
-  TechnicalContainer,
-} from './style';
+  LabelText,  
+} from './style'
+
 
 interface ErrorProps {
   artist: {
     technical: {
-      is_drt: string;
-      is_ceac: string;
-    };
-  };
+      areas: {
+        technical_formation: string
+      }
+    }
+  }
 }
 
 export const Step14: FC = () => {
-  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false);
-  const modalRef = useRef<HTMLInputElement | null>(null);
+  const { errors } = useFormikContext<ErrorProps>()
 
-  const { values, errors } = useFormikContext<ErrorProps>();
-
-  const closeModal = (e: any) => {
-    if (modalRef.current === e.target) {
-      setIsIdiomOptionsOpen(false);
-    }
-  };
 
   return (
     <Container>
       <ContentContainer>
         <Content>
-          <SelectContainer
-            onClick={() => setIsIdiomOptionsOpen(!isIdiomOptionsOpen)}
-          >
-            <label>Voce possui certificacoes de treinamento?</label>
-            <InputSelect>
-              Selecione
-              <IoMdArrowDropdownCircle />
-            </InputSelect>
-          </SelectContainer>
-
           <LabelText>
-            Você possui Certificação/DRT? <p className="obrigatory"> *</p>
-            <span className="errorMessage">
-              {errors.artist?.technical?.is_drt &&
-                errors.artist.technical.is_drt}
+            Formação técnica e profissional{' '}
+            <label className="obrigatory"> *</label>
+            <span>
+              {errors.artist?.technical?.areas?.technical_formation &&
+                errors.artist.technical.areas.technical_formation}
             </span>
           </LabelText>
 
-          <TechnicalContainer>
-            <InputRadioContainer>
-              <RadioInput
-                id="yes_is_drt"
-                type="radio"
-                name="artist.technical.is_drt"
-                value="true"
-                label="Sim"
-              />
-            </InputRadioContainer>
+          <InputRadioContainer>
+            <RadioInput
+              name="artist.technical.areas.technical_formation"
+              value="autodidata"
+              label="Autodidata"
+            />
+          </InputRadioContainer>
 
-            <InputRadioContainer>
-              <RadioInput
-                id="not_is_drt"
-                type="radio"
-                name="artist.technical.is_drt"
-                value="false"
-                label="Não"
-              />
-            </InputRadioContainer>
+          <InputRadioContainer>
+            <RadioInput
+              name="artist.technical.areas.technical_formation"
+              value="curso especializado"
+              label="Curso especializado na área"
+            />
+          </InputRadioContainer>
 
-            {values.artist.technical.is_drt === 'true' && (
-              <TextInput
-                name="artist.technical.drt"
-                placeholder="Número do drt"
-              />
-            )}
-          </TechnicalContainer>
+          <InputRadioContainer>
+            <RadioInput
+              name="artist.technical.areas.technical_formation"
+              value="tecnico"
+              label="Formação Técnica"
+            />
+          </InputRadioContainer>
 
-          <LabelText>
-            Você possui CEAC? <p className="obrigatory"> *</p>
-            <span className="errorMessage">
-              {errors.artist?.technical?.is_ceac &&
-                errors.artist.technical.is_ceac}
-            </span>
-          </LabelText>
+          <InputRadioContainer>
+            <RadioInput
+              name="artist.technical.areas.technical_formation"
+              value="tecnologica"
+              label="Formação Tecnológica"
+            />
+          </InputRadioContainer>
 
-          <TechnicalContainer>
-            <InputRadioContainer>
-              <RadioInput
-                id="yes_is_ceac"
-                type="radio"
-                name="artist.technical.is_ceac"
-                value="true"
-                label="Sim"
-              />
-            </InputRadioContainer>
-
-            <InputRadioContainer>
-              <RadioInput
-                id="not_is_ceac"
-                type="radio"
-                name="artist.technical.is_ceac"
-                value="false"
-                label="Não"
-              />
-
-              {values.artist.technical.is_ceac === 'true' && (
-                <TextInput
-                  name="artist.technical.ceac"
-                  placeholder="Número do ceac"
-                />
-              )}
-            </InputRadioContainer>
-          </TechnicalContainer>
+          <InputRadioContainer>
+            <RadioInput
+              type="radio"
+              name="artist.technical.areas.technical_formation"
+              value="universitaria"
+              label="Formação Universitária"
+            />
+          </InputRadioContainer>
         </Content>
       </ContentContainer>
-      <CertificationOptionsContainer
-        ref={modalRef}
-        onClick={closeModal}
-        isOpen={isIdiomOptionsOpen}
-      >
-        <CheckboxContainer>
-          {certificationOptionsMobile.map((certification, index) => (
-            <InputCheckbox
-              key={index}
-              type="checkbox"
-              inputRightSide
-              name="artist.technical.areas.certificate"
-              value={certification.value}
-            >
-              {certification.label}
-            </InputCheckbox>
-          ))}
-        </CheckboxContainer>
-      </CertificationOptionsContainer>
     </Container>
   );
 };

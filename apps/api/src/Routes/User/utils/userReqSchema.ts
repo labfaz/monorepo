@@ -113,7 +113,7 @@ export const userArtistSchema = yup
     address: addressSchema,
     contact: userContactSchema,
     technical: userTechnicalSchema,
-    acessibilityResourcesDescription: yup.string(),
+    accessibility_resources_description: yup.string(),
   });
 
 export const userSchema = yup.object({

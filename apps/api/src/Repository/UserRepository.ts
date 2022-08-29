@@ -167,6 +167,7 @@ export class UserRepository extends Repository<User> {
     createdArtist.race = artist.race;
     createdArtist.rg = artist.rg;
     createdArtist.photo_url = profilePicture.url;
+    createdArtist.accessibility_resources_description = artist.accessibility_resources_description;
     if (curriculum)
       createdArtist.curriculum = curriculum.url;
     
@@ -359,8 +360,8 @@ export class UserRepository extends Repository<User> {
         user.artist.birthday = artist.birthday;
       }
 
-      if (artist.acessibilityResourcesDescription) {
-        user.artist.acessibilityResourcesDescription = artist.acessibilityResourcesDescription;
+      if (artist.accessibility_resources_description) {
+        user.artist.accessibility_resources_description = artist.accessibility_resources_description;
       }
 
       if (artist.cpf) {

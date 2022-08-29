@@ -31,7 +31,7 @@ export const CourseInfo: FC<CourseResumeProps> = ({ course }) => {
       <Text> {course?.short_description} </Text>
       <TagContainer>
         {course?.tags.map((tag, index) => {
-          return <Label name={tag} image={undefined} key={index} />;
+          return <Label name={tag} alt={course.name} image={undefined} key={index} />;
         })}
       </TagContainer>
       <Button

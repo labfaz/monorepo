@@ -1,77 +1,155 @@
-import React, { FC } from 'react';
-import { useFormikContext } from 'formik';
+import React, { FC, useRef, useState } from 'react'
+import { useFormikContext } from 'formik'
+import { IoMdArrowDropdownCircle } from 'react-icons/io'
+
+import { TextInput } from 'Components/Inputs/TextInput'
+import { RadioInput } from 'Components/Inputs/RadioInput'
+
+import { certificationOptionsMobile } from 'Utils/selectOptionsData'
 
 import {
   Container,
   ContentContainer,
   Content,
-  AvatarInput,
-  Input,
-  InputCheckBoxContainer,
-  Button,
+  InputRadioContainer,
+  SelectContainer,
+  LabelText,
+  CheckboxContainer,
+  CertificationOptionsContainer,
   InputCheckbox,
-  InputTextContainer,
-} from './style';
+  InputSelect,
+  TechnicalContainer
+} from './style'
 
-interface Step16Props {
-  profilePicture: string;
-
-  password: string;
-  confirm_password: string;
-  use_term: string;
+interface ErrorProps {
+  artist: {
+    technical: {
+      is_drt: string
+      is_ceac: string
+    }
+  }
 }
 
 export const Step16: FC = () => {
-  const { values, errors } = useFormikContext<Step16Props>();
+  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false)
+  const modalRef = useRef<HTMLInputElement | null>(null)
+
+  const { values, errors } = useFormikContext<ErrorProps>()
+
+  const closeModal = (e: any) => {
+    if (modalRef.current === e.target) {
+      setIsIdiomOptionsOpen(false)
+    }
+  }
 
   return (
     <Container>
       <ContentContainer>
         <Content>
-          <AvatarInput>
-            <img
-              src={
-                values.profilePicture
-                  ? URL.createObjectURL(values.profilePicture)
-                  : undefined
-              }
-              alt={values.profilePicture ? 'User avatar' : ''}
-            />
-          </AvatarInput>
+          <SelectContainer
+            onClick={() => setIsIdiomOptionsOpen(!isIdiomOptionsOpen)}
+          >
+            <label>Voce possui certificacoes de treinamento?</label>
+            <InputSelect>
+              Selecione
+              <IoMdArrowDropdownCircle />
+            </InputSelect>
+          </SelectContainer>
 
-          <InputTextContainer>
-            <Input
-              name="password"
-              label="Escolha uma senha"
-              placeholder="Digite uma senha"
-              obrigatory
-            />
-          </InputTextContainer>
-          <InputTextContainer>
-            <Input
-              name="confirm_password"
-              label="Confirmar Senha"
-              placeholder="Digite novamente a senha"
-              obrigatory
-            />
-          </InputTextContainer>
+          <LabelText>
+            Você possui Certificação/DRT? <p className="obrigatory"> *</p>
+            <span className="errorMessage">
+              {errors.artist?.technical?.is_drt &&
+                errors.artist.technical.is_drt}
+            </span>
+          </LabelText>
 
-          <InputCheckBoxContainer>
-            <InputCheckbox type="checkbox" name="use_terms" value="sim">
-              Li e concordo com os
-              <a href="public/termos-e-condicoes.pdf"> Termos de Uso </a>e estou
-              ciente e autorizo que os meus dado sejam usados única e
-              exclusivamente para o projeto LabFaz.
-            </InputCheckbox>
+          <TechnicalContainer>
+            <InputRadioContainer>
+              <RadioInput
+                id="yes_is_drt"
+                type="radio"
+                name="artist.technical.is_drt"
+                value="true"
+                label="Sim"
+              />
+            </InputRadioContainer>
 
-            {errors.use_term && (
-              <span className="errorMessage">{errors.use_term}</span>
+            <InputRadioContainer>
+              <RadioInput
+                id="not_is_drt"
+                type="radio"
+                name="artist.technical.is_drt"
+                value="false"
+                label="Não"
+              />
+            </InputRadioContainer>
+
+            {values.artist.technical.is_drt === 'true' && (
+              <TextInput
+                name="artist.technical.drt"
+                placeholder="Número do drt"
+              />
             )}
-          </InputCheckBoxContainer>
+          </TechnicalContainer>
 
-          <Button type="submit">FINALIZAR REGISTRO</Button>
+          <LabelText>
+            Você possui CEAC? <p className="obrigatory"> *</p>
+            <span className="errorMessage">
+              {errors.artist?.technical?.is_ceac &&
+                errors.artist.technical.is_ceac}
+            </span>
+          </LabelText>
+
+          <TechnicalContainer>
+            <InputRadioContainer>
+              <RadioInput
+                id="yes_is_ceac"
+                type="radio"
+                name="artist.technical.is_ceac"
+                value="true"
+                label="Sim"
+              />
+            </InputRadioContainer>
+
+            <InputRadioContainer>
+              <RadioInput
+                id="not_is_ceac"
+                type="radio"
+                name="artist.technical.is_ceac"
+                value="false"
+                label="Não"
+              />
+
+              {values.artist.technical.is_ceac === 'true' && (
+                <TextInput
+                  name="artist.technical.ceac"
+                  placeholder="Número do ceac"
+                />
+              )}
+            </InputRadioContainer>
+          </TechnicalContainer>
         </Content>
       </ContentContainer>
+      <CertificationOptionsContainer
+        ref={modalRef}
+        onClick={closeModal}
+        isOpen={isIdiomOptionsOpen}
+      >
+        <CheckboxContainer>
+          {certificationOptionsMobile.map((certification, index) => (
+            <InputCheckbox
+              key={index}
+              type="checkbox"
+              inputRightSide
+              name="certification"
+              value={certification.value}
+            >
+              {certification.label}
+            </InputCheckbox>  
+          ))}
+        </CheckboxContainer>
+      </CertificationOptionsContainer>
     </Container>
   );
 };

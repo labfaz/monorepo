@@ -114,8 +114,8 @@ export const Step4: FC = () => {
               type="radio"
               name="artist.gender_specific"
               value="não-binário"
-              label="Não-binário(a)"
-              information="pessoa transexual/transgênero é o(a) indivíduo(a) que se identifica com um gênero diferente daquele que lhe foi atribuído biologicamente no nascimento. Por exemplo: uma pessoa que nasce com características masculinas (do ponto de vista biológico), mas que se sente do gênero feminino; ou o indivíduo que possui características físicas femininas, mas que se identifica como um homem."
+              label="Não-binárie"
+              information="pessoa não binárie é quem não se identifica com um gênero exclusivamente, podem não se reconhecer com a identidade de gênero 'homem' ou 'mulher', ou podem se caracterizar como uma mistura entre os dois."
             />
           </InputRadioContainer>
 

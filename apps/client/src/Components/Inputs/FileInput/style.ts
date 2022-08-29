@@ -106,8 +106,11 @@ export const Input = styled(Field)`
 
 export const InputFileText = styled(Text)`
   font-size: var(--font-size-medium);
-  color: #fafafa;
-
+  color: #FAFAFA;
+  white-space: nowrap;
+  max-width: 80%;
+  overflow-x: hidden;
+  
   ${DesktopSmall(css`
     font-size: var(--font-size-small);
   `)}

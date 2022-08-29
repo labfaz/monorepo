@@ -1,19 +1,18 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import VLibras from "@djpfs/react-vlibras";  
 
 import { showRoutes } from 'FeatureFlags';
 import GlobalContext from 'Context';
 import GlobalStyles from 'GlobalStyles';
 import Routes from 'Routes';
 
-import useGoogleAnalytics from 'Hooks/useInitializeGA';
-import Contruction from 'Pages/Construction';
-
 export const App = () => {
-  useGoogleAnalytics();
+  useGoogleAnalytics()
 
   return (
     <>
+      <VLibras />
       <GlobalStyles />
       <GlobalContext>
         {showRoutes ? (

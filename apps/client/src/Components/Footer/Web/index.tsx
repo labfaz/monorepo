@@ -10,13 +10,15 @@ import { FooterContainer } from './style';
 import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
 
 interface Props {
-  data: SocialNetworksLabfaz;
+  data: SocialNetworksLabfaz
+  id?: string
 }
 
-const Web: FC<Props> = ({ data }) => {
+const Web: FC<Props> = ({ data, id }) => {
+
   return (
     <FooterContainer>
-      <div className="miniContainer">
+      <div className="miniContainer" id={id}>
         <LogoFooter data={data} />
         <Navigation />
         <NewsLetter />

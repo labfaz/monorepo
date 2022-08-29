@@ -1,98 +1,71 @@
 import styled from 'styled-components';
 
-import { Text } from 'Components/Typography/Text';
-import { TextInput } from 'Components/Inputs/TextInput';
+import { Field } from 'formik'
+import { Text } from 'Components/Typography/Text'
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-`;
+  align-items: center;
+`
 
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  position: relative;
-
   width: 100vw;
 
   scroll-snap-align: start;
-
-  svg {
-    color: #a3a3a3;
-    position: absolute;
-    bottom: 10rem;
-
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 35px;
-    height: 35px;
-
-    animation: MoveUpDown 2s linear infinite;
-  }
-
-  @keyframes MoveUpDown {
-    0%,
-    100% {
-      bottom: 0;
-    }
-    50% {
-      bottom: 20px;
-    }
-  }
-`;
+`
 
 export const Content = styled.div`
-  margin-top: 6.02rem;
+  width: 14.4rem;
 
-  width: 13.3rem;
-`;
+`
 
-export const LabelText = styled(Text)`
-  margin-bottom: 0.8rem;
+export const TextLabel = styled(Text)`
+  font-size: var(--font-size-medium);
   font-weight: 600;
-  font-size: var(--font-size-large);
+  line-height: 16px;
+
+  margin-top: 2.44rem;
+
+  display: block;
+
   color: #fafafa;
 
   position: relative;
 
   .errorMessage {
-    color: red;
     position: absolute;
-    top: 1.2rem;
-    left: 0;
-
+    color: red;
     font-size: var(--font-size-small);
+    
+    left: 0;
+    top: 1.7rem;
   }
 
   .obrigatory {
-    display: inline;
     color: red;
+    display: inline;
   }
 `;
 
-export const InputRadioContainer = styled.div`
-  margin-bottom: 0.5rem;
-`;
+export const InputText = styled(Field)`
+  width: 14.4rem;
+  height: 15.6rem;
 
-export const TextContainer = styled.div`
-  margin-top: 3.5rem;
-  margin-bottom: 2rem;
-`;
+  margin-top: 1.66rem;
+  resize: none;
+`
 
-export const CnpjTextContainer = styled.div`
-  margin-top: 1.79rem;
-`;
+export const FileContainer = styled.div`
+  margin-top: 2.83rem;
+  width: 14.4rem;
 
-export const CnpjContainer = styled.div`
-  scroll-snap-align: start;
-`;
 
-export const CpnjContent = styled.div`
-  margin-top: 5rem;
-  width: 13.3rem;
-`;
-
-export const InputText = styled(TextInput)``;
+  input {
+    width: 100%;
+  }
+`

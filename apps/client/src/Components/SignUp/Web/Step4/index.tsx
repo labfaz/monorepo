@@ -1,91 +1,87 @@
-import React, { FC } from 'react';
-import { useFormikContext } from 'formik';
+import React, { FC } from "react";
+import { useFormikContext } from "formik";
+import { RadioInput } from "Components/Inputs/RadioInput";
 
-import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
-import { TextInput } from 'Components/Inputs/TextInput';
-import { RadioInput } from 'Components/Inputs/RadioInput';
-
-import { formationOptions, idiomOptions } from 'Utils/selectOptionsData';
+import { CheckboxInput } from "Components/Inputs/CheckboxInput";
+import { TextInput } from "Components/Inputs/TextInput";
+import { FileInput } from "Components/Inputs/FileInput";
+import { deficiencyOptions } from "Utils/selectOptionsData";
 
 import {
   Container,
-  LeftSide,
-  LeftSideContent,
-  RightSide,
-  RightSideContent,
+  Box,
+  BoxContent,
+  DeficiencyContainer,
   LabelText,
-  InputRadioContainer,
   InputCheckBoxContainer,
   TextInputContainer,
-} from './style';
+  PCDOptions,
+  InputRadioContainer,
+  FileContainer,
+} from "./style";
 
 interface ErrorProps {
-  artist: {
-    technical: {
-      formation: string;
-      idiom: string[];
-    };
-  };
+  deficiencies?: string[];
+  isPcd?: string;
 }
 
 export const Step4: FC = () => {
-  const { values, errors } = useFormikContext<ErrorProps>();
+  const { values } = useFormikContext<ErrorProps>();
 
   return (
     <Container>
-      <LeftSide>
-        <LeftSideContent>
-          <LabelText>
-            Você domina outro idioma além do português?
-            <p className="obrigatory"> *</p>
-            {errors.artist?.technical?.idiom && (
-              <span className="errorMessage">Campo obrigatório</span>
-            )}
-          </LabelText>
-          {idiomOptions.map((idiomOption, index) => (
-            <InputCheckBoxContainer key={index}>
-              <CheckboxInput
-                type="checkbox"
-                name="artist.technical.idiom"
-                value={idiomOption.value}
-                label={idiomOption.label}
-              />
-            </InputCheckBoxContainer>
-          ))}
-        </LeftSideContent>
-      </LeftSide>
-
-      <RightSide>
-        <RightSideContent>
-          <LabelText>
-            Formação escolar
-            <p className="obrigatory"> *</p>
-            {errors.artist?.technical?.formation && (
-              <span className="errorMessage">Campo obrigatório</span>
-            )}
-          </LabelText>
-
-          {formationOptions.map((formationOption, index) => (
-            <InputRadioContainer key={index}>
-              <RadioInput
-                type="radio"
-                name="artist.technical.formation"
-                value={formationOption.value}
-                label={formationOption.label}
-              />
-            </InputRadioContainer>
-          ))}
-
-          {values.artist.technical.idiom.find(
-            (values: any) => values === 'Outro'
-          ) && (
+      <Box>
+        <LabelText>Você é uma pessoa com deficiência?</LabelText>
+        <PCDOptions>
+          <InputRadioContainer>
+            <RadioInput name="isPcd" value="true" label="Sim" />
+          </InputRadioContainer>
+          <InputRadioContainer>
+            <RadioInput name="isPcd" value="false" label="Não" />
+          </InputRadioContainer>
+        </PCDOptions>
+        {values.isPcd === "true" && (
+          <BoxContent>
             <TextInputContainer>
-              <label>Qual outro idioma você domina?</label>
-              <TextInput name="other_idiom" placeholder="Digite outro idioma" />
+              <label>Qual sua deficiência?</label>
             </TextInputContainer>
-          )}
-        </RightSideContent>
-      </RightSide>
+            <DeficiencyContainer>
+              {deficiencyOptions.map((deficiencyOption, index) => (
+                <InputCheckBoxContainer key={index}>
+                  <CheckboxInput
+                    type="checkbox"
+                    name="deficiencies"
+                    value={deficiencyOption.value}
+                    label={deficiencyOption.label}
+                  />
+                </InputCheckBoxContainer>
+              ))}
+            </DeficiencyContainer>
+
+            <FileContainer>
+              <label htmlFor="medicalReport" className="fileLabel">
+                Laudo médico
+              </label>
+
+              <FileInput
+                name="medicalReport"
+                value="medicalReport"
+                label="Enviar laudo"
+                accept="application/pdf"
+              />
+            </FileContainer>
+          </BoxContent>
+        )}
+        {values.deficiencies?.find((values: any) => values === "Outro") && (
+          <TextInputContainer>
+            <label>Qual outra deficiência você possui?</label>
+            <TextInput
+              name="other_deficiency"
+              placeholder="Digite sua condição"
+            />
+          </TextInputContainer>
+        )}
+      </Box>
     </Container>
   );
 };

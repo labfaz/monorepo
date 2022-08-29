@@ -1,7 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { Text } from 'Components/Typography/Text';
-import { TextInput } from 'Components/Inputs/TextInput';
+import { Field } from "formik";
+import { Text } from "Components/Typography/Text";
+import { RadioInput } from "Components/Inputs/RadioInput";
+import { CheckboxInput } from "Components/Inputs/CheckboxInput";
+import { TextInput } from "Components/Inputs/TextInput";
 
 interface ContentProps {
   isOpen: boolean;
@@ -18,67 +21,56 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  position: relative;
-
   width: 100vw;
 
   scroll-snap-align: start;
 `;
 
 export const Content = styled.div`
-  margin-top: 2.5rem;
+  width: 14.4rem;
 `;
 
-export const LabelText = styled(Text)`
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+export const TextLabel = styled(Text)`
+  font-size: var(--font-size-medium);
   font-weight: 600;
-  font-size: var(--font-size-large);
+  line-height: 16px;
+
+  margin-top: 2.44rem;
+
+  display: block;
+
   color: #fafafa;
+
   position: relative;
-
-  .obrigatory {
-    color: red;
-    display: inline;
-  }
-
-  span {
-    color: red;
-    font-size: var(--font-size-small);
-    position: absolute;
-    left: 0;
-    top: 3rem;
-  }
 `;
 
 export const InputRadioContainer = styled.div`
   margin-bottom: 0.5rem;
+  width: 14.8rem;
 
   label {
-    font-size: vaR(--font-size-medium);
+    font-size: var(--font-size-medium);
+    line-height: 13px;
     color: #fafafa;
   }
 `;
+
+export const InputRadio = styled(RadioInput)``;
 
 export const SelectContainer = styled.label`
   width: 13.3rem;
   display: block;
   margin-bottom: 1rem;
 
-  position: relative;
-
   label {
     font-weight: 600;
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-medium);
     display: block;
-
-    line-height: 1rem;
 
     margin-bottom: 1.2rem;
     color: #fafafa;
   }
 `;
-
 export const InputSelect = styled.div`
   display: flex;
   flex-direction: column;
@@ -86,7 +78,7 @@ export const InputSelect = styled.div`
 
   position: relative;
 
-  width: 13.3rem;
+  width: 14.4rem;
   height: 2.2rem;
   appearance: none;
   border: 0;
@@ -117,8 +109,16 @@ export const InputSelect = styled.div`
   }
 `;
 
-export const IdiomOptionsContainer = styled.div<ContentProps>`
-  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+export const InputText = styled(Field)`
+  width: 14.4rem;
+  height: 15.6rem;
+
+  margin-top: 1.66rem;
+  resize: none;
+`;
+
+export const OptionsContainer = styled.div<ContentProps>`
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
 
   position: absolute;
 
@@ -178,10 +178,23 @@ export const CheckboxContainer = styled.div`
 
   label {
     margin-left: 0;
-    font-size: var(--font-size-small);
   }
 `;
 
-export const OtherTechnicalArea = styled(TextInput)`
-  margin: 2rem 0;
+export const InputCheckbox = styled(CheckboxInput)``;
+
+export const InputSmallText = styled(TextInput)``;
+
+export const InputTextContainer = styled.div`
+  p {
+    margin-bottom: 0rem;
+  }
+`;
+
+export const FileContainer = styled.div`
+  width: 14.4rem;
+
+  input {
+    width: 100%;
+  }
 `;

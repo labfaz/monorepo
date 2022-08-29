@@ -1,154 +1,54 @@
-import React, { FC } from 'react';
-import { useFormikContext } from 'formik';
+import React, { FC } from 'react'
 
-import { RadioInput } from 'Components/Inputs/RadioInput';
-// import { TextInput } from 'Components/Inputs/TextInput'
-import { OnlyNumbers } from 'Utils/inputRegex';
+import { FileInput } from 'Components/Inputs/FileInput'
 
 import {
   Container,
   ContentContainer,
+  TextLabel,
   Content,
-  InputRadioContainer,
-  LabelText,
-  TextContainer,
-  CnpjContainer,
-  CpnjContent,
   InputText,
-} from './style';
+  FileContainer,
+} from './style'
+import { useFormikContext } from 'formik'
 
-interface Step15Props {
+interface ErrorProps {
   artist: {
     technical: {
-      is_cnpj: string;
-    };
-  };
+      areas: {
+        describe: String
+      }
+    }
+  }
 }
 
 export const Step15: FC = () => {
-  const { values, setFieldValue, errors } = useFormikContext<Step15Props>();
+  const { errors } = useFormikContext<ErrorProps>()
 
   return (
     <Container>
       <ContentContainer>
         <Content>
-          <LabelText>
-            Você possui CNPJ? <p className="obrigatory"> *</p>
-            {errors.artist?.technical?.is_cnpj && (
-              <span className="errorMessage">
-                {errors.artist.technical.is_cnpj}
-              </span>
-            )}
-          </LabelText>
+          <TextLabel>
+            Descreva quais são as atividades e serviços oferecidos por você <p className="obrigatory"> *</p>:
+            <span className="errorMessage">
+              {errors.artist?.technical?.areas?.describe &&
+                errors.artist.technical.areas.describe}
+            </span>
+          </TextLabel>
 
-          <InputRadioContainer>
-            <RadioInput
-              id="yes_is_cnpj"
-              type="radio"
-              name="artist.technical.is_cnpj"
-              value="true"
-              label="Sim"
+          <InputText component="textarea" name="artist.technical.areas.describe" />
+
+          <FileContainer>
+            <FileInput
+              name="curriculum"
+              value="curriculum"
+              label="Clique para enviar curriculo"
+              accept="application/pdf"
             />
-          </InputRadioContainer>
-
-          <InputRadioContainer>
-            <RadioInput
-              id="not_is_cnpj"
-              type="radio"
-              name="artist.technical.is_cnpj"
-              value="false"
-              label="Não"
-            />
-          </InputRadioContainer>
-
-          {values.artist.technical.is_cnpj === 'true' && (
-            <>
-              <TextContainer>
-                {/* <TextInput
-                  name="artist.technical.name_enterprise"
-                  placeholder="Digite o nome da sua empresa"
-                  label="Nome da empresa"
-                /> */}
-              </TextContainer>
-              <TextContainer>
-                <InputText
-                  name="artist.technical.cnpj"
-                  placeholder="Digite seu CNPJ"
-                  label="Número do CNPJ"
-                  inputMask="99.999.999/9999-99"
-                  onChange={(ev: any) =>
-                    setFieldValue('cnpj_number', OnlyNumbers(ev.target.value))
-                  }
-                />
-              </TextContainer>
-            </>
-          )}
+          </FileContainer>
         </Content>
       </ContentContainer>
-
-      {values.artist.technical.is_cnpj === 'true' && (
-        <CnpjContainer>
-          <ContentContainer>
-            <CpnjContent>
-              <LabelText>Seu CNPJ se enquadra em:</LabelText>
-
-              <InputRadioContainer>
-                <RadioInput
-                  type="radio"
-                  name="artist.technical.cnpj_type"
-                  value="MEI"
-                  label="MEI"
-                  id="scroll"
-                />
-              </InputRadioContainer>
-              <InputRadioContainer>
-                <RadioInput
-                  type="radio"
-                  name="artist.technical.cnpj_type"
-                  value="Microempresa"
-                  label="Microempresa"
-                />
-              </InputRadioContainer>
-
-              <InputRadioContainer>
-                <RadioInput
-                  type="radio"
-                  name="artist.technical.cnpj_type"
-                  value="Pequena empresa"
-                  label="Pequena empresa"
-                />
-              </InputRadioContainer>
-
-              <InputRadioContainer>
-                <RadioInput
-                  type="radio"
-                  name="artist.technical.cnpj_type"
-                  value="Eireli"
-                  label="Eireli"
-                />
-              </InputRadioContainer>
-
-              <InputRadioContainer>
-                <RadioInput
-                  type="radio"
-                  name="artist.technical.cnpj_type"
-                  value="OSC"
-                  label="OSC"
-                />
-              </InputRadioContainer>
-
-              <InputRadioContainer>
-                <RadioInput
-                  type="radio"
-                  name="artist.technical.cnpj_type"
-                  value="Outro"
-                  label="Outro"
-                />
-              </InputRadioContainer>
-            </CpnjContent>
-          </ContentContainer>
-        </CnpjContainer>
-      )}
     </Container>
   );
 };

@@ -11,12 +11,16 @@ const defaultData: SocialNetworksLabfaz = {
   phone: '61999999999',
 };
 
-const Footer: FC = () => {
-  const result = useSocialNetworksLabfaz();
+type FooterProps = {
+  id?: string
+}
 
-  if (result.isLoading) return <Composer data={defaultData} />;
-  if (result.error) return <div>error: {result.error.message}</div>;
-  return <Composer data={result.data} />;
-};
+const Footer: FC<FooterProps> = ({id}) => {
+  const result = useSocialNetworksLabfaz()
+
+  if (result.isLoading) return <Composer id={id} data={defaultData} />
+  if (result.error) return <div>error: {result.error.message}</div>
+  return <Composer id={id} data={result.data} />
+}
 
 export default Footer;

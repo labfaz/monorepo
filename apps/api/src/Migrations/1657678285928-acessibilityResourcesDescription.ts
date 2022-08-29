@@ -11,7 +11,7 @@ export class acessibilityResourcesDescription1657678285928 implements MigrationI
         await queryRunner.query(`ALTER TABLE "course" ADD "subscription_start_date" TIMESTAMP`);
         await queryRunner.query(`ALTER TABLE "course" ADD "subscription_finish_date" TIMESTAMP`);
         await queryRunner.query(`ALTER TABLE "course" ADD "link" character varying NOT NULL`);
-        await queryRunner.query(`ALTER TABLE "artist" ADD "acessibilityResourcesDescription" character varying NOT NULL`);
+        await queryRunner.query(`ALTER TABLE "artist" ADD "acessibilityResourcesDescription" character varying`);
         await queryRunner.query(`ALTER TABLE "course" ALTER COLUMN "tags" SET NOT NULL`);
         await queryRunner.query(`COMMENT ON COLUMN "course"."tags" IS NULL`);
         await queryRunner.query(`ALTER TABLE "course" ALTER COLUMN "tags" SET DEFAULT '{}'`);

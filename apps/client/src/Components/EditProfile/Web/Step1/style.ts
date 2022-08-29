@@ -154,16 +154,14 @@ export const SelectContainer = styled.label`
 `;
 export const LeftSelectContainer = styled.label`
   width: 12.475rem;
-  margin-left: 2.2rem;
 
   position: absolute;
-
+  margin-top: 0.5rem;
   ${DesktopSmall(css`
     width: 8.33rem;
     bottom: -2.5rem;
   `)}
-`;
-
+`
 export const InputTextContainer = styled.div`
   margin-bottom: 5rem;
 

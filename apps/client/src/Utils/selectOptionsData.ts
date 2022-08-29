@@ -1,3 +1,4 @@
+
 export const CidadesDF = [
   {
     value: 'Águas Claras',
@@ -635,64 +636,24 @@ export const Experience = [
 
 export const deficiencyOptions = [
   {
-    value: 'Amputação',
-    label: 'Amputação',
+    value: "Deficiência Física",
+    label: "Deficiência Física",
   },
   {
-    value: 'Membro inferior',
-    label: 'Membro inferior',
+    value: "Deficiência Intelectual",
+    label: "Deficiência Intelectual",
   },
   {
-    value: 'Membro Superior',
-    label: 'Membro Superior',
+    value: "Deficiência Visual",
+    label: "Deficiência Visual",
   },
   {
-    value: 'Nanismo',
-    label: 'Nanismo',
+    value: "Deficiência Auditiva",
+    label: "Deficiência Auditiva",
   },
   {
-    value: 'Mental/Intelectual Leve',
-    label: 'Mental/Intelectual Leve',
-  },
-  {
-    value: 'Um Membro Inferior',
-    label: 'Um Membro Inferior',
-  },
-  {
-    value: 'Um Membro Superior',
-    label: 'Um Membro Superior',
-  },
-  {
-    value: 'Paralisia Parcial',
-    label: 'Paralisia Parcial',
-  },
-  {
-    value: 'Ostomia',
-    label: 'Ostomia',
-  },
-  {
-    value: 'Autismo Leve',
-    label: 'Autismo Leve',
-  },
-  {
-    value: 'Autismo Moderado/Grave',
-    label: 'Autismo Moderado/Grave',
-  },
-  {
-    value: 'Baixa Visão',
-    label: 'Baixa Visão',
-  },
-  {
-    value: 'Cegueira',
-    label: 'Cegueira',
-  },
-  {
-    value: 'Surdez Parcial',
-    label: 'Surdez Parcial',
-  },
-  {
-    value: 'Surdez Total',
-    label: 'Surdez Total',
+    value: "Transtorno de Espectro Autista",
+    label: "Transtorno de Espectro Autista",
   },
   {
     value: 'Outro',
