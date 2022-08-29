@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import { useField } from "formik";
-import InputMask from "react-input-mask";
+import React, { FC } from 'react';
+import { useField } from 'formik';
+import InputMask from 'react-input-mask';
 
-import { Container, Input } from "./style";
-import { IoMdInformationCircle } from "react-icons/io";
+import { Container, Input } from './style';
+import { IoMdInformationCircle } from 'react-icons/io';
 
 export interface InputProps {
   label?: string;
@@ -63,7 +63,7 @@ export const TextInput: FC<InputProps> = ({
         <Input>
           {() => (
             <InputMask
-              mask={inputMask ? inputMask : ""}
+              mask={inputMask ? inputMask : ''}
               id={props.name}
               style={{ width: `${width}rem`, height: `${height}rem` }}
               type="text"

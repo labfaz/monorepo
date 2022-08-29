@@ -1,6 +1,6 @@
-import { TextInput } from 'Components/Inputs/TextInput'
-import styled, { css } from 'styled-components'
-import { DesktopSmall } from 'Utils/breakpoints'
+import { TextInput } from 'Components/Inputs/TextInput';
+import styled, { css } from 'styled-components';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;
@@ -8,18 +8,18 @@ export const Container = styled.div`
   background-color: #111010;
 
   .errorMessage {
-      position: absolute;
-      color: red;
-      font-size: var(--font-size-short);
-      top: 1.2rem;
-      left: 0;
-      white-space: nowrap;
+    position: absolute;
+    color: red;
+    font-size: var(--font-size-short);
+    top: 1.2rem;
+    left: 0;
+    white-space: nowrap;
 
-      ${DesktopSmall(css`
-        font-size: 8px;
-        top: 0.8rem;
-      `)}      
-    }
+    ${DesktopSmall(css`
+      font-size: 8px;
+      top: 0.8rem;
+    `)}
+  }
 
   .radioLabel {
     font-weight: 600;
@@ -36,14 +36,14 @@ export const Container = styled.div`
       display: inline;
       font-size: var(--font-size-short);
     }
-  
+
     ${DesktopSmall(css`
       font-size: var(--font-size-short);
       display: inline-block;
       margin-bottom: 0rem;
     `)}
   }
-`
+`;
 
 export const LeftSide = styled.div`
   width: 35.5rem;
@@ -60,7 +60,7 @@ export const LeftSide = styled.div`
 
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const LeftSideContent = styled.div`
   margin: 2.27rem 3.3rem 5.2rem 3.3rem;
@@ -68,8 +68,7 @@ export const LeftSideContent = styled.div`
   ${DesktopSmall(css`
     margin: 1.56rem 4.65rem 5.2rem 2.23rem;
   `)}
-
-`
+`;
 
 export const RightSide = styled.div`
   width: 35.5rem;
@@ -84,7 +83,7 @@ export const RightSide = styled.div`
   flex-direction: column;
 
   position: relative;
-`
+`;
 export const RightSideContent = styled.div`
   margin: 2.27rem 3.3rem 5.2rem 3.3rem;
   position: relative;
@@ -92,7 +91,7 @@ export const RightSideContent = styled.div`
   ${DesktopSmall(css`
     margin: 1.56rem 4.65rem 5.2rem 2.23rem;
   `)}
-`
+`;
 
 export const InputRadioContainer = styled.div`
   margin-bottom: 0.6rem;
@@ -100,16 +99,16 @@ export const InputRadioContainer = styled.div`
   ${DesktopSmall(css`
     margin-bottom: 0rem;
   `)}
-`
+`;
 export const SelectContainer = styled.div`
   width: 12.4rem;
   margin-bottom: 3.16rem;
-  
+
   ${DesktopSmall(css`
     width: 8.36rem;
     margin-bottom: 1.5rem;
   `)}
-`
+`;
 
 export const FileContainer = styled.div`
   margin-top: 2rem;
@@ -123,7 +122,7 @@ export const FileContainer = styled.div`
     position: relative;
 
     color: #fafafa;
-  
+
     ${DesktopSmall(css`
       font-size: var(--font-size-short);
       display: inline-block;
@@ -134,13 +133,12 @@ export const FileContainer = styled.div`
   ${DesktopSmall(css`
     margin-top: 0.5rem;
   `)}
-`
+`;
 
 export const OtherTechnicalArea = styled(TextInput)`
-
   ${DesktopSmall(css`
     position: absolute;
     bottom: 4.5rem;
     right: 1rem;
   `)}
-`
+`;

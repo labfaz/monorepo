@@ -1,12 +1,12 @@
-import { api } from "Api"
-import useFetchApi from "Hooks/useFetchApi"
+import { api } from 'Api';
+import useFetchApi from 'Hooks/useFetchApi';
 
 export interface HelloExample {
-  msg: string
+  msg: string;
 }
 
-export const fetchHelloExample = () => api
-  .get<HelloExample>(`/hello`)
-  .then(({ data }) => data)
+export const fetchHelloExample = () =>
+  api.get<HelloExample>(`/hello`).then(({ data }) => data);
 
-export const useHelloExample = () => useFetchApi<HelloExample>(`/hello`, fetchHelloExample)
+export const useHelloExample = () =>
+  useFetchApi<HelloExample>(`/hello`, fetchHelloExample);

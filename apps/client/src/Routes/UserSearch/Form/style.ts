@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components"
-import { Mobile } from "Utils/breakpoints"
-
+import styled, { css } from 'styled-components';
+import { Mobile } from 'Utils/breakpoints';
 
 export const SearchDiv = styled.div`
   max-width: fit-content;
@@ -24,7 +23,7 @@ export const SearchDiv = styled.div`
     min-width: fit-content;
     max-width: 100%;
   `)}
-`
+`;
 
 export const SearchButton = styled.button`
   height: 100%;
@@ -37,7 +36,7 @@ export const SearchButton = styled.button`
   ${Mobile(css`
     padding: 0 0.3rem;
   `)}
-`
+`;
 
 export const InputSearch = styled.input`
   max-height: 44px;
@@ -53,14 +52,14 @@ export const InputSearch = styled.input`
   }
 
   :focus {
-    outline: none
+    outline: none;
   }
 
   ${Mobile(css`
     margin: 0;
     flex-grow: 1;
-`)}
-`
+  `)}
+`;
 
 export const LGBTCheckbox = styled.input`
   margin-left: 1rem;
@@ -80,7 +79,7 @@ export const LGBTCheckbox = styled.input`
 
     display: block;
 
-    background-color: #FC0061;
+    background-color: #fc0061;
 
     transform: scale(0);
 
@@ -90,7 +89,7 @@ export const LGBTCheckbox = styled.input`
   :checked + ::after {
     transform: scale(1);
   }
-`
+`;
 
 export const CheckboxDiv = styled.div`
   display: flex;
@@ -98,4 +97,4 @@ export const CheckboxDiv = styled.div`
   * {
     color: white;
   }
-`
+`;

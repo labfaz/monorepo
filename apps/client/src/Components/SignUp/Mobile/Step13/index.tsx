@@ -1,7 +1,7 @@
-import React, { FC, useRef, useState } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC, useRef, useState } from 'react';
+import { useFormikContext } from 'formik';
 
-import { RadioInput } from 'Components/Inputs/RadioInput'
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
 import {
   Container,
@@ -12,33 +12,33 @@ import {
   InputSelect,
   CheckboxContainer,
   OtherTechnicalArea,
-  LabelText
-} from './style'
-import { TextInput } from 'Components/Inputs/TextInput'
-import { IoMdArrowDropdownCircle } from 'react-icons/io'
+  LabelText,
+} from './style';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { IoMdArrowDropdownCircle } from 'react-icons/io';
 
 interface ErrorProps {
   artist: {
     technical: {
       areas: {
-        technical_formation: string
-        name: string
-      }
-    }
-  }
+        technical_formation: string;
+        name: string;
+      };
+    };
+  };
 }
 
 export const Step13: FC = () => {
-  const { values, errors } = useFormikContext<ErrorProps>()
+  const { values, errors } = useFormikContext<ErrorProps>();
 
-  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false)
-  const modalRef = useRef<HTMLInputElement | null>(null)
+  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false);
+  const modalRef = useRef<HTMLInputElement | null>(null);
 
   const closeModal = (e: any) => {
     if (modalRef.current === e.target) {
-      setIsIdiomOptionsOpen(false)
+      setIsIdiomOptionsOpen(false);
     }
-  }
+  };
 
   return (
     <Container>
@@ -48,7 +48,7 @@ export const Step13: FC = () => {
             onClick={() => setIsIdiomOptionsOpen(!isIdiomOptionsOpen)}
           >
             <LabelText>
-            O seu trabalho na técnica está ligado à qual dessas áreas?
+              O seu trabalho na técnica está ligado à qual dessas áreas?
               <label className="obrigatory"> *</label>
               <span>
                 {errors.artist?.technical?.areas?.name &&
@@ -182,5 +182,5 @@ export const Step13: FC = () => {
         </IdiomOptionsContainer>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

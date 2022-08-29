@@ -1,17 +1,19 @@
-import React, { FC } from "react"
+import React, { FC } from 'react';
 
-import { showReactQueryDevtools } from "FeatureFlags"
+import { showReactQueryDevtools } from 'FeatureFlags';
 
-import { QueryClientProvider as QCProvider, QueryClient as QC } from "react-query"
-import { ReactQueryDevtools } from "react-query/devtools"
+import {
+  QueryClientProvider as QCProvider,
+  QueryClient as QC,
+} from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 export const reactQueryClient = new QC({
-  defaultOptions: {
-  }
-})
+  defaultOptions: {},
+});
 
 export interface QueryClientProviderProps {
-  showDevtools?: boolean
+  showDevtools?: boolean;
 }
 
 export const QueryClientProvider: FC<QueryClientProviderProps> = ({
@@ -20,8 +22,10 @@ export const QueryClientProvider: FC<QueryClientProviderProps> = ({
 }) => {
   return (
     <QCProvider client={reactQueryClient}>
-      { (showDevtools ?? showReactQueryDevtools) && <ReactQueryDevtools initialIsOpen={false} /> }
-      { children }
+      {(showDevtools ?? showReactQueryDevtools) && (
+        <ReactQueryDevtools initialIsOpen={false} />
+      )}
+      {children}
     </QCProvider>
-  )
-}
+  );
+};

@@ -17,4 +17,4 @@
 //   // .addParameters({ docs: { page: null } })
 //   // .addParameters({ docs: { page: <div>fsdfgggggggggggggggggggg</div> }})
 
-export {}
+export {};

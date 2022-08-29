@@ -1,15 +1,15 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { Field } from 'formik'
-import { Text } from 'Components/Typography/Text'
-import { TextInput } from 'Components/Inputs/TextInput'
-import { DesktopSmall } from 'Utils/breakpoints'
+import { Field } from 'formik';
+import { Text } from 'Components/Typography/Text';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;
 
   background-color: #111010;
-`
+`;
 
 export const LeftSide = styled.div`
   width: 35.5rem;
@@ -24,29 +24,26 @@ export const LeftSide = styled.div`
 
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const LeftSideContent = styled.div`
-  
   margin: 9.6rem 3.3rem 5.2rem 3.3rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-
   ${DesktopSmall(css`
     margin: 6.44rem 3.3rem 0rem 3.3rem;
   `)}
-`
+`;
 export const AvatarInput = styled.div`
   width: 256px;
   height: 256px;
   border-radius: 50%;
-  border: 3px solid #FC0061;
-  background-color: #A3A3A3;
+  border: 3px solid #fc0061;
+  background-color: #a3a3a3;
   margin-bottom: 1.94rem;
-
 
   ${DesktopSmall(css`
     width: 172px;
@@ -59,7 +56,7 @@ export const AvatarInput = styled.div`
     border-radius: 50%;
 
     outline: none;
-    
+
     object-fit: cover;
 
     ${DesktopSmall(css`
@@ -67,20 +64,18 @@ export const AvatarInput = styled.div`
       height: 166px;
     `)}
   }
-`
+`;
 export const InputFile = styled(Field)`
-
-	position: relative;
-	z-index: -1;
+  position: relative;
+  z-index: -1;
 
   & + .fileContent {
     width: 12.4rem;
     height: 2.55rem;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 
     padding-left: 0.83rem;
 
-    
     position: relative;
 
     display: flex;
@@ -90,7 +85,7 @@ export const InputFile = styled(Field)`
       position: absolute;
       width: 1px;
       height: 22px;
-      background-color: #C4C4C4;
+      background-color: #c4c4c4;
 
       right: 3.03rem;
       top: 25%;
@@ -109,21 +104,20 @@ export const InputFile = styled(Field)`
 
       pointer-events: none;
     }
-    
+
     &:hover {
       cursor: pointer;
     }
   }
-`
+`;
 
 export const SelectContainer = styled.label`
-  
   margin-top: 3.6rem;
 
   ${DesktopSmall(css`
     margin-top: 2.42rem;
   `)}
-`
+`;
 
 export const RightSide = styled.div`
   width: 35.5rem;
@@ -138,7 +132,7 @@ export const RightSide = styled.div`
   flex-direction: column;
 
   position: relative;
-`
+`;
 
 export const RightSideContent = styled.div`
   display: flex;
@@ -146,7 +140,6 @@ export const RightSideContent = styled.div`
   align-items: center;
 
   margin-top: 12rem;
-  
 
   ${DesktopSmall(css`
     margin-top: 8rem;
@@ -155,42 +148,41 @@ export const RightSideContent = styled.div`
   div {
     display: flex;
     column-gap: 3.7rem;
-    
+
     ${DesktopSmall(css`
       column-gap: 2.6rem;
     `)}
   }
-`
+`;
 
-export const FormInputText = styled(TextInput)``
+export const FormInputText = styled(TextInput)``;
 
 export const InputFileText = styled(Text)`
   font-size: var(--font-size-medium);
-  color: #C4C4C4;
-`
+  color: #c4c4c4;
+`;
 
 export const PrivacityText = styled(Text)`
   width: 27rem;
   font-size: var(--font-size-small);
   line-height: 16px;
 
-  color: #FAFAFA;
+  color: #fafafa;
 
   ${DesktopSmall(css`
     width: 18rem;
 
     font-size: 9px;
-    
+
     margin-top: 1rem;
   `)}
 
   margin-top: 2.5rem;
-
-`
+`;
 export const InputTextContainer = styled.div`
   margin-bottom: 4rem;
 
   ${DesktopSmall(css`
     margin-bottom: 2rem;
   `)}
-`
+`;

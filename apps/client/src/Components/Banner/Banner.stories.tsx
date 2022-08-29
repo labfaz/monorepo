@@ -1,12 +1,12 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import Banner from './'
+import Banner from './';
 
-storiesOf("Components/Banner", module)
+storiesOf('Components/Banner', module)
   .addParameters({ component: Banner })
-  .add("bannerCenter", () =>
+  .add('bannerCenter', () => (
     <BrowserRouter>
       <Banner
         title="LABFAZ"
@@ -15,8 +15,8 @@ storiesOf("Components/Banner", module)
         hrefKnowMore="/about"
       />
     </BrowserRouter>
-  )
-  .add("bannerLeft", () => 
+  ))
+  .add('bannerLeft', () => (
     <BrowserRouter>
       <Banner
         title="Blog"
@@ -24,4 +24,4 @@ storiesOf("Components/Banner", module)
         align="left"
       />
     </BrowserRouter>
-  )
+  ));

@@ -1,24 +1,24 @@
-import React, { FC, Fragment } from 'react'
-import { useField } from 'formik'
-import { MdArrowDropDownCircle } from 'react-icons/md'
-import { Container, Input } from './style'
+import React, { FC, Fragment } from 'react';
+import { useField } from 'formik';
+import { MdArrowDropDownCircle } from 'react-icons/md';
+import { Container, Input } from './style';
 
 interface OptionsProps {
-  value: string
-  label: string
+  value: string;
+  label: string;
 }
 
 interface InputProps {
-  label?: string
-  placeholder?: string
-  value?: string
-  name: string
-  width?: number
-  height?: number
-  inputMask?: string
-  obrigatory?: boolean
-  onChange?: (ev: any) => void
-  options: OptionsProps[]
+  label?: string;
+  placeholder?: string;
+  value?: string;
+  name: string;
+  width?: number;
+  height?: number;
+  inputMask?: string;
+  obrigatory?: boolean;
+  onChange?: (ev: any) => void;
+  options: OptionsProps[];
 }
 
 export const SelectInput: FC<InputProps> = ({
@@ -32,11 +32,11 @@ export const SelectInput: FC<InputProps> = ({
   obrigatory,
   ...props
 }) => {
-  const [inputProps, meta] = useField(props)
+  const [inputProps, meta] = useField(props);
 
-  let selected = document.getElementById(props.name) as HTMLSelectElement
+  let selected = document.getElementById(props.name) as HTMLSelectElement;
   if (selected !== null && selected.selectedIndex !== 0) {
-    selected.style.color = "white"
+    selected.style.color = 'white';
   }
 
   return (
@@ -50,7 +50,9 @@ export const SelectInput: FC<InputProps> = ({
             <label htmlFor={props.name}>
               {label} {obrigatory && <p className="obrigatory"> * </p>}
               {meta.touched && meta.error && (
-                <span className="errorMessage">{meta.touched &&meta.error}</span>
+                <span className="errorMessage">
+                  {meta.touched && meta.error}
+                </span>
               )}
             </label>
           </div>
@@ -79,5 +81,5 @@ export const SelectInput: FC<InputProps> = ({
       </Input>
       <MdArrowDropDownCircle />
     </Container>
-  )
-}
+  );
+};

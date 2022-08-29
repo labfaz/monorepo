@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import Display from "./Display";
+import Display from './Display';
 
-import { Homepage } from "Api/Homepage";
-import { CoursePresentation } from "Api/CoursePresentation";
+import { Homepage } from 'Api/Homepage';
+import { CoursePresentation } from 'Api/CoursePresentation';
 
 export interface CoursesPresentationProps {
   texts: Homepage;

@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { Mobile, DesktopSmall } from 'Utils/breakpoints'
+import { Mobile, DesktopSmall } from 'Utils/breakpoints';
 
 export const ImageConstruction = styled.img`
   height: 20rem;

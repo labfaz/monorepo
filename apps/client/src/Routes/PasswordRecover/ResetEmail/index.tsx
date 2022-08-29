@@ -1,26 +1,30 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import Display from "./Display"
+import Display from './Display';
 
-import { useRecoverPassImage } from "Api/RecoverPassImage"
-import LoadingFullPage from 'Components/LoadingFullPage'
-import Error from "Pages/Error"
+import { useRecoverPassImage } from 'Api/RecoverPassImage';
+import LoadingFullPage from 'Components/LoadingFullPage';
+import Error from 'Pages/Error';
 
 interface RecoverPasswordPageProps {
-  token: string
+  token: string;
 }
 
-export const RecoverPasswordPage: FC<RecoverPasswordPageProps> = ({ token }) => {
+export const RecoverPasswordPage: FC<RecoverPasswordPageProps> = ({
+  token,
+}) => {
+  const response = useRecoverPassImage();
 
-  const response = useRecoverPassImage()
+  if (response.isLoading) return <LoadingFullPage />;
+  if (response.error)
+    return (
+      <Error
+        errorMessage={response.error.response?.statusText}
+        errorStatus={response.error.response?.status}
+      />
+    );
 
-  if (response.isLoading) return <LoadingFullPage />
-  if (response.error) return <Error errorMessage={response.error.response?.statusText} errorStatus={response.error.response?.status} />
+  return <Display image={response.data} token={token} />;
+};
 
-
-  return(
-    <Display image={response.data} token={token}/>
-  )
-}
-
-export default RecoverPasswordPage
+export default RecoverPasswordPage;

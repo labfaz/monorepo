@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { Field } from "formik";
-import { Text } from "Components/Typography/Text";
-import { RadioInput } from "Components/Inputs/RadioInput";
-import { CheckboxInput } from "Components/Inputs/CheckboxInput";
-import { TextInput } from "Components/Inputs/TextInput";
+import { Field } from 'formik';
+import { Text } from 'Components/Typography/Text';
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+import { TextInput } from 'Components/Inputs/TextInput';
 
 interface ContentProps {
   isOpen: boolean;
@@ -118,7 +118,7 @@ export const InputText = styled(Field)`
 `;
 
 export const OptionsContainer = styled.div<ContentProps>`
-  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 
   position: absolute;
 

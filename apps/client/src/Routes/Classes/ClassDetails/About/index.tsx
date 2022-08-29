@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import { Container, MainTitle, TextContent } from "./styles";
+import { Container, MainTitle, TextContent } from './styles';
 
 export interface Props {
   about: string;

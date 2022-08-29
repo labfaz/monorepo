@@ -1,36 +1,35 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState } from 'react';
 
-import Form from "../Form";
-import SelectInput from "../Form/Select";
-import OptionGender from "../Form/Options/OptionGender";
-import OptionsExperience from "../Form/Options/OptionsExperience";
-import OptionIsPcD from "../Form/Options/OptionIsPcd";
-import UserCard from "../UserCard";
-import Wireframe from "Components/Wireframe";
-import Loading from "Components/Loading";
-import useTimeout from "Hooks/useTimeout";
-import { Title } from "Components/Typography/Title";
-import { Text } from "Components/Typography/Text";
-import { Pagination } from "Components/Pagination/Static"
+import Form from '../Form';
+import SelectInput from '../Form/Select';
+import OptionGender from '../Form/Options/OptionGender';
+import OptionsExperience from '../Form/Options/OptionsExperience';
+import OptionIsPcD from '../Form/Options/OptionIsPcd';
+import UserCard from '../UserCard';
+import Wireframe from 'Components/Wireframe';
+import Loading from 'Components/Loading';
+import useTimeout from 'Hooks/useTimeout';
+import { Title } from 'Components/Typography/Title';
+import { Text } from 'Components/Typography/Text';
+import { Pagination } from 'Components/Pagination/Static';
 
-import { UserSearchParams, useUserSearch } from "Api/UserSearch";
+import { UserSearchParams, useUserSearch } from 'Api/UserSearch';
 
-import { FormDiv, OptionsDiv, Header, ContentDiv } from "./style";
-import { getUserName } from "Utils/userUtils";
+import { FormDiv, OptionsDiv, Header, ContentDiv } from './style';
+import { getUserName } from 'Utils/userUtils';
 
-export type Fields = "areas" | "serviços" | "diversidade" | "experiência";
+export type Fields = 'areas' | 'serviços' | 'diversidade' | 'experiência';
 
 interface UserSearchInterface {
-  title?: string,
-  description?: string
+  title?: string;
+  description?: string;
 }
 
-export const Display: FC<UserSearchInterface> = ({title, description}) => {
-  
+export const Display: FC<UserSearchInterface> = ({ title, description }) => {
   const [formData, setFormData] = useState<UserSearchParams>({
-    nameOrProfession: "",
-    city: "",
-    area: "",
+    nameOrProfession: '',
+    city: '',
+    area: '',
     nonMenOnly: false,
     LBTQOnly: false,
     drtOnly: false,
@@ -41,33 +40,33 @@ export const Display: FC<UserSearchInterface> = ({title, description}) => {
     showNothing: true,
   });
 
-  const { isLoading, users } = useUserSearch(formData)
-  const { start, done } = useTimeout(250)
+  const { isLoading, users } = useUserSearch(formData);
+  const { start, done } = useTimeout(250);
 
   return (
     <Wireframe>
       <Header>
-        {title && <Title>{title}</Title> }
-        {description && <Text>{description}</Text> }
+        {title && <Title>{title}</Title>}
+        {description && <Text>{description}</Text>}
       </Header>
       <FormDiv>
         <Form setFunction={setFormData} onInput={start}>
           <OptionsDiv>
             <SelectInput label="cidade" setInput={setFormData} />
-            <SelectInput label="area" setInput={setFormData}  />
-            <OptionGender setFunction={setFormData}  />
+            <SelectInput label="area" setInput={setFormData} />
+            <OptionGender setFunction={setFormData} />
             <OptionsExperience setFunction={setFormData} />
             <OptionIsPcD setFunction={setFormData} />
           </OptionsDiv>
-      </Form>
+        </Form>
       </FormDiv>
       <ContentDiv>
         {users && !isLoading && done ? (
-          <Pagination items={users} >
-            {
-              users => users.map((user, index) => {
+          <Pagination items={users}>
+            {(users) =>
+              users.map((user, index) => {
                 const { id, isVerified } = user;
-                const name = getUserName(user)
+                const name = getUserName(user);
                 const area = user.artist.technical.area;
                 const photo = user.artist.photo_url;
                 const description = user.artist.technical.area[0].describe;
@@ -83,7 +82,9 @@ export const Display: FC<UserSearchInterface> = ({title, description}) => {
               })
             }
           </Pagination>
-        ) : <Loading />}
+        ) : (
+          <Loading />
+        )}
       </ContentDiv>
     </Wireframe>
   );

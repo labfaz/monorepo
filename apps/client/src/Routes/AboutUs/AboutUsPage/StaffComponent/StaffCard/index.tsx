@@ -1,31 +1,29 @@
-import React, { FC } from 'react'
-import { StaffObject } from 'Api/AboutUs'
+import React, { FC } from 'react';
+import { StaffObject } from 'Api/AboutUs';
 
-import { Card, CardThumb, CardBody, Circle, ImageCircle } from '../styles'
-import { Text } from "Components/Typography/Text"
+import { Card, CardThumb, CardBody, Circle, ImageCircle } from '../styles';
+import { Text } from 'Components/Typography/Text';
 
 interface StaffCardProps {
-  data: StaffObject
+  data: StaffObject;
 }
 
-export const StaffCard: FC<StaffCardProps> = ( {data} ) => {
+export const StaffCard: FC<StaffCardProps> = ({ data }) => {
+  const { name, tag, text, image } = data!;
 
-  const { name, tag, text, image } = data!
-
-  return(
+  return (
     <Card>
       <CardThumb>
-        <ImageCircle  image={image.url}/>
-        <Circle  className='pink'/>
+        <ImageCircle image={image.url} />
+        <Circle className="pink" />
         <Text> {name} </Text>
       </CardThumb>
       <CardBody>
         <Text> {tag} </Text>
-        <Text > {text} </Text>
+        <Text> {text} </Text>
       </CardBody>
     </Card>
-  )
+  );
+};
 
-}
-
-export default StaffCard
+export default StaffCard;

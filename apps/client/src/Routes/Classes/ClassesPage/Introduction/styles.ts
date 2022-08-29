@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { Title } from "Components/Typography/Title";
-import { Text } from "Components/Typography/Text";
-import { DesktopSmall, Mobile, MobileLarge } from "Utils/breakpoints";
+import styled, { css } from 'styled-components';
+import { Title } from 'Components/Typography/Title';
+import { Text } from 'Components/Typography/Text';
+import { DesktopSmall, Mobile, MobileLarge } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   width: 100%;
@@ -86,7 +86,7 @@ export const Image = styled.img`
   -webkit-filter: drop-shadow(0 0 100px rgba(255, 255, 255, 0.15));
   filter: drop-shadow(0 0 100px rgba(255, 255, 255, 0.15));
   box-shadow: 0 4px 4px 0px rgba(250, 250, 250, 0.34) inset;
-  
+
   ${Mobile(css`
     width: 285px;
     height: 268px;

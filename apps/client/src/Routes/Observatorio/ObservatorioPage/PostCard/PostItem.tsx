@@ -1,19 +1,17 @@
-import React, { FC } from "react"
-import { ObservatorioPost } from "Api/ObservatorioPost"
+import React, { FC } from 'react';
+import { ObservatorioPost } from 'Api/ObservatorioPost';
 
-import useMobile from "Hooks/useMobile"
-import { Wrapper } from "./styles"
-import Mobile from "./Mobile"
-import Web from "./Web"
+import useMobile from 'Hooks/useMobile';
+import { Wrapper } from './styles';
+import Mobile from './Mobile';
+import Web from './Web';
 
 export interface PostItemProps {
-  post: ObservatorioPost
+  post: ObservatorioPost;
 }
 
-export const PostItem: FC<PostItemProps> = ({
-  post,
-}) => {
-  const isMobile = useMobile()
+export const PostItem: FC<PostItemProps> = ({ post }) => {
+  const isMobile = useMobile();
 
   return (
     <Wrapper>
@@ -35,7 +33,7 @@ export const PostItem: FC<PostItemProps> = ({
         />
       )}
     </Wrapper>
-  )
-}
+  );
+};
 
-export default PostItem
+export default PostItem;

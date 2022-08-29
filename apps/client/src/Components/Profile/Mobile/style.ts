@@ -1,32 +1,29 @@
-import { Text } from 'Components/Typography/Text'
-import { Title } from 'Components/Typography/Title'
-import styled from 'styled-components'
+import { Text } from 'Components/Typography/Text';
+import { Title } from 'Components/Typography/Title';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  
 
   margin-bottom: 5.5rem;
-`
+`;
 
 export const ProfileContentContainer = styled.div`
   display: flex;
 
-  flex-direction: column; 
-
+  flex-direction: column;
 
   padding-top: 2rem;
-`
+`;
 
 export const Header = styled.div`
-
   position: relative;
 
   background-color: black;
 
   svg {
     position: absolute;
-    color: #FC0061;
+    color: #fc0061;
 
     top: 0;
     right: 1.72rem;
@@ -43,19 +40,17 @@ export const Header = styled.div`
     border: 0;
     background-color: inherit;
   }
-`
+`;
 
 export const UserPhotoContainer = styled.div`
-
   display: flex;
   justify-content: center;
   align-items: center;
 
   position: relative;
-`
+`;
 
 export const UserBasicInformation = styled.div`
-  
   padding: 0 2rem;
 
   .container {
@@ -65,9 +60,9 @@ export const UserBasicInformation = styled.div`
     justify-content: space-between;
 
     margin-bottom: 1.35rem;
-    
+
     svg {
-      color: #FC0061;
+      color: #fc0061;
 
       width: 28px;
       height: 28px;
@@ -86,21 +81,20 @@ export const UserBasicInformation = styled.div`
       align-items: center;
       justify-content: center;
 
-
       top: 0;
       right: 0;
 
       background-color: inherit;
 
-      color: #FFEC99;
+      color: #ffec99;
 
       border: 0;
-    
+
       padding: 0;
       margin: 0;
     }
   }
-`
+`;
 
 export const UserVerified = styled.div`
   display: flex;
@@ -108,14 +102,14 @@ export const UserVerified = styled.div`
 
   column-gap: 0.8rem;
 
-  color: #FAFAFA;
+  color: #fafafa;
   font-size: var(--font-size-default);
-  
+
   img {
     width: 22px;
     height: 22px;
   }
-`
+`;
 
 export const UserTechnicalInformation = styled.div`
   padding: 0 2rem;
@@ -145,7 +139,7 @@ export const UserTechnicalInformation = styled.div`
       font-weight: bold;
     }
   }
-`
+`;
 
 export const UserInformation = styled.div`
   /* width: 100%; */
@@ -172,7 +166,6 @@ export const UserInformation = styled.div`
   }
 
   .profileInformation {
-
     padding: 0 2rem;
 
     margin-bottom: 2.9rem;
@@ -180,7 +173,7 @@ export const UserInformation = styled.div`
     div {
       margin-top: 3.6rem;
       margin-left: 0.5rem;
-      
+
       color: #fafafa;
     }
 
@@ -208,7 +201,6 @@ export const UserInformation = styled.div`
           cursor: pointer;
         }
       }
-
 
       margin-bottom: 1.5rem;
     }
@@ -278,13 +270,13 @@ export const UserInformation = styled.div`
       }
     }
   }
-`
+`;
 
 export const UserPhoto = styled.div`
   width: 217px;
   height: 217px;
   border-radius: 50%;
-  background-color: #FC0061;
+  background-color: #fc0061;
 
   img {
     width: 217px;
@@ -295,28 +287,28 @@ export const UserPhoto = styled.div`
     margin-left: 0.1rem;
     margin-top: 0.1rem;
   }
-`
+`;
 
 export const NickName = styled(Title)`
   font-size: var(--font-size-title-medium);
   font-weight: 600;
-  color: #FAFAFA;
-`
+  color: #fafafa;
+`;
 
 export const UserName = styled(Title)`
   font-size: var(--font-size-default);
   font-weight: 600;
-  color: #FAFAFA;
-`
+  color: #fafafa;
+`;
 
 export const UserLocation = styled(Text)`
-  color: #FAFAFA;
-`
+  color: #fafafa;
+`;
 
 export const SocialMedias = styled.ul`
   list-style-type: none;
   margin: 0;
-  color: #FAFAFA;
+  color: #fafafa;
 
   justify-content: center;
 
@@ -325,7 +317,7 @@ export const SocialMedias = styled.ul`
   li {
     display: flex;
     align-items: center;
-    
+
     div {
       width: 9.5rem;
       overflow: hidden;
@@ -338,10 +330,10 @@ export const SocialMedias = styled.ul`
 
       margin-right: 0.94rem;
 
-      color: #FC0061;
+      color: #fc0061;
     }
   }
-`
+`;
 
 export const ButtonContainer = styled.div`
   display: flex;
@@ -349,7 +341,7 @@ export const ButtonContainer = styled.div`
   align-items: center;
 
   flex-direction: column;
-  
+
   row-gap: 3.5rem;
 
   button {
@@ -379,30 +371,25 @@ export const ButtonContainer = styled.div`
       cursor: pointer;
     }
   }
-  
+
   .editProfile {
     background-color: inherit;
-    color: #FC0061;
+    color: #fc0061;
 
-    border-bottom: 1px solid #FC0061;;
+    border-bottom: 1px solid #fc0061;
   }
-
-`
+`;
 
 export const Content = styled.section`
-
-  
-
   span {
     font-weight: 600;
     display: block;
-    
 
     display: flex;
     align-items: center;
 
     svg {
-      color: #FC0061;
+      color: #fc0061;
       margin-right: 1.2rem;
 
       width: 22px;
@@ -437,24 +424,21 @@ export const Content = styled.section`
       }
     }
   }  */
-
-  
-`
+`;
 
 export const ContentHeader = styled.div`
   display: flex;
 
-  color: #FAFAFA;
-  
+  color: #fafafa;
+
   border-bottom: 2px solid #282828;
-  box-shadow: 0px 3px 5px #0B0B0B;
+  box-shadow: 0px 3px 5px #0b0b0b;
 
   padding: 1.16rem 0rem 0.77rem 5.88rem;
 
   margin-bottom: 2.94rem;
 
   a {
-
     font-weight: 700;
 
     display: flex;
@@ -468,18 +452,18 @@ export const ContentHeader = styled.div`
       margin: 0rem 3.3rem;
     }
   }
-`
+`;
 
 export const ContentTitle = styled(Title)`
   font-size: var(--font-size-title-medium);
-  color: #FAFAFA;
+  color: #fafafa;
 
   border-bottom: 2px solid #282828;
-`
+`;
 
 export const ContentText = styled(Text)`
   font-size: var(--font-size-default);
-  color: #FAFAFA;
+  color: #fafafa;
   font-weight: 400;
   line-height: 1.8rem;
-`
+`;

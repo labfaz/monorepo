@@ -1,7 +1,7 @@
-import { strapi } from "Api";
-import useFetchApi from "Hooks/useFetchApi";
-import { Asset2Image, Image } from "Utils/Image";
-import StrapiAsset from "Utils/StrapiAsset";
+import { strapi } from 'Api';
+import useFetchApi from 'Hooks/useFetchApi';
+import { Asset2Image, Image } from 'Utils/Image';
+import StrapiAsset from 'Utils/StrapiAsset';
 
 interface StrapiBlogPost {
   title: string;

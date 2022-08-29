@@ -1,13 +1,13 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import render from "Utils/render";
-import Mobile from ".";
+import render from 'Utils/render';
+import Mobile from '.';
 
 const exampleStatus: number = 500;
-const exampleMessage: string = "Internal server error";
+const exampleMessage: string = 'Internal server error';
 
-it("renders mobile error component", () => {
+it('renders mobile error component', () => {
   expect(() =>
     render(
       <BrowserRouter>
@@ -17,20 +17,20 @@ it("renders mobile error component", () => {
   ).not.toThrow();
 });
 
-describe("Check if content of error page", () => {
+describe('Check if content of error page', () => {
   const { getByText, getAllByRole } = render(
     <BrowserRouter>
       <Mobile status={exampleStatus} message={exampleMessage} />
     </BrowserRouter>
   );
 
-  it("renders error image", () => {
-    const images = getAllByRole("img");
-    expect(images[0]).toHaveAttribute("alt", "error");
+  it('renders error image', () => {
+    const images = getAllByRole('img');
+    expect(images[0]).toHaveAttribute('alt', 'error');
   });
 
-  it("renders generic text", () => {
-    const genericText = getByText("Ops...Parece que algo deu errado");
-    expect(genericText).toHaveTextContent("Ops...Parece que algo deu errado");
+  it('renders generic text', () => {
+    const genericText = getByText('Ops...Parece que algo deu errado');
+    expect(genericText).toHaveTextContent('Ops...Parece que algo deu errado');
   });
 });

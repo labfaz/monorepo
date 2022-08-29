@@ -1,14 +1,14 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import Display from "./Display";
+import Display from './Display';
 
-import Error from "Pages/Error";
-import LoadingFullPage from "Components/LoadingFullPage";
+import Error from 'Pages/Error';
+import LoadingFullPage from 'Components/LoadingFullPage';
 
-import { mockImage } from "Utils/Image";
+import { mockImage } from 'Utils/Image';
 
-import { useAboutUsBannerInfo } from "Api/AboutUsBannerInfo";
-import { useAboutUsdata, useTeamData } from "Api/AboutUs";
+import { useAboutUsBannerInfo } from 'Api/AboutUsBannerInfo';
+import { useAboutUsdata, useTeamData } from 'Api/AboutUs';
 
 export const AboutUsPage: FC = () => {
   const aboutUs = useAboutUsdata();
@@ -16,12 +16,11 @@ export const AboutUsPage: FC = () => {
   const team = useTeamData();
 
   const mockBannerInfo = {
-    title: "Sobre nós",
-    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: 'Sobre nós',
+    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     image: mockImage({
-      url:
-        "https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg",
-      alternativeText: "Blog Banner Image",
+      url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
+      alternativeText: 'Blog Banner Image',
     }),
   };
 
@@ -99,7 +98,7 @@ export const AboutUsPage: FC = () => {
       />
     );
   }
-  
+
   return (
     <Display
       about_data={aboutUs.data}

@@ -1,18 +1,18 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { Container, Input } from './style'
+import { Container, Input } from './style';
 
 export interface InputProps {
-  label?: string
-  placeholder?: string
-  name: string
-  type?: string
-  width?: number
-  height?: number
-  value?: string
-  text?: string
-  inputMask?: string
-  inputRightSide?: boolean
+  label?: string;
+  placeholder?: string;
+  name: string;
+  type?: string;
+  width?: number;
+  height?: number;
+  value?: string;
+  text?: string;
+  inputMask?: string;
+  inputRightSide?: boolean;
 }
 
 export const CheckboxInput: FC<InputProps> = ({
@@ -35,5 +35,5 @@ export const CheckboxInput: FC<InputProps> = ({
 
       <label htmlFor={value}>{children ? children : label}</label>
     </Container>
-  )
-}
+  );
+};

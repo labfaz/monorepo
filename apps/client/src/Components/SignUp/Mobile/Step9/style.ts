@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -7,9 +7,8 @@ export const Container = styled.div`
 
   width: 100vw;
   height: 100vh;
-
-`
-export const ContentContainer = styled.div`  
+`;
+export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,10 +16,9 @@ export const ContentContainer = styled.div`
   width: 100vw;
 
   scroll-snap-align: start;
-`
+`;
 
 export const Content = styled.div`
-  
   margin-top: 2rem;
 
   .radioLabel {
@@ -31,18 +29,17 @@ export const Content = styled.div`
 
     color: #fafafa;
   }
-`
+`;
 
 export const InputRadioContainer = styled.div`
   margin-bottom: 1.61rem;
-`
+`;
 
 export const SelectContainer = styled.label`
-
   width: 13.3rem;
   display: block;
   margin-bottom: 2rem;
-`
+`;
 export const InputTextContainer = styled.div`
   margin-top: 1rem;
-`
+`;

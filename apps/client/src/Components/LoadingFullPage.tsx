@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import Loading from "./Loading";
-import Wireframe from "./Wireframe";
+import Loading from './Loading';
+import Wireframe from './Wireframe';
 
 export const LoadingFullPage: FC = () => {
   return (

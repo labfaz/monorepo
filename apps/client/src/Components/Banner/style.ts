@@ -1,32 +1,31 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { Mobile, MobileSmall } from 'Utils/breakpoints'
-import { InternalLinkButton  } from 'Components/Buttons/InternalLinkButton';
-import { Title } from 'Components/Typography/Title'
+import { Mobile, MobileSmall } from 'Utils/breakpoints';
+import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
+import { Title } from 'Components/Typography/Title';
 
 export interface Props {
-  align: string
-  BgImage?: string
+  align: string;
+  BgImage?: string;
 }
 
 export const Container = styled.div<Props>`
   display: flex;
-  padding: ${props => props.align === 'left' ? '0.5rem 0 0.5rem 7rem' : '0.5rem 0 4rem 0'};
-  justify-content: ${props => props.align};
-  background:
-    ${props => props.BgImage && `url("${props.BgImage}")`}
-    var(--background-pink)
-  ;
+  padding: ${(props) =>
+    props.align === 'left' ? '0.5rem 0 0.5rem 7rem' : '0.5rem 0 4rem 0'};
+  justify-content: ${(props) => props.align};
+  background: ${(props) => props.BgImage && `url("${props.BgImage}")`}
+    var(--background-pink);
   background-position: center;
   background-size: cover;
-  
+
   div {
     width: 30rem;
     display: flex;
     flex-direction: column;
-    align-items: ${props => props.align};
+    align-items: ${(props) => props.align};
     justify-content: space-evenly;
-    text-align: ${props => props.align};
+    text-align: ${(props) => props.align};
     gap: 1rem;
   }
   ${Mobile(css`
@@ -38,7 +37,6 @@ export const Container = styled.div<Props>`
     padding: 1rem 1.5rem;
     max-height: 22rem;
   `)}
-  
 `;
 
 export const TitleBanner = styled(Title)`
@@ -53,7 +51,6 @@ export const TitleBanner = styled(Title)`
   ${MobileSmall(css`
     font-size: var(--font-size-title-xlarge);
   `)}
-
 `;
 
 export const Subtitle = styled(Title)`
@@ -93,5 +90,4 @@ export const KnowMoreButton = styled(InternalLinkButton)`
     padding: 0.2rem 1.5rem;
     font-size: var(--font-size-short);
   `)}
-
 `;

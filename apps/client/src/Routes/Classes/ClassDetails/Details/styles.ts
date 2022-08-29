@@ -1,13 +1,13 @@
-import styled, { css } from "styled-components";
-import { Text } from "Components/Typography/Text";
-import { DesktopSmall } from "Utils/breakpoints";
+import styled, { css } from 'styled-components';
+import { Text } from 'Components/Typography/Text';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const ListsList = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: baseline;
-  margin: auto
-`
+  margin: auto;
+`;
 
 export const Container = styled.div`
   width: 100%;
@@ -20,7 +20,6 @@ export const ImageContainer = styled.div`
   background-color: var(--background-green);
   padding: 50px 97px 0 16px;
   border-radius: 21px 21px 0 0;
-  
 
   ${DesktopSmall(css`
     height: 400px;

@@ -1,9 +1,13 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { BrowserRouter } from 'react-router-dom';
 
-import { Web } from './'
+import { Web } from './';
 
-storiesOf("Components/SignUp", module)
+storiesOf('Components/SignUp', module)
   .addParameters({ component: Web })
-  .add("web", () => <BrowserRouter ><Web buttonType="button"/></BrowserRouter>)
+  .add('web', () => (
+    <BrowserRouter>
+      <Web buttonType="button" />
+    </BrowserRouter>
+  ));

@@ -1,15 +1,15 @@
-import React, { Dispatch, FC, SetStateAction } from "react";
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import {
   OptionDiv,
   BadgeInput,
   BadgeDiv,
   OptionWrapper,
-} from "../../UserSearchPage/style";
+} from '../../UserSearchPage/style';
 
-import { Title } from "Components/Typography/Title";
+import { Title } from 'Components/Typography/Title';
 // import { Text }  from "Components/Typography/Text"
 
-import { UserSearchParams } from "Api/UserSearch";
+import { UserSearchParams } from 'Api/UserSearch';
 interface OptionsProps {
   setFunction: Dispatch<SetStateAction<UserSearchParams>>;
 }
@@ -28,8 +28,8 @@ export const OptionIsPcd: FC<OptionsProps> = ({ setFunction }) => {
             onChange={() =>
               setFunction((formData) => {
                 const updateFormData = { ...formData };
-                updateFormData['pcdOnly'] = true;;
-                updateFormData['showNothing'] = false
+                updateFormData['pcdOnly'] = true;
+                updateFormData['showNothing'] = false;
                 return updateFormData;
               })
             }
@@ -46,7 +46,7 @@ export const OptionIsPcd: FC<OptionsProps> = ({ setFunction }) => {
               setFunction((formData) => {
                 const updateFormData = { ...formData };
                 updateFormData['pcdOnly'] = false;
-                updateFormData['showNothing'] = false
+                updateFormData['showNothing'] = false;
                 return updateFormData;
               })
             }

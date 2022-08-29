@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
 import {
   Container,
@@ -10,20 +10,20 @@ import {
   InputRadioContainer,
   InformartionText,
   InputText,
-} from './style'
-import { RadioInput } from 'Components/Inputs/RadioInput'
+} from './style';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
 interface ErrorProps {
   artist: {
-    gender: string
-    sexual_orientation: string
-    gender_specific: string
-    race: string
-  }
+    gender: string;
+    sexual_orientation: string;
+    gender_specific: string;
+    race: string;
+  };
 }
 
 export const Step2: FC = () => {
-  const { values, errors } = useFormikContext<ErrorProps>()
+  const { values, errors } = useFormikContext<ErrorProps>();
 
   return (
     <Container>
@@ -182,10 +182,10 @@ export const Step2: FC = () => {
                 se caracterizar como uma mistura entre os dois."
               />
               <InformartionText>
-                pessoa não binárie é quem não se identifica com 
-                um gênero exclusivamente, podem não se reconhecer com a 
-                identidade de gênero 'homem' ou 'mulher', ou podem
-                se caracterizar como uma mistura entre os dois.
+                pessoa não binárie é quem não se identifica com um gênero
+                exclusivamente, podem não se reconhecer com a identidade de
+                gênero 'homem' ou 'mulher', ou podem se caracterizar como uma
+                mistura entre os dois.
               </InformartionText>
             </InputRadioContainer>
 
@@ -303,5 +303,5 @@ export const Step2: FC = () => {
         </RightSideContent>
       </RightSide>
     </Container>
-  )
-}
+  );
+};

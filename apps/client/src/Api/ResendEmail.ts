@@ -1,14 +1,15 @@
-import { api } from "Api"
+import { api } from 'Api';
 
 interface ResendEmailProps {
-  status: string,
-  code: number,
+  status: string;
+  code: number;
   data: {
-    message: string
-  }
+    message: string;
+  };
 }
 
-export const ResendEmail = (email: string) => api
-  .post<ResendEmailProps>("user/confirm-mail",  { email })
-  .then(({data}) => data)
-  .then(({ data }) => data.message)
+export const ResendEmail = (email: string) =>
+  api
+    .post<ResendEmailProps>('user/confirm-mail', { email })
+    .then(({ data }) => data)
+    .then(({ data }) => data.message);

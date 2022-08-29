@@ -1,9 +1,13 @@
-import styled, { css } from 'styled-components'
-import { Mobile, MobileSmall, DesktopSmall, MobileLarge, } from 'Utils/breakpoints'
-
+import styled, { css } from 'styled-components';
+import {
+  Mobile,
+  MobileSmall,
+  DesktopSmall,
+  MobileLarge,
+} from 'Utils/breakpoints';
 
 interface ImageCircleProps {
-  image: string,
+  image: string;
 }
 
 export const StaffGrid = styled.div`
@@ -11,7 +15,7 @@ export const StaffGrid = styled.div`
   grid-gap: 1.6rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, auto));
   padding: 0 0.8rem;
-  
+
   justify-items: center;
 
   max-width: 90vw;
@@ -57,7 +61,7 @@ export const StaffHeader = styled.div`
       max-width: 293px;
     }
   `)}
-`
+`;
 
 export const Card = styled.div`
   display: flex;
@@ -70,9 +74,8 @@ export const Card = styled.div`
   align-items: center;
   background-color: var(--background-black);
 
-
-  border: solid 2px #0C74FF;
-  box-shadow: inset 2px -1px #FFEC99,2px 0px #FFEC99;
+  border: solid 2px #0c74ff;
+  box-shadow: inset 2px -1px #ffec99, 2px 0px #ffec99;
   border-radius: 14.3px;
 
   ${MobileSmall(css`
@@ -80,8 +83,7 @@ export const Card = styled.div`
     max-height: 100%;
     min-width: 81%;
     min-height: 247px;
-    `)}
-
+  `)}
 
   ${MobileLarge(css`
     max-height: 100%;
@@ -98,9 +100,9 @@ export const Card = styled.div`
   `)}
 
   ${DesktopSmall(css`
-    padding-left: calc((100% - 560px)/2)
+    padding-left: calc((100% - 560px) / 2);
   `)}
-`
+`;
 
 export const CardThumb = styled.div`
   display: flex;
@@ -110,7 +112,7 @@ export const CardThumb = styled.div`
   max-width: 100%;
   min-width: 100%;
   min-height: 188px;
-  
+
   position: relative;
 
   p {
@@ -120,7 +122,6 @@ export const CardThumb = styled.div`
     text-align: center;
     padding-top: 0.47rem;
   }
-
 
   img {
     width: 100%;
@@ -137,18 +138,15 @@ export const CardThumb = styled.div`
     max-width: 80%;
     min-height: 124px;
 
-
     p {
       font-size: var(--font-size-short);
       padding-top: 0.28rem;
     }
-
   `)}
 
-
   ${DesktopSmall(css`
-      max-width: 75%;
-      max-height: 130px;
+    max-width: 75%;
+    max-height: 130px;
   `)}
 
   ${MobileSmall(css`
@@ -169,7 +167,6 @@ export const CardBody = styled.div`
     padding-right: 1.4rem;
     padding-top: 1.2rem;
   }
-  
 
   > p:first-child {
     color: var(--color-text-beige);
@@ -178,7 +175,6 @@ export const CardBody = styled.div`
     text-transform: uppercase;
     padding-top: 0;
   }
-
 
   ${Mobile(css`
     line-height: 16px;
@@ -194,7 +190,6 @@ export const CardBody = styled.div`
       padding-top: 2.5%;
       font-size: var(--font-size-short);
     }
-    
   `)}
 
   ${DesktopSmall(css`
@@ -213,23 +208,23 @@ export const CardBody = styled.div`
   `)}
 
     ${MobileLarge(css`
+    font-size: var(--font-size-small);
+
+    p {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.6rem;
+    }
+
+    > p:first-child {
       font-size: var(--font-size-small);
+      padding-top: 0;
+    }
 
-      p {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-top: 0.6rem;
-      }
-
-      > p:first-child {
-        font-size: var(--font-size-small);
-        padding-top: 0;
-      }
-
-      > p:last-child {
-        padding-bottom: .5rem;
-      }
-    `)}
+    > p:last-child {
+      padding-bottom: 0.5rem;
+    }
+  `)}
 
   ${MobileSmall(css`
     font-size: var(--font-size-small);
@@ -245,8 +240,8 @@ export const CardBody = styled.div`
       padding-top: 0;
     }
     > p:last-child {
-        padding-bottom: .5rem;
-      }
+      padding-bottom: 0.5rem;
+    }
   `)}
 `;
 
@@ -257,7 +252,7 @@ export const ImageCircle = styled.div<ImageCircleProps>`
   min-height: 126px;
   border-radius: 50%;
 
-  background-image: url(${props => props.image});
+  background-image: url(${(props) => props.image});
   background-size: cover;
   background-position: center;
 
@@ -276,8 +271,7 @@ export const ImageCircle = styled.div<ImageCircleProps>`
     min-width: 110px;
     min-height: 110px;
   `)}
-
-`
+`;
 
 export const Circle = styled.div`
   max-width: 126px;
@@ -293,13 +287,11 @@ export const Circle = styled.div`
   top: 10px;
   right: 83px;
 
-
-
   ${Mobile(css`
     max-width: 91px;
     max-height: 91px;
     min-width: 91px;
-    min-height: 91px;    
+    min-height: 91px;
     top: 7px;
     right: 90px;
   `)}
@@ -317,4 +309,4 @@ export const Circle = styled.div`
     top: 7px;
     right: 88px;
   `)}
-`
+`;

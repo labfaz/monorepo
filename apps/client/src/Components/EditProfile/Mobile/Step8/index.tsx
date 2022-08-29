@@ -1,8 +1,13 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { TextInput } from 'Components/Inputs/TextInput'
+import { TextInput } from 'Components/Inputs/TextInput';
 
-import { Container, ContentContainer, Content, InputTextContainer } from './style'
+import {
+  Container,
+  ContentContainer,
+  Content,
+  InputTextContainer,
+} from './style';
 
 export const Step8: FC = () => {
   return (
@@ -18,7 +23,7 @@ export const Step8: FC = () => {
           </InputTextContainer>
 
           <InputTextContainer>
-          <TextInput
+            <TextInput
               name="artist.contact.linkedin"
               label="Linkedin"
               placeholder="@seulinkedin"
@@ -43,5 +48,5 @@ export const Step8: FC = () => {
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

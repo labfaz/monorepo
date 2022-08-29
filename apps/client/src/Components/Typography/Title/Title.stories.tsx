@@ -1,62 +1,67 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { BrowserRouter } from 'react-router-dom';
 
-import { Title } from './'
+import { Title } from './';
 
-storiesOf("Components/Title", module)
+storiesOf('Components/Title', module)
   .addParameters({ component: Title })
-  .add("title h1", () => 
-    <BrowserRouter >
-      <Title 
+  .add('title h1', () => (
+    <BrowserRouter>
+      <Title
         children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
         porta ligula nibh, nec interdum nunc maximus at."
         level={1}
       />
-    </BrowserRouter>)
+    </BrowserRouter>
+  ))
 
-  .add("Title h2", () => 
-    <BrowserRouter >
-      <Title 
+  .add('Title h2', () => (
+    <BrowserRouter>
+      <Title
         children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
         porta ligula nibh, nec interdum nunc maximus at."
         level={2}
       />
-    </BrowserRouter>)
+    </BrowserRouter>
+  ))
 
-  .add("Title h3", () => 
-    <BrowserRouter >
-      <Title 
+  .add('Title h3', () => (
+    <BrowserRouter>
+      <Title
         children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
         porta ligula nibh, nec interdum nunc maximus at."
         level={3}
       />
-    </BrowserRouter>)
+    </BrowserRouter>
+  ))
 
-  .add("Title h4", () => 
-    <BrowserRouter >
-      <Title 
+  .add('Title h4', () => (
+    <BrowserRouter>
+      <Title
         children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
         porta ligula nibh, nec interdum nunc maximus at."
         level={4}
       />
-    </BrowserRouter>)
+    </BrowserRouter>
+  ))
 
-  .add("Title h5", () => 
-    <BrowserRouter >
-      <Title 
+  .add('Title h5', () => (
+    <BrowserRouter>
+      <Title
         children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
         porta ligula nibh, nec interdum nunc maximus at."
         level={5}
       />
-    </BrowserRouter>)
+    </BrowserRouter>
+  ))
 
-
-  .add("Title h6", () => 
-    <BrowserRouter >
-      <Title 
+  .add('Title h6', () => (
+    <BrowserRouter>
+      <Title
         children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer 
         porta ligula nibh, nec interdum nunc maximus at."
         level={6}
       />
-    </BrowserRouter>)
+    </BrowserRouter>
+  ));

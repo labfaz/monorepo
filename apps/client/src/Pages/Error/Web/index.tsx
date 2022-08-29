@@ -1,13 +1,13 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import Image from "../Image";
+import Image from '../Image';
 import {
   TitleText,
   TextWrapper,
   SubtitleText,
   Rectangle2,
   Content,
-} from "./style";
+} from './style';
 
 export interface Props {
   status: number | undefined;
@@ -27,8 +27,8 @@ export const Web: FC<Props> = ({ status, message }) => {
           </TitleText>
           <SubtitleText>
             Error {status ?? 401}:
-            <br />{" "}
-            {message ?? "Acesso negado devido a credenciais não válidas."}
+            <br />{' '}
+            {message ?? 'Acesso negado devido a credenciais não válidas.'}
           </SubtitleText>
         </TextWrapper>
       </Rectangle2>

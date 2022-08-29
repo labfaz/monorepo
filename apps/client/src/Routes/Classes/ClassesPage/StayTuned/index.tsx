@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 import {
   Wrapper,
   Image,
@@ -6,10 +6,10 @@ import {
   MainText,
   MainTitle,
   Button,
-} from "./styles";
-import useMobile from "Hooks/useMobile";
+} from './styles';
+import useMobile from 'Hooks/useMobile';
 
-import { ApiStayTuned } from "Api/StayTuned";
+import { ApiStayTuned } from 'Api/StayTuned';
 
 export interface Props {
   data: ApiStayTuned;

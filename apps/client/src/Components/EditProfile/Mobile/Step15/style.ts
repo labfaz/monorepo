@@ -1,13 +1,13 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { Field } from 'formik'
-import { Text } from 'Components/Typography/Text'
+import { Field } from 'formik';
+import { Text } from 'Components/Typography/Text';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -17,12 +17,11 @@ export const ContentContainer = styled.div`
   width: 100vw;
 
   scroll-snap-align: start;
-`
+`;
 
 export const Content = styled.div`
   width: 14.4rem;
-
-`
+`;
 
 export const TextLabel = styled(Text)`
   font-size: var(--font-size-medium);
@@ -41,7 +40,7 @@ export const TextLabel = styled(Text)`
     position: absolute;
     color: red;
     font-size: var(--font-size-small);
-    
+
     left: 0;
     top: 1.7rem;
   }
@@ -50,7 +49,7 @@ export const TextLabel = styled(Text)`
     color: red;
     display: inline;
   }
-`
+`;
 
 export const InputText = styled(Field)`
   width: 14.4rem;
@@ -58,14 +57,13 @@ export const InputText = styled(Field)`
 
   margin-top: 1.66rem;
   resize: none;
-`
+`;
 
 export const FileContainer = styled.div`
   margin-top: 2.83rem;
   width: 14.4rem;
 
-
   input {
     width: 100%;
   }
-`
+`;

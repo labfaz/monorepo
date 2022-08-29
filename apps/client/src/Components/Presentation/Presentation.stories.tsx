@@ -1,23 +1,23 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 
-import Presentation from "./";
-import Display from "./Display";
+import Presentation from './';
+import Display from './Display';
 
-const mockedTitle: string = "Exemplo";
-const mockedSubtitle: string = "Exemplo";
-const mockedVideo: string = "https://www.youtube.com/watch?v=UrUJyKsLQeU";
+const mockedTitle: string = 'Exemplo';
+const mockedSubtitle: string = 'Exemplo';
+const mockedVideo: string = 'https://www.youtube.com/watch?v=UrUJyKsLQeU';
 
-storiesOf("Components/Presentation", module)
+storiesOf('Components/Presentation', module)
   .addParameters({ component: Presentation })
-  .add("presentation", () => (
+  .add('presentation', () => (
     <Presentation
       title={mockedTitle}
       subtitle={mockedSubtitle}
       video={mockedVideo}
     />
   ))
-  .add("display", () => (
+  .add('display', () => (
     <Display
       Title="LABFAZ"
       SubTitle="Lorem ipsum dolor sit amet, consectetuer adipiscing elit.

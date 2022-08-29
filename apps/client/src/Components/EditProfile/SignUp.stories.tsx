@@ -1,9 +1,13 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { BrowserRouter } from 'react-router-dom';
 
-import SignUp from '.'
+import SignUp from '.';
 
-storiesOf("Components/SignUp", module)
+storiesOf('Components/SignUp', module)
   .addParameters({ component: SignUp })
-  .add("SignUp", () => <BrowserRouter ><SignUp button_type="button"/></BrowserRouter>)
+  .add('SignUp', () => (
+    <BrowserRouter>
+      <SignUp button_type="button" />
+    </BrowserRouter>
+  ));

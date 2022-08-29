@@ -1,7 +1,7 @@
-import { strapi } from "Api";
-import useFetchApi from "Hooks/useFetchApi";
-import { Asset2Image, Image } from "Utils/Image";
-import StrapiAsset from "Utils/StrapiAsset";
+import { strapi } from 'Api';
+import useFetchApi from 'Hooks/useFetchApi';
+import { Asset2Image, Image } from 'Utils/Image';
+import StrapiAsset from 'Utils/StrapiAsset';
 
 interface StrapiObservatorioPost {
   title: string;
@@ -20,7 +20,9 @@ export interface ObservatorioPost {
   id: number;
 }
 
-export const fetchObservatorioPost: (id: number) => Promise<ObservatorioPost> = (id: number) =>
+export const fetchObservatorioPost: (
+  id: number
+) => Promise<ObservatorioPost> = (id: number) =>
   strapi
     .get<StrapiObservatorioPost>(`/observatorio-posts/${id}`)
     .then(({ data }) => data)
@@ -34,7 +36,9 @@ export const fetchObservatorioPost: (id: number) => Promise<ObservatorioPost> = 
     }));
 
 export const useObservatorioPost = (id: number) =>
-  useFetchApi<ObservatorioPost>(`/observatorio-posts/${id}`, () => fetchObservatorioPost(id));
+  useFetchApi<ObservatorioPost>(`/observatorio-posts/${id}`, () =>
+    fetchObservatorioPost(id)
+  );
 
 export const fetchObservatorioPosts: () => Promise<ObservatorioPost[]> = () =>
   strapi
@@ -52,4 +56,7 @@ export const fetchObservatorioPosts: () => Promise<ObservatorioPost[]> = () =>
     );
 
 export const useObservatorioPosts = () =>
-  useFetchApi<ObservatorioPost[]>(`/observatorio-posts`, fetchObservatorioPosts);
+  useFetchApi<ObservatorioPost[]>(
+    `/observatorio-posts`,
+    fetchObservatorioPosts
+  );
