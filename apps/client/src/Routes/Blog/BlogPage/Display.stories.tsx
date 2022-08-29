@@ -10,8 +10,7 @@ const data: BlogBannerInfo = {
   title: 'Blog',
   subtitle: 'LoremIpsum',
   image: mockImage({
-    url:
-      'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
+    url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
     alternativeText: 'Blog Banner Image',
   }),
 };
@@ -21,8 +20,7 @@ const post: BlogPost = {
   content: 'teste',
   description: 'teste',
   image: mockImage({
-    url:
-      'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
+    url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
     alternativeText: 'Blog Banner Image',
   }),
   title: 'asd',

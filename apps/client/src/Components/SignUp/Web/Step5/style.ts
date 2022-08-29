@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { Field } from 'formik'
-import { Text } from 'Components/Typography/Text'
-import { DesktopSmall } from 'Utils/breakpoints'
+import { Field } from 'formik';
+import { Text } from 'Components/Typography/Text';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ export const Container = styled.div`
       height: 33.5rem;
     `)}
   }
-`
+`;
 
 export const Content = styled.div`
   margin: 5.16rem 3.3rem 5.2rem 3.3rem;
@@ -40,11 +40,11 @@ export const Content = styled.div`
       font-size: var(--font-size-small);
     `)}
   }
-`
+`;
 export const TextLabel = styled(Text)`
   font-size: var(--font-size-large);
   font-weight: 600;
-  
+
   color: #fafafa;
 
   .obrigatory {
@@ -55,7 +55,7 @@ export const TextLabel = styled(Text)`
   ${DesktopSmall(css`
     font-size: var(--font-size-short);
   `)}
-`
+`;
 
 export const InputText = styled(Field)`
   width: 31.6rem;

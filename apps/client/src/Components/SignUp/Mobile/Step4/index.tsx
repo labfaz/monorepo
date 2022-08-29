@@ -67,7 +67,7 @@ export const Step4: FC = () => {
             />
           </InputRadioContainer>
 
-          {values.artist?.gender === "outro" && (
+          {values.artist?.gender === 'outro' && (
             <div className="otherGender">
               <TextInput
                 name="artist.other_gender"
@@ -80,7 +80,7 @@ export const Step4: FC = () => {
           <label
             htmlFor="gender"
             className="radioLabel"
-            style={{ marginTop: "1.54rem" }}
+            style={{ marginTop: '1.54rem' }}
           >
             Identidade de Genero <p className="obrigatory"> *</p>
             {errors.artist?.gender_identity && (
@@ -131,4 +131,4 @@ export const Step4: FC = () => {
       </ContentContainer>
     </Container>
   );
-}
+};

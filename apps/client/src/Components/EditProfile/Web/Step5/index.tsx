@@ -1,7 +1,7 @@
-import { useFormikContext } from "formik";
-import React, { FC } from "react";
+import { useFormikContext } from 'formik';
+import React, { FC } from 'react';
 
-import { Container, Content, TextLabel, InputText } from "./style";
+import { Container, Content, TextLabel, InputText } from './style';
 
 interface ErrorProps {
   artist: {

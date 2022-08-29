@@ -11,8 +11,7 @@ const cardExample = [
     description: 'Descrição aqui',
     finish_date: '2020-08-05',
     banner_image: {
-      url:
-        'https://images.pexels.com/photos/8285483/pexels-photo-8285483.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+      url: 'https://images.pexels.com/photos/8285483/pexels-photo-8285483.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
       alternativeText: 'imagem aleatória',
       caption: '',
       width: 0,

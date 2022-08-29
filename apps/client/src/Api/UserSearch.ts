@@ -86,49 +86,51 @@ export const useUserSearch = (params: UserSearchParams): UserSearchResults => {
 
 const isPrefiroNao = (str: string) => /prefiro n/i.test(str);
 
-const filterUser = ({
-  LBTQOnly,
-  cpnjOnly,
-  drtOnly,
-  ceacOnly,
-  meiOnly,
-  nonMenOnly,
-  pcdOnly,
-  // nrOnly,
-  area,
-  city,
-  nameOrProfession,
-}: UserSearchParams) => (user: User): boolean => {
-  console.log('pcdOnly', pcdOnly);
+const filterUser =
+  ({
+    LBTQOnly,
+    cpnjOnly,
+    drtOnly,
+    ceacOnly,
+    meiOnly,
+    nonMenOnly,
+    pcdOnly,
+    // nrOnly,
+    area,
+    city,
+    nameOrProfession,
+  }: UserSearchParams) =>
+  (user: User): boolean => {
+    console.log('pcdOnly', pcdOnly);
 
-  // if a *_filer value is true, the user passes the filter
-  const LGBTQ_filter = !LBTQOnly || isLGBTQ(user);
-  const nonMenOnly_filter = !nonMenOnly || isMale(user);
-  const pcdOnly_filter = !pcdOnly || isPcd(user);
-  const cpnj_filter = !cpnjOnly || isCpnj(user);
-  const drt_filter = !drtOnly || isDrt(user);
-  const ceact_filter = !ceacOnly || isCeac(user);
-  const mei_filter = !meiOnly || isMei(user);
-  // const nr_filter = !nrOnly || isNr(user)
+    // if a *_filer value is true, the user passes the filter
+    const LGBTQ_filter = !LBTQOnly || isLGBTQ(user);
+    const nonMenOnly_filter = !nonMenOnly || isMale(user);
+    const pcdOnly_filter = !pcdOnly || isPcd(user);
+    const cpnj_filter = !cpnjOnly || isCpnj(user);
+    const drt_filter = !drtOnly || isDrt(user);
+    const ceact_filter = !ceacOnly || isCeac(user);
+    const mei_filter = !meiOnly || isMei(user);
+    // const nr_filter = !nrOnly || isNr(user)
 
-  const area_filter = area === '' || isInArea(user, area);
-  const city_filter = city === '' || isInCity(user, city);
-  const nameOrProfession_filter =
-    nameOrProfession === '' || hasNameOrProfession(user, nameOrProfession);
+    const area_filter = area === '' || isInArea(user, area);
+    const city_filter = city === '' || isInCity(user, city);
+    const nameOrProfession_filter =
+      nameOrProfession === '' || hasNameOrProfession(user, nameOrProfession);
 
-  return (
-    LGBTQ_filter &&
-    nonMenOnly_filter &&
-    pcdOnly_filter &&
-    cpnj_filter &&
-    drt_filter &&
-    ceact_filter &&
-    mei_filter &&
-    area_filter &&
-    city_filter &&
-    nameOrProfession_filter
-  );
-};
+    return (
+      LGBTQ_filter &&
+      nonMenOnly_filter &&
+      pcdOnly_filter &&
+      cpnj_filter &&
+      drt_filter &&
+      ceact_filter &&
+      mei_filter &&
+      area_filter &&
+      city_filter &&
+      nameOrProfession_filter
+    );
+  };
 
 // reminder:
 //   - if return > 0, b is before a

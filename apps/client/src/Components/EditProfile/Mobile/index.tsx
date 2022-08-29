@@ -2,24 +2,24 @@ import React, { FC, useRef, useState } from 'react';
 import { Formik, FormikConfig, FormikValues, Form } from 'formik';
 import * as yup from 'yup';
 
-import { Step1 } from './Step1'
-import { Step2 } from './Step2'
-import { Step3 } from './Step3'
-import { Step4 } from './Step4'
-import { Step5 } from './Step5'
-import { Step6 } from './Step6'
-import { Step7 } from './Step7'
-import { Step8 } from './Step8'
-import { Step9 } from './Step9'
-import { Step10 } from './Step10'
-import { Step11 } from './Step11'
-import { Step12 } from './Step12'
-import { Step13 } from './Step13'
-import { Step14 } from './Step14'
-import { Step15 } from './Step15'
-import { Step16 } from './Step16'
-import { Step17 } from './Step17'
-import { Step18 } from './Step18'
+import { Step1 } from './Step1';
+import { Step2 } from './Step2';
+import { Step3 } from './Step3';
+import { Step4 } from './Step4';
+import { Step5 } from './Step5';
+import { Step6 } from './Step6';
+import { Step7 } from './Step7';
+import { Step8 } from './Step8';
+import { Step9 } from './Step9';
+import { Step10 } from './Step10';
+import { Step11 } from './Step11';
+import { Step12 } from './Step12';
+import { Step13 } from './Step13';
+import { Step14 } from './Step14';
+import { Step15 } from './Step15';
+import { Step16 } from './Step16';
+import { Step17 } from './Step17';
+import { Step18 } from './Step18';
 
 import {
   FormTitle,
@@ -73,8 +73,9 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
           profilePicture: data?.artist.photo_url,
           curriculum: data?.artist.curriculum,
           medicalReport: data?.artist.medicalReport,
-          accessibility_resources_description: data?.artist.accessibility_resources_description,
-          Other_TechnicalArea: "",
+          accessibility_resources_description:
+            data?.artist.accessibility_resources_description,
+          Other_TechnicalArea: '',
           artist: {
             name: data?.artist.name,
             social_name: data?.artist.social_name,
@@ -324,7 +325,6 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
           <Step12 />
         </FormikStep>
 
-
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
@@ -435,9 +435,9 @@ function FormikStepper({
   children,
   ...props
 }: FormikConfig<FormikValues & ButtonProps>) {
-  const childrenArray = React.Children.toArray(children) as React.ReactElement<
-    FormikStepProps
-  >[];
+  const childrenArray = React.Children.toArray(
+    children
+  ) as React.ReactElement<FormikStepProps>[];
 
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];

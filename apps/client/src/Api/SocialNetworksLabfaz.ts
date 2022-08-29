@@ -12,33 +12,32 @@ export interface SocialNetworksLabfaz {
   email: string;
 }
 
-export const fetchSocialNetworksLabfaz: () => Promise<
-  SocialNetworksLabfaz
-> = () =>
-  strapi
-    .get(`/social-networks-labfaz`)
-    .then(({ data }) => data)
-    .then(
-      ({
-        facebook,
-        twitter,
-        googlePlus,
-        linkedin,
-        instagram,
-        youtube,
-        phone,
-        email,
-      }) => ({
-        facebook,
-        twitter,
-        googlePlus,
-        linkedin,
-        instagram,
-        youtube,
-        phone,
-        email,
-      })
-    );
+export const fetchSocialNetworksLabfaz: () => Promise<SocialNetworksLabfaz> =
+  () =>
+    strapi
+      .get(`/social-networks-labfaz`)
+      .then(({ data }) => data)
+      .then(
+        ({
+          facebook,
+          twitter,
+          googlePlus,
+          linkedin,
+          instagram,
+          youtube,
+          phone,
+          email,
+        }) => ({
+          facebook,
+          twitter,
+          googlePlus,
+          linkedin,
+          instagram,
+          youtube,
+          phone,
+          email,
+        })
+      );
 
 export const useSocialNetworksLabfaz = () =>
   useFetchApi<SocialNetworksLabfaz>(

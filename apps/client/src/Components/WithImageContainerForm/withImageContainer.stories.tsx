@@ -7,8 +7,7 @@ import RecoverForm from 'Components/PasswordRecover';
 import { mockImage } from 'Utils/Image';
 
 const image = mockImage({
-  url:
-    'https://images.fineartamerica.com/images-medium-large/reflections-of-longs-peak-vertical-image-james-bo-insogna.jpg',
+  url: 'https://images.fineartamerica.com/images-medium-large/reflections-of-longs-peak-vertical-image-james-bo-insogna.jpg',
   alternativeText: 'string',
   caption: 'string',
   width: 640,

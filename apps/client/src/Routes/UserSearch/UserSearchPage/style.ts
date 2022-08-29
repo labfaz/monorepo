@@ -22,11 +22,11 @@ export const OptionsDiv = styled.div`
   justify-content: space-between;
   > div:nth-child(2) {
     margin-top: 1rem;
-    margin-bottom: 0.5rem
+    margin-bottom: 0.5rem;
   }
 
   > div:first-child {
-    margin-bottom: 0.5rem
+    margin-bottom: 0.5rem;
   }
 
   ${Mobile(css`

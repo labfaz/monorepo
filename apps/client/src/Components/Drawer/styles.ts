@@ -24,7 +24,7 @@ export const Container = styled.div<VisibilityProps>`
   align-self: center;
   align-items: ${(props) => (props.isOpen ? '' : 'center')};
   justify-content: start;
-  
+
   padding-bottom: ${(props) => (props.isOpen ? '2.9rem' : '')};
   & + & {
     margin-top: 2.4rem;
@@ -110,7 +110,7 @@ export const Button = styled.button`
   z-index: 9999;
   display: flex;
   align-self: baseline;
-  
+
   padding-left: 2.4em;
 
   ${DesktopSmall(css`
@@ -167,7 +167,6 @@ export const Description = styled.p<VisibilityProps>`
     max-width: 260px;
     max-height: fit-content;
   `)}
-
 `;
 
 export const ContentDiv = styled.div<VisibilityProps>`

@@ -5,7 +5,8 @@ export interface YoutubePlayerProps {
   href: string;
 }
 
-export const urlRegex = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?(?<id>[^#&?]*).*/;
+export const urlRegex =
+  /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?(?<id>[^#&?]*).*/;
 
 const options = {
   width: '100%',

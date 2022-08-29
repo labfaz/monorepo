@@ -19,8 +19,7 @@ export const AboutUsPage: FC = () => {
     title: 'Sobre nós',
     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     image: mockImage({
-      url:
-        'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
+      url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
       alternativeText: 'Blog Banner Image',
     }),
   };

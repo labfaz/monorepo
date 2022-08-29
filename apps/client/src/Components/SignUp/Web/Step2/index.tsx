@@ -182,10 +182,10 @@ export const Step2: FC = () => {
                 se caracterizar como uma mistura entre os dois."
               />
               <InformartionText>
-                pessoa não binárie é quem não se identifica com 
-                um gênero exclusivamente, podem não se reconhecer com a 
-                identidade de gênero 'homem' ou 'mulher', ou podem
-                se caracterizar como uma mistura entre os dois.
+                pessoa não binárie é quem não se identifica com um gênero
+                exclusivamente, podem não se reconhecer com a identidade de
+                gênero 'homem' ou 'mulher', ou podem se caracterizar como uma
+                mistura entre os dois.
               </InformartionText>
             </InputRadioContainer>
 

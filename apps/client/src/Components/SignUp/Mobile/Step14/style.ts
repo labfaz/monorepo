@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import { Text } from 'Components/Typography/Text'
+import { Text } from 'Components/Typography/Text';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -46,11 +46,10 @@ export const LabelText = styled(Text)`
 `;
 
 export const InputRadioContainer = styled.div`
-
   margin-bottom: 1rem;
 
   label {
     font-size: vaR(--font-size-medium);
     color: #fafafa;
   }
-`
+`;

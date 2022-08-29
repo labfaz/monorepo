@@ -18,9 +18,9 @@ export const ModalDiv = styled.div`
   height: 75vh;
   width: 40vw;
   max-width: 640px;
-  border: 5px solid rgba(40,40,40,0.5);
+  border: 5px solid rgba(40, 40, 40, 0.5);
   box-sizing: border-box;
-  box-shadow: 0px 0px 20px rgba(10,10,10,0.8),
+  box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.8),
     inset 0px 0px 20px rgba(10, 10, 10, 0.8);
 
   backdrop-filter: blur(15px);
@@ -37,7 +37,6 @@ export const ModalDiv = styled.div`
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
-
 
   ${MobileSmall(css`
     min-height: 530px;
@@ -108,10 +107,9 @@ export const ModalContent = styled.div`
   height: inherit;
 
   background: linear-gradient(180deg, #202020 0%, rgba(32, 32, 32, 0.7) 100%);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -5px 14px rgba(22, 22, 22, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+    inset 0px -5px 14px rgba(22, 22, 22, 0.8);
   border-radius: 5px;
-
-
 
   h3 {
     color: white;
@@ -131,7 +129,6 @@ export const ModalContent = styled.div`
   p:nth-child(3) {
     font-weight: 700;
   }
-  
 
   > button {
     margin: 0;
@@ -148,7 +145,7 @@ export const ModalContent = styled.div`
     }
 
     a {
-     * {
+      * {
         color: white;
         max-width: 30px;
       }
@@ -240,7 +237,6 @@ export const ModalContent = styled.div`
       margin-top: 1em;
     }
   `)}
-
 `;
 
 export const Container = styled.div<ModalProps>`

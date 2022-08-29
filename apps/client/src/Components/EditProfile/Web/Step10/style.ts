@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { TextInput } from 'Components/Inputs/TextInput'
-import { DesktopSmall } from 'Utils/breakpoints'
+import { TextInput } from 'Components/Inputs/TextInput';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;
@@ -39,7 +39,7 @@ export const Container = styled.div`
       margin-bottom: 0.8rem;
     `)}
   }
-`
+`;
 
 export const LeftSide = styled.div`
   width: 35.5rem;
@@ -53,8 +53,8 @@ export const LeftSide = styled.div`
   `)}
 
   display: flex;
-  flex-direction: column;  
-`
+  flex-direction: column;
+`;
 
 export const LeftSideContent = styled.div`
   margin: 5.9rem 3.3rem 5.2rem 3.3rem;
@@ -71,7 +71,7 @@ export const LeftSideContent = styled.div`
       margin-bottom: 2rem;
     `)}
   }
-`
+`;
 
 export const RightSide = styled.div`
   width: 35.5rem;
@@ -86,47 +86,43 @@ export const RightSide = styled.div`
   flex-direction: column;
 
   position: relative;
-`
+`;
 export const RightSideContent = styled.div`
   margin: 5.9rem 3.3rem 5.2rem 3.3rem;
 
   ${DesktopSmall(css`
     margin: 3rem 2.23rem 5.2rem 2.23rem;
   `)}
-`
+`;
 export const InputText = styled(TextInput)`
   ${DesktopSmall(css`
-
     label {
       font-size: var(--font-size-small);
     }
 
     top: 1rem;
     right: 0;
-
   `)}
 
   position: absolute;
   top: 0;
   right: 0;
-  
-`
+`;
 
 export const CnpjText = styled(TextInput)`
-
   top: 75%;
 
   ${DesktopSmall(css`
     label {
       font-size: var(--font-size-small);
     }
-    
+
     top: 75%;
   `)}
 
   position: absolute;
   right: 0;
-`
+`;
 
 export const TextInputContainer = styled.div`
   margin-top: 3.55rem;
@@ -142,7 +138,7 @@ export const TextInputContainer = styled.div`
       width: 14.5rem;
     `)}
   }
-`
+`;
 
 export const InputRadioContainer = styled.div`
   margin-bottom: 1rem;
@@ -150,4 +146,4 @@ export const InputRadioContainer = styled.div`
   ${DesktopSmall(css`
     margin-bottom: 0.5rem;
   `)}
-`
+`;

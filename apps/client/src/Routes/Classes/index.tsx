@@ -1,5 +1,5 @@
-import React, { lazy } from "react";
-import { Route, Switch, RouteComponentProps } from "react-router-dom";
+import React, { lazy } from 'react';
+import { Route, Switch, RouteComponentProps } from 'react-router-dom';
 
 import { Router } from 'Routes';
 
@@ -16,9 +16,7 @@ export const Classes: Router = ({ match }) => {
   return (
     <Switch>
       <Route exact path={path}>
-        {() => (
-          <ClassesPage />
-        )}
+        {() => <ClassesPage />}
       </Route>
       show de um curso
       <Route path={`${path}/:id`}>

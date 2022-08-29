@@ -15,17 +15,16 @@ export interface ObservatorioBannerInfo {
   image?: Image;
 }
 
-export const fetchObservatorioBannerInfo: () => Promise<
-  ObservatorioBannerInfo
-> = () =>
-  strapi
-    .get<StrapiObservatorioBannerInfo>(`/observatorio-banner-info`)
-    .then(({ data }) => data)
-    .then(({ title, subtitle, image }) => ({
-      title,
-      subtitle,
-      image: image ? Asset2Image(image) : undefined,
-    }));
+export const fetchObservatorioBannerInfo: () => Promise<ObservatorioBannerInfo> =
+  () =>
+    strapi
+      .get<StrapiObservatorioBannerInfo>(`/observatorio-banner-info`)
+      .then(({ data }) => data)
+      .then(({ title, subtitle, image }) => ({
+        title,
+        subtitle,
+        image: image ? Asset2Image(image) : undefined,
+      }));
 
 export const useObservatorioBannerInfo = () =>
   useFetchApi<ObservatorioBannerInfo>(

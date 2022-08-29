@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react'
-import { useField, useFormikContext } from 'formik'
-import { IoMdCloudUpload } from 'react-icons/io'
+import React, { FC, useState } from 'react';
+import { useField, useFormikContext } from 'formik';
+import { IoMdCloudUpload } from 'react-icons/io';
 
 import { Container, Input, InputFileText } from './style';
 
@@ -33,17 +33,16 @@ export const FileInput: FC<InputProps> = ({
   accept,
   ...props
 }) => {
-  const [, meta] = useField(props)
-  const { setFieldValue } = useFormikContext()
-  const [fileName, setFile] = useState("")
-
+  const [, meta] = useField(props);
+  const { setFieldValue } = useFormikContext();
+  const [fileName, setFile] = useState('');
 
   const updateLabel = () => {
-    const fileInput = document.getElementById("file") as HTMLInputElement;
-    if (fileInput && fileInput.files && fileInput.files[0])  {
-      setFile(fileInput.files[0].name)
+    const fileInput = document.getElementById('file') as HTMLInputElement;
+    if (fileInput && fileInput.files && fileInput.files[0]) {
+      setFile(fileInput.files[0].name);
     }
-  }
+  };
   return (
     <Container
       {...props}
@@ -57,8 +56,8 @@ export const FileInput: FC<InputProps> = ({
               type="file"
               accept={accept || 'image/*'}
               onChange={(event: any) => {
-                updateLabel()
-                setFieldValue(`${value}`, event.currentTarget.files[0])
+                updateLabel();
+                setFieldValue(`${value}`, event.currentTarget.files[0]);
               }}
             />
             <label htmlFor="file" className="fileContent">

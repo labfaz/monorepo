@@ -13,8 +13,7 @@ const samplePost: BlogPost = {
   description: 'Isso é um teste',
   created_at: '2021-06-29T23:50:54.596Z',
   image: {
-    url:
-      'https://images.pexels.com/photos/8285483/pexels-photo-8285483.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+    url: 'https://images.pexels.com/photos/8285483/pexels-photo-8285483.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
     name: 'imagem aleatória',
   },
   content: 'Esse é o conteúdo do post!',

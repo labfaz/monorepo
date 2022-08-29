@@ -1,4 +1,3 @@
-
 export const CidadesDF = [
   {
     value: 'Águas Claras',
@@ -636,24 +635,24 @@ export const Experience = [
 
 export const deficiencyOptions = [
   {
-    value: "Deficiência Física",
-    label: "Deficiência Física",
+    value: 'Deficiência Física',
+    label: 'Deficiência Física',
   },
   {
-    value: "Deficiência Intelectual",
-    label: "Deficiência Intelectual",
+    value: 'Deficiência Intelectual',
+    label: 'Deficiência Intelectual',
   },
   {
-    value: "Deficiência Visual",
-    label: "Deficiência Visual",
+    value: 'Deficiência Visual',
+    label: 'Deficiência Visual',
   },
   {
-    value: "Deficiência Auditiva",
-    label: "Deficiência Auditiva",
+    value: 'Deficiência Auditiva',
+    label: 'Deficiência Auditiva',
   },
   {
-    value: "Transtorno de Espectro Autista",
-    label: "Transtorno de Espectro Autista",
+    value: 'Transtorno de Espectro Autista',
+    label: 'Transtorno de Espectro Autista',
   },
   {
     value: 'Outro',

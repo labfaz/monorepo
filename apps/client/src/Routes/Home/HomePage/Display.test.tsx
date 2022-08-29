@@ -13,8 +13,7 @@ const mockedData: HomepageBannerInfo = {
   subtitle:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta ligula nibh, nec interdum nunc maximus at.',
   image: {
-    url:
-      'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
+    url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
     alternativeText: 'Homepage Banner Image',
     caption: 'string',
     width: 20,
@@ -31,8 +30,7 @@ const mockedPartners: HomePartners[] = [
     name: 'Partner1',
     logo: [
       {
-        url:
-          'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
+        url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
       },
     ],
   },
@@ -40,8 +38,7 @@ const mockedPartners: HomePartners[] = [
     name: 'Partner2',
     logo: [
       {
-        url:
-          'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
+        url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
       },
     ],
   },

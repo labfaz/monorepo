@@ -53,13 +53,12 @@ export const Container = styled.div<ContainerProps>`
   width: 100%;
   max-width: var(--max-content-width);
   margin: auto;
-  
+
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
-    "top"
-    "bottom"
-  ;
+    'top'
+    'bottom';
   text-align: justify;
   align-items: center;
   justify-content: center;

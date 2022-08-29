@@ -12,8 +12,7 @@ const postCardExample = [
     description: 'Isso é um teste',
     created_at: '2021-06-29T23:50:54.596Z',
     image: {
-      url:
-        'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
+      url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
       alternativeText: 'Blog Banner Image',
       caption: 'string',
       width: 20,

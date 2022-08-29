@@ -23,23 +23,23 @@ const badInputLink = (media: string, input: string) => {
   return '';
 };
 
-const getHandle = (mediaName: string, regex: RegExp, groupNames: string[]) => (
-  linkOrHandle: string
-) => {
-  const regexResults = regex.exec(linkOrHandle);
-  if (!regexResults) return badInputLink(mediaName, linkOrHandle);
+const getHandle =
+  (mediaName: string, regex: RegExp, groupNames: string[]) =>
+  (linkOrHandle: string) => {
+    const regexResults = regex.exec(linkOrHandle);
+    if (!regexResults) return badInputLink(mediaName, linkOrHandle);
 
-  const { groups } = regexResults;
-  if (!groups) return badInputLink(mediaName, linkOrHandle);
+    const { groups } = regexResults;
+    if (!groups) return badInputLink(mediaName, linkOrHandle);
 
-  for (const groupName of groupNames) {
-    const handle = groups[groupName];
-    // hardcoded fix for youtube id
-    if (groupName === 'channelId' && !!handle) return `youtube`;
-    if (!!handle) return handle;
-  }
-  return badInputLink(mediaName, linkOrHandle);
-};
+    for (const groupName of groupNames) {
+      const handle = groups[groupName];
+      // hardcoded fix for youtube id
+      if (groupName === 'channelId' && !!handle) return `youtube`;
+      if (!!handle) return handle;
+    }
+    return badInputLink(mediaName, linkOrHandle);
+  };
 
 export const getTwitterHandle = getHandle('twitter', twitterUserRegex, [
   'rawHandle',

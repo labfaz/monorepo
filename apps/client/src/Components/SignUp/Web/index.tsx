@@ -23,17 +23,17 @@ import {
   youtubeUserRegex,
 } from 'Utils/regex';
 
-import { Step1 } from './Step1'
-import { Step2 } from './Step2'
-import { Step3 } from './Step3'
-import { Step4 } from './Step4'
-import { Step5 } from './Step5'
-import { Step6 } from './Step6'
-import { Step7 } from './Step7'
-import { Step8 } from './Step8'
-import { Step9 } from './Step9'
-import { Step10 } from './Step10'
-import { Step11 } from './Step11'
+import { Step1 } from './Step1';
+import { Step2 } from './Step2';
+import { Step3 } from './Step3';
+import { Step4 } from './Step4';
+import { Step5 } from './Step5';
+import { Step6 } from './Step6';
+import { Step7 } from './Step7';
+import { Step8 } from './Step8';
+import { Step9 } from './Step9';
+import { Step10 } from './Step10';
+import { Step11 } from './Step11';
 
 import {
   Container,
@@ -73,21 +73,21 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
           medicalReport: null,
           Other_TechnicalArea: '',
           artist: {
-            name: "",
-            social_name: "",
-            artistic_name: "",
-            show_name: "",
-            gender: "",
-            sexual_orientation: "",
-            gender_specific: "",
-            other_gender: "",
-            cpf: "",
-            birthday: "",
-            rg: "",
-            expedition_department: "",
-            is_trans: "",
-            race: "",
-            accessibility_resources_description: "",
+            name: '',
+            social_name: '',
+            artistic_name: '',
+            show_name: '',
+            gender: '',
+            sexual_orientation: '',
+            gender_specific: '',
+            other_gender: '',
+            cpf: '',
+            birthday: '',
+            rg: '',
+            expedition_department: '',
+            is_trans: '',
+            race: '',
+            accessibility_resources_description: '',
             address: {
               city: '',
               cep: '',
@@ -358,9 +358,9 @@ function FormikStepper({
   children,
   ...props
 }: FormikConfig<FormikValues & ButtonProps>) {
-  const childrenArray = React.Children.toArray(children) as React.ReactElement<
-    FormikStepProps
-  >[];
+  const childrenArray = React.Children.toArray(
+    children
+  ) as React.ReactElement<FormikStepProps>[];
 
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];

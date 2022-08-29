@@ -1,10 +1,10 @@
-import React, { FC, useState } from "react";
-import styled from "styled-components";
+import React, { FC, useState } from 'react';
+import styled from 'styled-components';
 
-import FullPage from "Components/FullPage";
-import Footer from "Components/Footer";
-import Header from "Components/Header";
-import SkipNav from "Components/SkipNav";
+import FullPage from 'Components/FullPage';
+import Footer from 'Components/Footer';
+import Header from 'Components/Header';
+import SkipNav from 'Components/SkipNav';
 
 const Container = styled(FullPage)`
   display: flex;
@@ -32,7 +32,7 @@ export const Wireframe: FC = ({ children }) => {
   const [isContrasted, setIsContrasted] = useState(false);
 
   return (
-    <Container className={isContrasted ? "contrast" : ""}>
+    <Container className={isContrasted ? 'contrast' : ''}>
       <SkipNav setIsContrasted={setIsContrasted} />
       <Header />
       <Content id="content">{children}</Content>

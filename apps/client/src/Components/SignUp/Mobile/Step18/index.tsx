@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
 import {
   Container,
@@ -11,18 +11,18 @@ import {
   Button,
   InputCheckbox,
   InputTextContainer,
-} from './style'
+} from './style';
 
 interface Step18Props {
-  profilePicture: string
+  profilePicture: string;
 
-  password: string
-  confirm_password: string
-  use_term: string
+  password: string;
+  confirm_password: string;
+  use_term: string;
 }
 
 export const Step18: FC = () => {
-  const { values, errors } = useFormikContext<Step18Props>()
+  const { values, errors } = useFormikContext<Step18Props>();
 
   return (
     <Container>
@@ -59,19 +59,19 @@ export const Step18: FC = () => {
           <InputCheckBoxContainer>
             <InputCheckbox type="checkbox" name="use_terms" value="sim">
               Li e concordo com os
-              <a href="public/termos-e-condicoes.pdf">
-                {" "} Termos de Uso {" "}
-              </a>
-              e estou ciente e autorizo que os meus dado sejam usados única e
+              <a href="public/termos-e-condicoes.pdf"> Termos de Uso </a>e estou
+              ciente e autorizo que os meus dado sejam usados única e
               exclusivamente para o projeto LabFaz.
             </InputCheckbox>
 
-            {errors.use_term && <span className="errorMessage">{errors.use_term}</span>}
+            {errors.use_term && (
+              <span className="errorMessage">{errors.use_term}</span>
+            )}
           </InputCheckBoxContainer>
 
           <Button type="submit">FINALIZAR REGISTRO</Button>
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

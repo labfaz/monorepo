@@ -34,9 +34,9 @@ export const SelectInput: FC<InputProps> = ({
 }) => {
   const [inputProps, meta] = useField(props);
 
-  let selected = document.getElementById(props.name) as HTMLSelectElement
+  let selected = document.getElementById(props.name) as HTMLSelectElement;
   if (selected !== null && selected.selectedIndex !== 0) {
-    selected.style.color = "white"
+    selected.style.color = 'white';
   }
 
   return (

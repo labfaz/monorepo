@@ -16,9 +16,9 @@ export const Container = styled.div`
 `;
 
 export const Rectangle = styled.div<Props>`
-  background-image: url("${css`
+  background-image: url('${css`
     ${RectangleImage}
-  `}");
+  `}');
   width: 19rem;
   height: 10rem;
   display: flex;

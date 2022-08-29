@@ -11,8 +11,7 @@ const data: BlogBannerInfo = {
   title: 'Blog',
   subtitle: 'LoremIpsum',
   image: mockImage({
-    url:
-      'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
+    url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
     alternativeText: 'Blog Banner Image',
   }),
 };
@@ -26,8 +25,7 @@ const post: BlogPost = {
   description: '',
   id: 213,
   image: mockImage({
-    url:
-      'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
+    url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Whats_App_Image_2020_12_19_at_17_23_28_439c4529a0.jpeg',
     alternativeText: 'Blog Banner Image',
   }),
   created_at: '2021-07-01T00:27:01.317Z',

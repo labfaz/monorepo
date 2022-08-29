@@ -16,7 +16,6 @@ export const Container = styled.div`
   min-height: 80%;
   min-width: 67%;
 
-
   ${MobileSmall(css`
     min-width: 100%;
     max-width: 305px;
@@ -39,7 +38,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: flex-start;
   `)}
-  `;
+`;
 
 export const Frame = styled.img`
   width: 100%;

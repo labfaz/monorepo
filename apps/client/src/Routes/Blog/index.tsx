@@ -1,12 +1,12 @@
-import React, { lazy } from "react";
-import { Route, RouteComponentProps, Switch } from "react-router-dom";
+import React, { lazy } from 'react';
+import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 
 import { Router } from 'Routes';
 
 import usePageview from 'Hooks/usePageView';
 
-const BlogPage = lazy(() => import("./BlogPage"));
-const PostPage = lazy(() => import("./PostPage"));
+const BlogPage = lazy(() => import('./BlogPage'));
+const PostPage = lazy(() => import('./PostPage'));
 
 export const Blog: Router = ({ match }) => {
   const { path = '/blog' } = match ?? {};
@@ -16,9 +16,7 @@ export const Blog: Router = ({ match }) => {
   return (
     <Switch>
       <Route exact path={path}>
-        {() => (
-          <BlogPage />
-        )}
+        {() => <BlogPage />}
       </Route>
 
       {/* show de um post */}

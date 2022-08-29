@@ -24,7 +24,6 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-
   form {
     min-height: 50%;
     max-width: 75%;
@@ -36,7 +35,7 @@ export const Wrapper = styled.div`
     justify-content: flex-start;
   }
 
-  >:nth-child(2) {
+  > :nth-child(2) {
     margin-top: 2rem;
     align-self: center;
     text-decoration: underline;

@@ -61,24 +61,24 @@ export enum GenderSpecific {
 }
 
 export interface IArtist {
-  name: string
-  artistic_name: string
-  social_name: string
-  show_name: string
-  birthday: Date
-  photo_url: string
-  curriculum: string
-  cpf: string
-  rg: string
-  sexual_orientation: string
-  gender: string
-  race: string
-  gender_specifics: GenderSpecific
-  expedition_department: string
-  address: IAddress
-  contact: IContact
-  technical: ITechnical
-  medicalReport?: string
+  name: string;
+  artistic_name: string;
+  social_name: string;
+  show_name: string;
+  birthday: Date;
+  photo_url: string;
+  curriculum: string;
+  cpf: string;
+  rg: string;
+  sexual_orientation: string;
+  gender: string;
+  race: string;
+  gender_specifics: GenderSpecific;
+  expedition_department: string;
+  address: IAddress;
+  contact: IContact;
+  technical: ITechnical;
+  medicalReport?: string;
   accessibility_resources_description?: string;
 }
 

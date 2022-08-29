@@ -1,11 +1,11 @@
-import React, { FC } from "react";
-import { useFormikContext } from "formik";
-import { RadioInput } from "Components/Inputs/RadioInput";
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
-import { CheckboxInput } from "Components/Inputs/CheckboxInput";
-import { TextInput } from "Components/Inputs/TextInput";
-import { FileInput } from "Components/Inputs/FileInput";
-import { deficiencyOptions } from "Utils/selectOptionsData";
+import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { FileInput } from 'Components/Inputs/FileInput';
+import { deficiencyOptions } from 'Utils/selectOptionsData';
 
 import {
   Container,
@@ -18,7 +18,7 @@ import {
   PCDOptions,
   InputRadioContainer,
   FileContainer,
-} from "./style";
+} from './style';
 
 interface ErrorProps {
   deficiencies?: string[];
@@ -40,7 +40,7 @@ export const Step4: FC = () => {
             <RadioInput name="isPcd" value="false" label="Não" />
           </InputRadioContainer>
         </PCDOptions>
-        {values.isPcd === "true" && (
+        {values.isPcd === 'true' && (
           <BoxContent>
             <TextInputContainer>
               <label>Qual sua deficiência?</label>
@@ -72,7 +72,7 @@ export const Step4: FC = () => {
             </FileContainer>
           </BoxContent>
         )}
-        {values.deficiencies?.find((values: any) => values === "Outro") && (
+        {values.deficiencies?.find((values: any) => values === 'Outro') && (
           <TextInputContainer>
             <label>Qual outra deficiência você possui?</label>
             <TextInput

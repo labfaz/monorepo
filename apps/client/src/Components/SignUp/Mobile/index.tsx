@@ -13,24 +13,24 @@ import {
 
 import { SignUp } from 'Api/SignUp';
 
-import { Step1 } from './Step1'
-import { Step2 } from './Step2'
-import { Step3 } from './Step3'
-import { Step4 } from './Step4'
-import { Step5 } from './Step5'
-import { Step6 } from './Step6'
-import { Step7 } from './Step7'
-import { Step8 } from './Step8'
-import { Step9 } from './Step9'
-import { Step10 } from './Step10'
-import { Step11 } from './Step11'
-import { Step12 } from './Step12'
-import { Step13 } from './Step13'
-import { Step14 } from './Step14'
-import { Step15 } from './Step15'
-import { Step16 } from './Step16'
-import { Step17 } from './Step17'
-import { Step18 } from './Step18'
+import { Step1 } from './Step1';
+import { Step2 } from './Step2';
+import { Step3 } from './Step3';
+import { Step4 } from './Step4';
+import { Step5 } from './Step5';
+import { Step6 } from './Step6';
+import { Step7 } from './Step7';
+import { Step8 } from './Step8';
+import { Step9 } from './Step9';
+import { Step10 } from './Step10';
+import { Step11 } from './Step11';
+import { Step12 } from './Step12';
+import { Step13 } from './Step13';
+import { Step14 } from './Step14';
+import { Step15 } from './Step15';
+import { Step16 } from './Step16';
+import { Step17 } from './Step17';
+import { Step18 } from './Step18';
 
 import {
   FormTitle,
@@ -69,67 +69,67 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
       <FormHeader />
       <FormikStepper
         initialValues={{
-          email: "",
-          password: "",
-          confirm_password: "",
-          other_idiom: "",
-          other_deficiency: "",
+          email: '',
+          password: '',
+          confirm_password: '',
+          other_idiom: '',
+          other_deficiency: '',
           deficiencies: [],
-          use_terms: "",
+          use_terms: '',
           profilePicture: null,
           curriculum: null,
           medicalReport: null,
-          Other_TechnicalArea: "",
+          Other_TechnicalArea: '',
           artist: {
-            name: "",
-            social_name: "",
-            artistic_name: "",
-            show_name: "",
-            gender: "",
-            sexual_orientation: "",
-            gender_specific: "",
-            other_gender: "",
-            cpf: "",
-            birthday: "",
-            rg: "",
-            expedition_department: "",
-            is_trans: "",
-            race: "",
+            name: '',
+            social_name: '',
+            artistic_name: '',
+            show_name: '',
+            gender: '',
+            sexual_orientation: '',
+            gender_specific: '',
+            other_gender: '',
+            cpf: '',
+            birthday: '',
+            rg: '',
+            expedition_department: '',
+            is_trans: '',
+            race: '',
             accessibility_resources_description: null,
             address: {
-              city: "",
-              cep: "",
-              neighbourhood: "",
-              number: "",
-              complement: "",
-              residency: "df",
-              state: "Distrito Federal",
+              city: '',
+              cep: '',
+              neighbourhood: '',
+              number: '',
+              complement: '',
+              residency: 'df',
+              state: 'Distrito Federal',
             },
             contact: {
-              whatsapp: "",
-              twitter: "",
-              facebook: "",
-              instagram: "",
-              linkedin: "",
-              tiktok: "",
-              youtube: "",
+              whatsapp: '',
+              twitter: '',
+              facebook: '',
+              instagram: '',
+              linkedin: '',
+              tiktok: '',
+              youtube: '',
             },
             technical: {
-              formation: "",
-              is_drt: "",
-              is_ceac: "",
-              is_cnpj: "",
-              drt: "",
-              ceac: "",
-              cnpj: "",
+              formation: '',
+              is_drt: '',
+              is_ceac: '',
+              is_cnpj: '',
+              drt: '',
+              ceac: '',
+              cnpj: '',
               // name_enterprise: '',
-              cnpj_type: "Nenhum",
-              profession: "",
+              cnpj_type: 'Nenhum',
+              profession: '',
               areas: {
-                technical_formation: "autodidata",
-                name: "Outro",
-                describe: "",
-                started_year: "2021",
+                technical_formation: 'autodidata',
+                name: 'Outro',
+                describe: '',
+                started_year: '2021',
                 certificate: [],
               },
               idiom: [],
@@ -142,7 +142,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
-              name: yup.string().required("Nome obrigatório"),
+              name: yup.string().required('Nome obrigatório'),
               social_name: yup.string(),
               artistic_name: yup.string(),
             }),
@@ -155,14 +155,14 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           validationSchema={yup.object({
             profilePicture: yup
               .mixed()
-              .required("Foto obrigatória")
+              .required('Foto obrigatória')
               .test(
-                "fileSize",
-                "Arquivo muito grande",
+                'fileSize',
+                'Arquivo muito grande',
                 (value) => value && value.size <= profilePictureMaxSize
               ),
             artist: yup.object({
-              show_name: yup.string().required("Como quer ser chamado?"),
+              show_name: yup.string().required('Como quer ser chamado?'),
             }),
           })}
         >
@@ -175,15 +175,15 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
               cpf: yup
                 .string()
                 // .required('Cpf obrigatório')
-                .min(11, "Cpf incompleto"),
+                .min(11, 'Cpf incompleto'),
               birthday: yup
                 .string()
-                .required("Data de nascimento obrigatório")
-                .min(8, "Data incompleta"),
+                .required('Data de nascimento obrigatório')
+                .min(8, 'Data incompleta'),
               rg: yup
                 .string()
                 // .required('Rg é obrigatório')
-                .min(7, "Rg incompleto"),
+                .min(7, 'Rg incompleto'),
               expedition_department: yup.string(),
               // .required('Orgão expedidor obrigatório'),
             }),
@@ -195,8 +195,8 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
-              gender: yup.string().required("Campo obrigatório"),
-              gender_specific: yup.string().required("Campo obrigatório"),
+              gender: yup.string().required('Campo obrigatório'),
+              gender_specific: yup.string().required('Campo obrigatório'),
             }),
           })}
         >
@@ -206,7 +206,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
-              sexual_orientation: yup.string().required("Campo obrigatório"),
+              sexual_orientation: yup.string().required('Campo obrigatório'),
             }),
           })}
         >
@@ -216,7 +216,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
-              race: yup.string().required("Campo obrigatório"),
+              race: yup.string().required('Campo obrigatório'),
             }),
           })}
         >
@@ -227,19 +227,19 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           validationSchema={yup.object({
             email: yup
               .string()
-              .email("Email inválido")
-              .required("Email obrigatório"),
+              .email('Email inválido')
+              .required('Email obrigatório'),
             artist: yup.object({
               contact: yup.object({
                 whatsapp: yup.string(),
                 facebook: yup
                   .string()
                   .trim()
-                  .matches(facebookUserRegex, "formato inválido"),
+                  .matches(facebookUserRegex, 'formato inválido'),
                 instagram: yup
                   .string()
                   .trim()
-                  .matches(instagramUserRegex, "formato inválido"),
+                  .matches(instagramUserRegex, 'formato inválido'),
               }),
             }),
           })}
@@ -254,19 +254,19 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
                 twitter: yup
                   .string()
                   .trim()
-                  .matches(twitterUserRegex, "formato inválido"),
+                  .matches(twitterUserRegex, 'formato inválido'),
                 linkedin: yup
                   .string()
                   .trim()
-                  .matches(linkedinUserRegex, "formato inválido"),
+                  .matches(linkedinUserRegex, 'formato inválido'),
                 tiktok: yup
                   .string()
                   .trim()
-                  .matches(tiktokUserRegex, "formato inválido"),
+                  .matches(tiktokUserRegex, 'formato inválido'),
                 youtube: yup
                   .string()
                   .trim()
-                  .matches(youtubeUserRegex, "formato inválido"),
+                  .matches(youtubeUserRegex, 'formato inválido'),
               }),
             }),
           })}
@@ -278,12 +278,12 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           validationSchema={yup.object({
             artist: yup.object({
               address: yup.object({
-                city: yup.string().required("Cidade obrigatória"),
+                city: yup.string().required('Cidade obrigatória'),
                 state: yup
                   .string()
                   // .required('Estado obrigatório')
-                  .default("Distrito Federal"),
-                residency: yup.string().required("Campo obrigatório"),
+                  .default('Distrito Federal'),
+                residency: yup.string().required('Campo obrigatório'),
               }),
             }),
           })}
@@ -310,7 +310,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           validationSchema={yup.object({
             artist: yup.object({
               technical: yup.object({
-                formation: yup.string().required("Formação obrigatória"),
+                formation: yup.string().required('Formação obrigatória'),
                 idiom: yup.array(),
               }),
             }),
@@ -337,8 +337,8 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
             artist: yup.object({
               technical: yup.object({
                 areas: yup.object({
-                  name: yup.string().required("Campo obrigatório"),
-                  started_year: yup.string().required("Campo obrigatório"),
+                  name: yup.string().required('Campo obrigatório'),
+                  started_year: yup.string().required('Campo obrigatório'),
                 }),
               }),
             }),
@@ -354,7 +354,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
                 areas: yup.object({
                   technical_formation: yup
                     .string()
-                    .required("Campo obrigatório"),
+                    .required('Campo obrigatório'),
                 }),
               }),
             }),
@@ -368,15 +368,15 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
             curriculum: yup
               .mixed()
               .test(
-                "fileSize",
-                "Arquivo muito grande",
+                'fileSize',
+                'Arquivo muito grande',
                 (value) =>
                   value === null || (value && value.size <= curriculumMaxSize)
               ),
             artist: yup.object({
               technical: yup.object({
                 areas: yup.object({
-                  describe: yup.string().required("Campo obrigatório"),
+                  describe: yup.string().required('Campo obrigatório'),
                 }),
               }),
             }),
@@ -389,8 +389,8 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           validationSchema={yup.object({
             artist: yup.object({
               technical: yup.object({
-                is_drt: yup.boolean().required("Campo obrigatório"),
-                is_ceac: yup.boolean().required("Campo obrigatório"),
+                is_drt: yup.boolean().required('Campo obrigatório'),
+                is_ceac: yup.boolean().required('Campo obrigatório'),
               }),
             }),
           })}
@@ -402,7 +402,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           validationSchema={yup.object({
             artist: yup.object({
               technical: yup.object({
-                is_cnpj: yup.boolean().required("Campo obrigatório"),
+                is_cnpj: yup.boolean().required('Campo obrigatório'),
               }),
             }),
           })}
@@ -414,18 +414,18 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
           validationSchema={yup.object({
             password: yup
               .string()
-              .required("Senha obrigatória")
-              .min(6, "Senha no minimo 6 digítos"),
+              .required('Senha obrigatória')
+              .min(6, 'Senha no minimo 6 digítos'),
             confirm_password: yup
               .string()
-              .required("Confirme password")
-              .when("password", {
+              .required('Confirme password')
+              .when('password', {
                 is: (val) => (val && val.length > 0 ? true : false),
                 then: yup
                   .string()
-                  .oneOf([yup.ref("password")], "Senhas não são iguais."),
+                  .oneOf([yup.ref('password')], 'Senhas não são iguais.'),
               }),
-            use_terms: yup.string().required("Termos de uso obrigatório"),
+            use_terms: yup.string().required('Termos de uso obrigatório'),
           })}
         >
           <Step18 />
@@ -433,7 +433,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
       </FormikStepper>
     </>
   );
-}
+};
 
 export interface FormikStepProps
   extends Pick<FormikConfig<FormikValues>, 'children' | 'validationSchema'> {}
@@ -446,9 +446,9 @@ function FormikStepper({
   children,
   ...props
 }: FormikConfig<FormikValues & ButtonProps>) {
-  const childrenArray = React.Children.toArray(children) as React.ReactElement<
-    FormikStepProps
-  >[];
+  const childrenArray = React.Children.toArray(
+    children
+  ) as React.ReactElement<FormikStepProps>[];
 
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];

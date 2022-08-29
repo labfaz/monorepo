@@ -10,12 +10,11 @@ import { FooterContainer } from './style';
 import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
 
 interface Props {
-  data: SocialNetworksLabfaz
-  id?: string
+  data: SocialNetworksLabfaz;
+  id?: string;
 }
 
 const Web: FC<Props> = ({ data, id }) => {
-
   return (
     <FooterContainer>
       <div className="miniContainer" id={id}>

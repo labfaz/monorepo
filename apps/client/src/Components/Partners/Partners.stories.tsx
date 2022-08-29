@@ -9,8 +9,7 @@ const data = [
     name: 'Partner1',
     logo: [
       {
-        url:
-          'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
+        url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
       },
     ],
   },
@@ -18,8 +17,7 @@ const data = [
     name: 'Partner2',
     logo: [
       {
-        url:
-          'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
+        url: 'https://labfaz-strapi-assets.s3.sa-east-1.amazonaws.com/Logo_Sample_8f2bd43037.png',
       },
     ],
   },

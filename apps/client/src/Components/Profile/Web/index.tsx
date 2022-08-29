@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import { IoMdCloudDownload } from "react-icons/io";
-import { GoGear } from "react-icons/go";
+import React, { FC } from 'react';
+import { IoMdCloudDownload } from 'react-icons/io';
+import { GoGear } from 'react-icons/go';
 
-import { User } from "Context/LoggedUserToken";
+import { User } from 'Context/LoggedUserToken';
 
-import { FaCheckCircle, FaCheckSquare } from "react-icons/fa";
+import { FaCheckCircle, FaCheckSquare } from 'react-icons/fa';
 
 import {
   Container,
@@ -22,14 +22,14 @@ import {
   ContentTitle,
   ContentText,
   UserVerified,
-} from "./style";
+} from './style';
 
-import idiom_icon from "../idiomIcon.svg";
-import isVerified from "../isVerified.svg";
-import { getUserName } from "Utils/userUtils";
-import { SocialMediaLinks } from "../SocialMediaLink";
-import { useHistory } from "react-router";
-import { showEditProfile } from "FeatureFlags";
+import idiom_icon from '../idiomIcon.svg';
+import isVerified from '../isVerified.svg';
+import { getUserName } from 'Utils/userUtils';
+import { SocialMediaLinks } from '../SocialMediaLink';
+import { useHistory } from 'react-router';
+import { showEditProfile } from 'FeatureFlags';
 
 interface ProfileProps {
   data: User;
@@ -42,7 +42,7 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
   const history = useHistory();
 
   const handleRedirectToEditProfile = () => {
-    history.push("/edit-profile");
+    history.push('/edit-profile');
   };
 
   return (
@@ -142,7 +142,7 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
                   {data.artist.technical.area[0].technical_formation.toUpperCase()}
                 </li>
 
-                {data.artist.technical.cnpj_type !== "Nenhum" && (
+                {data.artist.technical.cnpj_type !== 'Nenhum' && (
                   <li>{data.artist.technical.cnpj_type.toUpperCase()}</li>
                 )}
               </ul>
@@ -166,7 +166,7 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
             <div>
               <span>
                 <FaCheckCircle />
-                {data.artist.technical.formation !== "não tem" &&
+                {data.artist.technical.formation !== 'não tem' &&
                   data.artist.technical.formation}
               </span>
 

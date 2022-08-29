@@ -18,8 +18,7 @@ const cardExample: CardProps = {
   class_dates: ['12/07/2021'],
   detail: ['asdadasfdd'],
   fonte: ['SFSfsdfdfg'],
-  link:
-    'https://images.pexels.com/photos/8285483/pexels-photo-8285483.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+  link: 'https://images.pexels.com/photos/8285483/pexels-photo-8285483.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
   requirements: 'sadasd',
   tags: ['sfsdf'],
   teacher: ['sdffsdf'],

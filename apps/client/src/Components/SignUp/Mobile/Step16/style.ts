@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { Text } from 'Components/Typography/Text'
-import { CheckboxInput } from 'Components/Inputs/CheckboxInput'
+import { Text } from 'Components/Typography/Text';
+import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
 
 interface ContentProps {
-  isOpen: boolean
+  isOpen: boolean;
 }
 
 export const Container = styled.div`
@@ -13,7 +13,7 @@ export const Container = styled.div`
   align-items: center;
 
   position: relative;
-`
+`;
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ export const ContentContainer = styled.div`
 
 export const Content = styled.div`
   margin-top: 2rem;
-`
+`;
 
 export const LabelText = styled(Text)`
   margin-top: 2.13rem;
@@ -50,7 +50,7 @@ export const LabelText = styled(Text)`
     display: inline;
     color: red;
   }
-`
+`;
 
 export const InputSelect = styled.div`
   display: flex;
@@ -61,20 +61,20 @@ export const InputSelect = styled.div`
 
   width: 14.4rem;
   height: 2.2rem;
-  
+
   appearance: none;
   border: 0;
-  
+
   padding-left: 0.83rem;
   padding-right: 0.83rem;
-  
-  color: #C4C4C4;
-  
+
+  color: #c4c4c4;
+
   font-size: var(--font-size-medium);
 
   background-color: #000000;
   border: 1px solid rgba(250, 250, 250, 0.7);
-  
+
   &:hover {
     cursor: pointer;
   }
@@ -90,7 +90,7 @@ export const InputSelect = styled.div`
 
     pointer-events: none;
   }
-`
+`;
 
 export const InputRadioContainer = styled.div`
   margin-bottom: 0.5rem;
@@ -99,13 +99,11 @@ export const InputRadioContainer = styled.div`
     font-size: var(--font-size-medium);
     color: #fafafa;
   }
-`
+`;
 
 export const SelectContainer = styled.label`
-
   display: block;
   margin-bottom: 1rem;
-  
 
   label {
     font-weight: 600;
@@ -116,9 +114,9 @@ export const SelectContainer = styled.label`
     margin-bottom: 1.2rem;
     color: #fafafa;
   }
-`
+`;
 export const CertificationOptionsContainer = styled.div<ContentProps>`
-  display: ${(({isOpen}) => isOpen ? 'flex' : 'none')};
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 
   position: absolute;
 
@@ -132,13 +130,13 @@ export const CertificationOptionsContainer = styled.div<ContentProps>`
 
   background-color: white;
 
-  background: rgba(196, 196, 196, 0.0);
+  background: rgba(196, 196, 196, 0);
   backdrop-filter: blur(1.5px);
 
   touch-action: none;
 
   top: 0;
-` 
+`;
 
 export const CheckboxContainer = styled.div`
   width: 13.8rem;
@@ -181,7 +179,7 @@ export const CheckboxContainer = styled.div`
   label {
     margin-left: 0;
   }
-`
+`;
 
 export const InputCheckbox = styled(CheckboxInput)``;
 
@@ -192,4 +190,4 @@ export const TechnicalContainer = styled.div`
     position: absolute;
     bottom: -2rem;
   }
-`
+`;

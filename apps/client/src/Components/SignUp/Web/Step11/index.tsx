@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { useFormikContext } from 'formik'
+import { useFormikContext } from 'formik';
 
 import {
   Container,
@@ -9,17 +9,17 @@ import {
   Input,
   PasswordInputContainer,
   InputCheckBoxContainer,
-} from './style'
-import { CheckboxInput } from 'Components/Inputs/CheckboxInput'
+} from './style';
+import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
 
 interface Step11Props {
-  profilePicture: string
+  profilePicture: string;
 
-  use_terms: string
+  use_terms: string;
 }
 
 export const Step11: FC = () => {
-  const { values, errors } = useFormikContext<Step11Props>()
+  const { values, errors } = useFormikContext<Step11Props>();
 
   return (
     <Container>
@@ -56,7 +56,11 @@ export const Step11: FC = () => {
           <InputCheckBoxContainer>
             <CheckboxInput type="checkbox" name="use_terms" value="sim">
               Li e concordo com os{' '}
-              <a href="/politica-de-privacidade.pdf" target="_blank" rel="noopener">
+              <a
+                href="/politica-de-privacidade.pdf"
+                target="_blank"
+                rel="noopener"
+              >
                 Termos de Uso
               </a>{' '}
               e estou ciente e autorizo que os meus dado sejam usados única e
@@ -69,5 +73,5 @@ export const Step11: FC = () => {
         </Content>
       </div>
     </Container>
-  )
-}
+  );
+};

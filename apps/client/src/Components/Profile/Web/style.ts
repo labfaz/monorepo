@@ -269,7 +269,7 @@ export const Content = styled.section`
   span {
     font-weight: 600;
     display: block;
-    
+
     display: flex;
     align-items: center;
 
@@ -278,9 +278,9 @@ export const Content = styled.section`
       line-height: 18px;
       margin-bottom: 1rem;
     `)}
-    
+
     svg {
-      color: #FC0061;
+      color: #fc0061;
       margin-right: 1.2rem;
 
       width: 22px;
@@ -304,7 +304,7 @@ export const Content = styled.section`
     `)} */
 
     padding-left: 5.88rem;
-    margin-bottom: 4.11rem;    
+    margin-bottom: 4.11rem;
 
     svg {
       height: 22px;
@@ -338,7 +338,7 @@ export const Content = styled.section`
     div {
       margin-top: 3.6rem;
       margin-left: 1.3rem;
-      
+
       color: #fafafa;
 
       li {
@@ -355,10 +355,9 @@ export const Content = styled.section`
         }
       }
     }
-  } 
+  }
 
   .socialContacts {
-
     display: flex;
     flex-direction: column;
 
@@ -369,13 +368,12 @@ export const Content = styled.section`
     max-width: 80%;
     height: 10rem;
 
-    color: #FAFAFA;
-
+    color: #fafafa;
 
     ${DesktopSmall(css`
       height: 20rem;
     `)}
-    
+
     li {
       margin-bottom: 0.9rem;
       /* display: flex; */
@@ -386,7 +384,7 @@ export const Content = styled.section`
 
       width: fit-content;
       height: fit-content;
-      
+
       span {
         padding: 0;
         margin: 0;
@@ -397,7 +395,7 @@ export const Content = styled.section`
         margin-right: 0.83rem;
         width: 28px;
         height: 28px;
-        color: #FC0061;
+        color: #fc0061;
 
         ${DesktopSmall(css`
           width: 22px;

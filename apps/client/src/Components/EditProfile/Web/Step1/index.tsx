@@ -23,18 +23,18 @@ import { SelectInput } from 'Components/Inputs/SelectInput';
 import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData';
 
 export const Step1: FC = () => {
-  const { values, setFieldValue } = useFormikContext<any>()
+  const { values, setFieldValue } = useFormikContext<any>();
   const checkCEP = (cep: string) => {
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
-      .then(res => res.json())
-      .then(data => {
-        setFieldValue('artist.address.address', data.logradouro)
-        setFieldValue('artist.address.neighbourhood', data.bairro)
-        setFieldValue('artist.address.city', data.localidade)
-        setFieldValue('artist.address.state', data.uf)
-        setFieldValue('artist.address.complement', data.complemento)
-      })
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        setFieldValue('artist.address.address', data.logradouro);
+        setFieldValue('artist.address.neighbourhood', data.bairro);
+        setFieldValue('artist.address.city', data.localidade);
+        setFieldValue('artist.address.state', data.uf);
+        setFieldValue('artist.address.complement', data.complemento);
+      });
+  };
   return (
     <Container>
       <LeftSide>
@@ -210,9 +210,9 @@ export const Step1: FC = () => {
                 // obrigatory
                 onChange={(ev: any) => {
                   if (OnlyNumbers(ev.target.value).length === 8) {
-                    checkCEP(OnlyNumbers(ev.target.value))
+                    checkCEP(OnlyNumbers(ev.target.value));
                   }
-                  setFieldValue('cep', OnlyNumbers(ev.target.value))
+                  setFieldValue('cep', OnlyNumbers(ev.target.value));
                 }}
               />
             </InputTextContainer>

@@ -12,33 +12,32 @@ export interface CoursesPageSections {
   fourth_subtitle: string;
 }
 
-export const fetchCoursesPageSections: () => Promise<
-  CoursesPageSections
-> = () =>
-  strapi
-    .get<CoursesPageSections>(`/courses-page-sections`)
-    .then(({ data }) => data)
-    .then(
-      ({
-        first_title,
-        first_subtitle,
-        second_title,
-        second_subtitle,
-        third_title,
-        third_subtitle,
-        fourth_title,
-        fourth_subtitle,
-      }) => ({
-        first_title,
-        first_subtitle,
-        second_title,
-        second_subtitle,
-        third_title,
-        third_subtitle,
-        fourth_title,
-        fourth_subtitle,
-      })
-    );
+export const fetchCoursesPageSections: () => Promise<CoursesPageSections> =
+  () =>
+    strapi
+      .get<CoursesPageSections>(`/courses-page-sections`)
+      .then(({ data }) => data)
+      .then(
+        ({
+          first_title,
+          first_subtitle,
+          second_title,
+          second_subtitle,
+          third_title,
+          third_subtitle,
+          fourth_title,
+          fourth_subtitle,
+        }) => ({
+          first_title,
+          first_subtitle,
+          second_title,
+          second_subtitle,
+          third_title,
+          third_subtitle,
+          fourth_title,
+          fourth_subtitle,
+        })
+      );
 
 export const useCoursesPageSections = () =>
   useFetchApi<CoursesPageSections>(

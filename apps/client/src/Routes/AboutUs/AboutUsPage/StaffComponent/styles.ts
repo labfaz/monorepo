@@ -74,9 +74,8 @@ export const Card = styled.div`
   align-items: center;
   background-color: var(--background-black);
 
-
-  border: solid 2px #0C74FF;
-  box-shadow: inset 2px -1px #FFEC99,2px 0px #FFEC99;
+  border: solid 2px #0c74ff;
+  box-shadow: inset 2px -1px #ffec99, 2px 0px #ffec99;
   border-radius: 14.3px;
 
   ${MobileSmall(css`
@@ -85,7 +84,6 @@ export const Card = styled.div`
     min-width: 81%;
     min-height: 247px;
   `)}
-
 
   ${MobileLarge(css`
     max-height: 100%;
@@ -114,7 +112,7 @@ export const CardThumb = styled.div`
   max-width: 100%;
   min-width: 100%;
   min-height: 188px;
-  
+
   position: relative;
 
   p {
@@ -124,7 +122,6 @@ export const CardThumb = styled.div`
     text-align: center;
     padding-top: 0.47rem;
   }
-
 
   img {
     width: 100%;
@@ -146,7 +143,6 @@ export const CardThumb = styled.div`
       padding-top: 0.28rem;
     }
   `)}
-
 
   ${DesktopSmall(css`
     max-width: 75%;
@@ -171,7 +167,6 @@ export const CardBody = styled.div`
     padding-right: 1.4rem;
     padding-top: 1.2rem;
   }
-  
 
   > p:first-child {
     color: var(--color-text-beige);
@@ -180,7 +175,6 @@ export const CardBody = styled.div`
     text-transform: uppercase;
     padding-top: 0;
   }
-
 
   ${Mobile(css`
     line-height: 16px;
@@ -214,23 +208,23 @@ export const CardBody = styled.div`
   `)}
 
     ${MobileLarge(css`
+    font-size: var(--font-size-small);
+
+    p {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.6rem;
+    }
+
+    > p:first-child {
       font-size: var(--font-size-small);
+      padding-top: 0;
+    }
 
-      p {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-top: 0.6rem;
-      }
-
-      > p:first-child {
-        font-size: var(--font-size-small);
-        padding-top: 0;
-      }
-
-      > p:last-child {
-        padding-bottom: 0.5rem;
-      }
-    `)}
+    > p:last-child {
+      padding-bottom: 0.5rem;
+    }
+  `)}
 
   ${MobileSmall(css`
     font-size: var(--font-size-small);
@@ -292,8 +286,6 @@ export const Circle = styled.div`
 
   top: 10px;
   right: 83px;
-
-
 
   ${Mobile(css`
     max-width: 91px;

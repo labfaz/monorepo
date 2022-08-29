@@ -13,17 +13,17 @@ import {
   youtubeUserRegex,
 } from 'Utils/regex';
 
-import { Step1 } from './Step1'
-import { Step2 } from './Step2'
-import { Step3 } from './Step3'
-import { Step4 } from './Step4'
-import { Step5 } from './Step5'
-import { Step6 } from './Step6'
-import { Step7 } from './Step7'
-import { Step8 } from './Step8'
-import { Step9 } from './Step9'
-import { Step10 } from './Step10'
-import { Step11 } from './Step11'
+import { Step1 } from './Step1';
+import { Step2 } from './Step2';
+import { Step3 } from './Step3';
+import { Step4 } from './Step4';
+import { Step5 } from './Step5';
+import { Step6 } from './Step6';
+import { Step7 } from './Step7';
+import { Step8 } from './Step8';
+import { Step9 } from './Step9';
+import { Step10 } from './Step10';
+import { Step11 } from './Step11';
 
 import {
   Container,
@@ -80,7 +80,8 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
             rg: data?.artist.rg,
             expedition_department: data?.artist.expedition_department,
             race: data?.artist.race,
-            accessibility_resources_description: data?.artist.accessibility_resources_description,
+            accessibility_resources_description:
+              data?.artist.accessibility_resources_description,
             address: {
               city: data?.artist.address.city,
               cep: data?.artist.address.cep,
@@ -352,9 +353,9 @@ function FormikStepper({
   children,
   ...props
 }: FormikConfig<FormikValues & ButtonProps>) {
-  const childrenArray = React.Children.toArray(children) as React.ReactElement<
-    FormikStepProps
-  >[];
+  const childrenArray = React.Children.toArray(
+    children
+  ) as React.ReactElement<FormikStepProps>[];
 
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];

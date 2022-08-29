@@ -29,10 +29,16 @@ const bodyFormParse = (values: any) => {
     values.artist?.expedition_department
   );
 
-  formData.append('artist[is_trans]', values.artist.is_trans)
-  formData.append('artist[sexual_orientation]', values.artist?.sexual_orientation)
-  formData.append('artist[race]', values.artist.race)
-  formData.append('artist[accessibility_resources_description]', values.artist.accessibility_resources_description)
+  formData.append('artist[is_trans]', values.artist.is_trans);
+  formData.append(
+    'artist[sexual_orientation]',
+    values.artist?.sexual_orientation
+  );
+  formData.append('artist[race]', values.artist.race);
+  formData.append(
+    'artist[accessibility_resources_description]',
+    values.artist.accessibility_resources_description
+  );
 
   formData.append('artist[address][city]', values.artist?.address?.city);
   formData.append('artist[address][cep]', values.artist?.address?.cep);
