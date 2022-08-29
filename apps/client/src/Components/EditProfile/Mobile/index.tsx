@@ -14,11 +14,12 @@ import { Step9 } from './Step9'
 import { Step10 } from './Step10'
 import { Step11 } from './Step11'
 import { Step12 } from './Step12'
-import { STEP12_2 } from './Step12_2'
 import { Step13 } from './Step13'
 import { Step14 } from './Step14'
 import { Step15 } from './Step15'
 import { Step16 } from './Step16'
+import { Step17 } from './Step17'
+import { Step18 } from './Step18'
 
 import {
   FormTitle,
@@ -72,6 +73,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           profilePicture: data?.artist.photo_url,
           curriculum: data?.artist.curriculum,
           medicalReport: data?.artist.medicalReport,
+          accessibility_resources_description: data?.artist.accessibility_resources_description,
           Other_TechnicalArea: "",
           artist: {
             name: data?.artist.name,
@@ -305,14 +307,23 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           <Step10 />
         </FormikStep>
 
-        <FormikStep
-          validationSchema={yup.object({
-            deficiencies: yup.array(),
-             medicalReport: yup.string().nullable(),
-          })}
-        >
+        <FormikStep>
           <Step11 />
         </FormikStep>
+
+        <FormikStep
+          validationSchema={yup.object({
+            isPcd: yup.boolean(),
+            deficiencies: yup.array(),
+            artist: yup.object({
+              medicalReport: yup.string().nullable(),
+              accessibility_resources_description: yup.string().nullable(),
+            }),
+          })}
+        >
+          <Step12 />
+        </FormikStep>
+
 
         <FormikStep
           validationSchema={yup.object({
@@ -326,7 +337,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             }),
           })}
         >
-          <Step12 />
+          <Step13 />
         </FormikStep>
 
         <FormikStep
@@ -342,7 +353,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             }),
           })}
         >
-          <STEP12_2 />
+          <Step14 />
         </FormikStep>
 
         <FormikStep
@@ -366,7 +377,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             }),
           })}
         >
-          <Step13 />
+          <Step15 />
         </FormikStep>
 
         <FormikStep
@@ -379,7 +390,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             }),
           })}
         >
-          <Step14 />
+          <Step16 />
         </FormikStep>
 
         <FormikStep
@@ -391,7 +402,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             }),
           })}
         >
-          <Step15 />
+          <Step17 />
         </FormikStep>
 
         <FormikStep
@@ -406,7 +417,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             }),
           })}
         >
-          <Step16 />
+          <Step18 />
         </FormikStep>
       </FormikStepper>
     </>
