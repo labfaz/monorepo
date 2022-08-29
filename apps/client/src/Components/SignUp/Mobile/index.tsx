@@ -556,78 +556,66 @@ function FormikStepper({
                   </div> */}
 
                   <div className="socialMedias">
-                    {
+                    {socialNetworks?.youtube && (
                       // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                      socialNetworks?.youtube && (
-                        <a
-                          href={socialNetworks?.youtube}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <FaYoutubeSquare />
-                        </a>
-                      )
-                    }
-                    {
+                      <a
+                        href={socialNetworks?.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaYoutubeSquare />
+                      </a>
+                    )}
+                    {socialNetworks?.facebook && (
                       // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                      socialNetworks?.facebook && (
-                        <a
-                          href={socialNetworks?.facebook}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <FaFacebookSquare />
-                        </a>
-                      )
-                    }
-                    {
+                      <a
+                        href={socialNetworks?.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaFacebookSquare />
+                      </a>
+                    )}
+                    {socialNetworks?.twitter && (
                       // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                      socialNetworks?.twitter && (
-                        <a
-                          href={socialNetworks?.twitter}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <FaTwitterSquare />
-                        </a>
-                      )
-                    }
-                    {
+                      <a
+                        href={socialNetworks?.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaTwitterSquare />
+                      </a>
+                    )}
+                    {socialNetworks?.googlePlus && (
                       // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                      socialNetworks?.googlePlus && (
-                        <a
-                          href={socialNetworks?.googlePlus}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <FaGooglePlusSquare />
-                        </a>
-                      )
-                    }
-                    {
+                      <a
+                        href={socialNetworks?.googlePlus}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaGooglePlusSquare />
+                      </a>
+                    )}
+                    {socialNetworks?.linkedin && (
                       // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                      socialNetworks?.linkedin && (
-                        <a
-                          href={socialNetworks?.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <FaLinkedin />
-                        </a>
-                      )
-                    }
-                    {
+                      <a
+                        href={socialNetworks?.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaLinkedin />
+                      </a>
+                    )}
+                    {socialNetworks?.instagram && (
                       // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                      socialNetworks?.instagram && (
-                        <a
-                          href={socialNetworks?.instagram}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <FaInstagramSquare />
-                        </a>
-                      )
-                    }
+                      <a
+                        href={socialNetworks?.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaInstagramSquare />
+                      </a>
+                    )}
                   </div>
 
                   <button type="button" onClick={() => handleRedirect()}>
