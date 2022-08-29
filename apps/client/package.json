@@ -54,7 +54,8 @@
     "serve": "serve ./build -l ${PORT:-4000} -s -n",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
     "build-storybook": "build-storybook -s public --no-dll",
-    "cy:open": "yarn run cypress open"
+    "cy:open": "yarn run cypress open",
+    "prettier": "prettier src --write"
   },
   "eslintConfig": {
     "extends": "react-app"
