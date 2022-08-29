@@ -115,13 +115,6 @@ export const Container = styled.div<ContainerProps>`
 
     
     label {
-      font-weight: 600;
-      font-size: var(--font-size-large);
-      color: var(--color-text-black);
-      display: inline;
-
-      color: #fff;
-
       ${DesktopSmall(css`
         font-size: var(--font-size-short);
         /* margin-bottom: 0.5rem; */
@@ -135,8 +128,11 @@ export const Container = styled.div<ContainerProps>`
 
   .labelContent {
     position: relative;
-    display: inline-flex;
-    flex-direction: column;
+    display: inline;
+    font-weight: 600;
+    font-size: var(--font-size-large);
+    color: var(--color-text-black);
+    color: #fff;
 
     column-gap: 0.5rem;
     position: relative;

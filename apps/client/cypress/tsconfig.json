@@ -4,5 +4,7 @@
     "lib": ["es5", "dom", "DOM.Iterable"],
     "types": ["cypress"]
   },
-  "include": ["**/*.ts"]
+  "include": [
+    "**/*.ts"
+  ]
 }

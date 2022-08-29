@@ -7,6 +7,9 @@ import GlobalContext from 'Context';
 import GlobalStyles from 'GlobalStyles';
 import Routes from 'Routes';
 
+import useGoogleAnalytics from 'Hooks/useInitializeGA';
+import Contruction from 'Pages/Construction';
+
 export const App = () => {
   useGoogleAnalytics();
 

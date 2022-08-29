@@ -12,6 +12,8 @@ export const EditProfile: Router = ({ match }) => {
   const { path = '/EditProfile' } = match ?? {};
   usePageview({ name: 'editProfile', path: path });
 
+  if (!token) return <Redirect to="/" />;
+
   return (
     <Switch>
       <Route exact path={path}>

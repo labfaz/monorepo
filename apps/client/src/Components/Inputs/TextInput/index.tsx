@@ -37,42 +37,43 @@ export const TextInput: FC<InputProps> = ({
       {...props}
       validationError={meta.touched && meta.error ? true : false}
     >
-      {label && (
+      <label>
         <div className="labelContainer">
           <div className="labelContent">
-            <label htmlFor={props.name}>
-              {label}
+            {label && (
+              <>
+                {label}
 
-              {obrigatory && <p className="obrigatory"> * </p>}
+                {obrigatory && <p className="obrigatory"> * </p>}
 
-              {informationText && (
-                <>
-                  <div className="svgContainer">
-                    <IoMdInformationCircle />
-                    <p className="information">{informationText}</p>
-                  </div>
-                </>
-              )}
-            </label>
-
+                {informationText && (
+                  <>
+                    <div className="svgContainer">
+                      <IoMdInformationCircle />
+                      <p className="information">{informationText}</p>
+                    </div>
+                  </>
+                )}
+              </>
+            )}
             {meta.touched && meta.error && <span>{meta.error}</span>}
           </div>
         </div>
-      )}
 
-      <Input>
-        {() => (
-          <InputMask
-            mask={inputMask ? inputMask : ''}
-            id={props.name}
-            style={{ width: `${width}rem`, height: `${height}rem` }}
-            type="text"
-            placeholder={placeholder}
-            {...inputProps}
-            disabled={disabled}
-          />
-        )}
-      </Input>
+        <Input>
+          {() => (
+            <InputMask
+              mask={inputMask ? inputMask : ''}
+              id={props.name}
+              style={{ width: `${width}rem`, height: `${height}rem` }}
+              type="text"
+              placeholder={placeholder}
+              {...inputProps}
+              disabled={disabled}
+            />
+          )}
+        </Input>
+      </label>
     </Container>
   );
 };

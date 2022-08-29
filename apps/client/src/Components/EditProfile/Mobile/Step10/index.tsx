@@ -31,8 +31,7 @@ export const Step10: FC = () => {
           <div>
             <InputTextContainer>
               <TextInput
-                name="
-                "
+                name="artist.address.cep"
                 label="CEP"
                 placeholder="Digite seu cep"
                 inputMask="99999-999"
