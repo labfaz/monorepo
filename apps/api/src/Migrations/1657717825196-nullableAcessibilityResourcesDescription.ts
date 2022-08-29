@@ -9,7 +9,7 @@ export class nullableAcessibilityResourcesDescription1657717825196 implements Mi
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`ALTER TABLE "artist" ADD "acessibilityResourcesDescription" character varying NOT NULL`);
+        await queryRunner.query(`ALTER TABLE "artist" ADD "acessibilityResourcesDescription" character varying`);
         await queryRunner.query(`ALTER TABLE "artist" DROP COLUMN "accessibility_resources_description"`);
     }
 
