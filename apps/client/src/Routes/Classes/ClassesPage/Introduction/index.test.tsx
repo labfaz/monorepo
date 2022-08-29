@@ -53,6 +53,7 @@ describe('Check content of Introduction', () => {
 
   it('checks if image rendered', () => {
     const img = getByRole('img');
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     expect(img).toBeInTheDocument;
   });
 });

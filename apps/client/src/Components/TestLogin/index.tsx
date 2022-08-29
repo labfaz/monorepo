@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useContext, useState } from 'react';
+import React, { FC, FormEvent, useCallback, useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
@@ -14,17 +14,21 @@ const Container = styled.div`
   max-width: 20em;
 `;
 
-export const TestLogin: FC = ({}) => {
+export const TestLogin: FC = () => {
   const { setToken } = useContext(CurrentUserTokenContext);
   const [error, setError] = useState<ErrorObject | undefined>(undefined);
   const history = useHistory();
 
   const handleSubmit = useCallback<React.FormEventHandler<HTMLFormElement>>(
-    (e) => {
+    (e: FormEvent<HTMLFormElement>) => {
       // manually doing form stuff
       e.preventDefault();
-      const email = e.currentTarget.querySelector('input#email')?.value;
-      const password = e.currentTarget.querySelector('input#password')?.value;
+      const email = (
+        e.currentTarget.querySelector('input#email') as HTMLInputElement
+      )?.value;
+      const password = (
+        e.currentTarget.querySelector('input#password') as HTMLInputElement
+      )?.value;
 
       // login, set context and redirect
       login(email, password)
@@ -34,7 +38,7 @@ export const TestLogin: FC = ({}) => {
         .then(() => history.push('/home'))
         .catch((err) => setError(err));
     },
-    [setToken]
+    [history, setToken]
   );
 
   return (
