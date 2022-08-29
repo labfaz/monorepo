@@ -133,7 +133,6 @@ export const Container = styled.div<ContainerProps>`
     font-size: var(--font-size-large);
     color: var(--color-text-black);
     color: #fff;
-
     column-gap: 0.5rem;
     position: relative;
 
