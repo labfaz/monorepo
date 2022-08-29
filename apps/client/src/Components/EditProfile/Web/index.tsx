@@ -80,7 +80,7 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
             rg: data?.artist.rg,
             expedition_department: data?.artist.expedition_department,
             race: data?.artist.race,
-            acessibilityResourcesDescription: data?.artist.acessibilityResourcesDescription,
+            accessibility_resources_description: data?.artist.accessibility_resources_description,
             address: {
               city: data?.artist.address.city,
               cep: data?.artist.address.cep,
@@ -242,7 +242,7 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
-              acessibilityResourcesDescription: yup.string(),
+              accessibility_resources_description: yup.string(),
             }),
           })}
         >

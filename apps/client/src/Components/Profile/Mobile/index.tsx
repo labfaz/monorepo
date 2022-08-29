@@ -133,7 +133,7 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
           <UserInformation>
             <div className="Header">
               <a href="#Sobre">Sobre</a>
-              {data.artist.acessibilityResourcesDescription && (
+              {data.artist.accessibility_resources_description && (
                 <a href="#RecursosDeAcessibilidade">
                   Recursos De Acessibilidade
                 </a>
@@ -154,13 +154,13 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
               </div>
             </div>
 
-            {data.artist.acessibilityResourcesDescription && (
+            {data.artist.accessibility_resources_description && (
               <div className="profileInformation" id="RecursosDeAcessibilidade">
                 <ContentTitle level={1}>Reursos de acessibilidade</ContentTitle>
 
                 <div>
                   <ContentText>
-                    {data.artist.acessibilityResourcesDescription}
+                    {data.artist.accessibility_resources_description}
                   </ContentText>
                 </div>
               </div>

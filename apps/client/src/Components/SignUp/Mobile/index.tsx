@@ -95,7 +95,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
             expedition_department: "",
             is_trans: "",
             race: "",
-            acessibilityResourcesDescription: null,
+            accessibility_resources_description: null,
             address: {
               city: "",
               cep: "",
@@ -325,7 +325,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
             deficiencies: yup.array(),
             artist: yup.object({
               medicalReport: yup.string().nullable(),
-              acessibilityResourcesDescription: yup.string().nullable(),
+              accessibility_resources_description: yup.string().nullable(),
             }),
           })}
         >

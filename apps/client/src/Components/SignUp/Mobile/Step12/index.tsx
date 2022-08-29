@@ -28,7 +28,7 @@ interface Step12Props {
   isPcd?: string;
   medicalReport?: string;
   artist: {
-    acessibilityResourcesDescription?: string;
+    accessibility_resources_description?: string;
   };
 }
 
@@ -100,7 +100,7 @@ export const Step12: FC = () => {
 
           <InputText
             component="textarea"
-            name="artist.acessibilityResourcesDescription"
+            name="artist.accessibility_resources_description"
           />
         </Content>
       </ContentContainer>

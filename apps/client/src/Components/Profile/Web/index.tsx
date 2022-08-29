@@ -142,12 +142,12 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
               </ul>
             </div>
           </div>
-          {data.artist.acessibilityResourcesDescription && (
+          {data.artist.accessibility_resources_description && (
             <div className="profileInformation" id="RecursosDeAcessibilidade">
               <ContentTitle level={1}>Recursos De Acessibilidade</ContentTitle>
 
               <span>
-                {data.artist.acessibilityResourcesDescription}
+                {data.artist.accessibility_resources_description}
               </span>
 
             </div>

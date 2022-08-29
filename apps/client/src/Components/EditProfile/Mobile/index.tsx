@@ -73,7 +73,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           profilePicture: data?.artist.photo_url,
           curriculum: data?.artist.curriculum,
           medicalReport: data?.artist.medicalReport,
-          acessibilityResourcesDescription: data?.artist.acessibilityResourcesDescription,
+          accessibility_resources_description: data?.artist.accessibility_resources_description,
           Other_TechnicalArea: "",
           artist: {
             name: data?.artist.name,
@@ -317,7 +317,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             deficiencies: yup.array(),
             artist: yup.object({
               medicalReport: yup.string().nullable(),
-              acessibilityResourcesDescription: yup.string().nullable(),
+              accessibility_resources_description: yup.string().nullable(),
             }),
           })}
         >

@@ -5,7 +5,7 @@ import { Container, Content, TextLabel, InputText } from "./style";
 
 interface ErrorProps {
   artist: {
-    acessibilityResourcesDescription: string;
+    accessibility_resources_description: string;
   };
 }
 
@@ -21,15 +21,15 @@ export const Step5: FC = () => {
             seriam necessários para você?
           </TextLabel>
 
-          {errors.artist?.acessibilityResourcesDescription && (
+          {errors.artist?.accessibility_resources_description && (
             <span className="errorMessage">
-              {errors.artist.acessibilityResourcesDescription}
+              {errors.artist.accessibility_resources_description}
             </span>
           )}
 
           <InputText
             component="textarea"
-            name="artist.acessibilityResourcesDescription"
+            name="artist.accessibility_resources_description"
           />
         </Content>
       </div>
