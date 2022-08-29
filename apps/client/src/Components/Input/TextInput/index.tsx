@@ -35,9 +35,9 @@ export const TextInput: FC<InputProps> = ({
       {...props}
       validationError={meta.touched && meta.error ? true : false}
     >
-      <div className="labelContainer">
-        <div className="labelContent">
-          <label>
+      <label>
+        <div className="labelContainer">
+          <div className="labelContent">
             {label && (
               <>
                 {label}
@@ -54,24 +54,23 @@ export const TextInput: FC<InputProps> = ({
                 )}
               </>
             )}
-
-            <Input>
-              {() => (
-                <InputMask
-                  mask={inputMask ? inputMask : ""}
-                  id={props.name}
-                  style={{ width: `${width}rem`, height: `${height}rem` }}
-                  type="text"
-                  placeholder={placeholder}
-                  {...inputProps}
-                />
-              )}
-            </Input>
-          </label>
-
-          {meta.touched && meta.error && <span>{meta.error}</span>}
+            {meta.touched && meta.error && <span>{meta.error}</span>}
+          </div>
         </div>
-      </div>
+
+        <Input>
+          {() => (
+            <InputMask
+              mask={inputMask ? inputMask : ""}
+              id={props.name}
+              style={{ width: `${width}rem`, height: `${height}rem` }}
+              type="text"
+              placeholder={placeholder}
+              {...inputProps}
+            />
+          )}
+        </Input>
+      </label>
     </Container>
   );
 };
