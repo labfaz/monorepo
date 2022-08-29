@@ -55,14 +55,15 @@ export const Step11: FC = () => {
 
           <InputCheckBoxContainer>
             <CheckboxInput type="checkbox" name="use_terms" value="sim">
-              Li e concordo com os{' '}
+              Li e concordo com os
               <a
                 href="/politica-de-privacidade.pdf"
                 target="_blank"
                 rel="noopener"
               >
-                Termos de Uso
-              </a>{' '}
+                {' '}
+                Termos de Uso{' '}
+              </a>
               e estou ciente e autorizo que os meus dado sejam usados única e
               exclusivamente para o projeto LabFaz.
             </CheckboxInput>
