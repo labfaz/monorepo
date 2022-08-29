@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { Title } from "Components/Typography/Title";
-import { Text } from "Components/Typography/Text";
-import { DesktopSmall, Mobile } from "Utils/breakpoints";
+import styled, { css } from 'styled-components';
+import { Title } from 'Components/Typography/Title';
+import { Text } from 'Components/Typography/Text';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 interface Props {
   color: string;
@@ -21,7 +21,7 @@ export const Wrapper = styled.div<Props>`
   background-image: ${(props) =>
     props.color
       ? props.color
-      : "linear-gradient(to bottom, rgba(252, 0, 97, 0.1), rgba(0, 0, 0, 1))"};
+      : 'linear-gradient(to bottom, rgba(252, 0, 97, 0.1), rgba(0, 0, 0, 1))'};
   filter: drop-shadow(0 0 20 rgba(252, 0, 97, 0.15));
   border-radius: 30px 30px 0 0;
   margin: 0 0 60px 0;
@@ -35,7 +35,7 @@ export const Wrapper = styled.div<Props>`
 
 export const MainTitle = styled(Title)<TitleProps>`
   color: ${(props) =>
-    props.fontColor ? props.fontColor : "var(--color-text-white)"};
+    props.fontColor ? props.fontColor : 'var(--color-text-white)'};
   font-size: var(--font-size-title-xlarge);
   line-height: 1;
   margin: 60px 0 0 60px;

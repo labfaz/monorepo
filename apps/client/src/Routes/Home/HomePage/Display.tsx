@@ -1,16 +1,16 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import Wireframe from "Components/Wireframe";
-import Partners from "Components/Partners";
-import Presentation from "Components/Presentation";
+import Wireframe from 'Components/Wireframe';
+import Partners from 'Components/Partners';
+import Presentation from 'Components/Presentation';
 // import CoursesPresentation from "Components/CoursesPresentation";
-import Banner from "Components/Banner";
+import Banner from 'Components/Banner';
 
-import useMobile from "Hooks/useMobile";
+import useMobile from 'Hooks/useMobile';
 
-import { HomepageBannerInfo } from "Api/HomepageBannerInfo";
-import { HomePartners } from "Api/HomePartners";
-import { Homepage } from "Api/Homepage";
+import { HomepageBannerInfo } from 'Api/HomepageBannerInfo';
+import { HomePartners } from 'Api/HomePartners';
+import { Homepage } from 'Api/Homepage';
 // import { CoursePresentation } from "Api/CoursePresentation";
 
 export interface DisplayProps {
@@ -56,7 +56,7 @@ export const Display: FC<DisplayProps> = ({
           {title && subtitle && video ? (
             <Presentation title={title} subtitle={subtitle} video={video} />
           ) : (
-            <div style={{ paddingTop: "3.5em" }} />
+            <div style={{ paddingTop: '3.5em' }} />
           )}
         </>
       )}

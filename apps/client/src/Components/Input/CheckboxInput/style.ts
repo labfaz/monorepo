@@ -1,6 +1,6 @@
-import { Field } from "formik"
-import styled, { css } from "styled-components"
-import { DesktopSmall, Mobile } from "Utils/breakpoints"
+import { Field } from 'formik';
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: inline-flex;
@@ -22,7 +22,7 @@ export const Container = styled.div`
   input {
     opacity: 0;
     position: absolute;
-  
+
     z-index: 2;
     &:hover {
       cursor: pointer;
@@ -38,7 +38,7 @@ export const Container = styled.div`
       height: 20px;
       padding: 7px;
     `)}
-    background: rgba(0, 0, 0, 0.46);  
+    background: rgba(0, 0, 0, 0.46);
     &:hover {
       cursor: pointer;
     }
@@ -49,20 +49,20 @@ export const Container = styled.div`
     height: 6px;
     border-radius: 50%;
     display: block;
-    background-color: #FC0061;
+    background-color: #fc0061;
     transform: scale(0);
     transition: transform 0.15s;
   }
-  input:checked  + .checkbox_input::after {
+  input:checked + .checkbox_input::after {
     transform: scale(1);
   }
-  
+
   label {
     font-weight: 600;
     color: var(--color-text-black);
     display: inline-block;
     color: #fafafa;
-    margin-left: 1.20rem;
+    margin-left: 1.2rem;
     line-height: 22px;
     padding: 0;
     margin-top: 0;
@@ -83,6 +83,6 @@ export const Container = styled.div`
     font-size: var(--font-size-small);
     text-decoration: underline;
   }
-`
+`;
 
-export const Input = styled(Field)``
+export const Input = styled(Field)``;

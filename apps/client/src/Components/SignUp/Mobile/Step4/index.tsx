@@ -1,25 +1,25 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { TextInput } from 'Components/Inputs/TextInput'
-import { useFormikContext } from 'formik'
-import { RadioInput } from 'Components/Inputs/RadioInput'
+import { TextInput } from 'Components/Inputs/TextInput';
+import { useFormikContext } from 'formik';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
 import {
   Container,
   ContentContainer,
   Content,
   InputRadioContainer,
-} from './style'
+} from './style';
 
 interface Step4Props {
   artist: {
-    gender: string
-    gender_identity: string
-  }
+    gender: string;
+    gender_identity: string;
+  };
 }
 
 export const Step4: FC = () => {
-  const { values, errors } = useFormikContext<Step4Props>()
+  const { values, errors } = useFormikContext<Step4Props>();
 
   return (
     <Container>
@@ -67,7 +67,7 @@ export const Step4: FC = () => {
             />
           </InputRadioContainer>
 
-          {values.artist?.gender === "outro" && (
+          {values.artist?.gender === 'outro' && (
             <div className="otherGender">
               <TextInput
                 name="artist.other_gender"
@@ -80,7 +80,7 @@ export const Step4: FC = () => {
           <label
             htmlFor="gender"
             className="radioLabel"
-            style={{ marginTop: "1.54rem" }}
+            style={{ marginTop: '1.54rem' }}
           >
             Identidade de Genero <p className="obrigatory"> *</p>
             {errors.artist?.gender_identity && (
@@ -131,4 +131,4 @@ export const Step4: FC = () => {
       </ContentContainer>
     </Container>
   );
-}
+};

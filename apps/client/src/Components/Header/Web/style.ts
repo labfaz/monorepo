@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components"
+import styled, { css } from 'styled-components';
 
-import { DesktopSmall } from 'Utils/breakpoints'
-import { InternalLinkButton } from "Components/Buttons/InternalLinkButton";
+import { DesktopSmall } from 'Utils/breakpoints';
+import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
 
-import { ButtonStyled } from "Routes/Classes/SubscriptionButton/styles";
+import { ButtonStyled } from 'Routes/Classes/SubscriptionButton/styles';
 
 export const Container = styled.div`
   background-color: var(--backgound-black-gray);
@@ -20,15 +20,14 @@ export const RedirectLink = styled(InternalLinkButton)`
   background-color: transparent;
   border: none;
   display: flex;
-  flex-Grow: 0.3;
-  justify-Content: space-around;
+  flex-grow: 0.3;
+  justify-content: space-around;
   align-items: center;
   padding: 0;
 
   ${DesktopSmall(css`
     font-size: var(--font-size-medium);
   `)}
-  
 `;
 
 export const Navbar = styled.div`
@@ -58,15 +57,15 @@ export const NavLink = styled(InternalLinkButton)`
       font-size: var(--font-size-short);
     `)}
   }
-`
+`;
 
 export const UserSession = styled.div`
   display: flex;
   align-items: center;
-  flex-Grow: 0.6;
+  flex-grow: 0.6;
   justify-content: space-evenly;
   ${DesktopSmall(css`
-    flex-Grow: 0.4;
+    flex-grow: 0.4;
   `)}
 
   a {
@@ -93,13 +92,11 @@ export const Button = styled(InternalLinkButton)`
   background-color: rbga(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
 
-
   :hover {
     box-shadow: 3px 3px 0px rgba(255, 236, 153, 1);
     opacity: 1;
     transition: 500ms;
   }
-
 
   ${DesktopSmall(css`
     font-size: var(--font-size-short: 11px);
@@ -123,7 +120,6 @@ export const LogoutButton = styled(ButtonStyled)`
   background-color: rbga(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
 
-
   :hover {
     box-shadow: 3px 3px 0px rgba(255, 236, 153, 1);
     opacity: 1;
@@ -134,7 +130,7 @@ export const LogoutButton = styled(ButtonStyled)`
     font-size: var(--font-size-short: 11px);
     padding: 0.3rem;
   `)}
-`
+`;
 
 export const LogIn = styled(InternalLinkButton)`
   color: var(--color-text-beige);
@@ -166,7 +162,7 @@ export const LogIn = styled(InternalLinkButton)`
     font-size: var(--font-size-short: 11px);
     padding: 0.5rem;
   `)}
-`
+`;
 
 export const User = styled.div`
   display: flex;
@@ -180,7 +176,6 @@ export const User = styled.div`
     display: flex;
     align-items: center;
 
-
     font-size: var(--font-size-large);
     font-weight: 700;
 
@@ -189,7 +184,7 @@ export const User = styled.div`
     &:hover {
       cursor: pointer;
     }
-    
+
     svg {
       margin-left: 3.05rem;
       margin-right: 3.38rem;
@@ -199,13 +194,13 @@ export const User = styled.div`
       }
     }
   }
-`
+`;
 
 export const UserAvatar = styled.div`
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #A3A3A3;
+  background-color: #a3a3a3;
 
   margin-left: 3.2rem;
   margin-right: 0.6rem;
@@ -215,4 +210,4 @@ export const UserAvatar = styled.div`
     height: 36px;
     border-radius: 50%;
   }
-`
+`;

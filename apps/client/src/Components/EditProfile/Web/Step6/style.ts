@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components'
-import { Field } from 'formik'
+import styled, { css } from 'styled-components';
+import { Field } from 'formik';
 
-import { Text } from 'Components/Typography/Text'
-import { DesktopSmall } from 'Utils/breakpoints'
+import { Text } from 'Components/Typography/Text';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const Container = styled.div`
       font-size: var(--font-size-short);
     `)}
   }
-`
+`;
 
 export const LabelText = styled(Text)`
   margin-bottom: 1.5rem;
@@ -29,7 +29,6 @@ export const LabelText = styled(Text)`
   position: relative;
 
   .errorMessage {
-
     color: red;
     position: absolute;
 
@@ -41,15 +40,13 @@ export const LabelText = styled(Text)`
     ${DesktopSmall(css`
       font-size: 8px;
       top: 1rem;
-
     `)}
   }
-
 
   ${DesktopSmall(css`
     font-size: var(--font-size-short);
   `)}
-`
+`;
 
 export const LeftSide = styled.div`
   width: 35.5rem;
@@ -64,16 +61,15 @@ export const LeftSide = styled.div`
 
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const LeftSideContent = styled.div`
-  
   margin: 2.27rem 3.3rem 5.2rem 3.3rem;
 
   ${DesktopSmall(css`
     margin: 1.52rem 4.09rem 5.2rem 2.23rem;
   `)}
-`
+`;
 
 export const RightSide = styled.div`
   width: 35.5rem;
@@ -88,15 +84,14 @@ export const RightSide = styled.div`
   flex-direction: column;
 
   position: relative;
-`
+`;
 export const RightSideContent = styled.div`
   margin: 2.27rem 3.3rem 5.2rem 3.3rem;
 
   ${DesktopSmall(css`
     margin: 1.52rem 4.09rem 5.2rem 2.23rem;
   `)}
-
-`
+`;
 
 // export const InputCheckBox = styled(Input)`
 //   display: flex;
@@ -114,7 +109,7 @@ export const InputCheckBox = styled(Field)`
   &:hover {
     cursor: pointer;
   }
-`
+`;
 
 export const InputCheckBoxContainer = styled.div`
   font-weight: 600;
@@ -126,7 +121,7 @@ export const InputCheckBoxContainer = styled.div`
     margin-top: 1.5rem;
     margin-bottom: 0;
   `)}
-`
+`;
 
 export const InputRadioContainer = styled.div`
   display: flex;
@@ -137,7 +132,7 @@ export const InputRadioContainer = styled.div`
   ${DesktopSmall(css`
     margin-bottom: 1rem;
   `)}
-`
+`;
 
 export const TextInputContainer = styled.div`
   label {
@@ -149,4 +144,4 @@ export const TextInputContainer = styled.div`
       font-size: var(--font-size-short);
     `)}
   }
-`
+`;

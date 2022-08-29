@@ -1,18 +1,18 @@
-import React, { FC } from 'react'
-import { useField } from 'formik'
+import React, { FC } from 'react';
+import { useField } from 'formik';
 
-import { Container } from './style'
+import { Container } from './style';
 
 export interface InputProps {
-  label?: string
-  placeholder?: string
-  name: string
-  width?: number
-  height?: number
-  value?: string
-  text?: string
-  inputMask?: string
-  obrigatory?: boolean
+  label?: string;
+  placeholder?: string;
+  name: string;
+  width?: number;
+  height?: number;
+  value?: string;
+  text?: string;
+  inputMask?: string;
+  obrigatory?: boolean;
 }
 
 export const PasswordInput: FC<InputProps> = ({
@@ -26,7 +26,7 @@ export const PasswordInput: FC<InputProps> = ({
   obrigatory,
   ...props
 }) => {
-  const [inputProps, meta] = useField(props)
+  const [inputProps, meta] = useField(props);
 
   return (
     <Container
@@ -51,5 +51,5 @@ export const PasswordInput: FC<InputProps> = ({
         {...inputProps}
       />
     </Container>
-  )
-}
+  );
+};

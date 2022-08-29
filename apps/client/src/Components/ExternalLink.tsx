@@ -1,14 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
 export interface LinkProps {
-  href: string
+  href: string;
 }
 
-export const ExternalLink: FC<LinkProps> = ({
-  href,
-  children,
-  ...props
-  }) => {
+export const ExternalLink: FC<LinkProps> = ({ href, children, ...props }) => {
   return (
     <a
       target="_blank"
@@ -17,7 +13,7 @@ export const ExternalLink: FC<LinkProps> = ({
       children={children}
       {...props}
     />
-  )
-}
+  );
+};
 
-export default ExternalLink
+export default ExternalLink;

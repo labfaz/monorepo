@@ -1,20 +1,19 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { Text } from 'Components/Typography/Text'
-import { RadioInput } from 'Components/Inputs/RadioInput'
-import { CheckboxInput } from 'Components/Inputs/CheckboxInput'
-import { TextInput } from 'Components/Inputs/TextInput'
+import { Text } from 'Components/Typography/Text';
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+import { TextInput } from 'Components/Inputs/TextInput';
 
 interface ContentProps {
-  isOpen: boolean
+  isOpen: boolean;
 }
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-`
+`;
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -24,11 +23,11 @@ export const ContentContainer = styled.div`
   width: 100vw;
 
   scroll-snap-align: start;
-`
+`;
 
 export const Content = styled.div`
   margin-top: 2rem;
-`
+`;
 
 export const LabelText = styled(Text)`
   margin-bottom: 1.2rem;
@@ -39,7 +38,7 @@ export const LabelText = styled(Text)`
 
   .errorMessage {
     position: absolute;
-  
+
     top: 1.2rem;
     left: 0;
 
@@ -47,12 +46,12 @@ export const LabelText = styled(Text)`
     font-size: var(--font-size-small);
     white-space: nowrap;
   }
-  
+
   .obrigatory {
     display: inline;
     color: red;
   }
-`
+`;
 
 export const InputRadioContainer = styled.div`
   margin-bottom: 0.5rem;
@@ -63,12 +62,11 @@ export const InputRadioContainer = styled.div`
     line-height: 13px;
     color: #fafafa;
   }
-`
+`;
 
-export const InputRadio = styled(RadioInput)``
+export const InputRadio = styled(RadioInput)``;
 
 export const SelectContainer = styled.label`
-
   width: 13.3rem;
   display: block;
   margin-bottom: 1rem;
@@ -81,7 +79,7 @@ export const SelectContainer = styled.label`
     margin-bottom: 1.2rem;
     color: #fafafa;
   }
-`
+`;
 export const InputSelect = styled.div`
   display: flex;
   flex-direction: column;
@@ -95,14 +93,14 @@ export const InputSelect = styled.div`
   border: 0;
   padding-left: 0.83rem;
   padding-right: 0.83rem;
-  color: #C4C4C4;
+  color: #c4c4c4;
 
   font-size: var(--font-size-medium);
 
   background-color: #090909;
 
   border: 1px solid rgba(250, 250, 250, 0.7);
-  
+
   &:hover {
     cursor: pointer;
   }
@@ -118,10 +116,10 @@ export const InputSelect = styled.div`
 
     pointer-events: none;
   }
-`
+`;
 
 export const OptionsContainer = styled.div<ContentProps>`
-  display: ${(({isOpen}) => isOpen ? 'flex' : 'none')};
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 
   position: absolute;
 
@@ -133,19 +131,19 @@ export const OptionsContainer = styled.div<ContentProps>`
 
   z-index: 10;
 
-  background: rgba(196, 196, 196, 0.0);
+  background: rgba(196, 196, 196, 0);
   backdrop-filter: blur(1.5px);
 
   touch-action: none;
 
   top: 0;
-` 
+`;
 
 export const CheckboxContainer = styled.div`
   width: 13.8rem;
   height: 24.7rem;
 
-  background-color:  #000000;
+  background-color: #000000;
 
   display: flex;
   flex-direction: column;
@@ -161,7 +159,7 @@ export const CheckboxContainer = styled.div`
     flex-direction: row-reverse;
     align-items: center;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 
     padding-bottom: 0.66rem;
     padding-top: 0.66rem;
@@ -182,17 +180,17 @@ export const CheckboxContainer = styled.div`
   label {
     margin-left: 0;
   }
-`
+`;
 
-export const InputCheckbox = styled(CheckboxInput)``
+export const InputCheckbox = styled(CheckboxInput)``;
 
-export const InputText = styled(TextInput)``
+export const InputText = styled(TextInput)``;
 
 export const InputTextContainer = styled.div`
   p {
     margin-bottom: 0rem;
   }
-`
+`;
 export const FileContainer = styled.div`
   color: white;
   margin-top: 1rem;
@@ -203,4 +201,4 @@ export const FileContainer = styled.div`
   input {
     width: 100%;
   }
-`
+`;

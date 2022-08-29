@@ -1,35 +1,34 @@
-import React from 'react'
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import Render from 'Utils/render'
-import { InternalLinkButton } from './'
+import Render from 'Utils/render';
+import { InternalLinkButton } from './';
 
 it('renders internal link button component', () => {
-  expect(() => Render(
-    <BrowserRouter>
-      <InternalLinkButton 
-        href="/blog" 
-        children="Internal Button"
-      />
-    </BrowserRouter>
-  )).not.toThrow()
-})
+  expect(() =>
+    Render(
+      <BrowserRouter>
+        <InternalLinkButton href="/blog" children="Internal Button" />
+      </BrowserRouter>
+    )
+  ).not.toThrow();
+});
 
 describe('Check content of Button component', () => {
   const { getByText } = Render(
     <BrowserRouter>
-      <InternalLinkButton 
-        href="/blog" 
-        children="Internal Button"
-      />
+      <InternalLinkButton href="/blog" children="Internal Button" />
     </BrowserRouter>
   );
 
   it('check render of button content', () => {
-    expect(getByText('Internal Button')).toHaveTextContent('Internal Button')
-  })
+    expect(getByText('Internal Button')).toHaveTextContent('Internal Button');
+  });
 
   it('check link of internal site', () => {
-    expect(getByText('Internal Button').closest('a')).toHaveAttribute('href', '/blog')
-  })
-})
+    expect(getByText('Internal Button').closest('a')).toHaveAttribute(
+      'href',
+      '/blog'
+    );
+  });
+});

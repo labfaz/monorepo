@@ -1,24 +1,19 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { Li, Ul } from "./styles"
+import { Li, Ul } from './styles';
 
 interface ListProps {
-  data: string[]
+  data: string[];
 }
 
 export const List: FC<ListProps> = ({ data }) => {
-
   return (
     <Ul>
-      {
-        data?.map((item) => (
-          <Li>
-            {item}
-          </Li>
-        ))
-      }
+      {data?.map((item) => (
+        <Li>{item}</Li>
+      ))}
     </Ul>
-  )
-}
+  );
+};
 
-export default List
+export default List;

@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
-import { RadioInput } from 'Components/Inputs/RadioInput'
-import { TextInput } from 'Components/Inputs/TextInput'
-import { Text } from 'Components/Typography/Text'
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { Text } from 'Components/Typography/Text';
 
-import { OnlyNumbers } from 'Utils/inputRegex'
+import { OnlyNumbers } from 'Utils/inputRegex';
 
 import {
   Container,
@@ -17,24 +17,24 @@ import {
   SelectContainer,
   InputText,
   LeftSelectContainer,
-  InputTextContainer, 
-} from './style'
-import { SelectInput } from 'Components/Inputs/SelectInput'
-import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData'
+  InputTextContainer,
+} from './style';
+import { SelectInput } from 'Components/Inputs/SelectInput';
+import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData';
 
 export const Step1: FC = () => {
-  const { values, setFieldValue } = useFormikContext<any>()
+  const { values, setFieldValue } = useFormikContext<any>();
   const checkCEP = (cep: string) => {
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
-      .then(res => res.json())
-      .then(data => {
-        setFieldValue('artist.address.address', data.logradouro)
-        setFieldValue('artist.address.neighbourhood', data.bairro)
-        setFieldValue('artist.address.city', data.localidade)
-        setFieldValue('artist.address.state', data.uf)
-        setFieldValue('artist.address.complement', data.complemento)
-      })
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        setFieldValue('artist.address.address', data.logradouro);
+        setFieldValue('artist.address.neighbourhood', data.bairro);
+        setFieldValue('artist.address.city', data.localidade);
+        setFieldValue('artist.address.state', data.uf);
+        setFieldValue('artist.address.complement', data.complemento);
+      });
+  };
   return (
     <Container>
       <LeftSide>
@@ -134,7 +134,7 @@ export const Step1: FC = () => {
             <InputRadioContainer>
               <RadioInput
                 name="artist.address.residency"
-                value="df"  
+                value="df"
                 label="Distrito Federal"
               />
             </InputRadioContainer>
@@ -155,8 +155,7 @@ export const Step1: FC = () => {
               />
             </InputRadioContainer>
 
-            {values.artist.address.residency ===
-              'fora df' && (
+            {values.artist.address.residency === 'fora df' && (
               <LeftSelectContainer htmlFor="state">
                 <SelectInput
                   name="artist.address.state"
@@ -191,8 +190,7 @@ export const Step1: FC = () => {
               </SelectContainer>
             )}
 
-            {values.artist.address.residency ===
-              'fora df' && (
+            {values.artist.address.residency === 'fora df' && (
               <InputTextContainer>
                 <TextInput
                   name="artist.address.city"
@@ -212,9 +210,9 @@ export const Step1: FC = () => {
                 // obrigatory
                 onChange={(ev: any) => {
                   if (OnlyNumbers(ev.target.value).length === 8) {
-                    checkCEP(OnlyNumbers(ev.target.value))
+                    checkCEP(OnlyNumbers(ev.target.value));
                   }
-                  setFieldValue('cep', OnlyNumbers(ev.target.value))
+                  setFieldValue('cep', OnlyNumbers(ev.target.value));
                 }}
               />
             </InputTextContainer>
@@ -247,7 +245,10 @@ export const Step1: FC = () => {
                 label="Numero"
                 placeholder="Digite seu número"
                 onChange={(ev: any) =>
-                  setFieldValue('artist.address.number', OnlyNumbers(ev.target.value))
+                  setFieldValue(
+                    'artist.address.number',
+                    OnlyNumbers(ev.target.value)
+                  )
                 }
                 // obrigatory
               />
@@ -264,5 +265,5 @@ export const Step1: FC = () => {
         </RightSideContent>
       </RightSide>
     </Container>
-  )
-}
+  );
+};

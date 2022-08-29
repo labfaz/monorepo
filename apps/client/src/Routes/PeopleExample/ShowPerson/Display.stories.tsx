@@ -7,4 +7,4 @@
 //   .addParameters({ component: ShowPerson })
 //   .add("default", () => <ShowPerson person={{ name: "Marcelo", age: 53 }}/>)
 
-export {}
+export {};

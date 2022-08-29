@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
-import { SelectInput } from 'Components/Inputs/SelectInput'
-import { RadioInput } from 'Components/Inputs/RadioInput'
+import { SelectInput } from 'Components/Inputs/SelectInput';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
-import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData'
+import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData';
 
 import {
   Container,
@@ -13,11 +13,11 @@ import {
   InputRadioContainer,
   SelectContainer,
   InputTextContainer,
-} from './style'
-import { TextInput } from 'Components/Inputs/TextInput'
+} from './style';
+import { TextInput } from 'Components/Inputs/TextInput';
 
 export const Step9: FC = () => {
-  const { values } = useFormikContext<any>()
+  const { values } = useFormikContext<any>();
 
   return (
     <Container>
@@ -97,5 +97,5 @@ export const Step9: FC = () => {
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

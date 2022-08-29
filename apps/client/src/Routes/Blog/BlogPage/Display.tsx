@@ -1,15 +1,15 @@
-import React, { FC } from "react"
+import React, { FC } from 'react';
 
-import Banner from "Components/Banner"
-import { BlogBannerInfo } from "Api/BlogBannerInfo"
+import Banner from 'Components/Banner';
+import { BlogBannerInfo } from 'Api/BlogBannerInfo';
 
-import PostCard from "./PostCard/Display"
-import Wireframe from "Components/Wireframe"
-import { BlogPost } from "Api/BlogPost"
+import PostCard from './PostCard/Display';
+import Wireframe from 'Components/Wireframe';
+import { BlogPost } from 'Api/BlogPost';
 
 export interface DisplayProps {
-  data: BlogBannerInfo
-  posts: BlogPost[]
+  data: BlogBannerInfo;
+  posts: BlogPost[];
 }
 
 export const Display: FC<DisplayProps> = ({ data, posts }) => {
@@ -18,9 +18,9 @@ export const Display: FC<DisplayProps> = ({ data, posts }) => {
   return (
     <Wireframe>
       <Banner title={title} subtitle={subtitle} image={image} align="left" />
-      <PostCard posts={posts}/>
+      <PostCard posts={posts} />
     </Wireframe>
-  )
-}
+  );
+};
 
 export default Display;

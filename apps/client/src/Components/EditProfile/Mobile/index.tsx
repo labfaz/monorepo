@@ -1,25 +1,25 @@
-import React, { FC, useRef, useState } from 'react'
-import { Formik, FormikConfig, FormikValues, Form } from 'formik'
-import * as yup from 'yup'
+import React, { FC, useRef, useState } from 'react';
+import { Formik, FormikConfig, FormikValues, Form } from 'formik';
+import * as yup from 'yup';
 
-import { Step1 } from './Step1'
-import { Step2 } from './Step2'
-import { Step3 } from './Step3'
-import { Step4 } from './Step4'
-import { Step5 } from './Step5'
-import { Step6 } from './Step6'
-import { Step7 } from './Step7'
-import { Step8 } from './Step8'
-import { Step9 } from './Step9'
-import { Step10 } from './Step10'
-import { Step11 } from './Step11'
-import { Step12 } from './Step12'
-import { Step13 } from './Step13'
-import { Step14 } from './Step14'
-import { Step15 } from './Step15'
-import { Step16 } from './Step16'
-import { Step17 } from './Step17'
-import { Step18 } from './Step18'
+import { Step1 } from './Step1';
+import { Step2 } from './Step2';
+import { Step3 } from './Step3';
+import { Step4 } from './Step4';
+import { Step5 } from './Step5';
+import { Step6 } from './Step6';
+import { Step7 } from './Step7';
+import { Step8 } from './Step8';
+import { Step9 } from './Step9';
+import { Step10 } from './Step10';
+import { Step11 } from './Step11';
+import { Step12 } from './Step12';
+import { Step13 } from './Step13';
+import { Step14 } from './Step14';
+import { Step15 } from './Step15';
+import { Step16 } from './Step16';
+import { Step17 } from './Step17';
+import { Step18 } from './Step18';
 
 import {
   FormTitle,
@@ -30,8 +30,8 @@ import {
   ButtonContainer,
   FormHeader,
   RightSession,
-  ErrorModalContainer
-} from './style'
+  ErrorModalContainer,
+} from './style';
 
 import {
   facebookUserRegex,
@@ -40,41 +40,42 @@ import {
   tiktokUserRegex,
   twitterUserRegex,
   youtubeUserRegex,
-} from 'Utils/regex'
-import { User } from 'Context/LoggedUserToken'
-import { EditProfile } from 'Api/EditProfile'
-import { useHistory } from 'react-router'
-import { ErrorObject } from 'Api'
+} from 'Utils/regex';
+import { User } from 'Context/LoggedUserToken';
+import { EditProfile } from 'Api/EditProfile';
+import { useHistory } from 'react-router';
+import { ErrorObject } from 'Api';
 
 interface ButtonProps {
-  buttonType: 'button' | 'submit' | 'reset' | undefined
-  data?: User
-  token: string
+  buttonType: 'button' | 'submit' | 'reset' | undefined;
+  data?: User;
+  token: string;
 }
 
-const profileSize = 2 * 1024 * 1024
-const curriculumSize = 10 * 1024 * 1024
+const profileSize = 2 * 1024 * 1024;
+const curriculumSize = 10 * 1024 * 1024;
 // const medicalReportMaxSize = 10 * 1024 * 1024
 
-export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
+export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
   return (
     <>
       <FormHeader />
       <FormikStepper
         initialValues={{
           email: data?.email,
-          password: "",
-          confirm_password: "",
-          other_idiom: "",
-          other_deficiency: "",
+          password: '',
+          confirm_password: '',
+          other_idiom: '',
+          other_deficiency: '',
           deficiencies: data?.deficiencies,
           isPcd: data?.artist.medicalReport != null,
-          use_terms: "",
+          use_terms: '',
           profilePicture: data?.artist.photo_url,
           curriculum: data?.artist.curriculum,
           medicalReport: data?.artist.medicalReport,
-          accessibility_resources_description: data?.artist.accessibility_resources_description,
-          Other_TechnicalArea: "",
+          accessibility_resources_description:
+            data?.artist.accessibility_resources_description,
+          Other_TechnicalArea: '',
           artist: {
             name: data?.artist.name,
             social_name: data?.artist.social_name,
@@ -83,7 +84,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             gender: data?.artist.gender,
             sexual_orientation: data?.artist.sexual_orientation,
             gender_specific: data?.artist.gender_specifics,
-            other_gender: "",
+            other_gender: '',
             cpf: data?.artist.cpf,
             birthday: data?.artist.birthday,
             rg: data?.artist.rg,
@@ -140,7 +141,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
-              name: yup.string().required("Nome obrigatório"),
+              name: yup.string().required('Nome obrigatório'),
               social_name: yup.string(),
               artistic_name: yup.string(),
             }),
@@ -154,15 +155,15 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             profilePicture: yup
               .mixed()
               .test(
-                "fileSize",
-                "Arquivo muito grande",
+                'fileSize',
+                'Arquivo muito grande',
                 (value) =>
                   (value && !value.name) ||
                   value === null ||
                   (value && value.size <= profileSize)
               ),
             artist: yup.object({
-              show_name: yup.string().required("Como quer ser chamado?"),
+              show_name: yup.string().required('Como quer ser chamado?'),
             }),
           })}
         >
@@ -175,15 +176,15 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
               cpf: yup
                 .string()
                 // .required('Cpf obrigatório')
-                .min(11, "Cpf incompleto"),
+                .min(11, 'Cpf incompleto'),
               birthday: yup
                 .string()
-                .required("Data de nascimento obrigatório")
-                .min(8, "Data incompleta"),
+                .required('Data de nascimento obrigatório')
+                .min(8, 'Data incompleta'),
               rg: yup
                 .string()
                 // .required('Rg é obrigatório')
-                .min(7, "Rg incompleto"),
+                .min(7, 'Rg incompleto'),
               expedition_department: yup.string(),
               // .required('Orgão expedidor obrigatório'),
             }),
@@ -195,8 +196,8 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
-              gender: yup.string().required("Campo obrigatório"),
-              gender_specific: yup.string().required("Campo obrigatório"),
+              gender: yup.string().required('Campo obrigatório'),
+              gender_specific: yup.string().required('Campo obrigatório'),
             }),
           })}
         >
@@ -206,7 +207,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
-              sexual_orientation: yup.string().required("Campo obrigatório"),
+              sexual_orientation: yup.string().required('Campo obrigatório'),
             }),
           })}
         >
@@ -216,7 +217,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
-              race: yup.string().required("Campo obrigatório"),
+              race: yup.string().required('Campo obrigatório'),
             }),
           })}
         >
@@ -227,19 +228,19 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           validationSchema={yup.object({
             email: yup
               .string()
-              .email("Email inválido")
-              .required("Email obrigatório"),
+              .email('Email inválido')
+              .required('Email obrigatório'),
             artist: yup.object({
               contact: yup.object({
                 whatsapp: yup.string(),
                 facebook: yup
                   .string()
                   .trim()
-                  .matches(facebookUserRegex, "formato inválido"),
+                  .matches(facebookUserRegex, 'formato inválido'),
                 instagram: yup
                   .string()
                   .trim()
-                  .matches(instagramUserRegex, "formato inválido"),
+                  .matches(instagramUserRegex, 'formato inválido'),
               }),
             }),
           })}
@@ -254,19 +255,19 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
                 twitter: yup
                   .string()
                   .trim()
-                  .matches(twitterUserRegex, "formato inválido"),
+                  .matches(twitterUserRegex, 'formato inválido'),
                 linkedin: yup
                   .string()
                   .trim()
-                  .matches(linkedinUserRegex, "formato inválido"),
+                  .matches(linkedinUserRegex, 'formato inválido'),
                 tiktok: yup
                   .string()
                   .trim()
-                  .matches(tiktokUserRegex, "formato inválido"),
+                  .matches(tiktokUserRegex, 'formato inválido'),
                 youtube: yup
                   .string()
                   .trim()
-                  .matches(youtubeUserRegex, "formato inválido"),
+                  .matches(youtubeUserRegex, 'formato inválido'),
               }),
             }),
           })}
@@ -278,11 +279,11 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           validationSchema={yup.object({
             artist: yup.object({
               address: yup.object({
-                city: yup.string().required("Cidade obrigatória"),
+                city: yup.string().required('Cidade obrigatória'),
                 state: yup
                   .string()
-                  .required("Estado obrigatório")
-                  .default("Distrito Federal"),
+                  .required('Estado obrigatório')
+                  .default('Distrito Federal'),
                 residency: yup.string(),
                 // .required('Campo obrigatório'),
               }),
@@ -324,14 +325,13 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           <Step12 />
         </FormikStep>
 
-
         <FormikStep
           validationSchema={yup.object({
             artist: yup.object({
               technical: yup.object({
                 areas: yup.object({
-                  name: yup.string().required("Campo obrigatório"),
-                  started_year: yup.string().required("Campo obrigatório"),
+                  name: yup.string().required('Campo obrigatório'),
+                  started_year: yup.string().required('Campo obrigatório'),
                 }),
               }),
             }),
@@ -347,7 +347,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
                 areas: yup.object({
                   technical_formation: yup
                     .string()
-                    .required("Campo obrigatório"),
+                    .required('Campo obrigatório'),
                 }),
               }),
             }),
@@ -361,8 +361,8 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             curriculum: yup
               .mixed()
               .test(
-                "fileSize",
-                "Arquivo muito grande",
+                'fileSize',
+                'Arquivo muito grande',
                 (value) =>
                   (value && !value.name) ||
                   value === null ||
@@ -371,7 +371,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
             artist: yup.object({
               technical: yup.object({
                 areas: yup.object({
-                  describe: yup.string().required("Campo obrigatório"),
+                  describe: yup.string().required('Campo obrigatório'),
                 }),
               }),
             }),
@@ -384,8 +384,8 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           validationSchema={yup.object({
             artist: yup.object({
               technical: yup.object({
-                is_drt: yup.boolean().required("Campo obrigatório"),
-                is_ceac: yup.boolean().required("Campo obrigatório"),
+                is_drt: yup.boolean().required('Campo obrigatório'),
+                is_ceac: yup.boolean().required('Campo obrigatório'),
               }),
             }),
           })}
@@ -397,7 +397,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
           validationSchema={yup.object({
             artist: yup.object({
               technical: yup.object({
-                is_cnpj: yup.boolean().required("Campo obrigatório"),
+                is_cnpj: yup.boolean().required('Campo obrigatório'),
               }),
             }),
           })}
@@ -407,13 +407,13 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
 
         <FormikStep
           validationSchema={yup.object({
-            old_password: yup.string().min(6, "Senha no minimo 6 digítos"),
-            password: yup.string().min(6, "Senha no minimo 6 digítos"),
-            confirm_password: yup.string().when("password", {
+            old_password: yup.string().min(6, 'Senha no minimo 6 digítos'),
+            password: yup.string().min(6, 'Senha no minimo 6 digítos'),
+            confirm_password: yup.string().when('password', {
               is: (val) => (val && val.length > 0 ? true : false),
               then: yup
                 .string()
-                .oneOf([yup.ref("password")], "Senhas não são iguais."),
+                .oneOf([yup.ref('password')], 'Senhas não são iguais.'),
             }),
           })}
         >
@@ -422,40 +422,40 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token  }) => {
       </FormikStepper>
     </>
   );
-}
+};
 
 export interface FormikStepProps
   extends Pick<FormikConfig<FormikValues>, 'children' | 'validationSchema'> {}
 
 export function FormikStep({ children }: FormikStepProps) {
-  return <>{children}</>
+  return <>{children}</>;
 }
 
 function FormikStepper({
   children,
   ...props
 }: FormikConfig<FormikValues & ButtonProps>) {
-  const childrenArray = React.Children.toArray(children) as React.ReactElement<
-    FormikStepProps
-  >[]
+  const childrenArray = React.Children.toArray(
+    children
+  ) as React.ReactElement<FormikStepProps>[];
 
-  const [step, setStep] = useState(0)
-  const currentChild = childrenArray[step]
+  const [step, setStep] = useState(0);
+  const currentChild = childrenArray[step];
 
-  const modalRef = useRef<HTMLInputElement | null>(null)
+  const modalRef = useRef<HTMLInputElement | null>(null);
 
-  const [error, setError] = useState<ErrorObject | undefined>(undefined)
-  const [errorModal, setErrorModal] = useState(false)
+  const [error, setError] = useState<ErrorObject | undefined>(undefined);
+  const [errorModal, setErrorModal] = useState(false);
 
-  const history = useHistory()
+  const history = useHistory();
 
   function isLastStep() {
-    return step === childrenArray.length - 1
+    return step === childrenArray.length - 1;
   }
 
   const handleScroll = () => {
-    window.scrollTo(0, 150)
-  }
+    window.scrollTo(0, 150);
+  };
 
   return (
     <Formik
@@ -463,53 +463,53 @@ function FormikStepper({
       validationSchema={currentChild.props.validationSchema}
       onSubmit={async (values: any) => {
         if (isLastStep()) {
-
-          values.buttonDisabled = true
+          values.buttonDisabled = true;
 
           if (values.other_idiom) {
-            const index = values.artist.technical.idiom.indexOf('Outro')
+            const index = values.artist.technical.idiom.indexOf('Outro');
 
-            values.artist.technical.idiom.splice(index, 1)
+            values.artist.technical.idiom.splice(index, 1);
 
-            values.artist.technical.idiom.push(values.other_idiom)
+            values.artist.technical.idiom.push(values.other_idiom);
 
-            delete values.other_idiom
+            delete values.other_idiom;
           }
 
           if (values.other_deficiency) {
-            const index = values.deficiencies.indexOf('Outro')
+            const index = values.deficiencies.indexOf('Outro');
 
-            values.deficiencies.splice(index, 1)
+            values.deficiencies.splice(index, 1);
 
-            values.deficiencies.push(values.other_deficiency)
+            values.deficiencies.push(values.other_deficiency);
 
-            delete values.other_deficiency
+            delete values.other_deficiency;
           }
 
           if (values.artist.other_gender) {
-            values.artist.gender = values.artist.other_gender
+            values.artist.gender = values.artist.other_gender;
 
-            delete values.artist.other_gender
+            delete values.artist.other_gender;
           }
 
           if (values.Other_TechnicalArea) {
-            values.artist.technical.areas.name = values.Other_TechnicalArea
+            values.artist.technical.areas.name = values.Other_TechnicalArea;
 
-            delete values.Other_TechnicalArea
+            delete values.Other_TechnicalArea;
           }
 
-          delete values.artist.other_gender
+          delete values.artist.other_gender;
 
-          delete values.use_terms
+          delete values.use_terms;
 
           EditProfile(values, values.token)
             .then(() => {
-              history.push('/profile')
-            }).catch(err => [setError(err.message), setErrorModal(true)])
+              history.push('/profile');
+            })
+            .catch((err) => [setError(err.message), setErrorModal(true)]);
 
           // console.log(values)
         } else {
-          setStep((currentStep) => currentStep + 1)
+          setStep((currentStep) => currentStep + 1);
         }
       }}
     >
@@ -522,14 +522,13 @@ function FormikStepper({
         <SessionContainer>
           <FormContainer currentStep={step}>
             <div className="form">
-
-            <ErrorModalContainer ref={modalRef} isOpen={errorModal} >
+              <ErrorModalContainer ref={modalRef} isOpen={errorModal}>
                 <div className="errorModalContainer">
                   <h1>Ops... algo deu errado</h1>
                   <h2>{error}</h2>
 
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={() => [setErrorModal(false), setStep(0)]}
                   >
                     VOLTAR
@@ -552,7 +551,6 @@ function FormikStepper({
                   type={
                     isLastStep() ? props.initialValues.buttonType : 'submit'
                   }
-
                   onClick={() => handleScroll()}
                 >
                   {isLastStep() ? 'FINALIZAR' : 'AVANÇAR'}
@@ -584,5 +582,5 @@ function FormikStepper({
         </SessionContainer>
       </Form>
     </Formik>
-  )
+  );
 }

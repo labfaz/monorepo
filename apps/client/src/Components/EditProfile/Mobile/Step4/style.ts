@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 export const ContentContainer = styled.div`
   width: 100vw;
@@ -14,10 +14,9 @@ export const ContentContainer = styled.div`
   align-items: center;
 
   scroll-snap-align: start;
-`
+`;
 
 export const Content = styled.div`
-  
   .radioLabel {
     display: block;
     position: relative;
@@ -32,10 +31,10 @@ export const Content = styled.div`
 
     .errorMessage {
       position: absolute;
-      
+
       top: 1.3rem;
       left: 0;
-      
+
       color: red;
 
       font-size: var(--font-size-small);
@@ -45,17 +44,16 @@ export const Content = styled.div`
       color: red;
       display: inline;
     }
-  
   }
 
   .otherGender {
     margin-top: 2rem;
   }
-`
+`;
 
 export const InputRadioContainer = styled.div`
   display: flex;
   align-items: center;
   font-weight: 600;
   margin-bottom: 0.5rem;
-`
+`;

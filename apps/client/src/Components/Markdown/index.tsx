@@ -1,21 +1,21 @@
-import React, { FC } from "react";
-import ReactMarkdown from "react-markdown";
-import { Image, MarkdownStyles } from "./styles";
-import Link from "Components/TextLink";
+import React, { FC } from 'react';
+import ReactMarkdown from 'react-markdown';
+import { Image, MarkdownStyles } from './styles';
+import Link from 'Components/TextLink';
 
 interface Props {
   content: string;
   Text?: FC<any>;
 }
 
-export const Markdown: FC<Props> = ({ content, Text = "p" }) => {
+export const Markdown: FC<Props> = ({ content, Text = 'p' }) => {
   return (
     <MarkdownStyles>
       <ReactMarkdown
         children={content}
         components={{
           p: ({ node, children }) => {
-            if (node.children[0].tagName === "a") {
+            if (node.children[0].tagName === 'a') {
               const link: any = node.children[0];
               return (
                 <Link
@@ -23,7 +23,7 @@ export const Markdown: FC<Props> = ({ content, Text = "p" }) => {
                   value={link.children[0].value}
                 />
               );
-            } else if (node.children[0].tagName === "img") {
+            } else if (node.children[0].tagName === 'img') {
               const image: any = node.children[0];
               return (
                 <Image
@@ -32,7 +32,7 @@ export const Markdown: FC<Props> = ({ content, Text = "p" }) => {
                 />
               );
             }
-            return <Text>{children}</Text>
+            return <Text>{children}</Text>;
           },
         }}
       />

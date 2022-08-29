@@ -1,25 +1,25 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { TextInput } from 'Components/Inputs/TextInput'
-import { useFormikContext } from 'formik'
-import { RadioInput } from 'Components/Inputs/RadioInput'
+import { TextInput } from 'Components/Inputs/TextInput';
+import { useFormikContext } from 'formik';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
 import {
   Container,
   ContentContainer,
   Content,
   InputRadioContainer,
-} from './style'
+} from './style';
 
 interface Step4Props {
   artist: {
-    gender: string
-    gender_identity: string
-  }
+    gender: string;
+    gender_identity: string;
+  };
 }
 
 export const Step4: FC = () => {
-  const { values, errors } = useFormikContext<Step4Props>()
+  const { values, errors } = useFormikContext<Step4Props>();
 
   return (
     <Container>
@@ -130,5 +130,5 @@ export const Step4: FC = () => {
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

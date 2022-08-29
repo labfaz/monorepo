@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
 import {
   Container,
@@ -9,10 +9,10 @@ import {
   Input,
   Button,
   InputTextContainer,
-} from './style'
+} from './style';
 
 export const Step18: FC = () => {
-  const { values } = useFormikContext<any>()
+  const { values } = useFormikContext<any>();
 
   return (
     <Container>
@@ -52,9 +52,11 @@ export const Step18: FC = () => {
             />
           </InputTextContainer>
 
-          <Button  disabled={values.buttonDisabled} type="submit">FINALIZAR EDIÇÃO</Button>
+          <Button disabled={values.buttonDisabled} type="submit">
+            FINALIZAR EDIÇÃO
+          </Button>
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

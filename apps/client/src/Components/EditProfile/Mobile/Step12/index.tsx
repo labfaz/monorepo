@@ -1,10 +1,10 @@
-import { useFormikContext } from "formik";
-import React, { FC, useRef, useState } from "react";
-import { IoMdArrowDropdownCircle } from "react-icons/io";
-import { RadioInput } from "Components/Inputs/RadioInput";
-import { FileInput } from "Components/Inputs/FileInput";
+import { useFormikContext } from 'formik';
+import React, { FC, useRef, useState } from 'react';
+import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { FileInput } from 'Components/Inputs/FileInput';
 
-import { deficiencyOptions } from "Utils/selectOptionsData";
+import { deficiencyOptions } from 'Utils/selectOptionsData';
 
 import {
   Container,
@@ -21,7 +21,7 @@ import {
   InputText,
   InputTextContainer,
   FileContainer,
-} from "./style";
+} from './style';
 
 interface Step12Props {
   deficiencies?: string[];
@@ -58,16 +58,16 @@ export const Step12: FC = () => {
           <SelectContainer
             onClick={() => setIsDeficiencyOptionsOpen(!isDeficiencyOptionsOpen)}
           >
-            {values.isPcd === "true" && (
+            {values.isPcd === 'true' && (
               <InputSelect>
                 {values.deficiencies && values.deficiencies[0]
                   ? values.deficiencies[0]
-                  : "Selecione"}
+                  : 'Selecione'}
                 <IoMdArrowDropdownCircle />
               </InputSelect>
             )}
           </SelectContainer>
-          {values.isPcd === "true" && (
+          {values.isPcd === 'true' && (
             <FileContainer>
               <label htmlFor="medicalReport" className="fileLabel">
                 Laudo médico
@@ -82,7 +82,7 @@ export const Step12: FC = () => {
             </FileContainer>
           )}
 
-          {values.deficiencies?.find((values: any) => values === "Outro") && (
+          {values.deficiencies?.find((values: any) => values === 'Outro') && (
             <InputTextContainer>
               <TextLabel>Qual outra deficiência?</TextLabel>
 

@@ -1,30 +1,28 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
-import { RadioInput } from 'Components/Inputs/RadioInput'
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
 import {
   Container,
   ContentContainer,
   Content,
   InputRadioContainer,
-  LabelText,  
-} from './style'
-
+  LabelText,
+} from './style';
 
 interface ErrorProps {
   artist: {
     technical: {
       areas: {
-        technical_formation: string
-      }
-    }
-  }
+        technical_formation: string;
+      };
+    };
+  };
 }
 
 export const Step14: FC = () => {
-  const { errors } = useFormikContext<ErrorProps>()
-
+  const { errors } = useFormikContext<ErrorProps>();
 
   return (
     <Container>
@@ -82,5 +80,5 @@ export const Step14: FC = () => {
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

@@ -1,10 +1,16 @@
-import React, { FC, useState, useEffect, Dispatch, SetStateAction } from "react";
+import React, {
+  FC,
+  useState,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 
-import { SkipContent } from "./style";
+import { SkipContent } from './style';
 
 type TSkipNavProps = {
   updateParentContrasted?: Dispatch<SetStateAction<boolean>>;
-}
+};
 export const Web: FC<TSkipNavProps> = (props) => {
   const [isContrasted, setIsContrasted] = useState(false);
 
@@ -12,32 +18,32 @@ export const Web: FC<TSkipNavProps> = (props) => {
     let contrastedState = !isContrasted;
     setIsContrasted(contrastedState);
     if (props && props.updateParentContrasted) {
-      props.updateParentContrasted(contrastedState)
+      props.updateParentContrasted(contrastedState);
     }
   };
   const handleKeyPress = (event: KeyboardEvent) => {
     if (
       event.target === null ||
-      (event.target && (event.target as HTMLElement).tagName === "BODY")
+      (event.target && (event.target as HTMLElement).tagName === 'BODY')
     ) {
-      if (event.code === "Digit1") {
-        const button = document.getElementById("content-anchor");
+      if (event.code === 'Digit1') {
+        const button = document.getElementById('content-anchor');
         if (button) button.click();
-      } else if (event.code === "Digit2") {
-        const button = document.getElementById("footer-anchor");
+      } else if (event.code === 'Digit2') {
+        const button = document.getElementById('footer-anchor');
         if (button) button.click();
-      } else if (event.code === "Digit3") {
-        const button = document.getElementById("high-contrast-btn");
+      } else if (event.code === 'Digit3') {
+        const button = document.getElementById('high-contrast-btn');
         if (button) button.click();
       }
     }
   };
 
   useEffect(() => {
-    window.addEventListener("keydown", (event) => handleKeyPress(event));
+    window.addEventListener('keydown', (event) => handleKeyPress(event));
 
     return () => {
-      window.removeEventListener("keydown", (event) => handleKeyPress(event));
+      window.removeEventListener('keydown', (event) => handleKeyPress(event));
     };
   });
 

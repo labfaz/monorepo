@@ -1,14 +1,11 @@
-import { useFormikContext } from "formik";
-import React, { FC } from "react";
-import { useRef } from "react";
-import { useState } from "react";
-import { IoMdArrowDropdownCircle } from "react-icons/io";
-import { RadioInput } from "Components/Inputs/RadioInput";
+import { useFormikContext } from 'formik';
+import React, { FC } from 'react';
+import { useRef } from 'react';
+import { useState } from 'react';
+import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
-import {
-  formationOptions,
-  idiomOptions,
-} from "Utils/selectOptionsData";
+import { formationOptions, idiomOptions } from 'Utils/selectOptionsData';
 
 import {
   Container,
@@ -24,7 +21,7 @@ import {
   InputCheckbox,
   InputText,
   InputTextContainer,
-} from "./style";
+} from './style';
 
 interface Step11Props {
   artist: {
@@ -78,13 +75,13 @@ export const Step11: FC = () => {
             <InputSelect>
               {values.artist?.technical?.idiom[0]
                 ? values.artist.technical.idiom[0]
-                : "Selecione"}
+                : 'Selecione'}
               <IoMdArrowDropdownCircle />
             </InputSelect>
           </SelectContainer>
 
           {values.artist?.technical?.idiom.find(
-            (values: any) => values === "Outro"
+            (values: any) => values === 'Outro'
           ) && (
             <InputTextContainer>
               <LabelText>Qual outro idioma?</LabelText>

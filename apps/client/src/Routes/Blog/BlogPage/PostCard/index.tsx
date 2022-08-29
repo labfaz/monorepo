@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import { useBlogPosts } from "Api/BlogPost";
-import Loading from "Components/Loading";
+import { useBlogPosts } from 'Api/BlogPost';
+import Loading from 'Components/Loading';
 
-import Display from "./Display";
+import Display from './Display';
 
 export const PostCard: FC = () => {
   const result = useBlogPosts();

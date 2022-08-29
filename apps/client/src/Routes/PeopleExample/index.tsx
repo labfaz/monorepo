@@ -1,20 +1,17 @@
-import React, { lazy, Suspense } from "react"
-import { Route, RouteComponentProps, Switch } from "react-router-dom"
-import { Router } from "Routes"
+import React, { lazy, Suspense } from 'react';
+import { Route, RouteComponentProps, Switch } from 'react-router-dom';
+import { Router } from 'Routes';
 
-import LoadingFullPage from "Components/LoadingFullPage"
+import LoadingFullPage from 'Components/LoadingFullPage';
 
-const ListAllPeopleExample = lazy(() => import('./ListAllPeople'))
-const ShowPersonExample = lazy(() => import('./ShowPerson'))
+const ListAllPeopleExample = lazy(() => import('./ListAllPeople'));
+const ShowPersonExample = lazy(() => import('./ShowPerson'));
 
-export const PeopleExample: Router = ({
-  match,
-}) => {
-  const { path = "" } = match ?? {}
+export const PeopleExample: Router = ({ match }) => {
+  const { path = '' } = match ?? {};
 
   return (
     <Switch>
-
       {/* lista de todas as pessoas */}
       <Route exact path={path}>
         {() => (
@@ -32,9 +29,8 @@ export const PeopleExample: Router = ({
           </Suspense>
         )}
       </Route>
-
     </Switch>
-  )
-}
+  );
+};
 
-export default PeopleExample
+export default PeopleExample;

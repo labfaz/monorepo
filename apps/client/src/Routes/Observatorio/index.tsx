@@ -1,23 +1,21 @@
-import React, { lazy } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { lazy } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import { Router } from "Routes";
+import { Router } from 'Routes';
 
-import usePageview from "Hooks/usePageView";
+import usePageview from 'Hooks/usePageView';
 
-const ObservatorioPage = lazy(() => import("./ObservatorioPage"));
+const ObservatorioPage = lazy(() => import('./ObservatorioPage'));
 
 export const Observatorio: Router = ({ match }) => {
-  const { path = "/observatorio" } = match ?? {};
+  const { path = '/observatorio' } = match ?? {};
 
-  usePageview({ name: "observatorio", path });
+  usePageview({ name: 'observatorio', path });
 
   return (
     <Switch>
       <Route exact path={path}>
-        {() => (
-          <ObservatorioPage />
-        )}
+        {() => <ObservatorioPage />}
       </Route>
     </Switch>
   );

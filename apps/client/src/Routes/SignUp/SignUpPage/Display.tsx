@@ -1,12 +1,12 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { LoginContainer } from './style'
-import { SignUp } from 'Components/SignUp'
-import Wireframe from 'Components/Wireframe'
-import useMobile from 'Hooks/useMobile'
+import { LoginContainer } from './style';
+import { SignUp } from 'Components/SignUp';
+import Wireframe from 'Components/Wireframe';
+import useMobile from 'Hooks/useMobile';
 
 interface DisplayProps {
-  button_type: "submit" | "button" | "reset"
+  button_type: 'submit' | 'button' | 'reset';
 }
 
 export const Display: FC<DisplayProps> = ({ button_type }) => {
@@ -26,7 +26,7 @@ export const Display: FC<DisplayProps> = ({ button_type }) => {
         </Wireframe>
       )}
     </>
-  )
-}
+  );
+};
 
-export default Display
+export default Display;

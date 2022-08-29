@@ -1,14 +1,14 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import LoadingFullPage from "Components/LoadingFullPage";
-import Error from "Pages/Error";
+import LoadingFullPage from 'Components/LoadingFullPage';
+import Error from 'Pages/Error';
 
-import { useCourses } from "Api/Courses";
-import { useCoursesPageIntroduction } from "Api/CoursesPageIntroduction";
-import { useStayTuned } from "Api/StayTuned";
-import { useCoursesPageSections } from "Api/CoursesPageSections";
+import { useCourses } from 'Api/Courses';
+import { useCoursesPageIntroduction } from 'Api/CoursesPageIntroduction';
+import { useStayTuned } from 'Api/StayTuned';
+import { useCoursesPageSections } from 'Api/CoursesPageSections';
 
-import Display from "./Display";
+import Display from './Display';
 
 export const ClassesPage: FC = () => {
   const courses = useCourses();
@@ -64,18 +64,18 @@ export const ClassesPage: FC = () => {
   if (courses.error || sections.error)
     return (
       <Display
-        data={{ Curso: [], Live: [], Oficina: [], "Roda de conversa": [] }}
+        data={{ Curso: [], Live: [], Oficina: [], 'Roda de conversa': [] }}
         introduction={introduction.data}
         stayTuned={stayTuned.data}
         sections={{
-          first_subtitle: "",
-          first_title: "Cursos IATEC",
-          second_title: "Oficinas",
-          second_subtitle: "",
-          third_title: "Lives",
-          third_subtitle: "",
-          fourth_title: "Rodas de Conversa",
-          fourth_subtitle: "",
+          first_subtitle: '',
+          first_title: 'Cursos IATEC',
+          second_title: 'Oficinas',
+          second_subtitle: '',
+          third_title: 'Lives',
+          third_subtitle: '',
+          fourth_title: 'Rodas de Conversa',
+          fourth_subtitle: '',
         }}
       />
     );

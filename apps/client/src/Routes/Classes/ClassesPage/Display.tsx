@@ -1,26 +1,26 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import { MainContainer, MainContent } from "./styles";
+import { MainContainer, MainContent } from './styles';
 
-import Introduction from "./Introduction";
-import StayTuned from "./StayTuned";
-import CardRowComponent from "./CardRowComponent";
+import Introduction from './Introduction';
+import StayTuned from './StayTuned';
+import CardRowComponent from './CardRowComponent';
 
-import Wireframe from "Components/Wireframe";
+import Wireframe from 'Components/Wireframe';
 
-import useMobile from "Hooks/useMobile";
+import useMobile from 'Hooks/useMobile';
 
-import { CoursesPageIntroduction } from "Api/CoursesPageIntroduction";
-import { ApiStayTuned } from "Api/StayTuned";
-import { CoursesPageSections } from "Api/CoursesPageSections";
-import { Course } from "Api/Courses";
+import { CoursesPageIntroduction } from 'Api/CoursesPageIntroduction';
+import { ApiStayTuned } from 'Api/StayTuned';
+import { CoursesPageSections } from 'Api/CoursesPageSections';
+import { Course } from 'Api/Courses';
 
 export interface Props {
   data: {
     Curso: Course[];
     Live: Course[];
     Oficina: Course[];
-    "Roda de conversa": Course[];
+    'Roda de conversa': Course[];
   };
   introduction: CoursesPageIntroduction | undefined;
   stayTuned: ApiStayTuned | undefined;
@@ -36,7 +36,7 @@ export const Display: FC<Props> = ({
   const courses = data.Curso;
   const lives = data.Live;
   const workshops = data.Oficina;
-  const talks = data["Roda de conversa"];
+  const talks = data['Roda de conversa'];
 
   const isMobile = useMobile();
 
@@ -52,10 +52,10 @@ export const Display: FC<Props> = ({
               classes={courses}
               color={
                 isMobile
-                  ? "linear-gradient(to bottom, rgba(12, 116, 255, 1), rgba(0, 0, 0, 1))"
-                  : "linear-gradient(to bottom, rgba(252, 0, 97, 0.1), rgba(0, 0, 0, 1))"
+                  ? 'linear-gradient(to bottom, rgba(12, 116, 255, 1), rgba(0, 0, 0, 1))'
+                  : 'linear-gradient(to bottom, rgba(252, 0, 97, 0.1), rgba(0, 0, 0, 1))'
               }
-              fontColor={"var(--color-text-white)"}
+              fontColor={'var(--color-text-white)'}
             />
           ) : (
             <></>
@@ -68,11 +68,11 @@ export const Display: FC<Props> = ({
               classes={workshops}
               color={
                 isMobile
-                  ? "linear-gradient(to bottom, rgba(45, 175, 47, 1), rgba(0, 0, 0, 1))"
-                  : "transparent"
+                  ? 'linear-gradient(to bottom, rgba(45, 175, 47, 1), rgba(0, 0, 0, 1))'
+                  : 'transparent'
               }
               fontColor={
-                isMobile ? "var(--color-text-black)" : "var(--color-text-white)"
+                isMobile ? 'var(--color-text-black)' : 'var(--color-text-white)'
               }
             />
           ) : (
@@ -85,11 +85,11 @@ export const Display: FC<Props> = ({
               classes={lives}
               color={
                 isMobile
-                  ? "linear-gradient(to bottom, rgba(45, 175, 47, 1), rgba(0, 0, 0, 1))"
-                  : "transparent"
+                  ? 'linear-gradient(to bottom, rgba(45, 175, 47, 1), rgba(0, 0, 0, 1))'
+                  : 'transparent'
               }
               fontColor={
-                isMobile ? "var(--color-text-black)" : "var(--color-text-white)"
+                isMobile ? 'var(--color-text-black)' : 'var(--color-text-white)'
               }
             />
           ) : (
@@ -102,11 +102,11 @@ export const Display: FC<Props> = ({
               classes={talks}
               color={
                 isMobile
-                  ? "linear-gradient(to bottom, rgba(45, 175, 47, 1), rgba(0, 0, 0, 1))"
-                  : "transparent"
+                  ? 'linear-gradient(to bottom, rgba(45, 175, 47, 1), rgba(0, 0, 0, 1))'
+                  : 'transparent'
               }
               fontColor={
-                isMobile ? "var(--color-text-black)" : "var(--color-text-white)"
+                isMobile ? 'var(--color-text-black)' : 'var(--color-text-white)'
               }
             />
           ) : (

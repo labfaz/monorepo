@@ -1,16 +1,14 @@
-import React, { FC } from "react"
+import React, { FC } from 'react';
 
-import { CurrentUserProvider } from "./LoggedUserToken"
-import { QueryClientProvider } from "./QueryClient"
+import { CurrentUserProvider } from './LoggedUserToken';
+import { QueryClientProvider } from './QueryClient';
 
 export const GlobalContext: FC = ({ children }) => {
   return (
     <QueryClientProvider>
-      <CurrentUserProvider>
-        {children}
-      </CurrentUserProvider>
+      <CurrentUserProvider>{children}</CurrentUserProvider>
     </QueryClientProvider>
-  )
-}
+  );
+};
 
-export default GlobalContext
+export default GlobalContext;

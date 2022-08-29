@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 interface CustomProps {
   background_color?: string;
@@ -57,7 +57,7 @@ export const CourseInfoDiv = styled.div<CustomProps>`
   place-items: center;
 
   background-color: ${(props) =>
-    props.background_color ? props.background_color : "white"};
+    props.background_color ? props.background_color : 'white'};
 
   > h1 {
     margin-top: 1.2em;

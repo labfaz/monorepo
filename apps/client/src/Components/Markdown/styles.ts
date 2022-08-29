@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { Mobile } from "Utils/breakpoints";
+import styled, { css } from 'styled-components';
+import { Mobile } from 'Utils/breakpoints';
 
 export const Image = styled.img`
   width: 100%;

@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import { useObservatorioPosts } from "Api/ObservatorioPost";
-import Loading from "Components/Loading";
+import { useObservatorioPosts } from 'Api/ObservatorioPost';
+import Loading from 'Components/Loading';
 
-import Display from "./Display";
+import Display from './Display';
 
 export const PostCard: FC = () => {
   const result = useObservatorioPosts();

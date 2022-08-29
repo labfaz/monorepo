@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
-import { SelectInput } from 'Components/Inputs/SelectInput'
-import { FileInput } from 'Components/Inputs/FileInput'
+import { SelectInput } from 'Components/Inputs/SelectInput';
+import { FileInput } from 'Components/Inputs/FileInput';
 
-import { OnlyNumbers } from 'Utils/inputRegex'
+import { OnlyNumbers } from 'Utils/inputRegex';
 
 import {
   Container,
@@ -17,16 +17,16 @@ import {
   SelectContainer,
   PrivacityText,
   InputTextContainer,
-} from './style'
+} from './style';
 
 export const Step3: FC = () => {
-  const { values, setFieldValue } = useFormikContext<any>()
+  const { values, setFieldValue } = useFormikContext<any>();
 
   const options = [
     { value: 'nome', label: values.artist.name },
     { value: 'nome social', label: values.artist.social_name },
     { value: 'nome artistico', label: values.artist.artistic_name },
-  ]
+  ];
 
   return (
     <Container>
@@ -141,5 +141,5 @@ export const Step3: FC = () => {
         </RightSideContent>
       </RightSide>
     </Container>
-  )
-}
+  );
+};

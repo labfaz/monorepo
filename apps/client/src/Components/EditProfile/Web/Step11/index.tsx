@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { useFormikContext } from 'formik'
+import { useFormikContext } from 'formik';
 
 import {
   Container,
@@ -8,10 +8,10 @@ import {
   AvatarInput,
   Input,
   PasswordInputContainer,
-} from './style'
+} from './style';
 
 export const Step11: FC = () => {
-  const { values } = useFormikContext<any>()
+  const { values } = useFormikContext<any>();
 
   return (
     <Container>
@@ -54,5 +54,5 @@ export const Step11: FC = () => {
         </Content>
       </div>
     </Container>
-  )
-}
+  );
+};

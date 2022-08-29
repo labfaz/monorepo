@@ -1,24 +1,23 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import Header from 'Components/Header'
-import { Title } from 'Components/Typography/Title'
-import { Text } from 'Components/Typography/Text'
+import Header from 'Components/Header';
+import { Title } from 'Components/Typography/Title';
+import { Text } from 'Components/Typography/Text';
 
 interface StepProps {
-  currentStep: number
+  currentStep: number;
 }
 
 interface ModalProps {
-  isOpen: boolean
+  isOpen: boolean;
 }
 
 export const Container = styled.div`
-
   background-color: black;
   padding-top: 5.83rem;
-`
+`;
 
-export const SessionContainer = styled.div``
+export const SessionContainer = styled.div``;
 
 export const FormContainer = styled.div<StepProps>`
   display: flex;
@@ -37,32 +36,30 @@ export const FormContainer = styled.div<StepProps>`
 
     flex-direction: column;
   }
-`
+`;
 
 export const NextButton = styled.button`
   border: 0;
-  background-color: #FC0061;
-  color: rgba(250, 250, 250, 0.7);;
+  background-color: #fc0061;
+  color: rgba(250, 250, 250, 0.7);
   width: 6.5rem;
   height: 2.2rem;
   cursor: pointer;
- 
+
   font-size: var(--font-size-large);
   font-weight: 700;
-`
+`;
 export const BackButton = styled.button`
-
   width: 6.5rem;
   height: 2.2rem;
   border: 0;
-  background-color: #FC0061;
-  color: rgba(250, 250, 250, 0.7);;
+  background-color: #fc0061;
+  color: rgba(250, 250, 250, 0.7);
   cursor: pointer;
   font-size: var(--font-size-large);
   font-weight: 700;
-`
+`;
 export const RightSession = styled.div<StepProps>`
-
   background-color: #111010;
 
   .sessionContainer {
@@ -72,31 +69,31 @@ export const RightSession = styled.div<StepProps>`
 
   .formSession {
     width: 1.98rem;
-    height: calc(100vh/16);
-    
+    height: calc(100vh / 16);
+
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding: 5px 0px;
-  
+
     &.checked {
-      background-color: #2DAF2F;
+      background-color: #2daf2f;
 
       label {
-        color: #FAFAFA;
+        color: #fafafa;
       }
     }
 
     background-color: #111010;
 
-       
-    &:nth-child(${({currentStep}) => currentStep }) {
-      background-color: #2DAF2F;
-      border-radius: ${({currentStep}) => currentStep === 16 ? '0px 0px 0px 0px' : '0px 0px 50px 50px'};
+    &:nth-child(${({ currentStep }) => currentStep}) {
+      background-color: #2daf2f;
+      border-radius: ${({ currentStep }) =>
+        currentStep === 16 ? '0px 0px 0px 0px' : '0px 0px 50px 50px'};
 
       label {
-        color: #FAFAFA;
+        color: #fafafa;
       }
     }
 
@@ -104,20 +101,20 @@ export const RightSession = styled.div<StepProps>`
       cursor: pointer;
     }
   }
-`
+`;
 
 export const ButtonContainer = styled.div<StepProps>`
-  display: ${({currentStep}) => currentStep === 16 ? 'none' : 'flex'};
+  display: ${({ currentStep }) => (currentStep === 16 ? 'none' : 'flex')};
 
   column-gap: 2.1rem;
 
   margin: 2rem 0;
-`
+`;
 
 export const ErrorModalContainer = styled.div<ModalProps>`
   position: absolute;
 
-  display: ${({isOpen}) => isOpen ? 'flex' : 'none' };
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 
   align-items: center;
   justify-content: center;
@@ -127,7 +124,7 @@ export const ErrorModalContainer = styled.div<ModalProps>`
 
   z-index: 10;
 
-  background: rgba(196, 196, 196, 0.0);
+  background: rgba(196, 196, 196, 0);
   backdrop-filter: blur(1.5px);
 
   touch-action: none;
@@ -148,15 +145,13 @@ export const ErrorModalContainer = styled.div<ModalProps>`
     justify-content: center;
     align-items: center;
 
-
     h1 {
       font-size: 18px;
       margin-bottom: 2rem;
       line-height: 20px;
-      color: #FC0061;
-    
+      color: #fc0061;
     }
-    
+
     h2 {
       font-size: 14px;
       margin-bottom: 2rem;
@@ -168,13 +163,12 @@ export const ErrorModalContainer = styled.div<ModalProps>`
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform:  scale(0.5);
+        transform: scale(0.5);
       }
 
       to {
         opacity: 1;
-        transform:  scale(1);
-
+        transform: scale(1);
       }
     }
   }
@@ -184,7 +178,7 @@ export const ErrorModalContainer = styled.div<ModalProps>`
     height: 2rem;
 
     border: 0;
-    background: #FC0061;
+    background: #fc0061;
     box-shadow: inset 0px 0px 3px #000000;
     border-radius: 2px;
 
@@ -192,36 +186,35 @@ export const ErrorModalContainer = styled.div<ModalProps>`
 
     font-size: 13px;
 
-    color: #FFEC99;
+    color: #ffec99;
   }
-`
+`;
 
 export const FormHeader = styled(Header)`
   position: fixed;
-`
+`;
 
 export const FormTitle = styled(Title)`
   font-size: var(--font-size-title-xlarge);
-  color: #FFFFFF;
+  color: #ffffff;
 
   margin-left: 1.7rem;
-`
+`;
 export const SignUpText = styled(Text)`
   color: #fff;
   font-size: var(--font-size-large);
-
 
   display: block;
   width: 16.5rem;
   margin-left: 1.7rem;
   margin-top: 2.6rem;
   margin-bottom: 5.83rem;
-`
+`;
 
 export const ConfirmEmailModal = styled.div<ModalProps>`
   position: absolute;
 
-  display: ${({isOpen}) => isOpen ? 'flex' : 'none' };
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 
   align-items: center;
   justify-content: center;
@@ -231,7 +224,7 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
 
   z-index: 10;
 
-  background: rgba(196, 196, 196, 0.0);
+  background: rgba(196, 196, 196, 0);
   backdrop-filter: blur(1.5px);
 
   touch-action: none;
@@ -252,14 +245,12 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
     justify-content: center;
     align-items: center;
 
-
     h1 {
       font-size: 18px;
       margin-bottom: 2rem;
       line-height: 20px;
-    
     }
-    
+
     h2 {
       font-size: 14px;
       margin-bottom: 2rem;
@@ -271,13 +262,12 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform:  scale(0.5);
+        transform: scale(0.5);
       }
 
       to {
         opacity: 1;
-        transform:  scale(1);
-
+        transform: scale(1);
       }
     }
   }
@@ -303,7 +293,7 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
     svg {
       width: 30px;
       height: 30px;
-      color: #FC0061;
+      color: #fc0061;
     }
   }
 
@@ -312,7 +302,7 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
     height: 2rem;
 
     border: 0;
-    background: #FC0061;
+    background: #fc0061;
     box-shadow: inset 0px 0px 3px #000000;
     border-radius: 2px;
 
@@ -320,6 +310,6 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
 
     font-size: 13px;
 
-    color: #FFEC99;
+    color: #ffec99;
   }
-`
+`;

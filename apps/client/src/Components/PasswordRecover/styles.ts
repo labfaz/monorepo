@@ -1,11 +1,15 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { MobileSmall, Mobile, DesktopSmall, MobileLarge } from "Utils/breakpoints"
-import { Text } from "Components/Typography/Text"
-
+import {
+  MobileSmall,
+  Mobile,
+  DesktopSmall,
+  MobileLarge,
+} from 'Utils/breakpoints';
+import { Text } from 'Components/Typography/Text';
 
 interface MessageProps {
-  isError?: boolean
+  isError?: boolean;
 }
 
 export const Wrapper = styled.div`
@@ -20,7 +24,6 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-
   form {
     min-height: 50%;
     max-width: 75%;
@@ -32,7 +35,7 @@ export const Wrapper = styled.div`
     justify-content: flex-start;
   }
 
-  >:nth-child(2) {
+  > :nth-child(2) {
     margin-top: 2rem;
     align-self: center;
     text-decoration: underline;
@@ -74,7 +77,7 @@ export const Wrapper = styled.div`
     max-width: 305px;
     max-height: 406px;
     min-height: 500px;
-    
+
     form {
       margin-top: 0;
     }
@@ -115,8 +118,7 @@ export const FormButton = styled.button`
     max-width: 305px;
     min-height: 38px;
   `)}
-`
-
+`;
 
 export const Button = styled.button`
   min-width: 379px;
@@ -126,7 +128,7 @@ export const Button = styled.button`
   align-items: center;
   border: none;
   background-color: white;
-`
+`;
 export const Span = styled.p`
   margin-top: 1rem;
   text-decoration: underline;
@@ -136,7 +138,7 @@ export const Span = styled.p`
   :hover {
     cursor: pointer;
   }
-` 
+`;
 
 export const Message = styled(Text)<MessageProps>`
   color: red;
@@ -144,4 +146,4 @@ export const Message = styled(Text)<MessageProps>`
   text-decoration: none;
   font-weight: 600;
   padding-top: 1em;
-`
+`;

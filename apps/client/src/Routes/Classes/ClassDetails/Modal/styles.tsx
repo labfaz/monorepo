@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
-import { DesktopSmall, Mobile } from "Utils/breakpoints";
-import { ExternalLinkButton } from "Components/Buttons/ExternalLinkButton";
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
+import { ExternalLinkButton } from 'Components/Buttons/ExternalLinkButton';
 
 interface ModalProps {
   isOpen: boolean;
@@ -12,7 +12,7 @@ export const Container = styled.div<ModalProps>`
   right: 0;
   width: 100vw;
   height: 100vh;
-  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.25);
@@ -22,7 +22,7 @@ export const Container = styled.div<ModalProps>`
 export const LinkModal = styled.div<ModalProps>`
   position: absolute;
 
-  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 
   align-items: center;
   justify-content: center;

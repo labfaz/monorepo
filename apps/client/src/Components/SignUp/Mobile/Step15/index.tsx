@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { FileInput } from 'Components/Inputs/FileInput'
+import { FileInput } from 'Components/Inputs/FileInput';
 
 import {
   Container,
@@ -9,35 +9,39 @@ import {
   Content,
   InputText,
   FileContainer,
-} from './style'
-import { useFormikContext } from 'formik'
+} from './style';
+import { useFormikContext } from 'formik';
 
 interface ErrorProps {
   artist: {
     technical: {
       areas: {
-        describe: String
-      }
-    }
-  }
+        describe: String;
+      };
+    };
+  };
 }
 
 export const Step15: FC = () => {
-  const { errors } = useFormikContext<ErrorProps>()
+  const { errors } = useFormikContext<ErrorProps>();
 
   return (
     <Container>
       <ContentContainer>
         <Content>
           <TextLabel>
-            Descreva quais são as atividades e serviços oferecidos por você <p className="obrigatory"> *</p>:
+            Descreva quais são as atividades e serviços oferecidos por você{' '}
+            <p className="obrigatory"> *</p>:
             <span className="errorMessage">
               {errors.artist?.technical?.areas?.describe &&
                 errors.artist.technical.areas.describe}
             </span>
           </TextLabel>
 
-          <InputText component="textarea" name="artist.technical.areas.describe" />
+          <InputText
+            component="textarea"
+            name="artist.technical.areas.describe"
+          />
 
           <FileContainer>
             <FileInput
@@ -50,5 +54,5 @@ export const Step15: FC = () => {
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

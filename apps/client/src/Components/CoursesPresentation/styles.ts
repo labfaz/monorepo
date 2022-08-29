@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { Mobile, DesktopSmall } from "Utils/breakpoints";
-import { css } from "styled-components";
-import { Title } from "Components/Typography/Title";
-import { Text } from "Components/Typography/Text";
-import { InternalLinkButton } from "Components/Buttons/InternalLinkButton";
+import styled from 'styled-components';
+import { Mobile, DesktopSmall } from 'Utils/breakpoints';
+import { css } from 'styled-components';
+import { Title } from 'Components/Typography/Title';
+import { Text } from 'Components/Typography/Text';
+import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
 
 export const Container = styled.div`
   background-color: var(--background-black);
@@ -141,7 +141,7 @@ export const Button = styled(InternalLinkButton)`
   `)}
 `;
 
-export const ButtonText = styled(Text)`  
+export const ButtonText = styled(Text)`
   color: var(--background-pink);
   text-transform: uppercase;
 

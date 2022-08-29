@@ -1,18 +1,17 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { Title } from 'Components/Typography/Title'
-import { DesktopSmall } from 'Utils/breakpoints'
+import { Title } from 'Components/Typography/Title';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 interface StepProps {
-  currentStep: number
+  currentStep: number;
 }
 
 interface ModalProps {
-  isOpen: boolean
+  isOpen: boolean;
 }
 
 export const Container = styled.div`
-
   position: relative;
 
   background-color: black;
@@ -21,25 +20,25 @@ export const Container = styled.div`
   ${DesktopSmall(css`
     padding-top: 3.91rem;
   `)}
-`
+`;
 export const FormTitle = styled(Title)`
   font-size: var(--font-size-title-xlarge);
-  color: #FC0061;
+  color: #fc0061;
 
   ${DesktopSmall(css`
     font-size: var(--font-size-title-xlarge);
   `)}
-`
+`;
 
 export const SessionContainer = styled.div`
-  border-top: 2px solid #FC0061;
-`
+  border-top: 2px solid #fc0061;
+`;
 
 export const FormContainer = styled.div`
   display: flex;
   margin-top: 2rem;
   margin-bottom: 3.83rem;
-  
+
   position: relative;
 
   .form {
@@ -52,18 +51,18 @@ export const FormContainer = styled.div`
     margin-top: 3.35rem;
     margin-bottom: 2.54rem;
   `)}
-`
+`;
 
 export const NextButton = styled.button`
   border: 0;
-  background-color: #FC0061;
-  color: rgba(250, 250, 250, 0.7);;
+  background-color: #fc0061;
+  color: rgba(250, 250, 250, 0.7);
   width: 9.7rem;
   height: 2.2rem;
   cursor: pointer;
 
   z-index: 2;
- 
+
   font-size: var(--font-size-large);
   font-weight: 700;
 
@@ -87,17 +86,16 @@ export const NextButton = styled.button`
     height: 1.48rem;
 
     font-size: var(--font-size-short);
-    
+
     right: 4rem;
   `)}
-`
+`;
 export const BackButton = styled.button`
-
   width: 9.7rem;
   height: 2.2rem;
   border: 0;
   background-color: #090909;
-  color: rgba(250, 250, 250, 0.7);;
+  color: rgba(250, 250, 250, 0.7);
   cursor: pointer;
   font-size: var(--font-size-large);
   font-weight: 700;
@@ -109,36 +107,33 @@ export const BackButton = styled.button`
   left: 2.6rem;
   bottom: 2.2rem;
 
-
   ${DesktopSmall(css`
     width: 6.5rem;
     height: 1.48rem;
-  
+
     left: 1.78rem;
 
     font-size: var(--font-size-short);
   `)}
-
-`
+`;
 export const RightSession = styled.div<StepProps>`
   display: flex;
-  
+
   .sessionContainer {
     display: flex;
     flex-direction: column;
     row-gap: 1.25rem;
 
-    margin-top: 1.36rem;    
+    margin-top: 1.36rem;
   }
 
   .formSession {
     width: 3.33rem;
     height: 5.68rem;
 
-
     border-left: 5px solid rgba(17, 16, 16, 0.5);
     border-radius: 0px 7px 7px 0px;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,21 +154,19 @@ export const RightSession = styled.div<StepProps>`
       display: none;
     }
 
-    
-
     ${DesktopSmall(css`
       width: 2.23rem;
       height: 3.8rem;
     `)}
 
     &.checked {
-      background-color: #2DAF2F;
+      background-color: #2daf2f;
 
       svg {
         display: block;
         width: 26.67px;
         height: 26.67px;
-        color: #FAFAFA;
+        color: #fafafa;
 
         ${DesktopSmall(css`
           width: 24px;
@@ -182,52 +175,53 @@ export const RightSession = styled.div<StepProps>`
       }
 
       label {
-        color: #FAFAFA;
+        color: #fafafa;
       }
     }
 
     background-color: #090909;
 
-       
     &:nth-child(${({ currentStep }) => {
+          switch (currentStep) {
+            case 0:
+              return 1;
 
-    switch (currentStep) {
-      case 0:
-        return 1
+            case 1:
+              return 2;
 
-      case 1:
-        return 2
+            case 2:
+              return 3;
 
-      case 2:
-        return 3
+            case 3:
+            case 4:
+            case 5:
+              return 4;
 
-      case 3: case 4: case 5:
-        return 4
+            case 6:
+            case 7:
+              return 5;
 
-      case 6: case 7:
-        return 5
+            case 8:
+            case 9:
+              return 6;
 
-      case 8: case 9:
-        return 6
-
-      default:
-        return ''
-    }
-
-  }}) {
-      background-color: #FC0061;
+            default:
+              return '';
+          }
+        }}) {
+      background-color: #fc0061;
 
       label {
-        color: #FFEC99;
+        color: #ffec99;
       }
     }
   }
-`
+`;
 
 export const ErrorModalContainer = styled.div<ModalProps>`
   position: absolute;
 
-  display: ${({isOpen}) => isOpen ? 'flex' : 'none' };
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 
   align-items: center;
   justify-content: center;
@@ -237,14 +231,14 @@ export const ErrorModalContainer = styled.div<ModalProps>`
 
   z-index: 10;
 
-  background: rgba(196, 196, 196, 0.0);
+  background: rgba(196, 196, 196, 0);
   backdrop-filter: blur(1.5px);
 
   touch-action: none;
 
   .errorModalContainer {
     background-color: #202020;
-    
+
     position: relative;
 
     color: #fafafa;
@@ -262,15 +256,16 @@ export const ErrorModalContainer = styled.div<ModalProps>`
 
     border: 5px solid rgba(40, 40, 40, 0.5);
     box-sizing: border-box;
-    box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.8), inset 0px 0px 20px rgba(10, 10, 10, 0.8);
+    box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.8),
+      inset 0px 0px 20px rgba(10, 10, 10, 0.8);
     border-radius: 10px;
 
     h1 {
       font-size: 26px;
       margin-bottom: 3.3rem;
-      color: #FC0061;
+      color: #fc0061;
     }
-    
+
     h2 {
       font-size: 20px;
       margin-bottom: 3.3rem;
@@ -282,13 +277,12 @@ export const ErrorModalContainer = styled.div<ModalProps>`
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform:  scale(0.5);
+        transform: scale(0.5);
       }
 
       to {
         opacity: 1;
-        transform:  scale(1);
-
+        transform: scale(1);
       }
     }
 
@@ -300,7 +294,7 @@ export const ErrorModalContainer = styled.div<ModalProps>`
         font-size: 18px;
         margin-bottom: 2rem;
       }
-    
+
       h2 {
         font-size: 14px;
         margin-bottom: 2rem;
@@ -314,26 +308,25 @@ export const ErrorModalContainer = styled.div<ModalProps>`
     height: 2.7rem;
 
     border: 0;
-    background: #FC0061;
+    background: #fc0061;
     box-shadow: inset 0px 0px 3px #000000;
     border-radius: 2px;
 
     cursor: pointer;
 
-    color: #FFEC99;
+    color: #ffec99;
 
     ${DesktopSmall(css`
       width: 18rem;
       height: 2.7rem;
     `)}
   }
-`
-
+`;
 
 export const ConfirmEmailModal = styled.div<ModalProps>`
   position: absolute;
 
-  display: ${({isOpen}) => isOpen ? 'flex' : 'none' };
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 
   align-items: center;
   justify-content: center;
@@ -343,7 +336,7 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
 
   z-index: 10;
 
-  background: rgba(196, 196, 196, 0.0);
+  background: rgba(196, 196, 196, 0);
   backdrop-filter: blur(1.5px);
 
   touch-action: none;
@@ -366,15 +359,15 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
 
     border: 5px solid rgba(40, 40, 40, 0.5);
     box-sizing: border-box;
-    box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.8), inset 0px 0px 20px rgba(10, 10, 10, 0.8);
+    box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.8),
+      inset 0px 0px 20px rgba(10, 10, 10, 0.8);
     border-radius: 10px;
 
     h1 {
       font-size: 26px;
       margin-bottom: 3.3rem;
-    
     }
-    
+
     h2 {
       font-size: 20px;
       margin-bottom: 3.3rem;
@@ -386,13 +379,12 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform:  scale(0.5);
+        transform: scale(0.5);
       }
 
       to {
         opacity: 1;
-        transform:  scale(1);
-
+        transform: scale(1);
       }
     }
 
@@ -404,7 +396,7 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
         font-size: 18px;
         margin-bottom: 2rem;
       }
-    
+
       h2 {
         font-size: 14px;
         margin-bottom: 2rem;
@@ -434,7 +426,7 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
     svg {
       width: 36px;
       height: 36px;
-      color: #FC0061;
+      color: #fc0061;
     }
 
     ${DesktopSmall(css`
@@ -447,17 +439,17 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
     height: 2.7rem;
 
     border: 0;
-    background: #FC0061;
+    background: #fc0061;
     box-shadow: inset 0px 0px 3px #000000;
     border-radius: 2px;
 
     cursor: pointer;
 
-    color: #FFEC99;
+    color: #ffec99;
 
     ${DesktopSmall(css`
       width: 18rem;
       height: 2.7rem;
     `)}
   }
-`
+`;

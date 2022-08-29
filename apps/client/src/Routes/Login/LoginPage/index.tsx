@@ -1,15 +1,11 @@
-import React, { FC, useCallback } from "react"
+import React, { FC, useCallback } from 'react';
 
-import Display from "./Display"
+import Display from './Display';
 
 export const LoginPage: FC = () => {
+  const handleSubmit = useCallback(() => {}, []);
 
-  const handleSubmit = useCallback(() => {
-  }, [])
+  return <Display onSubmit={handleSubmit} />;
+};
 
-  return (
-    <Display onSubmit={handleSubmit}/>
-  )
-}
-
-export default LoginPage
+export default LoginPage;

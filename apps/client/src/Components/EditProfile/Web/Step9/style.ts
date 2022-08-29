@@ -1,13 +1,13 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { Text } from 'Components/Typography/Text'
-import { DesktopSmall } from 'Utils/breakpoints'
+import { Text } from 'Components/Typography/Text';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;
 
   background-color: #111010;
-`
+`;
 
 export const LabelText = styled(Text)`
   margin-bottom: 2.6rem;
@@ -19,7 +19,7 @@ export const LabelText = styled(Text)`
     margin-bottom: 1.5rem;
     font-size: var(--font-size-short);
   `)}
-`
+`;
 
 export const LeftSide = styled.div`
   width: 35.5rem;
@@ -34,16 +34,15 @@ export const LeftSide = styled.div`
 
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const LeftSideContent = styled.div`
-  
   margin: 4.2rem 3.3rem 5.2rem 3.3rem;
 
   ${DesktopSmall(css`
     margin: 2.86rem 2.23rem 5.2rem 2.23rem;
   `)}
-`
+`;
 
 export const RightSide = styled.div`
   width: 35.5rem;
@@ -58,7 +57,7 @@ export const RightSide = styled.div`
   flex-direction: column;
 
   position: relative;
-`
+`;
 
 export const RightSideContent = styled.div`
   margin: 5.9rem 3.3rem 5.2rem 3.3rem;
@@ -66,7 +65,7 @@ export const RightSideContent = styled.div`
   ${DesktopSmall(css`
     margin: 3.98rem 2.23rem 5.2rem 2.23rem;
   `)}
-`
+`;
 
 export const InputCheckBoxContainer = styled.div`
   margin-bottom: 1.8rem;
@@ -74,4 +73,4 @@ export const InputCheckBoxContainer = styled.div`
   ${DesktopSmall(css`
     margin-bottom: 0.5rem;
   `)}
-`
+`;

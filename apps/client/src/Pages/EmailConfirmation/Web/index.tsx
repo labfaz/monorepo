@@ -1,16 +1,10 @@
-import React, { FC } from "react"
+import React, { FC } from 'react';
 
-import { InternalLinkButton } from "Components/Buttons/InternalLinkButton";
-import { navLinks } from "Utils/navLinks";
+import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
+import { navLinks } from 'Utils/navLinks';
 
-import Image from "../Image";
-import {
-  TitleText,
-  TextWrapper,
-  Rectangle2,
-  Content,
-} from "./style";
-
+import Image from '../Image';
+import { TitleText, TextWrapper, Rectangle2, Content } from './style';
 
 export const Web: FC = () => {
   return (
@@ -19,7 +13,12 @@ export const Web: FC = () => {
         <Image />
         <TextWrapper>
           <TitleText>Email confirmado</TitleText>
-          <InternalLinkButton className="empty-black" href={navLinks.login.path}>CLIQUE PARA ENTRAR</InternalLinkButton>
+          <InternalLinkButton
+            className="empty-black"
+            href={navLinks.login.path}
+          >
+            CLIQUE PARA ENTRAR
+          </InternalLinkButton>
         </TextWrapper>
       </Rectangle2>
     </Content>

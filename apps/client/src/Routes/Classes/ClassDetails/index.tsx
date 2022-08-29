@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import Display from "./Display";
+import Display from './Display';
 
-import { useCourse } from "Api/Courses";
+import { useCourse } from 'Api/Courses';
 
-import LoadingFullPage from "Components/LoadingFullPage";
+import LoadingFullPage from 'Components/LoadingFullPage';
 
 interface RouteParams {
   id: string;

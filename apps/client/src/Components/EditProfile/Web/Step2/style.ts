@@ -1,18 +1,17 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { Text } from 'Components/Typography/Text'
-import { TextInput } from 'Components/Inputs/TextInput'
-import { DesktopSmall } from 'Utils/breakpoints'
+import { Text } from 'Components/Typography/Text';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;
 
   background-color: #111010;
 
-
   label {
     font-weight: 600;
-    color: #FAFAFA;
+    color: #fafafa;
 
     position: relative;
 
@@ -48,15 +47,13 @@ export const Container = styled.div`
       `)}
     }
   }
-`
+`;
 
 export const LeftSide = styled.div`
-
   width: 35.5rem;
   height: 50rem;
 
   border-right: 2px dashed #262626;
-
 
   ${DesktopSmall(css`
     width: 23.8rem;
@@ -65,11 +62,9 @@ export const LeftSide = styled.div`
 
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const LeftSideContent = styled.div`
-
-  
   margin: 1rem auto 0 auto;
 
   display: flex;
@@ -104,7 +99,7 @@ export const LeftSideContent = styled.div`
       margin-top: 2rem;
     `)}
   }
-`
+`;
 
 export const RightSide = styled.div`
   width: 35.5rem;
@@ -119,7 +114,7 @@ export const RightSide = styled.div`
   flex-direction: column;
 
   position: relative;
-`
+`;
 
 export const RightSideContent = styled.div`
   display: flex;
@@ -127,15 +122,14 @@ export const RightSideContent = styled.div`
   align-items: center;
 
   margin-top: 1rem;
+`;
 
-`
-
-export const FormInputText = styled(TextInput)``
+export const FormInputText = styled(TextInput)``;
 
 export const InputFileText = styled(Text)`
   font-size: var(--font-size-medium);
-  color: #C4C4C4;
-`
+  color: #c4c4c4;
+`;
 
 export const PrivacityText = styled(Text)`
   width: 27rem;
@@ -149,7 +143,7 @@ export const PrivacityText = styled(Text)`
   `)}
 
   margin-top: 1rem;
-`
+`;
 
 export const InputRadioContainer = styled.div`
   margin-top: 1rem;
@@ -173,13 +167,13 @@ export const InputRadioContainer = styled.div`
       font-size: var(--font-size-short);
     `)}
   }
-`
+`;
 
 export const InformartionText = styled(Text)`
   font-size: var(--font-size-small);
   width: 26rem;
 
-  color: #FAFAFA;
+  color: #fafafa;
 
   line-height: 16px;
 
@@ -188,8 +182,6 @@ export const InformartionText = styled(Text)`
   ${DesktopSmall(css`
     display: none;
   `)}
-`
+`;
 
-export const InputText = styled(TextInput)`
-
-`
+export const InputText = styled(TextInput)``;
