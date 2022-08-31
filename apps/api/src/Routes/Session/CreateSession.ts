@@ -28,17 +28,17 @@ export const CreateSession: (
   const userDB = await UserRepo.findByEmail(email);
 
   if (!userDB) {
-    return unauthorizedError(res, "Incorrect email/password combination.");
+    return unauthorizedError(res, "Email e/ou senha incorretos");
   }
 
   const passwordMatched = await UserRepo.compareHash(password, userDB.password);
 
   if (!passwordMatched) {
-    return unauthorizedError(res, "Incorrect email/password combination.");
+    return unauthorizedError(res, "Email e/ou senha incorretos");
   }
 
   if (!userDB.active) {
-    return unauthorizedError(res, "Email confimation needed");
+    return unauthorizedError(res, "Email ainda não foi confimado");
   }
 
   const token = await UserRepo.generateToken(email);
