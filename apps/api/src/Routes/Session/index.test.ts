@@ -129,7 +129,7 @@ describe('Session Router', () => {
         .post('/sessions/create')
         .send({ email: 'johndoe@email.com', password: '123456' })
         .expect('Content-Type', /json/ )
-        .expect(401, ErrorObj(401, 'Incorrect email/password combination.'))
+        .expect(401, ErrorObj(401, 'Email e/ou senha incorretos'))
         .then(() => {
           done()
         })
@@ -148,7 +148,7 @@ describe('Session Router', () => {
         .post('/sessions/create')
         .send({ name: 'John Doe', email: 'johndoe@email.com', password: '654321' })
         .expect('Content-Type', /json/ )
-        .expect(401, ErrorObj(401, 'Incorrect email/password combination.'))
+        .expect(401, ErrorObj(401, 'Email e/ou senha incorretos'))
         .then(() => {
           done()
         })
