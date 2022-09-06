@@ -14,8 +14,9 @@ export const Container = styled.div<ContainerProps>`
 
   .obrigatory {
     color: #fc0061;
-    display: inline;
     font-size: var(--font-size-default);
+    padding: 0;
+    margin: 0;
 
     ${DesktopSmall(css`
       font-size: var(--font-size-short);
@@ -129,6 +130,7 @@ export const Container = styled.div<ContainerProps>`
   .labelContent {
     position: relative;
     display: inline;
+    flex-direction: column;
     font-weight: 600;
     font-size: var(--font-size-large);
     color: var(--color-text-black);
@@ -138,7 +140,22 @@ export const Container = styled.div<ContainerProps>`
 
     height: fit-content;
 
-    span {
+    .labelLine {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+
+      ${DesktopSmall(css`
+        font-size: var(--font-size-short);
+        margin-bottom: 0.5rem;
+      `)}
+
+      ${Mobile(css`
+        font-size: var(--font-size-large);
+      `)}
+    }
+
+    .error {
       display: inline;
 
       position: absolute;

@@ -1,15 +1,9 @@
-import React, {
-  FC,
-  useState,
-  useEffect,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import React, { FC, useState, useEffect } from 'react';
 
 import { SkipContent } from './style';
 
 type TSkipNavProps = {
-  updateParentContrasted?: Dispatch<SetStateAction<boolean>>;
+  updateParentContrasted?: (newValue: boolean | undefined) => void;
 };
 export const Web: FC<TSkipNavProps> = (props) => {
   const [isContrasted, setIsContrasted] = useState(false);
