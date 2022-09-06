@@ -1,5 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
+import useLocalStorage from 'Hooks/useLocalStorage';
 
 import FullPage from 'Components/FullPage';
 import Footer from 'Components/Footer';
@@ -29,7 +30,10 @@ const Content = styled.div`
 `;
 
 export const Wireframe: FC = ({ children }) => {
-  const [isContrasted, setIsContrasted] = useState(false);
+  const [isContrasted, setIsContrasted] = useLocalStorage<boolean | undefined>(
+    'highContrast',
+    false
+  );
 
   return (
     <Container className={isContrasted ? 'contrast' : ''}>

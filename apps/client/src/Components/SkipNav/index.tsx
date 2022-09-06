@@ -1,10 +1,10 @@
-import React, { FC, Dispatch, SetStateAction } from 'react';
+import React, { FC } from 'react';
 
 import useMobile from 'Hooks/useMobile';
 import Web from 'Components/SkipNav/Web';
 
 type TSkipNavProps = {
-  setIsContrasted?: Dispatch<SetStateAction<boolean>>;
+  setIsContrasted?: (newValue: boolean | undefined) => void;
 };
 
 export const SkipNav: FC<TSkipNavProps> = (props) => {
