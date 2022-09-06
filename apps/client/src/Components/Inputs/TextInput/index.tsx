@@ -42,9 +42,11 @@ export const TextInput: FC<InputProps> = ({
           <div className="labelContent">
             {label && (
               <>
-                {label}
+                <span className="labelLine">
+                  {label}
 
-                {obrigatory && <p className="obrigatory"> * </p>}
+                  {obrigatory && <p className="obrigatory"> * </p>}
+                </span>
 
                 {informationText && (
                   <>
@@ -56,7 +58,9 @@ export const TextInput: FC<InputProps> = ({
                 )}
               </>
             )}
-            {meta.touched && meta.error && <span>{meta.error}</span>}
+            {meta.touched && meta.error && (
+              <span className="error">{meta.error}</span>
+            )}
           </div>
         </div>
 
