@@ -19,7 +19,7 @@ export const ProfilePage: FC<UserProfilePageProps> = ({ id }) => {
       <Error
         errorStatus={user.error.response?.status}
         errorMessage={user.error.response?.statusText}
-      /> 
+      />
     );
   } else {
     // Evitando colocar esse dado no perfil aleio
