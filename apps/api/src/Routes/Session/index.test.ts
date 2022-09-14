@@ -86,19 +86,19 @@ describe('Session Router', () => {
         .post('/sessions/create')
         .send({})
         .expect('Content-Type', /json/ )
-        .expect(400, ErrorObj(400, 'Incomplete request body' ))
+        .expect(400, ErrorObj(400, 'Requisição incompleta' ))
 
       const onlyEmail = agent
         .post('/sessions/create')
         .send({ email: 'johndoe@email.com' })
         .expect('Content-Type', /json/ )
-        .expect(400, ErrorObj(400, 'Incomplete request body' ))
+        .expect(400, ErrorObj(400, 'Requisição incompleta' ))
 
       const onlyPassword = agent
         .post('/sessions/create')
         .send({ password: '123456' })
         .expect('Content-Type', /json/ )
-        .expect(400, ErrorObj(400, 'Incomplete request body' ))
+        .expect(400, ErrorObj(400, 'Requisição incompleta' ))
 
         Promise
           .all([ emptyBody, onlyEmail, onlyPassword ])
@@ -111,7 +111,7 @@ describe('Session Router', () => {
         .post('/sessions/create')
         .send({ email: 'johndoe@email.com', password: true })
         .expect('Content-Type', /json/ )
-        .expect(400, ErrorObj(400, 'Invalid request body'))
+        .expect(400, ErrorObj(400, 'Requisição inválida'))
         .then(() => {
           done()
         })
