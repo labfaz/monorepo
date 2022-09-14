@@ -13,7 +13,7 @@ export const ShowCourse: (
   CourseRepo
 }: GetAllCourserInterface) => async (req, res) => {
   const course = await CourseRepo.findById(req.params.course_id);
-  if (!course) return notFoundError(res, "No course found with that id")
+  if (!course) return notFoundError(res, "Nenhum curso foi encontrado com esse id")
   return fetchedSuccessfully(res, course)
 }
 

@@ -446,7 +446,7 @@ export class UserRepository extends Repository<User> {
     const { secret, expiresIn } = authConfig.jwt;
 
     const user = await this.findOne({ where: { email } });
-    if (!user) throw new Error("No user found");
+    if (!user) throw new Error("Usuário não encontrado");
 
     const token = sign({ id: user.id }, secret, { expiresIn });
     return token;
@@ -456,7 +456,7 @@ export class UserRepository extends Repository<User> {
     const { secret, expiresIn } = authConfig.token;
 
     const user = await this.findOne({ where: { email } });
-    if (!user) throw new Error("No user found");
+    if (!user) throw new Error("Usuário não encontrado");
 
     const token = sign({ id: user.id }, secret, { expiresIn });
     return token;

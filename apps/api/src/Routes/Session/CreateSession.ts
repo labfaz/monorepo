@@ -20,10 +20,10 @@ export const CreateSession: (
   const { email, password } = req.body
 
   if (!email || !password)
-    return badRequestError(res, "Incomplete request body");
+    return badRequestError(res, "Requisição incompleta");
 
   if (typeof email !== "string" || typeof password !== "string")
-    return badRequestError(res, "Invalid request body");
+    return badRequestError(res, "Requisição inválida");
 
   const userDB = await UserRepo.findByEmail(email);
 

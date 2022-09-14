@@ -20,11 +20,11 @@ export const AskReset: (
   const { email } = req.body
 
   if (!email) {
-    return badRequestError(res, "Incomplete request body!!")
+    return badRequestError(res, "Requisição Incompleta!!")
   }
 
   if (typeof email !== "string") {
-    return badRequestError(res, "Invalid request body!!" );
+    return badRequestError(res, "Requisição Inválida!!" );
   }
 
   const user = await UserRepo.findByEmail(email);

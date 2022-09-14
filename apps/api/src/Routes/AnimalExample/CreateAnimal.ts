@@ -19,10 +19,10 @@ export const CreateAnimal: (deps: CreateAnimalInterface) => RouteHandler<Req<Dee
   } = req.body
 
   // if request body not complete, return 400
-  if (!name || !rank) return badRequestError(res, "Incomplete request body")
+  if (!name || !rank) return badRequestError(res, "Requisição incompleta")
 
   // if request body has wrong types
-  if (typeof name !== 'string' || typeof rank !== 'number') return badRequestError(res, "Invalid request body")
+  if (typeof name !== 'string' || typeof rank !== 'number') return badRequestError(res, "Requisição inválida")
 
   const animal = AnimalExampleRepo.create({ name, rank })
   await AnimalExampleRepo.save(animal)
