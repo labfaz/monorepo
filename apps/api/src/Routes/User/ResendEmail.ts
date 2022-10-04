@@ -20,12 +20,12 @@ export const ResendEmail: (
 
   const user = await UserRepo.findByEmail(email)
 
-  if(!user) return databaseError(res, "No user found")
+  if(!user) return databaseError(res, "Nenhum usuário encontrado")
 
   sendConfirmationEmail(user)
 
   return actionSuccessful(res, {
-    message: 'Email sent'
+    message: 'Email enviado'
   })
 
 } 

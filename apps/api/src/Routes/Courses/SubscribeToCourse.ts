@@ -31,22 +31,22 @@ export const SubscribeToCourse: (
   const { id } = req.user ?? {}
   const { course_id } = req.params
 
-  if (!id) return badRequestError(res, "user id missing")
-  if (!course_id) return badRequestError(res, "course id missing")
+  if (!id) return badRequestError(res, "ID de usuário faltando")
+  if (!course_id) return badRequestError(res, "ID do curso faltando")
   
   const [user, course] = await Promise.all([UserRepo.findById(id), CourseRepo.findById(course_id)])
 
-  if (!user)        return unauthenticatedError(res, "Not found user with that id" )
-  if (!course)      return notFoundError(res, 'Course not found')
-  if (!user.active) return unauthorizedError(res, "This user didn't confirm his account in the email!!")
-  if (user.banned)  return unauthorizedError(res, "This user is banned")
+  if (!user)        return unauthenticatedError(res, "ID de usuário não encontrado" )
+  if (!course)      return notFoundError(res, 'Curso não encontrado')
+  if (!user.active) return unauthorizedError(res, "Este usuário não confirmou seu endereço de email!!")
+  if (user.banned)  return unauthorizedError(res, "Este usuário está banido")
 
   if (!course.available) return badRequestError(res, "Não pode se inscrever em um curso que não está mais disponível")
   if (!course.has_subscription) return badRequestError(res, "Essa atividade não aceita pedidos de inscrição")
   
   return RequestRepo.createRequest(user, course)
-    .then(() => createdSuccessfully(res, "Request Created"))
-    .catch(() => unidentifiedError(res, "Something went wrong"))
+    .then(() => createdSuccessfully(res, "Requisição feita"))
+    .catch(() => unidentifiedError(res, "Alguma coisa deu errado"))
   }
 
 export default SubscribeToCourse

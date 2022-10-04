@@ -11,6 +11,6 @@ export const catchError = (middleware: Middleware, returnFn?: errorReturnFn, err
   try {
     middleware(req, res, next)
   } catch (error) {
-    errorReturn(res, errorMsg ?? "Unidentified Error.", { error })
+    errorReturn(res, errorMsg ?? "Erro não identificado.", { error })
   }
 }

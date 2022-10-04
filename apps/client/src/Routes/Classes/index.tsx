@@ -10,7 +10,6 @@ const ClassDetails = lazy(() => import('./ClassDetails'));
 
 export const Classes: Router = ({ match }) => {
   const { path = '/classes' } = match ?? {};
-
   usePageview({ name: 'classes', path });
 
   return (

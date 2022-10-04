@@ -12,20 +12,13 @@ export interface Props {
 }
 
 export const Error: FC<Props> = ({ errorStatus, errorMessage }) => {
-  const width = useMobile();
+  const Component = useMobile() ? Mobile : Web;
 
-  if (width)
-    return (
-      <Wireframe>
-        <Mobile status={errorStatus} message={errorMessage} />
-      </Wireframe>
-    );
-  else
-    return (
-      <Wireframe>
-        <Web status={errorStatus} message={errorMessage} />
-      </Wireframe>
-    );
+  return (
+    <Wireframe>
+      <Component status={errorStatus} message={errorMessage} />
+    </Wireframe>
+  );
 };
 
 export default Error;

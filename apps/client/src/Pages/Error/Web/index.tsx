@@ -26,9 +26,12 @@ export const Web: FC<Props> = ({ status, message }) => {
             Parece que algo deu errado
           </TitleText>
           <SubtitleText>
-            Error {status ?? 401}:
-            <br />{' '}
-            {message ?? 'Acesso negado devido a credenciais não válidas.'}
+            {status && (
+              <>
+                Error {status}: <br />
+              </>
+            )}
+            {message ?? "Não foi possível carregar essa página."}
           </SubtitleText>
         </TextWrapper>
       </Rectangle2>

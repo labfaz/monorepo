@@ -102,11 +102,11 @@ export const UpdateUser: (
         let { password: _, ...newUser } = user;
         return updatedSuccessfully(res, removeCircularity(newUser));
       })
-      .catch((err) => databaseError(res, "Error trying to update user.", err));
+      .catch((err) => databaseError(res, "Erro ao tentar atualizar o usuário.", err));
   } catch {
     return badRequestError(
       res,
-      "Error trying to create curriculum or profilePicture"
+      "Erro tentando enviar currículo, laudo ou foto de perfil"
     );
   }
 };

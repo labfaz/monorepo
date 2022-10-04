@@ -10,7 +10,6 @@ const ResetEmail = lazy(() => import('./ResetEmail'));
 
 export const PasswordRecover: Router = ({ match }) => {
   const { path = 'recover' } = match ?? {};
-
   usePageView({ name: 'recuperacao', path });
 
   return (
