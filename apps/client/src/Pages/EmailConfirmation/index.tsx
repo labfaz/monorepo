@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from 'react';
 
-import { useConfirmEmail } from 'Api/ConfirmEmail';
-import LoadingFullPage from 'Components/LoadingFullPage';
-import Error from 'Pages/Error';
+import { useConfirmEmail } from '../../Api/ConfirmEmail';
+import LoadingFullPage from '../../Components/LoadingFullPage';
+import Error from '../Error';
 
 import Display from './Display';
 

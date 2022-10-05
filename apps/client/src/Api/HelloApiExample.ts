@@ -1,5 +1,5 @@
-import { api } from 'Api';
-import useFetchApi from 'Hooks/useFetchApi';
+import { api } from '.';
+import useFetchApi from '../Hooks/useFetchApi';
 
 export interface HelloExample {
   msg: string;

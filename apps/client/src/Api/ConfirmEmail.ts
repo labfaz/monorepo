@@ -1,4 +1,4 @@
-import { api, ErrorObject } from 'Api';
+import { api, ErrorObject } from '.';
 import { AxiosResponse } from 'axios';
 import { useMutation } from 'react-query';
 

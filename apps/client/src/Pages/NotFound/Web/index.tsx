@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import Wireframe from 'Components/Wireframe';
+import Wireframe from '../../../Components/Wireframe';
 import Image from '../Image';
 import { Text, Content, Rectangle2 } from './style';
 

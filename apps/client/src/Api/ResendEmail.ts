@@ -1,4 +1,4 @@
-import { api } from 'Api';
+import { api } from '.';
 
 interface ResendEmailProps {
   status: string;

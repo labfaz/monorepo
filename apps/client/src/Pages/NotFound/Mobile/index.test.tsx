@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import render from 'Utils/render';
+import render from '../../../Utils/render';
 import Mobile from './';
 
 it('renders header component', () => {

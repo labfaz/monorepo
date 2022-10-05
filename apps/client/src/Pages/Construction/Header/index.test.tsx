@@ -1,8 +1,8 @@
-import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
+import { SocialNetworksLabfaz } from '../../../Api/SocialNetworksLabfaz';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import render from 'Utils/render';
+import render from '../../../Utils/render';
 import Header from '.';
 
 const mockedData: SocialNetworksLabfaz = {

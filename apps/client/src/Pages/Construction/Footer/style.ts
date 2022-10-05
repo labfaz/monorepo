@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { Mobile } from 'Utils/breakpoints';
-import { Text } from 'Components/Typography/Text';
+import { Mobile } from '../../../Utils/breakpoints';
+import { Text } from '../../../Components/Typography/Text';
 
 export const Container = styled.div`
   display: flex;

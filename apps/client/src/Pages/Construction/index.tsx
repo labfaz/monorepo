@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
-import useMobile from 'Hooks/useMobile';
+import useMobile from '../../Hooks/useMobile';
 import Mobile from './Mobile';
 import Web from './Web';
-import { useSocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
-import LoadingFullPage from 'Components/LoadingFullPage';
+import { useSocialNetworksLabfaz } from '../../Api/SocialNetworksLabfaz';
+import LoadingFullPage from '../../Components/LoadingFullPage';
 
 export const Contruction: FC = () => {
   const result = useSocialNetworksLabfaz();

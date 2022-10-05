@@ -1,8 +1,9 @@
-import { api, ErrorObject, SuccessObject } from 'Api';
-import { GenderSpecific, User } from 'Context/LoggedUserToken';
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
-import { getUserName } from 'Utils/userUtils';
+
+import { api, ErrorObject, SuccessObject } from '.';
+import { GenderSpecific, User } from '../Context/LoggedUserToken';
+import { getUserName } from '../Utils/userUtils';
 
 export interface UsersList {
   users: User[];

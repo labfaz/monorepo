@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 import RectangleImage from '../Rectangle.png';
-import { MobileSmall } from 'Utils/breakpoints';
-import { Title } from 'Components/Typography/Title';
+import { MobileSmall } from '../../../Utils/breakpoints';
+import { Title } from '../../../Components/Typography/Title';
 
 export interface Props {
   invert?: boolean;

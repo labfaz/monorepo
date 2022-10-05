@@ -1,6 +1,6 @@
 import React from 'react';
 
-import render from 'Utils/render';
+import render from '../../../Utils/render';
 import Footer from '.';
 
 it('renders footer component', () => {

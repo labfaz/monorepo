@@ -1,5 +1,5 @@
-import { api, SuccessObject } from 'Api';
-import { User } from 'Context/LoggedUserToken';
+import { api, SuccessObject } from '.';
+import { User } from '../Context/LoggedUserToken';
 
 export interface SessionReturn {
   token: string;

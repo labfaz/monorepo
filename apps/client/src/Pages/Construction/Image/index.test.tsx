@@ -1,5 +1,5 @@
 import React from 'react';
-import render from 'Utils/render';
+import render from '../../../Utils/render';
 
 import Image from '.';
 
