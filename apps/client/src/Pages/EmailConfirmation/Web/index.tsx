@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
-import { navLinks } from 'Utils/navLinks';
+import { InternalLinkButton } from '../../../Components/Buttons/InternalLinkButton';
+import { navLinks } from '../../../Utils/navLinks';
 
 import Image from '../Image';
 import { TitleText, TextWrapper, Rectangle2, Content } from './style';

@@ -8,8 +8,8 @@ import {
   ImageRectangle,
   TopWrapper,
 } from './styles';
-import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
-import { navLinks } from 'Utils/navLinks';
+import { InternalLinkButton } from '../../../Components/Buttons/InternalLinkButton';
+import { navLinks } from '../../../Utils/navLinks';
 
 export const Mobile: FC = () => {
   return (

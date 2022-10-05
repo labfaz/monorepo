@@ -1,7 +1,7 @@
 import React, { FC, createContext, useMemo, useContext } from 'react';
 
-import useLocalStorage from 'Hooks/useLocalStorage';
-import { useCurrentUser } from 'Api/Profile';
+import useLocalStorage from '../Hooks/useLocalStorage';
+import { useCurrentUser } from '../Api/Profile';
 
 export interface IAddress {
   cep: string;

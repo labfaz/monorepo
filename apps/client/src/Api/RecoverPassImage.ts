@@ -1,6 +1,6 @@
-import { strapi } from 'Api';
-import useFetchApi from 'Hooks/useFetchApi';
-import { Image } from 'Utils/Image';
+import { strapi } from '.';
+import useFetchApi from '../Hooks/useFetchApi';
+import { Image } from '../Utils/Image';
 
 export interface RecoverData {
   image: Image;

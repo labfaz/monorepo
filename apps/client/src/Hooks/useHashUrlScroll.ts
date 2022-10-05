@@ -2,10 +2,10 @@ import { RefObject } from 'react';
 
 import useCurrentlyScrolledElement, {
   Options as CurOptions,
-} from 'Hooks/useCurrentlyScrolledElement';
-import useDynamicScroll from 'Hooks/useDynamicScroll';
-import useMsPassed from 'Hooks/useMsPassed';
-import useUrlHash from 'Hooks/useUrlHash';
+} from '../Hooks/useCurrentlyScrolledElement';
+import useDynamicScroll from '../Hooks/useDynamicScroll';
+import useMsPassed from '../Hooks/useMsPassed';
+import useUrlHash from '../Hooks/useUrlHash';
 
 // hook to connect the id's of the elements from an array of react refs
 // to the hash in the path. this then automatically changes the url based on

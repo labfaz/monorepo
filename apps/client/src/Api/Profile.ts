@@ -1,7 +1,7 @@
-import { api, ErrorObject } from 'Api';
+import { api, ErrorObject } from '.';
 import { AxiosError } from 'axios';
-import { User } from 'Context/LoggedUserToken';
-import useFetchApi from 'Hooks/useFetchApi';
+import { User } from '../Context/LoggedUserToken';
+import useFetchApi from '../Hooks/useFetchApi';
 
 export interface ApiUser {
   data: {

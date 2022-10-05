@@ -7,9 +7,9 @@ import {
   FaInstagramSquare,
 } from 'react-icons/fa';
 
-import Logo from 'Components/Logo';
+import Logo from '../../../Components/Logo';
 import { Container, Icon, IconsDiv } from './style';
-import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
+import { SocialNetworksLabfaz } from '../../../Api/SocialNetworksLabfaz';
 
 export interface Props {
   data: SocialNetworksLabfaz;

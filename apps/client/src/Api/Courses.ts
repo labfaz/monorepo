@@ -1,5 +1,5 @@
-import { api, SuccessObject } from 'Api';
-import useFetchApi from 'Hooks/useFetchApi';
+import { api, SuccessObject } from '.';
+import useFetchApi from '../Hooks/useFetchApi';
 import { useMutation, useQuery } from 'react-query';
 
 export interface Course {

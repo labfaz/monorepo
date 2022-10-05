@@ -1,8 +1,8 @@
 import { RefObject, useState } from 'react';
 import useScrollPosition, {
   Options as ScrollOptions,
-} from 'Hooks/useScrollPosition';
-import { getLowestElementOverTop } from 'Utils/getLowestElementOverTop';
+} from '../Hooks/useScrollPosition';
+import { getLowestElementOverTop } from '../Utils/getLowestElementOverTop';
 
 export interface Options extends ScrollOptions {
   margin?: number;

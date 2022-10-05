@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-import Header from 'Components/Header';
+import Header from '../../../Components/Header';
 import Image from '../Image';
-import { Container, Text, Rectangle } from 'Pages/Construction/Mobile/style';
-import Footer from 'Components/Footer';
+import { Container, Text, Rectangle } from '../../Construction/Mobile/style';
+import Footer from '../../../Components/Footer';
 
 export const Mobile: FC = () => {
   return (

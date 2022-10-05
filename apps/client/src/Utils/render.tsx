@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { getQueriesForElement } from '@testing-library/dom';
 
 import { BrowserRouter } from 'react-router-dom';
-import GlobalContext from 'Context';
+import GlobalContext from '../Context';
 
 // wrap component with necessary context
 const Wrapper: FC = ({ children }) => {

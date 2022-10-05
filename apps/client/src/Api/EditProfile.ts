@@ -1,4 +1,4 @@
-import { api, SuccessObject } from 'Api';
+import { api, SuccessObject } from '.';
 
 const bodyFormParse = (values: any) => {
   const formData = new FormData();

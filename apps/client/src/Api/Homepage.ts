@@ -1,5 +1,5 @@
-import { strapi } from 'Api';
-import useFetchApi from 'Hooks/useFetchApi';
+import { strapi } from '.';
+import useFetchApi from '../Hooks/useFetchApi';
 
 export interface Homepage {
   course_presentation_title: string;

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { showReactQueryDevtools } from 'FeatureFlags';
+import { showReactQueryDevtools } from '../FeatureFlags';
 
 import {
   QueryClientProvider as QCProvider,

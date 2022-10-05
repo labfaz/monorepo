@@ -1,4 +1,4 @@
-import { api, SuccessObject } from 'Api';
+import { api, SuccessObject } from '.';
 
 const toNumString = (numStr: string) =>
   isNaN(parseInt(numStr)) ? '' : `${parseInt(numStr)}`;

@@ -1,4 +1,4 @@
-import { User } from 'Context/LoggedUserToken';
+import { User } from '../Context/LoggedUserToken';
 import {
   facebookUserRegex,
   instagramUserRegex,

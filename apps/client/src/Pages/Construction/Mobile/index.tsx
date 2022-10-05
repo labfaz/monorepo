@@ -5,7 +5,7 @@ import Footer from '../Footer';
 import Image from '../Image';
 import { Container, Text, Rectangle } from './style';
 
-import { SocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
+import { SocialNetworksLabfaz } from '../../../Api/SocialNetworksLabfaz';
 
 export interface Props {
   data: SocialNetworksLabfaz;

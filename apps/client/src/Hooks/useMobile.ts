@@ -1,4 +1,4 @@
-import { desktopSmall } from 'Utils/breakpoints';
+import { desktopSmall } from '../Utils/breakpoints';
 import useWidth from './useWidth';
 
 export const useMobile = () => {

@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 import RectangleImage from '../Rectangle.png';
-import { DesktopLarge, DesktopSmall } from 'Utils/breakpoints';
-import { Title } from 'Components/Typography/Title';
+import { DesktopLarge, DesktopSmall } from '../../../Utils/breakpoints';
+import { Title } from '../../../Components/Typography/Title';
 
 export const Container = styled.div`
   display: flex;
