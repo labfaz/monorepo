@@ -3,7 +3,6 @@ import React, { FC } from 'react';
 import Wireframe from 'Components/Wireframe';
 import Partners from 'Components/Partners';
 import Presentation from 'Components/Presentation';
-// import CoursesPresentation from "Components/CoursesPresentation";
 import Banner from 'Components/Banner';
 
 import useMobile from 'Hooks/useMobile';
@@ -11,7 +10,6 @@ import useMobile from 'Hooks/useMobile';
 import { HomepageBannerInfo } from 'Api/HomepageBannerInfo';
 import { HomePartners } from 'Api/HomePartners';
 import { Homepage } from 'Api/Homepage';
-// import { CoursePresentation } from "Api/CoursePresentation";
 
 export interface DisplayProps {
   data: HomepageBannerInfo;
@@ -20,7 +18,6 @@ export interface DisplayProps {
   video: string | null;
   partners: HomePartners[] | null;
   coursesText: Homepage | null;
-  // coursesData: CoursePresentation[] | null;
 }
 
 export const Display: FC<DisplayProps> = ({
@@ -29,8 +26,6 @@ export const Display: FC<DisplayProps> = ({
   subtitle,
   video,
   partners,
-  // coursesText,
-  // coursesData,
 }) => {
   const mobile = useMobile();
 
@@ -60,11 +55,6 @@ export const Display: FC<DisplayProps> = ({
           )}
         </>
       )}
-      {/* {coursesText && coursesData ? (
-        <CoursesPresentation texts={coursesText} courses={coursesData} />
-      ) : (
-        <></>
-      )} */}
     </Wireframe>
   );
 };

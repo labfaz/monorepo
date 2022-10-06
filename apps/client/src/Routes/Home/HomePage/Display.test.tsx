@@ -6,7 +6,6 @@ import HomePageDisplay from './Display';
 import { HomepageBannerInfo } from 'Api/HomepageBannerInfo';
 import { HomePartners } from 'Api/HomePartners';
 import { Homepage } from 'Api/Homepage';
-// import { CoursePresentation } from "Api/CoursePresentation";
 
 const mockedData: HomepageBannerInfo = {
   title: 'LABFAZ',

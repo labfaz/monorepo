@@ -535,10 +535,6 @@ function FormikStepper({
     >
       <Form>
         <FormTitle level={1} children="Cadastre-se" />
-        {/* <SignUpText>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta
-          ligula nibh, nec interdum nunc maximus at.
-        </SignUpText> */}
         <SessionContainer>
           <FormContainer currentStep={step}>
             <div className="form">
