@@ -29,7 +29,6 @@ export const PostPage: FC<RouteParams> = ({ id }) => {
   if (result.isLoading || post.isLoading) return <LoadingFullPage />;
 
   if (post.error) {
-    // console.log(post.error);
     return (
       <Error
         errorStatus={post.error.response?.status}
@@ -39,7 +38,6 @@ export const PostPage: FC<RouteParams> = ({ id }) => {
   }
 
   if (result.error) {
-    // console.log(result.error);
     return <Display data={mockBannerInfo} post={post.data!} />;
   }
 
