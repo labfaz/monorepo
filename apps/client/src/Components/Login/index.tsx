@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useContext, useState } from 'react';
 import * as yup from 'yup';
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 
 import { login } from 'Api/Session';
@@ -49,28 +49,27 @@ export interface LoginComponentProps {
 export type FormSubmitFn = (values: FormProps) => any;
 
 export const Login: FC<LoginComponentProps> = ({ buttonType }) => {
+  const queries = useQueries();
   const { setToken } = useContext(CurrentUserTokenContext);
   const [error, setError] = useState<ErrorObject | undefined>(undefined);
   const [toastMessage, setToastMessage] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-
+  const [doRedirect, setDoRedirect] = useState(false);
   const { data: infoData } = useLoginInfo();
-
-  const history = useHistory();
-  const queries = useQueries();
-  const redirect_to = queries.get('redirect_to');
 
   const handleSubmit = useCallback(
     (values: FormProps) => {
       login(values.email, values.password)
         .then(({ token }) => {
           setToken(token);
-          history.push(`/${redirect_to ?? 'home'}`);
+          setDoRedirect(true);
         })
         .catch((err) => [setError(err), setToastMessage(true)]);
     },
-    [setToken, redirect_to, history]
+    [setToken]
   );
+
+  if (doRedirect) return <Redirect to={queries.get('redirect_to') ?? 'home'} />;
 
   return (
     <Container>
