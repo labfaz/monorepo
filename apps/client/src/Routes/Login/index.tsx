@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import { Router } from 'Routes';
 
-const LoginPage = lazy(() => import('./LoginPage'));
+const LoginPage = lazy(() => import('../LoginPage'));
 
 export const Login: Router = ({ match }) => {
   const { path = '/login' } = match ?? {};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import WelcomeComponent from './';
+import WelcomeComponent from '.';
 import { DataObject } from 'Api/AboutUs';
 import { mockImage } from 'Utils/Image';
 

@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import { Router } from 'Routes';
 import usePageview from 'Hooks/usePageView';
-const HomePage = lazy(() => import('./HomePage'));
+const HomePage = lazy(() => import('../HomePage'));
 
 export const Home: Router = ({ match }) => {
   const path = match?.path ?? '';

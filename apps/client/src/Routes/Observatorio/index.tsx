@@ -5,7 +5,7 @@ import { Router } from 'Routes';
 
 import usePageview from 'Hooks/usePageView';
 
-const ObservatorioPage = lazy(() => import('./ObservatorioPage'));
+const ObservatorioPage = lazy(() => import('../ObservatorioPage'));
 
 export const Observatorio: Router = ({ match }) => {
   const { path = '/observatorio' } = match ?? {};
