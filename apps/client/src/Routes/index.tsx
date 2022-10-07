@@ -1,4 +1,4 @@
-import React, { FC, lazy, Suspense } from 'react';
+import React, { FC, Suspense } from 'react';
 import { BrowserRouter, match, Route, Switch } from 'react-router-dom';
 
 import LoadingFullPage from 'Components/LoadingFullPage';
@@ -11,19 +11,19 @@ import {
   showObservatorio,
 } from 'FeatureFlags';
 
-const Home = lazy(() => import('./Home'));
-const Blog = lazy(() => import('./Blog'));
-const Observatorio = lazy(() => import('./Observatorio'));
-const AboutUs = lazy(() => import('./AboutUs'));
-const Classes = lazy(() => import('./Classes'));
-const NotFound = lazy(() => import('../Pages/NotFound'));
-const Register = lazy(() => import('./SignUp'));
-const Login = lazy(() => import('./Login'));
-const EmailConfirmation = lazy(() => import('./ConfirmEmail'));
-const Profile = lazy(() => import('./Profile'));
-const Recover = lazy(() => import('./PasswordRecover'));
-const EditProfile = lazy(() => import('./EditProfile'));
-const UserSearch = lazy(() => import('./UserSearch'));
+import AboutUs from './AboutUs';
+import Blog from './Blog';
+import Classes from './Classes';
+import EmailConfirmation from './ConfirmEmail';
+import EditProfile from './EditProfile';
+import Home from './Home';
+import Login from './Login';
+import Observatorio from './Observatorio';
+import Recover from './PasswordRecover';
+import Profile from './Profile';
+import Register from './SignUp';
+import UserSearch from './UserSearch';
+import NotFound from '../Pages/NotFound';
 
 export type RouterProps<MatchParams = {}> = {
   history?: History;
