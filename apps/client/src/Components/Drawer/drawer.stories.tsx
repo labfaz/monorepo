@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 
 import Drawer from '.';
-import StaffCard from 'Routes/AboutUs/AboutUsPage/StaffComponent/StaffCard';
+import StaffCard from 'Routes/AboutUsPage/StaffComponent/StaffCard';
 import { mockImage } from 'Utils/Image';
 
 const description =

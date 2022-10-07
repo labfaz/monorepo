@@ -5,7 +5,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { Router } from 'Routes';
 
-const EditProfilePage = lazy(() => import('./EditProfilePage'));
+const EditProfilePage = lazy(() => import('../EditProfilePage'));
 
 export const EditProfile: Router = ({ match }) => {
   const { token } = useCurrentUserToken();
