@@ -1,4 +1,4 @@
-import React, { FC, Suspense } from 'react';
+import React, { FC, Suspense, lazy } from 'react';
 import { BrowserRouter, match, Route, Switch } from 'react-router-dom';
 
 import LoadingFullPage from 'Components/LoadingFullPage';
@@ -17,13 +17,13 @@ import Classes from './Classes';
 import EmailConfirmation from './ConfirmEmail';
 import EditProfile from './EditProfile';
 import Home from './Home';
-import Login from './Login';
 import Observatorio from './Observatorio';
 import Recover from './PasswordRecover';
 import Profile from './Profile';
 import Register from './SignUp';
 import UserSearch from './UserSearch';
 import NotFound from '../Pages/NotFound';
+const LoginPage = lazy(() => import('./LoginPage'));
 
 export type RouterProps<MatchParams = {}> = {
   history?: History;
@@ -98,8 +98,8 @@ const Routes: FC = () => {
             </Route>
           )}
 
-          <Route path={['/login', '/SignIn', '/logar', '/entrar']}>
-            {({ match }) => <Login match={match} />}
+          <Route exact path={['/login', '/SignIn', '/logar', '/entrar']}>
+            {() => <LoginPage />}
           </Route>
 
           {/* email confirmation router */}

@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 
-import { Login, LoginComponentProps } from 'Components/Login';
-
 import Wireframe from 'Components/Wireframe';
+import { Login } from 'Components/Login';
 
-export const Display: FC<LoginComponentProps> = ({ onSubmit = () => {} }) => {
+export const Display = () => {
   return (
     <Wireframe>
-      <Login onSubmit={onSubmit} />
+      <Login />
     </Wireframe>
   );
 };

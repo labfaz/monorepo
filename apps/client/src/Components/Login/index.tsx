@@ -42,7 +42,6 @@ interface FormProps {
 }
 
 export interface LoginComponentProps {
-  onSubmit: FormSubmitFn;
   buttonType?: 'submit' | 'button' | 'reset';
 }
 
@@ -61,8 +60,9 @@ export const Login: FC<LoginComponentProps> = ({ buttonType }) => {
     (values: FormProps) => {
       login(values.email, values.password)
         .then(({ token }) => {
-          setToken(token);
+          // A ordem parece errada mas, enfim...
           setDoRedirect(true);
+          setToken(token);
         })
         .catch((err) => [setError(err), setToastMessage(true)]);
     },
@@ -121,7 +121,7 @@ export const Login: FC<LoginComponentProps> = ({ buttonType }) => {
                   </CheckboxInputContainer>
 
                   <ButtonContainer>
-                    <Button type={buttonType ? buttonType : 'submit'}>
+                    <Button type={buttonType || 'submit'}>
                       ENTRAR
                     </Button>
 
