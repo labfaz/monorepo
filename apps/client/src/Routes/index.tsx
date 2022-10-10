@@ -39,12 +39,12 @@ const Routes: FC = () => {
         <Switch>
           {/* default route */}
           <Route exact path="/">
-            {({ match }) => <Home match={match} />}
+            {() => <Home path="/" />}
           </Route>
 
           {/* home router */}
-          <Route path={['/home']}>
-            {({ match }) => <Home match={match} />}
+          <Route exact path="/home">
+            {() => <Home path="/home" />}
           </Route>
 
           {/* blog router */}
@@ -56,7 +56,7 @@ const Routes: FC = () => {
 
           {/* observatorio router */}
           {showObservatorio && (
-            <Route path={['/observatorio']}>
+            <Route path="/observatorio">
               {({ match }) => <Observatorio match={match} />}
             </Route>
           )}
