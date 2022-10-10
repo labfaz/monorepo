@@ -1,10 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Login from './Display';
-
-const mockCallback = () => {};
+import Login from './Login';
 
 storiesOf('Pages/Login', module)
   .addParameters({ component: Login })
-  .add('default', () => <Login onSubmit={mockCallback} buttonType="button" />);
+  .add('default', () => <Login />);

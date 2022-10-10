@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { navLinks } from 'Utils/navLinks';
 
 import render from 'Utils/render';
-import Display from './Display';
+import Display from './Login';
 
 it('renders login component', () => {
   expect(() =>

@@ -20,10 +20,10 @@ import Home from './Home';
 import Observatorio from './Observatorio';
 import Recover from './PasswordRecover';
 import Profile from './Profile';
-import Register from './SignUp';
 import UserSearch from './UserSearch';
 import NotFound from '../Pages/NotFound';
-const LoginPage = lazy(() => import('./LoginPage'));
+const Login = lazy(() => import('./Login'));
+const Register = lazy(() => import('./SignUp'));
 
 export type RouterProps<MatchParams = {}> = {
   history?: History;
@@ -76,16 +76,12 @@ const Routes: FC = () => {
             </Route>
           )}
 
-          <Route
-            path={[
-              '/sign-up',
-              '/signup',
-              '/SignUp',
-              '/cadastro',
-              '/cadastre-se',
-            ]}
-          >
-            {({ match }) => <Register match={match} />}
+          <Route exact path={['/signup', '/cadastro', '/cadastrar']}>
+            {() => <Register />}
+          </Route>
+
+          <Route exact path={['/login', '/logar', '/entrar']}>
+            {() => <Login />}
           </Route>
 
           <Route path={['/perfil', '/profile']}>
@@ -97,10 +93,6 @@ const Routes: FC = () => {
               {({ match }) => <EditProfile match={match} />}
             </Route>
           )}
-
-          <Route exact path={['/login', '/SignIn', '/logar', '/entrar']}>
-            {() => <LoginPage />}
-          </Route>
 
           {/* email confirmation router */}
           <Route path={['/email-confirmation', '/confirmação-email']}>

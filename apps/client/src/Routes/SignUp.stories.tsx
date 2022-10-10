@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import SignUpPage from './Display';
+import SignUpPage from './SignUp';
 
 storiesOf('Pages/SignUp', module)
   .addParameters({ component: SignUpPage })
