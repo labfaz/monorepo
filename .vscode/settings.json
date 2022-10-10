@@ -93,5 +93,9 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "god.tsconfig": "./tsconfig.json",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.tsx": "${capture}.test.tsx,${capture}.stories.tsx,${capture}.style.tsx"
+  },
   // "typescript.tsdk": "node_modules/typescript/lib"
 }
