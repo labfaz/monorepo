@@ -2,7 +2,7 @@ import { Field } from 'formik';
 import styled, { css } from 'styled-components';
 import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
-export const Container = styled.div`
+export const Container = styled.label`
   display: inline-flex;
   cursor: pointer;
 
@@ -57,18 +57,13 @@ export const Container = styled.div`
 
   .checkbox_input::after {
     content: '';
-
     width: 6px;
     height: 6px;
 
     border-radius: 50%;
-
     display: block;
-
     background-color: #fc0061;
-
     transform: scale(0);
-
     transition: transform 0.15s;
   }
 
@@ -76,12 +71,13 @@ export const Container = styled.div`
     transform: scale(1);
   }
 
-  label {
+  span {
     font-weight: 600;
     color: var(--color-text-black);
     display: block;
 
     color: #fafafa;
+    text-decoration: none !important;
 
     line-height: 22px;
 
@@ -105,8 +101,8 @@ export const Container = styled.div`
 
   a {
     font-weight: 600;
-    color: var(--color-text-black);
-    font-size: var(--font-size-small);
+    color: currentColor;
+    font-size: 1em;
     text-decoration: underline;
   }
 `;

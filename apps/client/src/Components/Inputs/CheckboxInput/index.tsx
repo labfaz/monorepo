@@ -27,13 +27,13 @@ export const CheckboxInput: FC<InputProps> = ({
   children,
   ...props
 }) => {
+  let id = `${value}-checkbox`;
+
   return (
-    <Container>
-      <Input type="checkbox" id={value} {...props} value={value} />
-
+    <Container htmlFor={id}>
+      <Input type="checkbox" id={id} {...props} value={value} />
       <div className="checkbox_input"></div>
-
-      <label htmlFor={value}>{children ? children : label}</label>
+      <span>{children ? children : label}</span>
     </Container>
   );
 };
