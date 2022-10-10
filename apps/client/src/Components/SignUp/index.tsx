@@ -8,10 +8,12 @@ interface SingUpProps {
   button_type: 'submit' | 'button' | 'reset';
 }
 
-export const SignUp: FC<SingUpProps> = ({ button_type }) => {
-  if (useMobile())
-    return <Mobile buttonType={button_type ? button_type : 'submit'} />;
-  else return <Web buttonType={button_type ? button_type : 'submit'} />;
+export const SignUp: FC<SingUpProps> = ({ button_type = 'submit' }) => {
+  return useMobile() ? (
+    <Mobile buttonType={button_type} />
+  ) : (
+    <Web buttonType={button_type} />
+  );
 };
 
 export default SignUp;
