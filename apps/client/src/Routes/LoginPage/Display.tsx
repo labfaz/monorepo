@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import Wireframe from 'Components/Wireframe';
 import { Login } from 'Components/Login';
