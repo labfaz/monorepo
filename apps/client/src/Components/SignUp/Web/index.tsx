@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Form, Formik, FormikConfig, FormikValues } from 'formik';
 
 import {
@@ -362,17 +362,15 @@ function FormikStepper({
     children
   ) as React.ReactElement<FormikStepProps>[];
 
+  const history = useHistory();
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];
 
-  const modalRef = useRef<HTMLInputElement | null>(null);
+  const [waitModal, setWaitModal] = useState(false);
+  const [errorModal, setErrorModal] = useState(false);
+  const [emailModal, setEmailModal] = useState(false);
 
   const [error, setError] = useState<ErrorObject | undefined>(undefined);
-  const [errorModal, setErrorModal] = useState(false);
-
-  const history = useHistory();
-
-  const [confirmEmailModal, setConfirmEmailModal] = useState(false);
   const [email, setEmail] = useState('');
 
   const { data: socialNetworks } = useSocialNetworksLabfaz();
@@ -381,77 +379,74 @@ function FormikStepper({
     return step === childrenArray.length - 1;
   }
 
-  const handleRedirect = () => {
-    history.push('/login');
-    // console.log('redirecionado para login')
+  const handleSubmit = (values: any) => {
+    if (isLastStep()) {
+      if (values.other_idiom) {
+        const index = values.artist.technical.idiom.indexOf('Outro');
+        values.artist.technical.idiom.splice(index, 1);
+        values.artist.technical.idiom.push(values.other_idiom);
+        delete values.other_idiom;
+      }
+
+      if (values.other_deficiency) {
+        const index = values.deficiencies.indexOf('Outro');
+        values.deficiencies.splice(index, 1);
+        values.deficiencies.push(values.other_deficiency);
+        delete values.other_deficiency;
+      }
+
+      if (values.artist.other_gender) {
+        values.artist.gender = values.artist.other_gender;
+        delete values.artist.other_gender;
+      }
+
+      if (values.Other_TechnicalArea) {
+        values.artist.technical.areas.name = values.Other_TechnicalArea;
+        delete values.Other_TechnicalArea;
+      }
+
+      delete values.artist.other_gender;
+      delete values.use_terms;
+
+      setWaitModal(true);
+
+      SignUp(values).then(
+        () => {
+          setWaitModal(false);
+          setEmailModal(true);
+          setEmail(values.email);
+        },
+        (err) => {
+          setWaitModal(false);
+          setError(err.message);
+          setErrorModal(true);
+        }
+      );
+    } else {
+      setStep((currentStep) => currentStep + 1);
+    }
   };
 
   return (
     <Formik
       {...props}
       validationSchema={currentChild.props.validationSchema}
-      onSubmit={async (values: any) => {
-        if (isLastStep()) {
-          if (values.other_idiom) {
-            const index = values.artist.technical.idiom.indexOf('Outro');
-
-            values.artist.technical.idiom.splice(index, 1);
-
-            values.artist.technical.idiom.push(values.other_idiom);
-
-            delete values.other_idiom;
-          }
-
-          if (values.other_deficiency) {
-            const index = values.deficiencies.indexOf('Outro');
-
-            values.deficiencies.splice(index, 1);
-
-            values.deficiencies.push(values.other_deficiency);
-
-            delete values.other_deficiency;
-          }
-
-          if (values.artist.other_gender) {
-            values.artist.gender = values.artist.other_gender;
-
-            delete values.artist.other_gender;
-          }
-
-          if (values.Other_TechnicalArea) {
-            values.artist.technical.areas.name = values.Other_TechnicalArea;
-
-            delete values.Other_TechnicalArea;
-          }
-
-          delete values.artist.other_gender;
-
-          delete values.use_terms;
-
-          SignUp(values)
-            .then(() => {
-              setConfirmEmailModal(true);
-              setEmail(values.email);
-            })
-            .catch((err) => [setError(err.message), setErrorModal(true)]);
-        } else {
-          setStep((currentStep) => currentStep + 1);
-        }
-      }}
+      onSubmit={handleSubmit}
     >
       <Form>
-        <ConfirmEmailModal ref={modalRef} isOpen={confirmEmailModal}>
+        <ConfirmEmailModal isOpen={waitModal}>
+          <div className="confirmEmailContainer">
+            <h1>Realizando cadastro...</h1>
+          </div>
+        </ConfirmEmailModal>
+
+        <ConfirmEmailModal isOpen={emailModal}>
           <div className="confirmEmailContainer">
             <h1>Confirme seu email para verificar a conta</h1>
             <h2>
               O email com as instrucoes para ativacao e verificacao da conta
               foram enviados para {email}
             </h2>
-
-            {/* <div className="contact">
-              <label>{socialNetworks?.phone}</label>
-              <label >{socialNetworks?.email}</label>
-            </div> */}
 
             <div className="socialMedias">
               {socialNetworks?.youtube && (
@@ -516,13 +511,13 @@ function FormikStepper({
               )}
             </div>
 
-            <button type="button" onClick={() => handleRedirect()}>
+            <button type="button" onClick={() => history.push('/login')}>
               VOLTAR
             </button>
           </div>
         </ConfirmEmailModal>
 
-        <ErrorModalContainer ref={modalRef} isOpen={errorModal}>
+        <ErrorModalContainer isOpen={errorModal}>
           <div className="errorModalContainer">
             <h1>Ops... algo deu errado</h1>
             <h2>{error}</h2>
