@@ -17,7 +17,7 @@ import {
   SelectContainer,
   PrivacityText,
   InputTextContainer,
-} from './style';
+} from './Step03.style';
 
 export const Step3: FC = () => {
   const { values, setFieldValue } = useFormikContext<any>();

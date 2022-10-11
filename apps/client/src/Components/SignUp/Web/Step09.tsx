@@ -15,7 +15,7 @@ import {
   RightSideContent,
   InputCheckBoxContainer,
   LabelText,
-} from './style';
+} from './Step09.style';
 
 export const Step9: FC = () => {
   return (

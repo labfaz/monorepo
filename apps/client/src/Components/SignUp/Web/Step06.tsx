@@ -17,7 +17,7 @@ import {
   InputRadioContainer,
   InputCheckBoxContainer,
   TextInputContainer,
-} from './style';
+} from './Step06.style';
 
 interface ErrorProps {
   artist: {

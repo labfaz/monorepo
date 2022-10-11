@@ -14,7 +14,7 @@ import {
   InputText,
   CnpjText,
   InputRadioContainer,
-} from './style';
+} from './Step10.style';
 
 interface Step10Props {
   artist: {

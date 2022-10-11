@@ -9,12 +9,11 @@ import {
   Input,
   PasswordInputContainer,
   InputCheckBoxContainer,
-} from './style';
+} from './Step11.style';
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
 
 interface Step11Props {
   profilePicture: string;
-
   use_terms: string;
 }
 

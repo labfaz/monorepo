@@ -10,7 +10,7 @@ import {
   InputRadioContainer,
   InformartionText,
   InputText,
-} from './style';
+} from './Step02.style';
 import { RadioInput } from 'Components/Inputs/RadioInput';
 
 interface ErrorProps {

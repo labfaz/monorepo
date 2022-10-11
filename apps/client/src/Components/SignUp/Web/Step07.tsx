@@ -15,7 +15,7 @@ import {
   SelectContainer,
   FileContainer,
   OtherTechnicalArea,
-} from './style';
+} from './Step07.style';
 
 interface ErrorProps {
   artist: {

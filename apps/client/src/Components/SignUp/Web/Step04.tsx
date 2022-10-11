@@ -18,7 +18,7 @@ import {
   PCDOptions,
   InputRadioContainer,
   FileContainer,
-} from './style';
+} from './Step04.style';
 
 interface ErrorProps {
   deficiencies?: string[];

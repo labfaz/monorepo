@@ -23,15 +23,15 @@ import {
   youtubeUserRegex,
 } from 'Utils/regex';
 
-import { Step1 } from './Step1';
-import { Step2 } from './Step2';
-import { Step3 } from './Step3';
-import { Step4 } from './Step4';
-import { Step5 } from './Step5';
-import { Step6 } from './Step6';
-import { Step7 } from './Step7';
-import { Step8 } from './Step8';
-import { Step9 } from './Step9';
+import { Step1 } from './Step01';
+import { Step2 } from './Step02';
+import { Step3 } from './Step03';
+import { Step4 } from './Step04';
+import { Step5 } from './Step05';
+import { Step6 } from './Step06';
+import { Step7 } from './Step07';
+import { Step8 } from './Step08';
+import { Step9 } from './Step09';
 import { Step10 } from './Step10';
 import { Step11 } from './Step11';
 

@@ -18,7 +18,7 @@ import {
   InputText,
   LeftSelectContainer,
   InputTextContainer,
-} from './style';
+} from './Step01.style';
 import { SelectInput } from 'Components/Inputs/SelectInput';
 import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData';
 
