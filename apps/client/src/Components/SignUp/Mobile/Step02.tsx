@@ -11,7 +11,7 @@ import {
   AvatarInput,
   SelectContainer,
   FileInputContainer,
-} from './style';
+} from './Step02.style';
 
 interface FileProps {
   name: string;

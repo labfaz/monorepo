@@ -9,7 +9,7 @@ import {
   ContentContainer,
   Content,
   InputTextContainer,
-} from './style';
+} from './Step07.style';
 
 export const Step7: FC = () => {
   const { setFieldValue } = useFormikContext();

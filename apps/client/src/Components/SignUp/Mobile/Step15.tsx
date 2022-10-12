@@ -9,7 +9,7 @@ import {
   Content,
   InputText,
   FileContainer,
-} from './style';
+} from './Step15.style';
 import { useFormikContext } from 'formik';
 
 interface ErrorProps {

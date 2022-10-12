@@ -11,7 +11,7 @@ import {
   Button,
   InputCheckbox,
   InputTextContainer,
-} from './style';
+} from './Step18.style';
 
 interface Step18Props {
   profilePicture: string;

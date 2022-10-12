@@ -21,7 +21,7 @@ import {
   InputText,
   InputTextContainer,
   FileContainer,
-} from './style';
+} from './Step12.style';
 
 interface Step12Props {
   deficiencies?: string[];

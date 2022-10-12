@@ -9,7 +9,7 @@ import {
   ContentContainer,
   Content,
   InputRadioContainer,
-} from './style';
+} from './Step04.style';
 
 interface Step4Props {
   artist: {

@@ -19,7 +19,7 @@ import {
   InputCheckbox,
   InputSelect,
   TechnicalContainer,
-} from './style';
+} from './Step16.style';
 
 interface ErrorProps {
   artist: {

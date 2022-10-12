@@ -21,7 +21,7 @@ import {
   InputCheckbox,
   InputText,
   InputTextContainer,
-} from './style';
+} from './Step11.style';
 
 interface Step11Props {
   artist: {

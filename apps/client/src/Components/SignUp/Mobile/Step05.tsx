@@ -7,7 +7,7 @@ import {
   ContentContainer,
   Content,
   InputRadioContainer,
-} from './style';
+} from './Step05.style';
 import { useFormikContext } from 'formik';
 
 interface Step5Props {

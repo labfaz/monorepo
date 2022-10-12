@@ -13,7 +13,7 @@ import {
   InputRadioContainer,
   SelectContainer,
   InputTextContainer,
-} from './style';
+} from './Step09.style';
 import { TextInput } from 'Components/Inputs/TextInput';
 
 export const Step9: FC = () => {

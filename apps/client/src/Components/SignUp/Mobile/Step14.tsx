@@ -9,7 +9,7 @@ import {
   Content,
   InputRadioContainer,
   LabelText,
-} from './style';
+} from './Step14.style';
 
 interface ErrorProps {
   artist: {

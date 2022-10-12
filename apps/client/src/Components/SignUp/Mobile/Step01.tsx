@@ -6,7 +6,7 @@ import {
   Content,
   InputText,
   InputTextContainer,
-} from './style';
+} from './Step01.style';
 
 export const Step1: FC = () => {
   return (

@@ -15,7 +15,7 @@ import {
   CnpjContainer,
   CpnjContent,
   InputText,
-} from './style';
+} from './Step17.style';
 
 interface Step17Props {
   artist: {
