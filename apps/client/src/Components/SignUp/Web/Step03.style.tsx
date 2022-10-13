@@ -7,14 +7,12 @@ import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;
-
   background-color: #111010;
 `;
 
 export const LeftSide = styled.div`
   width: 35.5rem;
   height: 50rem;
-
   border-right: 2px dashed #262626;
 
   ${DesktopSmall(css`
@@ -28,7 +26,6 @@ export const LeftSide = styled.div`
 
 export const LeftSideContent = styled.div`
   margin: 9.6rem 3.3rem 5.2rem 3.3rem;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,9 +51,7 @@ export const AvatarInput = styled.div`
     width: 250px;
     height: 250px;
     border-radius: 50%;
-
     outline: none;
-
     object-fit: cover;
 
     ${DesktopSmall(css`
@@ -65,6 +60,7 @@ export const AvatarInput = styled.div`
     `)}
   }
 `;
+
 export const InputFile = styled(Field)`
   position: relative;
   z-index: -1;
@@ -73,11 +69,8 @@ export const InputFile = styled(Field)`
     width: 12.4rem;
     height: 2.55rem;
     background-color: #ffffff;
-
     padding-left: 0.83rem;
-
     position: relative;
-
     display: flex;
     align-items: center;
 
@@ -86,10 +79,8 @@ export const InputFile = styled(Field)`
       width: 1px;
       height: 22px;
       background-color: #c4c4c4;
-
       right: 3.03rem;
       top: 25%;
-
       z-index: 1;
     }
 
@@ -98,10 +89,8 @@ export const InputFile = styled(Field)`
       z-index: 1;
       width: 24px;
       height: 24px;
-
       right: 0.64rem;
       top: 25%;
-
       pointer-events: none;
     }
 
@@ -123,22 +112,20 @@ export const RightSide = styled.div`
   width: 35.5rem;
   height: 50rem;
 
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
   ${DesktopSmall(css`
     width: 23.8rem;
     height: 33.5rem;
   `)}
-
-  display: flex;
-  flex-direction: column;
-
-  position: relative;
 `;
 
 export const RightSideContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   margin-top: 12rem;
 
   ${DesktopSmall(css`
@@ -162,23 +149,6 @@ export const InputFileText = styled(Text)`
   color: #c4c4c4;
 `;
 
-export const PrivacityText = styled(Text)`
-  width: 27rem;
-  font-size: var(--font-size-small);
-  line-height: 16px;
-
-  color: #fafafa;
-
-  ${DesktopSmall(css`
-    width: 18rem;
-
-    font-size: 9px;
-
-    margin-top: 1rem;
-  `)}
-
-  margin-top: 2.5rem;
-`;
 export const InputTextContainer = styled.div`
   margin-bottom: 4rem;
 

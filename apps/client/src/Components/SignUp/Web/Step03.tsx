@@ -26,7 +26,7 @@ export const Step3: FC = () => {
     { value: 'nome', label: values.artist.name },
     { value: 'nome social', label: values.artist.social_name },
     { value: 'nome artistico', label: values.artist.artistic_name },
-  ];
+  ].filter((name) => name.label.trim());
 
   return (
     <Container>
@@ -127,15 +127,6 @@ export const Step3: FC = () => {
               label="YouTube"
               placeholder="@seuyoutube"
             />
-          </div>
-
-          <div>
-            <PrivacityText>
-              Paragrafo informando sobre a privacidade dos dados inseridos nessa
-              etapa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-              Aenean commodo ligula eget dolor,dolor sit amet, consectetuer
-              adipiscing elit. Aenean commodo ligula eget dolor.
-            </PrivacityText>
           </div>
         </RightSideContent>
       </RightSide>
