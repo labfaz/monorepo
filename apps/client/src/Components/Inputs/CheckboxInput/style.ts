@@ -43,7 +43,7 @@ export const Container = styled.label`
     border: 1px solid rgba(250, 250, 250, 0.7);
 
     ${Mobile(css`
-      width: 30px;
+      width: 20px;
       height: 20px;
       padding: 7px;
     `)}

@@ -383,7 +383,7 @@ export const CheckboxInputContainer = styled.div`
 
   div .checkbox_input {
     ${Mobile(css`
-      width: 22px;
+      width: 20px;
       height: 20px;
     `)}
   }
