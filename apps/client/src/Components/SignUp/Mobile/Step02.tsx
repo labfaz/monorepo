@@ -36,7 +36,7 @@ export const Step2: FC = () => {
     { value: 'nome', label: values.artist?.name },
     { value: 'nome social', label: values.artist?.social_name },
     { value: 'nome artistico', label: values.artist?.artistic_name },
-  ];
+  ].filter((name) => name.label.trim());
 
   return (
     <Container>
