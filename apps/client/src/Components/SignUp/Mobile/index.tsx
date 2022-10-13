@@ -35,10 +35,8 @@ import { Step18 } from './Step18';
 import {
   FormTitle,
   FormContainer,
-  NextButton,
+  FormButton,
   SessionContainer,
-  BackButton,
-  // SignUpText,
   ButtonContainer,
   FormHeader,
   RightSession,
@@ -486,38 +484,29 @@ function FormikStepper({
         if (isLastStep()) {
           if (values.other_idiom) {
             const index = values.artist.technical.idiom.indexOf('Outro');
-
             values.artist.technical.idiom.splice(index, 1);
-
             values.artist.technical.idiom.push(values.other_idiom);
-
             delete values.other_idiom;
           }
 
           if (values.other_deficiency) {
             const index = values.deficiencies.indexOf('Outro');
-
             values.deficiencies.splice(index, 1);
-
             values.deficiencies.push(values.other_deficiency);
-
             delete values.other_deficiency;
           }
 
           if (values.artist.other_gender) {
             values.artist.gender = values.artist.other_gender;
-
             delete values.artist.other_gender;
           }
 
           if (values.Other_TechnicalArea) {
             values.artist.technical.areas.name = values.Other_TechnicalArea;
-
             delete values.Other_TechnicalArea;
           }
 
           delete values.artist.other_gender;
-
           delete values.use_terms;
 
           SignUp(values)
@@ -526,8 +515,6 @@ function FormikStepper({
               setEmail(values.email);
             })
             .catch((err) => [setError(err.message), setErrorModal(true)]);
-
-          // console.log(values)
         } else {
           setStep((currentStep) => currentStep + 1);
         }
@@ -545,11 +532,6 @@ function FormikStepper({
                     O email com as instrucoes para ativacao e verificacao da
                     conta foram enviados para {email}
                   </h2>
-
-                  {/* <div className="contact">
-                    <label>{socialNetworks?.phone}</label>
-                    <label>{socialNetworks?.email}</label>
-                  </div> */}
 
                   <div className="socialMedias">
                     {socialNetworks?.youtube && (
@@ -636,44 +618,33 @@ function FormikStepper({
 
               {currentChild}
 
-              <ButtonContainer currentStep={step}>
+              <ButtonContainer lastStep={isLastStep()}>
                 {step > 0 && (
-                  <BackButton
+                  <FormButton
                     type="button"
                     onClick={() => setStep((currentStep) => currentStep - 1)}
                   >
                     VOLTAR
-                  </BackButton>
+                  </FormButton>
                 )}
-                <NextButton
+                <FormButton
                   type={
                     isLastStep() ? props.initialValues.buttonType : 'submit'
                   }
                   onClick={() => handleScroll()}
                 >
                   {isLastStep() ? 'FINALIZAR' : 'AVANÇAR'}
-                </NextButton>
+                </FormButton>
               </ButtonContainer>
             </div>
-            <RightSession currentStep={step}>
+            <RightSession currentStep={step} lastStep={isLastStep()}>
               <div className="sessionContainer">
-                <div className={`formSession ${0 < step && 'checked'}`}></div>
-                <div className={`formSession ${1 < step && 'checked'}`}></div>
-                <div className={`formSession ${2 < step && 'checked'}`}></div>
-                <div className={`formSession ${3 < step && 'checked'}`}></div>
-                <div className={`formSession ${4 < step && 'checked'}`}></div>
-                <div className={`formSession ${5 < step && 'checked'}`}></div>
-                <div className={`formSession ${6 < step && 'checked'}`}></div>
-                <div className={`formSession ${7 < step && 'checked'}`}></div>
-                <div className={`formSession ${8 < step && 'checked'}`}></div>
-                <div className={`formSession ${9 < step && 'checked'}`}></div>
-                <div className={`formSession ${10 < step && 'checked'}`}></div>
-                <div className={`formSession ${11 < step && 'checked'}`}></div>
-                <div className={`formSession ${12 < step && 'checked'}`}></div>
-                <div className={`formSession ${13 < step && 'checked'}`}></div>
-                <div className={`formSession ${14 < step && 'checked'}`}></div>
-                <div className={`formSession ${15 < step && 'checked'}`}></div>
-                <div className={`formSession ${16 <= step && 'checked'}`}></div>
+                {[...Array(childrenArray.length - 1)].map((_, idx) => (
+                  <div
+                    key={idx}
+                    className={`formSession ${idx < step && 'checked'}`}
+                  />
+                ))}
               </div>
             </RightSession>
           </FormContainer>

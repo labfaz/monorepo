@@ -8,6 +8,15 @@ interface StepProps {
   currentStep: number;
 }
 
+interface ButtonProps {
+  lastStep: boolean;
+}
+
+interface SessionProps {
+  currentStep: number;
+  lastStep: boolean;
+}
+
 interface ModalProps {
   isOpen: boolean;
 }
@@ -21,9 +30,7 @@ export const SessionContainer = styled.div``;
 
 export const FormContainer = styled.div<StepProps>`
   display: flex;
-
   justify-content: space-between;
-
   position: relative;
 
   .form {
@@ -31,14 +38,12 @@ export const FormContainer = styled.div<StepProps>`
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 88vw;
-
     flex-direction: column;
   }
 `;
 
-export const NextButton = styled.button`
+export const FormButton = styled.button`
   border: 0;
   background-color: #fc0061;
   color: rgba(250, 250, 250, 0.7);
@@ -49,17 +54,8 @@ export const NextButton = styled.button`
   font-size: var(--font-size-large);
   font-weight: 700;
 `;
-export const BackButton = styled.button`
-  width: 6.5rem;
-  height: 2.2rem;
-  border: 0;
-  background-color: #fc0061;
-  color: rgba(250, 250, 250, 0.7);
-  cursor: pointer;
-  font-size: var(--font-size-large);
-  font-weight: 700;
-`;
-export const RightSession = styled.div<StepProps>`
+
+export const RightSession = styled.div<SessionProps>`
   background-color: #111010;
 
   .sessionContainer {
@@ -89,8 +85,8 @@ export const RightSession = styled.div<StepProps>`
 
     &:nth-child(${({ currentStep }) => currentStep}) {
       background-color: #2daf2f;
-      border-radius: ${({ currentStep }) =>
-        currentStep === 16 ? '0px 0px 0px 0px' : '0px 0px 50px 50px'};
+      border-radius: ${({ lastStep }) =>
+        lastStep ? '0px 0px 0px 0px' : '0px 0px 50px 50px'};
 
       label {
         color: #fafafa;
@@ -103,11 +99,9 @@ export const RightSession = styled.div<StepProps>`
   }
 `;
 
-export const ButtonContainer = styled.div<StepProps>`
-  display: ${({ currentStep }) => (currentStep === 16 ? 'none' : 'flex')};
-
+export const ButtonContainer = styled.div<ButtonProps>`
+  display: ${({ lastStep }) => (lastStep ? 'none' : 'flex')};
   column-gap: 2.1rem;
-
   margin: 2rem 0;
 `;
 
