@@ -35,8 +35,6 @@ export const Box = styled.div`
   height: 50rem;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
-
-  border-right: 2px dashed #262626;
   margin: 2.27rem 3.3rem 6.2rem 3.3rem;
 
   ${DesktopSmall(css`
@@ -49,6 +47,7 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 export const PCDOptions = styled.div`
   display: flex;
   gap: 1rem;
