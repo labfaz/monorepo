@@ -15,7 +15,6 @@ import {
   FormInputText,
   AvatarInput,
   SelectContainer,
-  PrivacityText,
   InputTextContainer,
 } from './Step03.style';
 
