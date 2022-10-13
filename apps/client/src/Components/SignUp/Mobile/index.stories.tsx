@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Mobile } from './';
+import { Mobile } from '.';
 
 storiesOf('Components/SignUp', module)
   .addParameters({ component: Mobile })
