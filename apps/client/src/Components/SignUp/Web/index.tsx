@@ -133,6 +133,7 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
       >
         <FormikStep
           validationSchema={yup.object({
+            use_terms: yup.string().required('Termos de uso obrigatório'),
             artist: yup.object({
               name: yup.string().required('Nome obrigatório'),
               social_name: yup.string(),
@@ -337,7 +338,6 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
                   .string()
                   .oneOf([yup.ref('password')], 'Senhas não são iguais.'),
               }),
-            use_terms: yup.string().required('Termos de uso obrigatório'),
           })}
         >
           <Step11 />

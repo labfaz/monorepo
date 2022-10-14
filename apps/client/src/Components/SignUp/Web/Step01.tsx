@@ -19,11 +19,16 @@ import {
   LeftSelectContainer,
   InputTextContainer,
 } from './Step01.style';
+
+import { InputCheckBoxContainer } from './Step11.style';
+import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+
 import { SelectInput } from 'Components/Inputs/SelectInput';
 import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData';
 
 export const Step1: FC = () => {
-  const { values, setFieldValue } = useFormikContext<any>();
+  const { values, setFieldValue, errors } = useFormikContext<any>();
+
   const checkCEP = (cep: string) => {
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
       .then((res) => res.json())
@@ -122,6 +127,23 @@ export const Step1: FC = () => {
               />
             </InputTextContainer>
           </div>
+          <InputCheckBoxContainer>
+            <CheckboxInput type="checkbox" name="use_terms" value="sim">
+              Li e concordo com os{' '}
+              <a
+                href="/politica-de-privacidade.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                Termos de Uso
+              </a>{' '}
+              e estou ciente e autorizo que os meus dado sejam usados única e
+              exclusivamente para o projeto LabFaz.
+            </CheckboxInput>
+            {errors.use_terms && (
+              <span className="errorMessage">{errors.use_terms}</span>
+            )}
+          </InputCheckBoxContainer>
         </LeftSideContent>
       </LeftSide>
 

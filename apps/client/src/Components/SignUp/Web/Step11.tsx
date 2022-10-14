@@ -8,9 +8,7 @@ import {
   AvatarInput,
   Input,
   PasswordInputContainer,
-  InputCheckBoxContainer,
 } from './Step11.style';
-import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
 
 interface Step11Props {
   profilePicture: string;
@@ -51,25 +49,6 @@ export const Step11: FC = () => {
               obrigatory
             />
           </PasswordInputContainer>
-
-          <InputCheckBoxContainer>
-            <CheckboxInput type="checkbox" name="use_terms" value="sim">
-              Li e concordo com os
-              <a
-                href="/politica-de-privacidade.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                {' '}
-                Termos de Uso{' '}
-              </a>
-              e estou ciente e autorizo que os meus dado sejam usados única e
-              exclusivamente para o projeto LabFaz.
-            </CheckboxInput>
-            {errors.use_terms && (
-              <span className="errorMessage">{errors.use_terms}</span>
-            )}
-          </InputCheckBoxContainer>
         </Content>
       </div>
     </Container>
