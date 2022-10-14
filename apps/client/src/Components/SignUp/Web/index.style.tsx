@@ -13,7 +13,6 @@ interface ModalProps {
 
 export const Container = styled.div`
   position: relative;
-
   background-color: black;
   padding-top: 2rem;
 
@@ -21,6 +20,7 @@ export const Container = styled.div`
     padding-top: 3.91rem;
   `)}
 `;
+
 export const FormTitle = styled(Title)`
   font-size: var(--font-size-title-xlarge);
   color: #fc0061;
@@ -84,9 +84,7 @@ export const NextButton = styled.button`
   ${DesktopSmall(css`
     width: 6.5rem;
     height: 1.48rem;
-
     font-size: var(--font-size-short);
-
     right: 4rem;
   `)}
 `;
@@ -99,23 +97,19 @@ export const BackButton = styled.button`
   cursor: pointer;
   font-size: var(--font-size-large);
   font-weight: 700;
-
   z-index: 2;
-
   position: absolute;
-
   left: 2.6rem;
   bottom: 2.2rem;
 
   ${DesktopSmall(css`
     width: 6.5rem;
     height: 1.48rem;
-
     left: 1.78rem;
-
     font-size: var(--font-size-short);
   `)}
 `;
+
 export const RightSession = styled.div<StepProps>`
   display: flex;
 
@@ -123,17 +117,14 @@ export const RightSession = styled.div<StepProps>`
     display: flex;
     flex-direction: column;
     row-gap: 1.25rem;
-
     margin-top: 1.36rem;
   }
 
   .formSession {
     width: 3.33rem;
     height: 5.68rem;
-
     border-left: 5px solid rgba(17, 16, 16, 0.5);
     border-radius: 0px 7px 7px 0px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -220,40 +211,27 @@ export const RightSession = styled.div<StepProps>`
 
 export const ErrorModalContainer = styled.div<ModalProps>`
   position: absolute;
-
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-
   align-items: center;
   justify-content: center;
-
   width: 100%;
   height: 90%;
-
   z-index: 10;
-
   background: rgba(196, 196, 196, 0);
   backdrop-filter: blur(1.5px);
-
   touch-action: none;
 
   .errorModalContainer {
     background-color: #202020;
-
     position: relative;
-
     color: #fafafa;
-
     padding: 0 4.2rem;
-
     width: 36rem;
     height: 39.3rem;
-
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-
     border: 5px solid rgba(40, 40, 40, 0.5);
     box-sizing: border-box;
     box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.8),
@@ -325,38 +303,26 @@ export const ErrorModalContainer = styled.div<ModalProps>`
 
 export const ConfirmEmailModal = styled.div<ModalProps>`
   position: absolute;
-
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-
   align-items: center;
   justify-content: center;
-
   width: 100%;
   height: 90%;
-
   z-index: 10;
-
   background: rgba(196, 196, 196, 0);
   backdrop-filter: blur(1.5px);
-
   touch-action: none;
 
   .confirmEmailContainer {
     background-color: #202020;
-
     color: #fafafa;
-
     padding: 0 4.2rem;
-
     width: 36rem;
     height: 39.3rem;
-
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-
     border: 5px solid rgba(40, 40, 40, 0.5);
     box-sizing: border-box;
     box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.8),
@@ -409,7 +375,6 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
     display: flex;
     flex-direction: column;
     align-items: center;
-
     margin-bottom: 3.3rem;
 
     ${DesktopSmall(css`
@@ -420,7 +385,6 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
   .socialMedias {
     margin-bottom: 3.3rem;
     display: flex;
-
     column-gap: 0.5rem;
 
     svg {
@@ -437,14 +401,11 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
   button {
     width: 21rem;
     height: 2.7rem;
-
     border: 0;
     background: #fc0061;
     box-shadow: inset 0px 0px 3px #000000;
     border-radius: 2px;
-
     cursor: pointer;
-
     color: #ffec99;
 
     ${DesktopSmall(css`
