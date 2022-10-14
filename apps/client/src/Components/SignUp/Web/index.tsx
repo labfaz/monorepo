@@ -45,7 +45,7 @@ import {
   SessionContainer,
   ConfirmEmailModal,
   ErrorModalContainer,
-} from './style';
+} from './index.style';
 import { useSocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
 import { useHistory } from 'react-router';
 import { ErrorObject } from 'Api';
