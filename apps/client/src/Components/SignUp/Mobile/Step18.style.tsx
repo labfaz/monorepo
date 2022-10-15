@@ -64,8 +64,8 @@ export const Button = styled.button`
 `;
 
 export const InputCheckBoxContainer = styled.div`
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
   margin-bottom: 1.2rem;
 
   width: 14.5rem;
@@ -82,16 +82,11 @@ export const InputCheckBoxContainer = styled.div`
 
   a {
     font-weight: 600;
-    font-size: var(--font-size-small);
-    color: #ffffff;
+    color: currentColor;
   }
 
   .errorMessage {
     color: red;
-    position: absolute;
-    left: 2.4rem;
-    top: 2.8rem;
-
     font-size: var(--font-size-small);
   }
 `;

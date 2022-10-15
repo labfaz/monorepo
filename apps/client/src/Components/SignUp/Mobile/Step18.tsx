@@ -7,9 +7,7 @@ import {
   Content,
   AvatarInput,
   Input,
-  InputCheckBoxContainer,
   Button,
-  InputCheckbox,
   InputTextContainer,
 } from './Step18.style';
 
@@ -22,7 +20,7 @@ interface Step18Props {
 }
 
 export const Step18: FC = () => {
-  const { values, errors } = useFormikContext<Step18Props>();
+  const { values } = useFormikContext<Step18Props>();
 
   return (
     <Container>
@@ -55,26 +53,6 @@ export const Step18: FC = () => {
               obrigatory
             />
           </InputTextContainer>
-
-          <InputCheckBoxContainer>
-            <InputCheckbox type="checkbox" name="use_terms" value="sim">
-              Li e concordo com os{' '}
-              <a
-                href="/politica-de-privacidade.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                Termos de Uso
-              </a>{' '}
-              e estou ciente e autorizo que os meus dado sejam usados única e
-              exclusivamente para o projeto LabFaz.
-            </InputCheckbox>
-
-            {errors.use_term && (
-              <span className="errorMessage">{errors.use_term}</span>
-            )}
-          </InputCheckBoxContainer>
-
           <Button type="submit">FINALIZAR REGISTRO</Button>
         </Content>
       </ContentContainer>

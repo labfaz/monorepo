@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
 
 import {
   Container,
@@ -8,7 +9,24 @@ import {
   InputTextContainer,
 } from './Step01.style';
 
+import {
+  InputCheckBoxContainer,
+  InputCheckbox,
+} from './Step18.style';
+
+interface Step01Props {
+  use_terms: string;
+
+  artist: {
+    name: string,
+    social_name: string,
+    artistic_name: string,
+  };
+}
+
 export const Step1: FC = () => {
+  const { errors } = useFormikContext<Step01Props>();
+
   return (
     <Container>
       <ContentContainer>
@@ -38,6 +56,25 @@ export const Step1: FC = () => {
               placeholder="Digite seu nome artistico"
             />
           </InputTextContainer>
+
+          <InputCheckBoxContainer>
+            <InputCheckbox type="checkbox" name="use_terms" value="sim">
+              Li e concordo com os{' '}
+              <a
+                href="/politica-de-privacidade.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                Termos de Uso
+              </a>{' '}
+              e estou ciente e autorizo que os meus dado sejam usados única e
+              exclusivamente para o projeto LabFaz.
+            </InputCheckbox>
+
+            {errors.use_terms && (
+              <span className="errorMessage">{errors.use_terms}</span>
+            )}
+          </InputCheckBoxContainer>
         </Content>
       </ContentContainer>
     </Container>
