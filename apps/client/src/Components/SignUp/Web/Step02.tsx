@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
 import {
   Container,
@@ -22,7 +23,16 @@ interface ErrorProps {
   };
 }
 
-export const Step2: FC = () => {
+export const schemaStep02 = yup.object({
+  artist: yup.object({
+    gender: yup.string().required('Campo obrigatório'),
+    race: yup.string().required('Campo obrigatório'),
+    sexual_orientation: yup.string().required('Campo obrigatório'),
+    gender_specific: yup.string().required('Campo obrigatório'),
+  }),
+});
+
+export const Step02: FC = () => {
   const { values, errors } = useFormikContext<ErrorProps>();
 
   return (

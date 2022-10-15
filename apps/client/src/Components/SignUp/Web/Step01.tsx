@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
 import { RadioInput } from 'Components/Inputs/RadioInput';
 import { TextInput } from 'Components/Inputs/TextInput';
@@ -26,7 +27,42 @@ import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
 import { SelectInput } from 'Components/Inputs/SelectInput';
 import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData';
 
-export const Step1: FC = () => {
+export const schemaStep01 = yup.object({
+  use_terms: yup.string().required('Termos de uso obrigatório'),
+  artist: yup.object({
+    name: yup.string().required('Nome obrigatório'),
+    social_name: yup.string(),
+    artistic_name: yup.string(),
+    cpf: yup
+      .string()
+      // .required('Cpf obrigatório')
+      .min(11, 'Cpf incompleto'),
+    birthday: yup
+      .string()
+      .required('Data de nascimento obrigatório')
+      .min(8, 'Data incompleta'),
+    rg: yup
+      .string()
+      // .required('Rg é obrigatório')
+      .min(7, 'Rg incompleto'),
+    expedition_department: yup.string(),
+    // .required('Orgão expedidor obrigatório')
+    address: yup.object({
+      cep: yup.string(), //.required('CEP obrigatório'),
+      neighbourhood: yup.string(), //.required('Bairro obrigatório'),
+      number: yup.string(), //.required('Número obrigatório'),
+      complement: yup.string(), //.required('Endereço obrigatório'),
+      residency: yup.string().required('Campo obrigatório'),
+      state: yup
+        .string()
+        // .required('Estado obrigatório')
+        .default('null'),
+      city: yup.string().required('Cidade obrigatória'),
+    }),
+  }),
+});
+
+export const Step01: FC = () => {
   const { values, setFieldValue, errors } = useFormikContext<any>();
 
   const checkCEP = (cep: string) => {

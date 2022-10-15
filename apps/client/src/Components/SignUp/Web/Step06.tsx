@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
 import { TextInput } from 'Components/Inputs/TextInput';
@@ -28,7 +29,16 @@ interface ErrorProps {
   };
 }
 
-export const Step6: FC = () => {
+export const schemaStep06 = yup.object({
+  artist: yup.object({
+    technical: yup.object({
+      formation: yup.string().required('Formação obrigatória'),
+      idiom: yup.array(),
+    }),
+  }),
+});
+
+export const Step06: FC = () => {
   const { values, errors } = useFormikContext<ErrorProps>();
 
   return (

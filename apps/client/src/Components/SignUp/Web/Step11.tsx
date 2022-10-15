@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import * as yup from 'yup';
 
 import { useFormikContext } from 'formik';
 
@@ -15,8 +16,24 @@ interface Step11Props {
   use_terms: string;
 }
 
+export const schemaStep11 = yup.object({
+  password: yup
+    .string()
+    .required('Senha obrigatória')
+    .min(6, 'Senha no minimo 6 digítos'),
+  confirm_password: yup
+    .string()
+    .required('Confirmação obrigatória')
+    .when('password', {
+      is: (val) => (val && val.length > 0 ? true : false),
+      then: yup
+        .string()
+        .oneOf([yup.ref('password')], 'Senhas não são iguais.'),
+    }),
+});
+
 export const Step11: FC = () => {
-  const { values, errors } = useFormikContext<Step11Props>();
+  const { values } = useFormikContext<Step11Props>();
 
   return (
     <Container>

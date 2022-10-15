@@ -1,5 +1,6 @@
 import { useFormikContext } from 'formik';
 import React, { FC } from 'react';
+import * as yup from 'yup';
 
 import { Container, Content, TextLabel, InputText } from './Step08.style';
 
@@ -13,7 +14,17 @@ interface ErrorProps {
   };
 }
 
-export const Step8: FC = () => {
+export const schemaStep08 = yup.object({
+  artist: yup.object({
+    technical: yup.object({
+      areas: yup.object({
+        describe: yup.string().required('Descrição obrigatória'),
+      }),
+    }),
+  }),
+});
+
+export const Step08: FC = () => {
   const { errors } = useFormikContext<ErrorProps>();
 
   return (

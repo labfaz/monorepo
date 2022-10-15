@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
 import { TextInput } from 'Components/Inputs/TextInput';
 import { RadioInput } from 'Components/Inputs/RadioInput';
 import { FileInput } from 'Components/Inputs/FileInput';
+import { curriculumMaxSize } from 'Utils/userUtils';
 
 import {
   Container,
@@ -29,7 +31,26 @@ interface ErrorProps {
   };
 }
 
-export const Step7: FC = () => {
+export const schemaStep07 = yup.object({
+  curriculum: yup
+    .mixed()
+    .test(
+      'fileSize',
+      'Arquivo muito grande',
+      (value) => value === null || (value && value.size <= curriculumMaxSize)
+    ),
+  artist: yup.object({
+    technical: yup.object({
+      areas: yup.object({
+        technical_formation: yup.string().required('Campo obrigatório'),
+        name: yup.string().required('Campo obrigatório'),
+        started_year: yup.string().required('Campo obrigatório'),
+      }),
+    }),
+  }),
+});
+
+export const Step07: FC = () => {
   const { values, errors } = useFormikContext<ErrorProps>();
 
   return (

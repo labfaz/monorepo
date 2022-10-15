@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
 import { RadioInput } from 'Components/Inputs/RadioInput';
 
@@ -33,6 +34,16 @@ interface Step10Props {
   company_name: string;
   cnpj_number: string;
 }
+
+export const schemaStep10 = yup.object({
+  artist: yup.object({
+    technical: yup.object({
+      is_drt: yup.boolean().required('Campo obrigatório'),
+      is_ceac: yup.boolean().required('Campo obrigatório'),
+      is_cnpj: yup.boolean().required('Campo obrigatório'),
+    }),
+  }),
+});
 
 export const Step10: FC = () => {
   const { values, setFieldValue, errors } = useFormikContext<Step10Props>();

@@ -17,7 +17,7 @@ import {
   LabelText,
 } from './Step09.style';
 
-export const Step9: FC = () => {
+export const Step09: FC = () => {
   return (
     <Container>
       <LeftSide>

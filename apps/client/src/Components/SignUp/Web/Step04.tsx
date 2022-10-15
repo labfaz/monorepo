@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 import { RadioInput } from 'Components/Inputs/RadioInput';
 
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
@@ -25,7 +26,13 @@ interface ErrorProps {
   isPcd?: string;
 }
 
-export const Step4: FC = () => {
+export const schemaStep04 = yup.object({
+  isPcd: yup.boolean(),
+  deficiencies: yup.array(),
+  medicalReport: yup.string().nullable(),
+});
+
+export const Step04: FC = () => {
   const { values } = useFormikContext<ErrorProps>();
 
   return (
