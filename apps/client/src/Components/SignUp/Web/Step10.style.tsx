@@ -109,21 +109,6 @@ export const InputText = styled(TextInput)`
   right: 0;
 `;
 
-export const CnpjText = styled(TextInput)`
-  top: 75%;
-
-  ${DesktopSmall(css`
-    label {
-      font-size: var(--font-size-small);
-    }
-
-    top: 75%;
-  `)}
-
-  position: absolute;
-  right: 0;
-`;
-
 export const TextInputContainer = styled.div`
   margin-top: 3.55rem;
 

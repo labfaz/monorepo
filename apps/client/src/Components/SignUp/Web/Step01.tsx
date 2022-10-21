@@ -17,9 +17,12 @@ import {
   InputRadioContainer,
   SelectContainer,
   InputText,
-  LeftSelectContainer,
   InputTextContainer,
 } from './Step01.style';
+
+import {
+  LeftSelectContainer,
+} from "./all.style";
 
 import { InputCheckBoxContainer } from './Step11.style';
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';

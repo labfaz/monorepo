@@ -134,13 +134,3 @@ export const FileContainer = styled.div`
     margin-top: 0.5rem;
   `)}
 `;
-
-export const OtherTechnicalArea = styled(TextInput)`
-  margin-top: 1.5rem;
-
-  ${DesktopSmall(css`
-    position: absolute;
-    bottom: 4.5rem;
-    right: 1rem;
-  `)}
-`;

@@ -7,9 +7,13 @@ import {
   Container,
   Content,
   AvatarInput,
-  Input,
-  PasswordInputContainer,
 } from './Step11.style';
+
+import {  
+  PasswordInputContainer,
+  Input,
+} from "./all.style";
+
 
 interface Step11Props {
   profilePicture: string;

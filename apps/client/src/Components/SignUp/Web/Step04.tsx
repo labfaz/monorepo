@@ -10,16 +10,19 @@ import { deficiencyOptions } from 'Utils/selectOptionsData';
 
 import {
   Container,
-  Box,
-  BoxContent,
-  DeficiencyContainer,
   LabelText,
   InputCheckBoxContainer,
   TextInputContainer,
-  PCDOptions,
   InputRadioContainer,
   FileContainer,
 } from './Step04.style';
+
+import {
+  Box,
+  PCDOptions,
+  BoxContent,
+  DeficiencyContainer,
+} from "./all.style";
 
 interface ErrorProps {
   deficiencies?: string[];

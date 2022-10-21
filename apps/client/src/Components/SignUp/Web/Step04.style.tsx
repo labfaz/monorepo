@@ -30,40 +30,6 @@ export const LabelText = styled(Text)`
   `)}
 `;
 
-export const Box = styled.div`
-  width: 71rem;
-  height: 50rem;
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  margin: 2.27rem 3.3rem 6.2rem 3.3rem;
-
-  ${DesktopSmall(css`
-    width: 47.6rem;
-    height: 33.5rem;
-
-    margin: 1.52rem 4.09rem 3.2rem 2.23rem;
-  `)}
-
-  display: flex;
-  flex-direction: column;
-`;
-
-export const PCDOptions = styled.div`
-  display: flex;
-  gap: 1rem;
-`;
-
-export const BoxContent = styled.div`
-  display: grid;
-  height: 80%;
-  grid-template-rows: auto 1fr;
-`;
-
-export const DeficiencyContainer = styled.div`
-  display: grid;
-  // grid-template-columns: 1fr 1fr;
-`;
-
 export const InputCheckBox = styled(Field)`
   margin-right: 1.6rem;
 

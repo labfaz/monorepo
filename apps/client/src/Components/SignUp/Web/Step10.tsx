@@ -13,9 +13,12 @@ import {
   RightSide,
   RightSideContent,
   InputText,
-  CnpjText,
   InputRadioContainer,
 } from './Step10.style';
+
+import {  
+  CnpjText,
+} from "./all.style";
 
 interface Step10Props {
   artist: {

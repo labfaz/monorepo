@@ -1,7 +1,4 @@
 import styled, { css } from 'styled-components';
-
-import { PasswordInput } from 'Components/Inputs/PasswordInput';
-
 import { DesktopSmall } from 'Utils/breakpoints';
 
 export const Container = styled.div`
@@ -27,21 +24,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-export const Input = styled(PasswordInput)`
-  input {
-    width: 21.7rem;
-
-    ${DesktopSmall(css`
-      width: 14.48rem;
-      font-size: var(--font-size-short);
-
-      &::placeholder {
-        font-size: var(--font-size-short);
-      }
-    `)}
-  }
 `;
 
 export const AvatarInput = styled.div`
@@ -70,14 +52,6 @@ export const AvatarInput = styled.div`
       height: 166px;
     `)}
   }
-`;
-
-export const PasswordInputContainer = styled.div`
-  margin-bottom: 3.5rem;
-
-  ${DesktopSmall(css`
-    margin-bottom: 2rem;
-  `)}
 `;
 
 export const InputCheckBoxContainer = styled.div`

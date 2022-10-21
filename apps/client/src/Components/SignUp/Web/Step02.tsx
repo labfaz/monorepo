@@ -9,9 +9,13 @@ import {
   RightSide,
   RightSideContent,
   InputRadioContainer,
-  InformartionText,
   InputText,
 } from './Step02.style';
+
+import {
+  InformartionText,
+} from "./all.style";
+
 import { RadioInput } from 'Components/Inputs/RadioInput';
 
 interface ErrorProps {

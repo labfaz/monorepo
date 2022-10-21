@@ -28,17 +28,18 @@ import {
   FaInstagramSquare,
 } from 'react-icons/fa';
 
+import { Container } from './index.style';
+
 import {
-  Container,
   FormTitle,
+  SessionContainer,
   FormContainer,
   NextButton,
   BackButton,
   RightSession,
-  SessionContainer,
-  ConfirmEmailModal,
   ErrorModalContainer,
-} from './index.style';
+  ConfirmEmailModal,
+} from './all.style';
 
 interface ButtonProps {
   buttonType: 'button' | 'submit' | 'reset' | undefined;

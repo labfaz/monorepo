@@ -16,8 +16,11 @@ import {
   InputRadioContainer,
   SelectContainer,
   FileContainer,
-  OtherTechnicalArea,
 } from './Step07.style';
+
+import {
+  OtherTechnicalArea,
+} from "./all.style";
 
 interface ErrorProps {
   artist: {

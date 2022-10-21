@@ -169,19 +169,4 @@ export const InputRadioContainer = styled.div`
   }
 `;
 
-export const InformartionText = styled(Text)`
-  font-size: var(--font-size-small);
-  width: 26rem;
-
-  color: #fafafa;
-
-  line-height: 16px;
-
-  margin-left: 2.2rem;
-
-  ${DesktopSmall(css`
-    display: none;
-  `)}
-`;
-
 export const InputText = styled(TextInput)``;
