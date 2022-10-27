@@ -417,7 +417,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
               .min(6, 'Senha no minimo 6 digítos'),
             confirm_password: yup
               .string()
-              .required('Confirme password')
+              .required('Confirme sua senha')
               .when('password', {
                 is: (val) => (val && val.length > 0 ? true : false),
                 then: yup
