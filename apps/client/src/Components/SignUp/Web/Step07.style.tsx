@@ -1,4 +1,3 @@
-import { TextInput } from 'Components/Inputs/TextInput';
 import styled, { css } from 'styled-components';
 import { DesktopSmall } from 'Utils/breakpoints';
 
