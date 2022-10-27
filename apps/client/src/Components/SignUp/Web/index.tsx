@@ -192,7 +192,6 @@ function FormikStepper({
   const [emailModal, setEmailModal] = useState(false);
 
   const [error, setError] = useState<ErrorObject | undefined>(undefined);
-  const [email, setEmail] = useState('');
 
   const { data: socialNetworks } = useSocialNetworksLabfaz();
 
@@ -264,16 +263,12 @@ function FormikStepper({
         <ConfirmEmailModal isOpen={emailModal}>
           <div className="confirmEmailContainer">
             <h1>Confirme seu email para verificar a conta</h1>
-            <h2>
-              O email com as instrucoes para ativacao e verificacao da conta
-              foram enviados para {email}
-            </h2>
 
             <div className="socialMedias">
               {socialNetworks?.youtube && (
                 // eslint-disable-next-line jsx-a11y/anchor-is-valid
                 <a
-                  href={socialNetworks?.youtube}
+                  href={socialNetworks.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -283,7 +278,7 @@ function FormikStepper({
               {socialNetworks?.facebook && (
                 // eslint-disable-next-line jsx-a11y/anchor-is-valid
                 <a
-                  href={socialNetworks?.facebook}
+                  href={socialNetworks.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -293,7 +288,7 @@ function FormikStepper({
               {socialNetworks?.twitter && (
                 // eslint-disable-next-line jsx-a11y/anchor-is-valid
                 <a
-                  href={socialNetworks?.twitter}
+                  href={socialNetworks.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -303,7 +298,7 @@ function FormikStepper({
               {socialNetworks?.googlePlus && (
                 // eslint-disable-next-line jsx-a11y/anchor-is-valid
                 <a
-                  href={socialNetworks?.googlePlus}
+                  href={socialNetworks.googlePlus}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -313,7 +308,7 @@ function FormikStepper({
               {socialNetworks?.linkedin && (
                 // eslint-disable-next-line jsx-a11y/anchor-is-valid
                 <a
-                  href={socialNetworks?.linkedin}
+                  href={socialNetworks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -323,7 +318,7 @@ function FormikStepper({
               {socialNetworks?.instagram && (
                 // eslint-disable-next-line jsx-a11y/anchor-is-valid
                 <a
-                  href={socialNetworks?.instagram}
+                  href={socialNetworks.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
