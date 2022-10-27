@@ -37,8 +37,7 @@ import {
   NextButton,
   BackButton,
   RightSession,
-  ErrorModalContainer,
-  ConfirmEmailModal,
+  ModalContainer,
 } from './all.style';
 
 interface ButtonProps {
@@ -254,13 +253,13 @@ function FormikStepper({
       onSubmit={handleSubmit}
     >
       <Form>
-        <ConfirmEmailModal isOpen={waitModal}>
+        <ModalContainer isOpen={waitModal}>
           <div className="confirmEmailContainer">
             <h1>Realizando cadastro...</h1>
           </div>
-        </ConfirmEmailModal>
+        </ModalContainer>
 
-        <ConfirmEmailModal isOpen={emailModal}>
+        <ModalContainer isOpen={emailModal}>
           <div className="confirmEmailContainer">
             <h1>Confirme seu email para verificar a conta</h1>
 
@@ -331,9 +330,9 @@ function FormikStepper({
               VOLTAR
             </button>
           </div>
-        </ConfirmEmailModal>
+        </ModalContainer>
 
-        <ErrorModalContainer isOpen={errorModal}>
+        <ModalContainer isOpen={errorModal}>
           <div className="errorModalContainer">
             <h1>Ops... algo deu errado</h1>
             <h2>{error}</h2>
@@ -345,7 +344,7 @@ function FormikStepper({
               VOLTAR
             </button>
           </div>
-        </ErrorModalContainer>
+        </ModalContainer>
 
         <FormTitle level={1} children="Cadastre-se" />
         <SessionContainer>

@@ -203,7 +203,7 @@ export const RightSession = styled.div<StepProps>`
   }
 `;
 
-export const ErrorModalContainer = styled.div<ModalProps>`
+export const ModalContainer = styled.div<ModalProps>`
   position: absolute;
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   align-items: center;
@@ -214,6 +214,29 @@ export const ErrorModalContainer = styled.div<ModalProps>`
   background: rgba(196, 196, 196, 0);
   backdrop-filter: blur(1.5px);
   touch-action: none;
+
+  h1 {
+    font-size: 26px;
+    margin-bottom: 3.3rem;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 3.3rem;
+    line-height: 26px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }  
+  }  
 
   .errorModalContainer {
     background-color: #202020;
@@ -231,31 +254,10 @@ export const ErrorModalContainer = styled.div<ModalProps>`
     box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.8),
       inset 0px 0px 20px rgba(10, 10, 10, 0.8);
     border-radius: 10px;
-
-    h1 {
-      font-size: 26px;
-      margin-bottom: 3.3rem;
-      color: #fc0061;
-    }
-
-    h2 {
-      font-size: 20px;
-      margin-bottom: 3.3rem;
-      line-height: 26px;
-    }
-
     animation: fadeIn 0.4s;
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.5);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+    h1 {
+      color: #fc0061;
     }
 
     ${DesktopSmall(css`
@@ -269,43 +271,15 @@ export const ErrorModalContainer = styled.div<ModalProps>`
 
       h2 {
         font-size: 14px;
-        margin-bottom: 2rem;
+        margin-bottom: 2rem;    
         line-height: 20px;
       }
     `)}
-  }
-
-  button {
-    width: 21rem;
-    height: 2.7rem;
-    border: 0;
-    background: #fc0061;
-    box-shadow: inset 0px 0px 3px #000000;
-    border-radius: 2px;
-    cursor: pointer;
-    color: #ffec99;
-
-    ${DesktopSmall(css`
-      width: 18rem;
-      height: 2.7rem;
-    `)}
-  }
-`;
-
-export const ConfirmEmailModal = styled.div<ModalProps>`
-  position: absolute;
-  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 90%;
-  z-index: 10;
-  background: rgba(196, 196, 196, 0);
-  backdrop-filter: blur(1.5px);
-  touch-action: none;
+  }  
 
   .confirmEmailContainer {
     background-color: #202020;
+    position: relative;
     color: #fafafa;
     padding: 0 4.2rem;
     width: 36rem;
@@ -319,31 +293,7 @@ export const ConfirmEmailModal = styled.div<ModalProps>`
     box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.8),
       inset 0px 0px 20px rgba(10, 10, 10, 0.8);
     border-radius: 10px;
-
-    h1 {
-      font-size: 26px;
-      margin-bottom: 3.3rem;
-    }
-
-    h2 {
-      font-size: 20px;
-      margin-bottom: 3.3rem;
-      line-height: 26px;
-    }
-
     animation: fadeIn 0.4s;
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.5);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
 
     ${DesktopSmall(css`
       width: 28rem;
