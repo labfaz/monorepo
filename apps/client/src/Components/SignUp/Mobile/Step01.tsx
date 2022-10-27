@@ -67,7 +67,7 @@ export const Step1: FC = () => {
               >
                 Termos de Uso
               </a>{' '}
-              e estou ciente e autorizo que os meus dado sejam usados única e
+              e estou ciente e autorizo que os meus dados sejam usados única e
               exclusivamente para o projeto LabFaz.
             </InputCheckbox>
 
