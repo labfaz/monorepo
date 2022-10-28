@@ -1,5 +1,6 @@
 import { useFormikContext } from 'formik';
 import React, { FC } from 'react';
+import * as yup from 'yup';
 import { useRef } from 'react';
 import { useState } from 'react';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
@@ -31,6 +32,15 @@ interface Step11Props {
     };
   };
 }
+
+export const schemaStep11 = yup.object({
+  artist: yup.object({
+    technical: yup.object({
+      formation: yup.string().required('Formação obrigatória'),
+      idiom: yup.array(),
+    }),
+  }),
+});
 
 export const Step11: FC = () => {
   const { values, errors } = useFormikContext<Step11Props>();

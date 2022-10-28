@@ -1,6 +1,7 @@
 import { TextInput } from 'Components/Inputs/TextInput';
 import { useFormikContext } from 'formik';
 import React, { FC } from 'react';
+import * as yup from 'yup';
 import { OnlyNumbers } from 'Utils/inputRegex';
 
 import {
@@ -9,6 +10,17 @@ import {
   Content,
   InputTextContainer,
 } from './Step10.style';
+
+export const schemaStep10 = yup.object({
+  artist: yup.object({
+    address: yup.object({
+      cep: yup.string(), //.required('CEP obrigatório'),
+      neighbourhood: yup.string(), //.required('Bairro obrigatório'),
+      number: yup.string(), //.required('Número obrigatório'),
+      complement: yup.string(), //.required('Endereço obrigatório'),
+    }),
+  }),
+});
 
 export const Step10: FC = () => {
   const { setFieldValue } = useFormikContext();

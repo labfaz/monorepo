@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
 import { RadioInput } from 'Components/Inputs/RadioInput';
 // import { TextInput } from 'Components/Inputs/TextInput'
@@ -24,6 +25,14 @@ interface Step17Props {
     };
   };
 }
+
+export const schemaStep17 = yup.object({
+  artist: yup.object({
+    technical: yup.object({
+      is_cnpj: yup.boolean().required('Campo obrigatório'),
+    }),
+  }),
+});
 
 export const Step17: FC = () => {
   const { values, setFieldValue, errors } = useFormikContext<Step17Props>();

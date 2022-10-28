@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import * as yup from 'yup';
 
 import { TextInput } from 'Components/Inputs/TextInput';
 
@@ -9,7 +10,37 @@ import {
   InputTextContainer,
 } from './Step08.style';
 
-export const Step8: FC = () => {
+import {
+  linkedinUserRegex,
+  tiktokUserRegex,
+  twitterUserRegex,
+  youtubeUserRegex,
+} from 'Utils/regex';
+
+export const schemaStep08 = yup.object({
+  artist: yup.object({
+    contact: yup.object({
+      twitter: yup
+        .string()
+        .trim()
+        .matches(twitterUserRegex, 'formato inválido'),
+      linkedin: yup
+        .string()
+        .trim()
+        .matches(linkedinUserRegex, 'formato inválido'),
+      tiktok: yup
+        .string()
+        .trim()
+        .matches(tiktokUserRegex, 'formato inválido'),
+      youtube: yup
+        .string()
+        .trim()
+        .matches(youtubeUserRegex, 'formato inválido'),
+    }),
+  }),
+});
+
+export const Step08: FC = () => {
   return (
     <Container>
       <ContentContainer>

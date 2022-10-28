@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import * as yup from 'yup';
 
 import { RadioInput } from 'Components/Inputs/RadioInput';
 
@@ -16,7 +17,13 @@ interface ErrorProps {
   };
 }
 
-export const Step6: FC = () => {
+export const schemaStep06 = yup.object({
+  artist: yup.object({
+    race: yup.string().required('Campo obrigatório'),
+  }),
+});
+
+export const Step06: FC = () => {
   const { errors } = useFormikContext<ErrorProps>();
 
   return (

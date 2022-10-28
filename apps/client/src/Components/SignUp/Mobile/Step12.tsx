@@ -1,5 +1,6 @@
 import { useFormikContext } from 'formik';
 import React, { FC, useRef, useState } from 'react';
+import * as yup from 'yup';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
 import { RadioInput } from 'Components/Inputs/RadioInput';
 import { FileInput } from 'Components/Inputs/FileInput';
@@ -31,6 +32,15 @@ interface Step12Props {
     accessibility_resources_description?: string;
   };
 }
+
+export const schemaStep12 = yup.object({
+  isPcd: yup.boolean(),
+  deficiencies: yup.array(),
+  artist: yup.object({
+    medicalReport: yup.string().nullable(),
+    accessibility_resources_description: yup.string().nullable(),
+  }),
+});
 
 export const Step12: FC = () => {
   const { values } = useFormikContext<Step12Props>();

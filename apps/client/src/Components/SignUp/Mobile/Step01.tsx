@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
 import {
   Container,
@@ -24,7 +25,16 @@ interface Step01Props {
   };
 }
 
-export const Step1: FC = () => {
+export const schemaStep01 = yup.object({
+  use_terms: yup.string().required('Termos de uso obrigatório'),
+  artist: yup.object({
+    name: yup.string().required('Nome obrigatório'),
+    social_name: yup.string(),
+    artistic_name: yup.string(),
+  }),
+});
+
+export const Step01: FC = () => {
   const { errors } = useFormikContext<Step01Props>();
 
   return (

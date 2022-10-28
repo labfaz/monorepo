@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import * as yup from 'yup';
 
 import { TextInput } from 'Components/Inputs/TextInput';
 import { useFormikContext } from 'formik';
@@ -11,7 +12,26 @@ import {
   InputTextContainer,
 } from './Step03.style';
 
-export const Step3: FC = () => {
+export const schemaStep03 = yup.object({
+  artist: yup.object({
+    cpf: yup
+      .string()
+      // .required('Cpf obrigatório')
+      .min(11, 'Cpf incompleto'),
+    birthday: yup
+      .string()
+      .required('Data de nascimento obrigatório')
+      .min(8, 'Data incompleta'),
+    rg: yup
+      .string()
+      // .required('Rg é obrigatório')
+      .min(7, 'Rg incompleto'),
+    expedition_department: yup.string(),
+    // .required('Orgão expedidor obrigatório'),
+  }),
+});
+
+export const Step03: FC = () => {
   const { setFieldValue } = useFormikContext();
 
   return (

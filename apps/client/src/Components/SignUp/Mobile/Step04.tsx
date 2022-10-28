@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import * as yup from 'yup';
 
 import { TextInput } from 'Components/Inputs/TextInput';
 import { useFormikContext } from 'formik';
@@ -18,7 +19,14 @@ interface Step4Props {
   };
 }
 
-export const Step4: FC = () => {
+export const schemaStep04 = yup.object({
+  artist: yup.object({
+    gender: yup.string().required('Campo obrigatório'),
+    gender_specific: yup.string().required('Campo obrigatório'),
+  }),
+});
+
+export const Step04: FC = () => {
   const { values, errors } = useFormikContext<Step4Props>();
 
   return (

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import * as yup from 'yup';
 
 import { RadioInput } from 'Components/Inputs/RadioInput';
 
@@ -16,7 +17,13 @@ interface Step5Props {
   };
 }
 
-export const Step5: FC = () => {
+export const schemaStep05 = yup.object({
+  artist: yup.object({
+    sexual_orientation: yup.string().required('Campo obrigatório'),
+  }),
+});
+
+export const Step05: FC = () => {
   const { errors } = useFormikContext<Step5Props>();
 
   return (

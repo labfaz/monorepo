@@ -1,6 +1,7 @@
 import React, { FC, useRef, useState } from 'react';
 import { useFormikContext } from 'formik';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import * as yup from 'yup';
 
 import { TextInput } from 'Components/Inputs/TextInput';
 import { RadioInput } from 'Components/Inputs/RadioInput';
@@ -29,6 +30,15 @@ interface ErrorProps {
     };
   };
 }
+
+export const schemaStep16 = yup.object({
+  artist: yup.object({
+    technical: yup.object({
+      is_drt: yup.boolean().required('Campo obrigatório'),
+      is_ceac: yup.boolean().required('Campo obrigatório'),
+    }),
+  }),
+});
 
 export const Step16: FC = () => {
   const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false);

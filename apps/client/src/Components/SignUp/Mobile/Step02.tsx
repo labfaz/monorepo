@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
 import { FileInput } from 'Components/Inputs/FileInput';
 import { SelectInput } from 'Components/Inputs/SelectInput';
-
+import { profilePictureMaxSize } from 'Utils/userUtils';
 import {
   Container,
   ContentContainer,
@@ -20,7 +21,7 @@ interface FileProps {
 }
 
 interface Step2Props {
-  profilePicture: string;
+  profilePicture: Blob;
   artist: {
     name: string;
     social_name: string;
@@ -29,7 +30,21 @@ interface Step2Props {
   };
 }
 
-export const Step2: FC = () => {
+export const schemaStep02 = yup.object({
+  profilePicture: yup
+    .mixed()
+    .required('Foto obrigatória')
+    .test(
+      'fileSize',
+      'Arquivo muito grande',
+      (value) => value && value.size <= profilePictureMaxSize
+    ),
+  artist: yup.object({
+    show_name: yup.string().required('Como quer ser chamado?'),
+  }),
+});
+
+export const Step02: FC = () => {
   const { values } = useFormikContext<Step2Props>();
 
   const options = [

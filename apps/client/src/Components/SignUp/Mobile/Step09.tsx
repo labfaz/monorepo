@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
 import { SelectInput } from 'Components/Inputs/SelectInput';
 import { RadioInput } from 'Components/Inputs/RadioInput';
@@ -16,7 +17,20 @@ import {
 } from './Step09.style';
 import { TextInput } from 'Components/Inputs/TextInput';
 
-export const Step9: FC = () => {
+export const schemaStep09 = yup.object({
+  artist: yup.object({
+    address: yup.object({
+      city: yup.string().required('Cidade obrigatória'),
+      state: yup
+        .string()
+        // .required('Estado obrigatório')
+        .default('Distrito Federal'),
+      residency: yup.string().required('Campo obrigatório'),
+    }),
+  }),
+});
+
+export const Step09: FC = () => {
   const { values } = useFormikContext<any>();
 
   return (
