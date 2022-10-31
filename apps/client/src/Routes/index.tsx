@@ -63,14 +63,14 @@ const Routes: FC = () => {
 
           {/* classes router */}
           {showCourses && (
-            <Route path={['/classes']}>
+            <Route path={['/classes', '/cursos']}>
               {({ match }) => <Classes match={match} />}
             </Route>
           )}
 
           {showAboutUs && (
             <Route
-              path={['/aboutus', '/about-us', '/sobre-nos', '/sobre', '/about']}
+              path={['/aboutus', '/about-us', '/sobre-nos', '/sobre', '/about', '/quem-somos']}
             >
               {({ match }) => <AboutUs match={match} />}
             </Route>
