@@ -370,9 +370,21 @@ export const idiomOptions = [
     value: 'Italiano',
   },
   {
+    label: 'Gestuno',
+    value: 'Gestuno',
+  },
+  {
+    label: 'LIBRAS',
+    value: 'LIBRAS',
+  },
+  {
+    label: 'Língua inglesa de sinais',
+    value: 'Língua inglesa de sinais',
+  },
+  {
     label: 'Outro',
     value: 'Outro',
-  },
+  }
 ];
 
 export const formationOptions = [

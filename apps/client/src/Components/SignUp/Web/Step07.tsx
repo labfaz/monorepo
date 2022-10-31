@@ -177,6 +177,54 @@ export const Step07: FC = () => {
           <InputRadioContainer>
             <RadioInput
               name="artist.technical.areas.name"
+              value="Produção"
+              label="Produção"
+            />
+          </InputRadioContainer>
+
+          <InputRadioContainer>
+            <RadioInput
+              name="artist.technical.areas.name"
+              value="Gestão"
+              label="Gestão"
+            />
+          </InputRadioContainer>
+
+          <InputRadioContainer>
+            <RadioInput
+              name="artist.technical.areas.name"
+              value="Comunicação"
+              label="Comunicação"
+            />
+          </InputRadioContainer>
+
+          <InputRadioContainer>
+            <RadioInput
+              name="artist.technical.areas.name"
+              value="Administrativo Financeiro"
+              label="Administrativo Financeiro"
+            />
+          </InputRadioContainer>
+
+          <InputRadioContainer>
+            <RadioInput
+              name="artist.technical.areas.name"
+              value="Acessibilidade e Tecnologias Assistivas"
+              label="Acessibilidade e Tecnologias Assistivas"
+            />
+          </InputRadioContainer>
+
+          <InputRadioContainer>
+            <RadioInput
+              name="artist.technical.areas.name"
+              value="Carregadores"
+              label="Carregadores"
+            />
+          </InputRadioContainer>
+
+          <InputRadioContainer>
+            <RadioInput
+              name="artist.technical.areas.name"
               value="Outro"
               label="Outro"
             />
