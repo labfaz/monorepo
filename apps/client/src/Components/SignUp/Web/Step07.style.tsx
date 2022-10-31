@@ -64,6 +64,10 @@ export const LeftSide = styled.div`
 export const LeftSideContent = styled.div`
   margin: 2.27rem 3.3rem 5.2rem 3.3rem;
 
+  overflow: hidden;
+
+  overflow-y: scroll;
+
   ${DesktopSmall(css`
     margin: 1.56rem 4.65rem 5.2rem 2.23rem;
   `)}
