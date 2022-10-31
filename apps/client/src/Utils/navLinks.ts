@@ -19,8 +19,8 @@ export type LinkName = typeof linkNames[number];
 
 export type linkDict = { [k in LinkName]: navLink & { name: k } };
 export const navLinks: linkDict = {
-  'about us': { name: 'about us', label: 'QUEM SOMOS', path: '/about' },
-  cursos: { name: 'cursos', label: 'CURSOS', path: '/classes' },
+  'about us': { name: 'about us', label: 'QUEM SOMOS', path: '/quem-somos' },
+  cursos: { name: 'cursos', label: 'CURSOS', path: '/cursos' },
   blog: { name: 'blog', label: 'BLOG', path: '/blog' },
   observatorio: {
     name: 'observatorio',
@@ -38,7 +38,7 @@ export const navLinks: linkDict = {
   forgotPass: {
     name: 'forgotPass',
     label: 'Esqueceu sua senha?',
-    path: '/forgot-password',
+    path: '/criar-nova-senha',
   },
 };
 
