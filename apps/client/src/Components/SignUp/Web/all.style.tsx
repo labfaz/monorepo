@@ -178,16 +178,12 @@ export const RightSession = styled.div<StepProps>`
               return 3;
 
             case 3:
-            case 4:
-            case 5:
               return 4;
-
-            case 6:
-            case 7:
+              
+            case 4:
               return 5;
-
-            case 8:
-            case 9:
+              
+            case 5:
               return 6;
 
             default:
