@@ -78,7 +78,7 @@ export const Step11: FC = () => {
             </InputRadioContainer>
           ))}
 
-          <SelectContainer
+          {/* <SelectContainer
             onClick={() => setIsIdiomOptionsOpen(!isIdiomOptionsOpen)}
           >
             <label>Voce domina algum idioma?</label>
@@ -88,9 +88,9 @@ export const Step11: FC = () => {
                 : 'Selecione'}
               <IoMdArrowDropdownCircle />
             </InputSelect>
-          </SelectContainer>
+          </SelectContainer> */}
 
-          {values.artist?.technical?.idiom.find(
+          {/* {values.artist?.technical?.idiom.find(
             (values: any) => values === 'Outro'
           ) && (
             <InputTextContainer>
@@ -103,14 +103,14 @@ export const Step11: FC = () => {
               />
             </InputTextContainer>
           )}
-
-          <LabelText>Você é uma pessoa com deficiência?</LabelText>
+ */}
+          {/* <LabelText>Você é uma pessoa com deficiência?</LabelText>
           <InputRadioContainer>
             <RadioInput name="isPcd" value="true" label="Sim" />
           </InputRadioContainer>
           <InputRadioContainer>
             <RadioInput name="isPcd" value="false" label="Não" />
-          </InputRadioContainer>
+          </InputRadioContainer> */}
         </Content>
       </ContentContainer>
 

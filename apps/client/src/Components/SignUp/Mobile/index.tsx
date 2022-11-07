@@ -160,9 +160,9 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
         <FormikStep validationSchema={schemaStep11}>
           <Step11 />
         </FormikStep>
-        <FormikStep validationSchema={schemaStep12}>
+        {/* <FormikStep validationSchema={schemaStep12}>
           <Step12 />
-        </FormikStep>
+        </FormikStep> */}
         <FormikStep validationSchema={schemaStep13}>
           <Step13 />
         </FormikStep>
