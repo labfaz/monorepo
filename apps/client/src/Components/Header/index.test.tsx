@@ -25,19 +25,19 @@ describe('Check links succesfully redirects to another page', () => {
     expect(getByRole('img')).toHaveAttribute('alt', 'logo');
   });
 
-  it('check link of about us page', () => {
-    expect(getByText('QUEM SOMOS').closest('a')).toHaveAttribute(
-      'href',
-      '/about'
-    );
-  });
+  // it('check link of about us page', () => {
+  //   expect(getByText('QUEM SOMOS').closest('a')).toHaveAttribute(
+  //     'href',
+  //     '/about'
+  //   );
+  // });
 
-  it('check link of list courses page', () => {
-    expect(getByText('CURSOS').closest('a')).toHaveAttribute(
-      'href',
-      '/classes'
-    );
-  });
+  // it('check link of list courses page', () => {
+  //   expect(getByText('CURSOS').closest('a')).toHaveAttribute(
+  //     'href',
+  //     '/classes'
+  //   );
+  // });
 
   // it('check link of calendar page', () => {
   //   expect(getByText('AGENDA').closest('a')).toHaveAttribute('href', '/calendar')
