@@ -47,10 +47,6 @@ export const Step06: FC = () => {
         <LeftSideContent>
           <LabelText>
             Você domina outro idioma além do português?
-            <p className="obrigatory"> *</p>
-            {errors.artist?.technical?.idiom && (
-              <span className="errorMessage">Campo obrigatório</span>
-            )}
           </LabelText>
           {idiomOptions.map((idiomOption, index) => (
             <InputCheckBoxContainer key={index}>
