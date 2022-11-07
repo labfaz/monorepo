@@ -53,30 +53,20 @@ const schemaStep01 = yup.object({
     name: yup.string().required('Nome obrigatório'),
     social_name: yup.string(),
     artistic_name: yup.string(),
-    cpf: yup
-      .string()
-      // .required('Cpf obrigatório')
-      .min(11, 'Cpf incompleto'),
+    cpf: yup.string().min(11, 'Cpf incompleto'),
     birthday: yup
       .string()
       .required('Data de nascimento obrigatório')
       .min(8, 'Data incompleta'),
-    rg: yup
-      .string()
-      // .required('Rg é obrigatório')
-      .min(7, 'Rg incompleto'),
+    rg: yup.string().min(7, 'Rg incompleto'),
     expedition_department: yup.string(),
-    // .required('Orgão expedidor obrigatório')
     address: yup.object({
-      cep: yup.string(), //.required('CEP obrigatório'),
-      neighbourhood: yup.string(), //.required('Bairro obrigatório'),
-      number: yup.string(), //.required('Número obrigatório'),
-      complement: yup.string(), //.required('Endereço obrigatório'),
-      residency: yup.string(), //.required('Campo obrigatório'),
-      state: yup
-        .string()
-        // .required('Estado obrigatório')
-        .default('null'),
+      cep: yup.string(),
+      neighbourhood: yup.string(),
+      number: yup.string(),
+      complement: yup.string(),
+      residency: yup.string(),
+      state: yup.string().default('null'),
       city: yup.string().required('Cidade obrigatória'),
     }),
   }),
