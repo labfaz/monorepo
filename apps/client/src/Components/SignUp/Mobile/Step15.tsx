@@ -63,14 +63,14 @@ export const Step15: FC = () => {
             name="artist.technical.areas.describe"
           />
 
-          <FileContainer>
+          {/* <FileContainer>
             <FileInput
               name="curriculum"
               value="curriculum"
               label="Clique para enviar curriculo"
               accept="application/pdf"
             />
-          </FileContainer>
+          </FileContainer> */}
         </Content>
       </ContentContainer>
     </Container>

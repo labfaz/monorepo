@@ -83,15 +83,15 @@ export const Step13: FC = () => {
             />
           )}
 
-          <SelectContainer>
+          {/* <SelectContainer>
             <label>Qual a sua profissão dentro desse setor?</label>
             <TextInput
               name="artist.technical.profession"
               placeholder="Digite sua profissão"
             />
-          </SelectContainer>
+          </SelectContainer> */}
 
-          <SelectContainer>
+          {/* <SelectContainer>
             <label>Em qual ano você começou a trabalhar nessa área?</label>
             <TextInput
               name="artist.technical.areas.started_year"
@@ -99,7 +99,7 @@ export const Step13: FC = () => {
               inputMask="9999"
               obrigatory
             />
-          </SelectContainer>
+          </SelectContainer> */}
         </Content>
         <IdiomOptionsContainer
           ref={modalRef}
