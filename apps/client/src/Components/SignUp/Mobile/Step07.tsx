@@ -12,10 +12,7 @@ import {
   InputTextContainer,
 } from './Step07.style';
 
-import {
-  facebookUserRegex,
-  instagramUserRegex,
-} from 'Utils/regex';
+import { facebookUserRegex, instagramUserRegex } from 'Utils/regex';
 
 export const schemaStep07 = yup.object({
   email: yup.string().email('Email inválido').required('Email obrigatório'),

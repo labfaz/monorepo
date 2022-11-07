@@ -384,7 +384,7 @@ export const idiomOptions = [
   {
     label: 'Outro',
     value: 'Outro',
-  }
+  },
 ];
 
 export const formationOptions = [

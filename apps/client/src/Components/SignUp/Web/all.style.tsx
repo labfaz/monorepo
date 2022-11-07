@@ -179,10 +179,10 @@ export const RightSession = styled.div<StepProps>`
 
             case 3:
               return 4;
-              
+
             case 4:
               return 5;
-              
+
             case 5:
               return 6;
 
@@ -231,8 +231,8 @@ export const ModalContainer = styled.div<ModalProps>`
     to {
       opacity: 1;
       transform: scale(1);
-    }  
-  }  
+    }
+  }
 
   .errorModalContainer {
     background-color: #202020;
@@ -267,11 +267,11 @@ export const ModalContainer = styled.div<ModalProps>`
 
       h2 {
         font-size: 14px;
-        margin-bottom: 2rem;    
+        margin-bottom: 2rem;
         line-height: 20px;
       }
     `)}
-  }  
+  }
 
   .confirmEmailContainer {
     background-color: #202020;

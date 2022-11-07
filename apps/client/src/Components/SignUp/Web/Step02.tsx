@@ -12,9 +12,7 @@ import {
   InputText,
 } from './Step02.style';
 
-import {
-  InformartionText,
-} from "./all.style";
+import { InformartionText } from './all.style';
 
 import { RadioInput } from 'Components/Inputs/RadioInput';
 

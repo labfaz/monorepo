@@ -3,17 +3,9 @@ import * as yup from 'yup';
 
 import { useFormikContext } from 'formik';
 
-import {
-  Container,
-  Content,
-  AvatarInput,
-} from './Step11.style';
+import { Container, Content, AvatarInput } from './Step11.style';
 
-import {  
-  PasswordInputContainer,
-  Input,
-} from "./all.style";
-
+import { PasswordInputContainer, Input } from './all.style';
 
 interface Step11Props {
   profilePicture: string;
@@ -30,9 +22,7 @@ export const schemaStep11 = yup.object({
     .required('Confirmação obrigatória')
     .when('password', {
       is: (val) => (val && val.length > 0 ? true : false),
-      then: yup
-        .string()
-        .oneOf([yup.ref('password')], 'Senhas não são iguais.'),
+      then: yup.string().oneOf([yup.ref('password')], 'Senhas não são iguais.'),
     }),
 });
 

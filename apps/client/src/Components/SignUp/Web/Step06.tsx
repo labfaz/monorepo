@@ -45,9 +45,7 @@ export const Step06: FC = () => {
     <Container>
       <LeftSide>
         <LeftSideContent>
-          <LabelText>
-            Você domina outro idioma além do português?
-          </LabelText>
+          <LabelText>Você domina outro idioma além do português?</LabelText>
           {idiomOptions.map((idiomOption, index) => (
             <InputCheckBoxContainer key={index}>
               <CheckboxInput

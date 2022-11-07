@@ -29,9 +29,7 @@ export const schemaStep18 = yup.object({
     .required('Confirme sua senha')
     .when('password', {
       is: (val) => (val && val.length > 0 ? true : false),
-      then: yup
-        .string()
-        .oneOf([yup.ref('password')], 'Senhas não são iguais.'),
+      then: yup.string().oneOf([yup.ref('password')], 'Senhas não são iguais.'),
     }),
 });
 

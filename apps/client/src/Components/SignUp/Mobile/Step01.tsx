@@ -10,18 +10,15 @@ import {
   InputTextContainer,
 } from './Step01.style';
 
-import {
-  InputCheckBoxContainer,
-  InputCheckbox,
-} from './Step18.style';
+import { InputCheckBoxContainer, InputCheckbox } from './Step18.style';
 
 interface Step01Props {
   use_terms: string;
 
   artist: {
-    name: string,
-    social_name: string,
-    artistic_name: string,
+    name: string;
+    social_name: string;
+    artistic_name: string;
   };
 }
 

@@ -70,7 +70,14 @@ const Routes: FC = () => {
 
           {showAboutUs && (
             <Route
-              path={['/aboutus', '/about-us', '/sobre-nos', '/sobre', '/about', '/quem-somos']}
+              path={[
+                '/aboutus',
+                '/about-us',
+                '/sobre-nos',
+                '/sobre',
+                '/about',
+                '/quem-somos',
+              ]}
             >
               {({ match }) => <AboutUs match={match} />}
             </Route>

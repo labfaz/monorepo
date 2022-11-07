@@ -28,10 +28,7 @@ export const schemaStep08 = yup.object({
         .string()
         .trim()
         .matches(linkedinUserRegex, 'formato inválido'),
-      tiktok: yup
-        .string()
-        .trim()
-        .matches(tiktokUserRegex, 'formato inválido'),
+      tiktok: yup.string().trim().matches(tiktokUserRegex, 'formato inválido'),
       youtube: yup
         .string()
         .trim()

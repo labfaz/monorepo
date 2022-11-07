@@ -18,9 +18,7 @@ import {
   FileContainer,
 } from './Step07.style';
 
-import {
-  OtherTechnicalArea,
-} from "./all.style";
+import { OtherTechnicalArea } from './all.style';
 
 interface ErrorProps {
   artist: {

@@ -31,7 +31,7 @@ export const Web: FC<Props> = ({ status, message }) => {
                 Error {status}: <br />
               </>
             )}
-            {message ?? "Não foi possível carregar essa página."}
+            {message ?? 'Não foi possível carregar essa página.'}
           </SubtitleText>
         </TextWrapper>
       </Rectangle2>

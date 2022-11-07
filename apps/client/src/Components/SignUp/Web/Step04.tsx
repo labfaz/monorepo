@@ -17,12 +17,7 @@ import {
   FileContainer,
 } from './Step04.style';
 
-import {
-  Box,
-  PCDOptions,
-  BoxContent,
-  DeficiencyContainer,
-} from "./all.style";
+import { Box, PCDOptions, BoxContent, DeficiencyContainer } from './all.style';
 
 interface ErrorProps {
   deficiencies?: string[];

@@ -121,9 +121,7 @@ export const Login: FC<LoginComponentProps> = ({ buttonType }) => {
                   </CheckboxInputContainer>
 
                   <ButtonContainer>
-                    <Button type={buttonType || 'submit'}>
-                      ENTRAR
-                    </Button>
+                    <Button type={buttonType || 'submit'}>ENTRAR</Button>
 
                     <RegisterButton href={navLinks.cadastro.path}>
                       CADASTRE-SE
