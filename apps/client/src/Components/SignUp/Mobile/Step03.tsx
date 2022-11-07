@@ -38,7 +38,7 @@ export const Step03: FC = () => {
     <Container>
       <ContentContainer>
         <Content>
-          <InputTextContainer>
+          {/* <InputTextContainer>
             <TextInput
               name="artist.cpf"
               label="CPF"
@@ -47,9 +47,8 @@ export const Step03: FC = () => {
               onChange={(ev: any) =>
                 setFieldValue('artist.cpf', ev.target.value)
               }
-              // obrigatory
             />
-          </InputTextContainer>
+          </InputTextContainer> */}
 
           <InputTextContainer>
             <TextInput
@@ -64,7 +63,7 @@ export const Step03: FC = () => {
             />
           </InputTextContainer>
 
-          <InputTextContainer>
+          {/* <InputTextContainer>
             <TextInput
               name="artist.rg"
               label="RG"
@@ -72,18 +71,16 @@ export const Step03: FC = () => {
                 setFieldValue('artist.rg', OnlyNumbers(ev.target.value))
               }
               placeholder="Digite seu rg"
-              // obrigatory
             />
-          </InputTextContainer>
+          </InputTextContainer> */}
 
-          <InputTextContainer>
+          {/* <InputTextContainer>
             <TextInput
               name="artist.expedition_department"
               label="Orgão expedidor"
               placeholder="Digite o orgão expedidor"
-              // obrigatory
             />
-          </InputTextContainer>
+          </InputTextContainer> */}
         </Content>
       </ContentContainer>
     </Container>

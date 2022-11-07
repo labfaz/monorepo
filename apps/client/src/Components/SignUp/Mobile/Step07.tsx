@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import * as yup from 'yup';
 
 import { TextInput } from 'Components/Inputs/TextInput';
-import { useFormikContext } from 'formik';
-import { OnlyNumbers } from 'Utils/inputRegex';
+// import { useFormikContext } from 'formik';
+// import { OnlyNumbers } from 'Utils/inputRegex';
 
 import {
   Container,
@@ -35,7 +35,7 @@ export const schemaStep07 = yup.object({
 });
 
 export const Step07: FC = () => {
-  const { setFieldValue } = useFormikContext();
+  // const { setFieldValue } = useFormikContext();
 
   return (
     <Container>
@@ -50,7 +50,7 @@ export const Step07: FC = () => {
             />
           </InputTextContainer>
 
-          <InputTextContainer>
+          {/* <InputTextContainer>
             <TextInput
               name="artist.contact.whatsapp"
               label="Celular com WhatsApp"
@@ -60,23 +60,23 @@ export const Step07: FC = () => {
               }
               placeholder="Digite seu número"
             />
-          </InputTextContainer>
+          </InputTextContainer> */}
 
-          <InputTextContainer>
+          {/* <InputTextContainer>
             <TextInput
               name="artist.contact.facebook"
               label="FaceBook"
               placeholder="@seufacebook"
             />
-          </InputTextContainer>
+          </InputTextContainer> */}
 
-          <InputTextContainer>
+          {/* <InputTextContainer>
             <TextInput
               name="artist.contact.instagram"
               label="Instagram"
               placeholder="@seuinstagram"
             />
-          </InputTextContainer>
+          </InputTextContainer> */}
         </Content>
       </ContentContainer>
     </Container>

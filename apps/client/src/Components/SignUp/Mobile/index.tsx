@@ -19,8 +19,8 @@ import { Step04, schemaStep04 } from './Step04';
 import { Step05, schemaStep05 } from './Step05';
 import { Step06, schemaStep06 } from './Step06';
 import { Step07, schemaStep07 } from './Step07';
-import { Step08, schemaStep08 } from './Step08';
-import { Step09, schemaStep09 } from './Step09';
+// import { Step08, schemaStep08 } from './Step08';
+// import { Step09, schemaStep09 } from './Step09';
 import { Step10, schemaStep10 } from './Step10';
 import { Step11, schemaStep11 } from './Step11';
 import { Step12, schemaStep12 } from './Step12';
@@ -148,12 +148,12 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
         <FormikStep validationSchema={schemaStep07}>
           <Step07 />
         </FormikStep>
-        <FormikStep validationSchema={schemaStep08}>
+        {/* <FormikStep validationSchema={schemaStep08}>
           <Step08 />
-        </FormikStep>
-        <FormikStep validationSchema={schemaStep09}>
+        </FormikStep> */}
+        {/* <FormikStep validationSchema={schemaStep09}>
           <Step09 />
-        </FormikStep>
+        </FormikStep> */}
         <FormikStep validationSchema={schemaStep10}>
           <Step10 />
         </FormikStep>
@@ -203,15 +203,10 @@ function FormikStepper({
 
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];
-
   const history = useHistory();
-
   const [error, setError] = useState<ErrorObject | undefined>(undefined);
   const [errorModal, setErrorModal] = useState(false);
-
   const [confirmEmailModal, setConfirmEmailModal] = useState(false);
-
-  const [email, setEmail] = useState('');
   const { data: socialNetworks } = useSocialNetworksLabfaz();
 
   const modalRef = useRef<HTMLInputElement | null>(null);
@@ -264,7 +259,6 @@ function FormikStepper({
           SignUp(values)
             .then(() => {
               setConfirmEmailModal(true);
-              setEmail(values.email);
             })
             .catch((err) => [setError(err.message), setErrorModal(true)]);
         } else {
@@ -280,11 +274,6 @@ function FormikStepper({
               <ConfirmEmailModal ref={modalRef} isOpen={confirmEmailModal}>
                 <div className="confirmEmailContainer">
                   <h1>Confirme seu email para verificar a conta</h1>
-                  <h2>
-                    O email com as instrucoes para ativacao e verificacao da
-                    conta foram enviados para {email}
-                  </h2>
-
                   <div className="socialMedias">
                     {socialNetworks?.youtube && (
                       // eslint-disable-next-line jsx-a11y/anchor-is-valid
