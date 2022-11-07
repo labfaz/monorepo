@@ -9,12 +9,12 @@ import { useSocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
 import { Step01, schemaStep01 } from './Step01';
 import { Step02, schemaStep02 } from './Step02';
 import { Step03, schemaStep03 } from './Step03';
-import { Step04, schemaStep04 } from './Step04';
-import { Step05, schemaStep05 } from './Step05';
+// import { Step04, schemaStep04 } from './Step04';
+// import { Step05, schemaStep05 } from './Step05';
 import { Step06, schemaStep06 } from './Step06';
 import { Step07, schemaStep07 } from './Step07';
 import { Step08, schemaStep08 } from './Step08';
-import { Step09 } from './Step09';
+// import { Step09 } from './Step09';
 import { Step10, schemaStep10 } from './Step10';
 import { Step11, schemaStep11 } from './Step11';
 
@@ -131,13 +131,13 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
           <Step03 />
         </FormikStep>
 
-        <FormikStep validationSchema={schemaStep04}>
+        {/* <FormikStep validationSchema={schemaStep04}>
           <Step04 />
-        </FormikStep>
+        </FormikStep> */}
 
-        <FormikStep validationSchema={schemaStep05}>
+        {/* <FormikStep validationSchema={schemaStep05}>
           <Step05 />
-        </FormikStep>
+        </FormikStep> */}
 
         <FormikStep validationSchema={schemaStep06}>
           <Step06 />
@@ -151,9 +151,9 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
           <Step08 />
         </FormikStep>
 
-        <FormikStep>
+        {/* <FormikStep>
           <Step09 />
-        </FormikStep>
+        </FormikStep> */}
 
         <FormikStep validationSchema={schemaStep10}>
           <Step10 />
@@ -364,15 +364,15 @@ function FormikStepper({
                   <label>3</label>
                   <FaRegCheckCircle />
                 </div>
-                <div className={`formSession ${5 < step && 'checked'}`}>
+                <div className={`formSession ${3 < step && 'checked'}`}>
                   <label>4</label>
                   <FaRegCheckCircle />
                 </div>
-                <div className={`formSession ${7 < step && 'checked'}`}>
+                <div className={`formSession ${4 < step && 'checked'}`}>
                   <label>5</label>
                   <FaRegCheckCircle />
                 </div>
-                <div className={`formSession ${8 < step && 'checked'}`}>
+                <div className={`formSession ${5 < step && 'checked'}`}>
                   <label>6</label>
                   <FaRegCheckCircle />
                 </div>
