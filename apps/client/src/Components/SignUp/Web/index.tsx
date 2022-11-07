@@ -233,7 +233,6 @@ function FormikStepper({
         () => {
           setWaitModal(false);
           setEmailModal(true);
-          setEmail(values.email);
         },
         (err) => {
           setWaitModal(false);
