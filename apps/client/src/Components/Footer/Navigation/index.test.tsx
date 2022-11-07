@@ -25,13 +25,13 @@ describe('Check links succesfully redirects to another page', () => {
     expect(getByText('Navegação')).toHaveTextContent('Nave');
   });
 
-  it('checks link of about us page', () => {
-    expect(getByText('QUEM SOMOS')).toHaveAttribute('href', '/about');
-  });
+  // it('checks link of about us page', () => {
+  //   expect(getByText('QUEM SOMOS')).toHaveAttribute('href', '/about');
+  // });
 
-  it('checks link of list courses page', () => {
-    expect(getByText('CURSOS')).toHaveAttribute('href', '/classes');
-  });
+  // it('checks link of list courses page', () => {
+  //   expect(getByText('CURSOS')).toHaveAttribute('href', '/classes');
+  // });
 
   // it('checks link of calendar page', () => {
   //   expect(getByText('AGENDA')).toHaveAttribute('href', '/calendar')
