@@ -242,7 +242,7 @@ export const Step07: FC = () => {
 
       <RightSide>
         <RightSideContent>
-          <label htmlFor="TecnicalArea" className="radioLabel">
+          {/* <label htmlFor="TecnicalArea" className="radioLabel">
             Qual a sua profissão dentro desse setor?
           </label>
 
@@ -251,7 +251,7 @@ export const Step07: FC = () => {
               name="artist.technical.profession"
               placeholder="Digite sua profissão"
             />
-          </SelectContainer>
+          </SelectContainer> */}
 
           <label htmlFor="TecnicalArea" className="radioLabel">
             Em qual ano você começou a trabalhar nessa área?

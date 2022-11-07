@@ -4,7 +4,7 @@ import * as yup from 'yup';
 
 import { SelectInput } from 'Components/Inputs/SelectInput';
 import { FileInput } from 'Components/Inputs/FileInput';
-import { OnlyNumbers } from 'Utils/inputRegex';
+// import { OnlyNumbers } from 'Utils/inputRegex';
 import { profilePictureMaxSize } from 'Utils/userUtils';
 
 import {
@@ -58,10 +58,7 @@ export const schemaStep03 = yup.object({
         .string()
         .trim()
         .matches(linkedinUserRegex, 'formato inválido'),
-      tiktok: yup
-        .string()
-        .trim()
-        .matches(tiktokUserRegex, 'formato inválido'),
+      tiktok: yup.string().trim().matches(tiktokUserRegex, 'formato inválido'),
       youtube: yup
         .string()
         .trim()
@@ -71,7 +68,7 @@ export const schemaStep03 = yup.object({
 });
 
 export const Step03: FC = () => {
-  const { values, setFieldValue } = useFormikContext<any>();
+  const { values } = useFormikContext<any>();
 
   const options = [
     { value: 'nome', label: values.artist.name },
@@ -122,7 +119,7 @@ export const Step03: FC = () => {
                 obrigatory
               />
 
-              <FormInputText
+              {/* <FormInputText
                 name="artist.contact.whatsapp"
                 label="Celular com WhatsApp"
                 placeholder="(61) 9 9999-9999"
@@ -130,11 +127,11 @@ export const Step03: FC = () => {
                 onChange={(ev: any) =>
                   setFieldValue('whatsapp', OnlyNumbers(ev.target.value))
                 }
-              />
+              /> */}
             </InputTextContainer>
           </div>
 
-          <div>
+          {/* <div>
             <InputTextContainer>
               <FormInputText
                 name="artist.contact.facebook"
@@ -148,9 +145,9 @@ export const Step03: FC = () => {
                 placeholder="@seuinstagram"
               />
             </InputTextContainer>
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <InputTextContainer>
               <FormInputText
                 name="artist.contact.twitter"
@@ -164,9 +161,9 @@ export const Step03: FC = () => {
                 placeholder="@seulinkedin"
               />
             </InputTextContainer>
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <FormInputText
               name="artist.contact.tiktok"
               label="TikTok"
@@ -178,7 +175,7 @@ export const Step03: FC = () => {
               label="YouTube"
               placeholder="@seuyoutube"
             />
-          </div>
+          </div> */}
         </RightSideContent>
       </RightSide>
     </Container>

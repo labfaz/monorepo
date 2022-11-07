@@ -4,7 +4,7 @@ import * as yup from 'yup';
 
 import { RadioInput } from 'Components/Inputs/RadioInput';
 import { TextInput } from 'Components/Inputs/TextInput';
-import { Text } from 'Components/Typography/Text';
+// import { Text } from 'Components/Typography/Text';
 
 import { OnlyNumbers } from 'Utils/inputRegex';
 
@@ -20,9 +20,7 @@ import {
   InputTextContainer,
 } from './Step01.style';
 
-import {
-  LeftSelectContainer,
-} from "./all.style";
+import { LeftSelectContainer } from './all.style';
 
 import { InputCheckBoxContainer } from './Step11.style';
 import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
@@ -68,17 +66,17 @@ export const schemaStep01 = yup.object({
 export const Step01: FC = () => {
   const { values, setFieldValue, errors } = useFormikContext<any>();
 
-  const checkCEP = (cep: string) => {
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
-      .then((res) => res.json())
-      .then((data) => {
-        setFieldValue('artist.address.address', data.logradouro);
-        setFieldValue('artist.address.neighbourhood', data.bairro);
-        setFieldValue('artist.address.city', data.localidade);
-        setFieldValue('artist.address.state', data.uf);
-        setFieldValue('artist.address.complement', data.complemento);
-      });
-  };
+  // const checkCEP = (cep: string) => {
+  //   fetch(`https://viacep.com.br/ws/${cep}/json/`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setFieldValue('artist.address.address', data.logradouro);
+  //       setFieldValue('artist.address.neighbourhood', data.bairro);
+  //       setFieldValue('artist.address.city', data.localidade);
+  //       setFieldValue('artist.address.state', data.uf);
+  //       setFieldValue('artist.address.complement', data.complemento);
+  //     });
+  // };
 
   return (
     <Container>
@@ -93,7 +91,7 @@ export const Step01: FC = () => {
             />
           </InputTextContainer>
 
-          <InputTextContainer>
+          {/* <InputTextContainer>
             <InputText
               name="artist.social_name"
               label="Nome Social"
@@ -106,18 +104,18 @@ export const Step01: FC = () => {
                 identidades de gênero.
               </Text>
             </InputText>
-          </InputTextContainer>
+          </InputTextContainer> */}
 
-          <InputTextContainer>
+          {/* <InputTextContainer>
             <InputText
               name="artist.artistic_name"
               label="Nome Artistico"
               placeholder="Digite seu nome artistico"
             />
-          </InputTextContainer>
+          </InputTextContainer> */}
 
-          <div>
-            <InputTextContainer>
+          {/* <div> */}
+          {/* <InputTextContainer>
               <TextInput
                 name="artist.cpf"
                 label="CPF"
@@ -126,25 +124,24 @@ export const Step01: FC = () => {
                 onChange={(ev: any) =>
                   setFieldValue('artist.cpf', ev.target.value)
                 }
-                // obrigatory
               />
-            </InputTextContainer>
+            </InputTextContainer> */}
 
-            <InputTextContainer>
-              <TextInput
-                name="artist.birthday"
-                label="Data de nascimento"
-                inputMask="99/99/9999"
-                onChange={(ev: any) =>
-                  setFieldValue('artist.birthday', OnlyNumbers(ev.target.value))
-                }
-                placeholder="Digite sua data de nascimento"
-                obrigatory
-              />
-            </InputTextContainer>
-          </div>
+          <InputTextContainer>
+            <TextInput
+              name="artist.birthday"
+              label="Data de nascimento"
+              inputMask="99/99/9999"
+              onChange={(ev: any) =>
+                setFieldValue('artist.birthday', OnlyNumbers(ev.target.value))
+              }
+              placeholder="Digite sua data de nascimento"
+              obrigatory
+            />
+          </InputTextContainer>
+          {/* </div> */}
 
-          <div>
+          {/* <div>
             <InputTextContainer>
               <TextInput
                 name="artist.rg"
@@ -153,7 +150,6 @@ export const Step01: FC = () => {
                   setFieldValue('artist.rg', OnlyNumbers(ev.target.value))
                 }
                 placeholder="Digite seu rg"
-                // obrigatory
               />
             </InputTextContainer>
 
@@ -162,10 +158,10 @@ export const Step01: FC = () => {
                 name="artist.expedition_department"
                 label="Orgão expedidor"
                 placeholder="Digite o orgão expedidor"
-                // obrigatory
               />
             </InputTextContainer>
-          </div>
+          </div> */}
+
           <InputCheckBoxContainer>
             <CheckboxInput type="checkbox" name="use_terms" value="sim">
               Li e concordo com os{' '}
@@ -263,7 +259,7 @@ export const Step01: FC = () => {
               </InputTextContainer>
             )}
 
-            <InputTextContainer>
+            {/* <InputTextContainer>
               <TextInput
                 name="artist.address.cep"
                 label="CEP"
@@ -277,16 +273,15 @@ export const Step01: FC = () => {
                   setFieldValue('cep', OnlyNumbers(ev.target.value));
                 }}
               />
-            </InputTextContainer>
+            </InputTextContainer> */}
           </div>
 
-          <div className="residencyContainer">
+          {/* <div className="residencyContainer">
             <InputTextContainer>
               <TextInput
                 name="artist.address.address"
                 label="Endereco"
                 placeholder="Digite seu logradouro"
-                // obrigatory
               />
             </InputTextContainer>
 
@@ -298,9 +293,9 @@ export const Step01: FC = () => {
                 // obrigatory
               />
             </InputTextContainer>
-          </div>
+          </div> */}
 
-          <div className="residencyContainer">
+          {/* <div className="residencyContainer">
             <InputTextContainer>
               <TextInput
                 name="artist.address.number"
@@ -312,7 +307,6 @@ export const Step01: FC = () => {
                     OnlyNumbers(ev.target.value)
                   )
                 }
-                // obrigatory
               />
             </InputTextContainer>
 
@@ -323,7 +317,7 @@ export const Step01: FC = () => {
                 placeholder="Digite seu complemento"
               />
             </InputTextContainer>
-          </div>
+          </div> */}
         </RightSideContent>
       </RightSide>
     </Container>
