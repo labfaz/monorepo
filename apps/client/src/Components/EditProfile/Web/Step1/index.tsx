@@ -1,11 +1,13 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
-import { RadioInput } from 'Components/Inputs/RadioInput'
-import { TextInput } from 'Components/Inputs/TextInput'
-import { Text } from 'Components/Typography/Text'
-
-import { OnlyNumbers } from 'Utils/inputRegex'
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { Text } from 'Components/Typography/Text';
+import { OnlyNumbers } from 'Utils/inputRegex';
+import { SelectInput } from 'Components/Inputs/SelectInput';
+import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData';
 
 import {
   Container,
@@ -17,14 +19,46 @@ import {
   SelectContainer,
   InputText,
   LeftSelectContainer,
-  InputTextContainer, 
-} from './style'
-import { SelectInput } from 'Components/Inputs/SelectInput'
-import { CidadesDF, CidadesEntorno, Estados } from 'Utils/selectOptionsData'
+  InputTextContainer,
+} from './style';
 
-export const Step1: FC = () => {
-  const { values, setFieldValue } = useFormikContext<any>()
+export const schemaStep01 = yup.object({
+  artist: yup.object({
+    name: yup.string().required('Nome obrigatório'),
+    social_name: yup.string(),
+    artistic_name: yup.string(),
+    cpf: yup.string().min(11, 'Cpf incompleto'),
+    birthday: yup
+      .string()
+      .required('Data de nascimento obrigatório')
+      .min(8, 'Data incompleta'),
+    rg: yup.string().min(7, 'Rg incompleto'),
+    expedition_department: yup.string(),
+    address: yup.object({
+      cep: yup.string(),
+      neighbourhood: yup.string(),
+      number: yup.string(),
+      complement: yup.string(),
+      residency: yup.string(),
+      state: yup.string().default('null'),
+      city: yup.string().required('Cidade obrigatória'),
+    }),
+  }),
+});
 
+export const Step01: FC = () => {
+  const { values, setFieldValue } = useFormikContext<any>();
+  const checkCEP = (cep: string) => {
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then((res) => res.json())
+      .then((data) => {
+        setFieldValue('artist.address.address', data.logradouro);
+        setFieldValue('artist.address.neighbourhood', data.bairro);
+        setFieldValue('artist.address.city', data.localidade);
+        setFieldValue('artist.address.state', data.uf);
+        setFieldValue('artist.address.complement', data.complemento);
+      });
+  };
   return (
     <Container>
       <LeftSide>
@@ -124,7 +158,7 @@ export const Step1: FC = () => {
             <InputRadioContainer>
               <RadioInput
                 name="artist.address.residency"
-                value="df"  
+                value="df"
                 label="Distrito Federal"
               />
             </InputRadioContainer>
@@ -145,8 +179,7 @@ export const Step1: FC = () => {
               />
             </InputRadioContainer>
 
-            {values.artist.address.residency ===
-              'fora df' && (
+            {values.artist.address.residency === 'fora df' && (
               <LeftSelectContainer htmlFor="state">
                 <SelectInput
                   name="artist.address.state"
@@ -181,8 +214,7 @@ export const Step1: FC = () => {
               </SelectContainer>
             )}
 
-            {values.artist.address.residency ===
-              'fora df' && (
+            {values.artist.address.residency === 'fora df' && (
               <InputTextContainer>
                 <TextInput
                   name="artist.address.city"
@@ -200,9 +232,12 @@ export const Step1: FC = () => {
                 placeholder="Digite seu cep"
                 inputMask="99999-999"
                 // obrigatory
-                onChange={(ev: any) =>
-                  setFieldValue('cep', OnlyNumbers(ev.target.value))
-                }
+                onChange={(ev: any) => {
+                  if (OnlyNumbers(ev.target.value).length === 8) {
+                    checkCEP(OnlyNumbers(ev.target.value));
+                  }
+                  setFieldValue('cep', OnlyNumbers(ev.target.value));
+                }}
               />
             </InputTextContainer>
           </div>
@@ -210,7 +245,7 @@ export const Step1: FC = () => {
           <div className="residencyContainer">
             <InputTextContainer>
               <TextInput
-                name="artist.address.complement"
+                name="artist.address.address"
                 label="Endereco"
                 placeholder="Digite seu logradouro"
                 // obrigatory
@@ -234,7 +269,10 @@ export const Step1: FC = () => {
                 label="Numero"
                 placeholder="Digite seu número"
                 onChange={(ev: any) =>
-                  setFieldValue('artist.address.number', OnlyNumbers(ev.target.value))
+                  setFieldValue(
+                    'artist.address.number',
+                    OnlyNumbers(ev.target.value)
+                  )
                 }
                 // obrigatory
               />
@@ -242,7 +280,7 @@ export const Step1: FC = () => {
 
             <InputTextContainer>
               <TextInput
-                name="artist.address.address"
+                name="artist.address.complement"
                 label="Complemento"
                 placeholder="Digite seu complemento"
               />
@@ -251,5 +289,5 @@ export const Step1: FC = () => {
         </RightSideContent>
       </RightSide>
     </Container>
-  )
-}
+  );
+};

@@ -1,53 +1,50 @@
-import React, { Dispatch, FC, SetStateAction } from 'react'
-import { OptionDiv, BadgeInput, BadgeDiv, OptionWrapper } from "../../UserSearchPage/style"
+import React, { Dispatch, FC, SetStateAction } from 'react';
+import {
+  OptionDiv,
+  BadgeInput,
+  BadgeDiv,
+  OptionWrapper,
+} from '../../UserSearchPage/style';
 
-import { Title } from "Components/Typography/Title"
+import { Title } from 'Components/Typography/Title';
 // import { Text } from "Components/Typography/Text"
 
-import { Experience } from "Utils/selectOptionsData"
+import { Experience } from 'Utils/selectOptionsData';
 
-import { UserSearchParams } from 'Api/UserSearch'
+import { UserSearchParams } from 'Api/UserSearch';
 interface OptionsProps {
-  setFunction: Dispatch<SetStateAction<UserSearchParams>>,
+  setFunction: Dispatch<SetStateAction<UserSearchParams>>;
 }
 
-type SearchKeys = "drtOnly" | "cpnjOnly" | "ceacOnly" | "meiOnly"
+type SearchKeys = 'drtOnly' | 'cpnjOnly' | 'ceacOnly' | 'meiOnly';
 
-export const OptionsExperience: FC<OptionsProps> = ({ setFunction  }) => {  
-
-  return(
+export const OptionsExperience: FC<OptionsProps> = ({ setFunction }) => {
+  return (
     <OptionDiv>
-      <Title 
-        level={4}
-      >  EXPERIÊNCIA </Title>
+      <Title level={4}> EXPERIÊNCIA </Title>
       <OptionWrapper>
-        {
-          Experience.map((option, index) => (
-            <BadgeDiv
-              key={index}
-            >
-              <label> {option.label} </label>
-              <BadgeInput 
-                type="checkbox" 
-                name="experience" 
-                value={option.value}
-                onChange={() =>{
-                  setFunction(formData => {
-                    const key = option.value as SearchKeys
-                    const updateFormData = {...formData}
-                    updateFormData[key] = !formData[key]
-                    updateFormData['showNothing'] = false
-                    return updateFormData
-                  })
-                }}
-              />
+        {Experience.map((option, index) => (
+          <BadgeDiv key={index}>
+            <label> {option.label} </label>
+            <BadgeInput
+              type="checkbox"
+              name="experience"
+              value={option.value}
+              onChange={() => {
+                setFunction((formData) => {
+                  const key = option.value as SearchKeys;
+                  const updateFormData = { ...formData };
+                  updateFormData[key] = !formData[key];
+                  updateFormData['showNothing'] = false;
+                  return updateFormData;
+                });
+              }}
+            />
           </BadgeDiv>
-          ))
-        }
+        ))}
       </OptionWrapper>
     </OptionDiv>
-  )
-}
-
+  );
+};
 
 export default OptionsExperience;

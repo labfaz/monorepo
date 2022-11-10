@@ -1,37 +1,101 @@
-import { useFormikContext } from 'formik'
-import React, { FC } from 'react'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
-import { Container, Content, TextLabel, InputText } from './style'
+import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { RadioInput } from 'Components/Inputs/RadioInput';
+
+import { formationOptions, idiomOptions } from 'Utils/selectOptionsData';
+
+import {
+  Container,
+  LeftSide,
+  LeftSideContent,
+  RightSide,
+  RightSideContent,
+  LabelText,
+  InputRadioContainer,
+  InputCheckBoxContainer,
+  TextInputContainer,
+} from './style';
 
 interface ErrorProps {
   artist: {
     technical: {
-      areas: {
-        describe: string
-      }
-    }
-  }
+      formation: string;
+      idiom: string[];
+    };
+  };
 }
 
-export const Step6: FC = () => {
-  const { errors } = useFormikContext<ErrorProps>()
+export const schemaStep06 = yup.object({
+  artist: yup.object({
+    technical: yup.object({
+      formation: yup.string().required('Formação obrigatória'),
+      idiom: yup.array(),
+    }),
+  }),
+});
+
+export const Step06: FC = () => {
+  const { values, errors } = useFormikContext<ErrorProps>();
 
   return (
     <Container>
-      <div className="centralContent">
-        <Content>
-          <TextLabel>
-            Sobre o meu trabalho: Descreva quais são as atividades e serviços
-            oferecidos por você.<p className="obrigatory"> *</p>
-          </TextLabel>
+      <LeftSide>
+        <LeftSideContent>
+          <LabelText>
+            Você domina outro idioma além do português?
+            <p className="obrigatory"> *</p>
+            {errors.artist?.technical?.idiom && (
+              <span className="errorMessage">Campo obrigatório</span>
+            )}
+          </LabelText>
+          {idiomOptions.map((idiomOption, index) => (
+            <InputCheckBoxContainer key={index}>
+              <CheckboxInput
+                type="checkbox"
+                name="artist.technical.idiom"
+                value={idiomOption.value}
+                label={idiomOption.label}
+              />
+            </InputCheckBoxContainer>
+          ))}
+        </LeftSideContent>
+      </LeftSide>
 
-          {errors.artist?.technical?.areas?.describe && (
-            <span className="errorMessage">{errors.artist.technical.areas.describe}</span>
+      <RightSide>
+        <RightSideContent>
+          <LabelText>
+            Formação escolar
+            <p className="obrigatory"> *</p>
+            {errors.artist?.technical?.formation && (
+              <span className="errorMessage">Campo obrigatório</span>
+            )}
+          </LabelText>
+
+          {formationOptions.map((formationOption, index) => (
+            <InputRadioContainer key={index}>
+              <RadioInput
+                type="radio"
+                name="artist.technical.formation"
+                value={formationOption.value}
+                label={formationOption.label}
+              />
+            </InputRadioContainer>
+          ))}
+
+          {values.artist.technical.idiom.find(
+            (values: any) => values === 'Outro'
+          ) && (
+            <TextInputContainer>
+              <label>Qual outro idioma você domina?</label>
+              <TextInput name="other_idiom" placeholder="Digite outro idioma" />
+            </TextInputContainer>
           )}
-
-          <InputText component="textarea" name="artist.technical.areas.describe" />
-        </Content>
-      </div>
+        </RightSideContent>
+      </RightSide>
     </Container>
-  )
-}
+  );
+};

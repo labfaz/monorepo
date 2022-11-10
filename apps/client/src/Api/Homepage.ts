@@ -1,5 +1,5 @@
-import { strapi } from "Api";
-import useFetchApi from "Hooks/useFetchApi";
+import { strapi } from '.';
+import useFetchApi from '../Hooks/useFetchApi';
 
 export interface Homepage {
   course_presentation_title: string;
@@ -27,14 +27,18 @@ export const useHomepage = () =>
   useFetchApi<Homepage>(`/homepage-text`, fetchHomepage);
 
 export interface HomePresentationInfo {
-  Title: string
-  SubTitle: string
-  Video: string
-
+  Title: string;
+  SubTitle: string;
+  Video: string;
 }
 
-export const fetchHomepagePresentationInfo = () => strapi
-  .get<HomePresentationInfo>(`/home-presentation-info`)
-  .then(({ data }) => data)
+export const fetchHomepagePresentationInfo = () =>
+  strapi
+    .get<HomePresentationInfo>(`/home-presentation-info`)
+    .then(({ data }) => data);
 
-export const useHomepagePresentationInfo = () => useFetchApi<HomePresentationInfo>(`/home-presentation-info`, fetchHomepagePresentationInfo)
+export const useHomepagePresentationInfo = () =>
+  useFetchApi<HomePresentationInfo>(
+    `/home-presentation-info`,
+    fetchHomepagePresentationInfo
+  );

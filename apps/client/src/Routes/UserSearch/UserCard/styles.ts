@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
-import { Title } from "../../../Components/Typography/Title";
-import { Text } from "../../../Components/Typography/Text";
-import { InternalLinkButton } from "Components/Buttons/InternalLinkButton";
-import { DesktopSmall, Mobile } from "Utils/breakpoints";
+import styled, { css } from 'styled-components';
+import { Title } from '../../../Components/Typography/Title';
+import { Text } from '../../../Components/Typography/Text';
+import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   width: 100%;
@@ -69,8 +69,6 @@ export const CardTitle = styled(Title)`
   line-height: 1;
   color: var(--color-text-white-gray);
 
-  
-
   ${Mobile(css`
     font-size: var(--font-size-short);
     font-size: var(--font-size-medium);
@@ -98,7 +96,7 @@ export const LabelWrapper = styled.div`
     grid-template-columns: 21px auto 21px;
     border-radius: 64px;
     position: absolute;
-    bottom: -33px;    
+    bottom: -33px;
     justify-content: center;
   `)}
 `;
@@ -123,7 +121,7 @@ export const Description = styled(Text)`
     text-overflow: ellipsis;
     display: -webkit-box;
     line-clamp: 4;
-    box-orient: vertical;    
+    box-orient: vertical;
   `)}
 
   ${DesktopSmall(css`

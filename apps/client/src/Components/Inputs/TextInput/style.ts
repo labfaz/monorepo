@@ -1,21 +1,22 @@
-import { Field } from "formik"
-import styled, { css } from "styled-components"
-import { DesktopSmall, Mobile } from "Utils/breakpoints"
+import { Field } from 'formik';
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 interface ContainerProps {
-  validationError: boolean
+  validationError: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
- 
+
   position: relative;
 
   .obrigatory {
-    color: #FC0061;
-    display: inline;
+    color: #fc0061;
     font-size: var(--font-size-default);
+    padding: 0;
+    margin: 0;
 
     ${DesktopSmall(css`
       font-size: var(--font-size-short);
@@ -36,13 +37,13 @@ export const Container = styled.div<ContainerProps>`
     svg {
       width: 15px;
       height: 15px;
-      color: #6C6C6C;
+      color: #6c6c6c;
     }
 
     p {
       display: none;
       position: absolute;
-      
+
       padding: 0.5rem;
 
       width: 13rem;
@@ -50,7 +51,7 @@ export const Container = styled.div<ContainerProps>`
       font-size: 10px;
       z-index: 3;
 
-      background-color: #6C6C6C;
+      background-color: #6c6c6c;
       color: #fff;
 
       font-weight: 400;
@@ -61,14 +62,13 @@ export const Container = styled.div<ContainerProps>`
         top: 50%;
       `)}
 
-
       transform: translateX(50%);
 
       &::after {
         content: '';
-        
-        width: 0; 
-        height: 0; 
+
+        width: 0;
+        height: 0;
 
         position: absolute;
 
@@ -78,11 +78,11 @@ export const Container = styled.div<ContainerProps>`
         right: 50%;
 
         transform: translateX(50%);
-      
+
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
-        
-        border-bottom: 8px solid #6C6C6C;
+
+        border-bottom: 8px solid #6c6c6c;
       }
     }
   }
@@ -112,18 +112,10 @@ export const Container = styled.div<ContainerProps>`
       left: 0.4rem;
       top: -68%;
       background-color: #000000;
-
     `)}
 
     
     label {
-      font-weight: 600;
-      font-size: var(--font-size-large);
-      color: var(--color-text-black);
-      display: inline;
-
-      color: #fff;
-
       ${DesktopSmall(css`
         font-size: var(--font-size-short);
         /* margin-bottom: 0.5rem; */
@@ -137,20 +129,36 @@ export const Container = styled.div<ContainerProps>`
 
   .labelContent {
     position: relative;
-    display: inline-flex;
+    display: inline;
     flex-direction: column;
-
+    font-weight: 600;
+    font-size: var(--font-size-large);
+    color: var(--color-text-black);
+    color: #fff;
     column-gap: 0.5rem;
     position: relative;
 
     height: fit-content;
 
-    span {
-      
+    .labelLine {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+
+      ${DesktopSmall(css`
+        font-size: var(--font-size-short);
+        margin-bottom: 0.5rem;
+      `)}
+
+      ${Mobile(css`
+        font-size: var(--font-size-large);
+      `)}
+    }
+
+    .error {
       display: inline;
 
       position: absolute;
-
 
       width: 13rem;
 
@@ -180,15 +188,14 @@ export const Container = styled.div<ContainerProps>`
   ${DesktopSmall(css`
     margin-bottom: 0.5rem;
   `)}
-  
-  
+
   input {
     width: 12.4rem;
     height: 2.55rem;
 
     background-color: #090909;
     color: #fafafa;
-    
+
     ${DesktopSmall(css`
       width: 8.33rem;
       height: 1.8rem;
@@ -201,20 +208,22 @@ export const Container = styled.div<ContainerProps>`
       font-size: var(--font-size-medium);
     `)}
     
-    border: ${({ validationError }) => validationError ? '1px solid red' : '1px solid rgba(250, 250, 250, 0.7)'};
+    border: ${({ validationError }) =>
+      validationError ? '1px solid red' : '1px solid rgba(250, 250, 250, 0.7)'};
     padding: 0.7rem 0.2rem 0.7rem 0.7rem;
 
     &::placeholder {
       /* color: rgba(255, 255, 255, 0.25); */
 
-      color: ${({ validationError }) => validationError ? '#090909' : 'rgba(255, 255, 255, 0.25)'};
+      color: ${({ validationError }) =>
+        validationError ? '#090909' : 'rgba(255, 255, 255, 0.25)'};
 
       font-weight: 600;
       font-size: var(--font-size-large);
 
       ${DesktopSmall(css`
         font-size: var(--font-size-small);
-    	`)}
+      `)}
 
       ${Mobile(css`
         font-size: var(--font-size-medium);
@@ -228,10 +237,9 @@ export const Container = styled.div<ContainerProps>`
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
     -webkit-transition-delay: 9999s;
   }
-
 
   input:disabled {
     color: rgba(196, 196, 196, 0.25);
@@ -240,6 +248,6 @@ export const Container = styled.div<ContainerProps>`
       cursor: not-allowed;
     }
   }
-`
+`;
 
-export const Input = styled(Field)``
+export const Input = styled(Field)``;

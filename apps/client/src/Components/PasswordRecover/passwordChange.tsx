@@ -1,91 +1,101 @@
-import React, { FC, useCallback, useState } from 'react'
+import React, { FC, useCallback, useState } from 'react';
 
-import { Formik, Form, FormikHelpers } from 'formik'
+import { Formik, Form, FormikHelpers } from 'formik';
 
-import { Wrapper, FormButton, Span, Message } from './styles'
-import { Modal } from 'Components/Modal/PasswordRecoverModal'
+import { Wrapper, FormButton, Span, Message } from './styles';
+import { Modal } from 'Components/Modal/PasswordRecoverModal';
 
-import { InputPassword, InputTextContainer } from "Components/Login/style"
+import { InputPassword, InputTextContainer } from 'Components/Login/style';
 
-import { useResetPassword } from "Api/PasswordReset"
+import { useResetPassword } from 'Api/PasswordReset';
 
 interface FormProps {
-  password: string,
-  passwordConfirmation: string
+  password: string;
+  passwordConfirmation: string;
 }
 
 interface PasswordChangeProps {
-  token: string
+  token: string;
 }
 
 export const PasswordChange: FC<PasswordChangeProps> = ({ token }) => {
+  const { mutate, isSuccess, isError } = useResetPassword(token);
+  const [isVisible, setIsVisible] = useState(false);
 
-  const { mutate, isSuccess, isError,  } = useResetPassword(token)
-  const [isVisible, setIsVisible] = useState(false)
-
-  const handleSubmit = useCallback(({ password }: FormProps, { setSubmitting, setValues }: FormikHelpers<FormProps>)  => {    
-    mutate({ password })
-    setValues({
-      password: "",
-      passwordConfirmation: ""
-    })
-    setSubmitting(false)
-  }, [mutate])
+  const handleSubmit = useCallback(
+    (
+      { password }: FormProps,
+      { setSubmitting, setValues }: FormikHelpers<FormProps>
+    ) => {
+      mutate({ password });
+      setValues({
+        password: '',
+        passwordConfirmation: '',
+      });
+      setSubmitting(false);
+    },
+    [mutate]
+  );
 
   const validateSubmit = useCallback((values: FormProps) => {
-    const errors: { password?: string, passwordConfirmation?: string } = {}
+    const errors: { password?: string; passwordConfirmation?: string } = {};
 
     if (values.password !== values.passwordConfirmation) {
-      errors.password = "As senhas devem ser iguais"
-      errors.passwordConfirmation = "As senhas devem ser iguais"
-    } 
-    if (!values.password || !values.passwordConfirmation) {
-      errors.password = "Required"
-      errors.passwordConfirmation = "Required"
+      errors.password = 'As senhas devem ser iguais';
+      errors.passwordConfirmation = 'As senhas devem ser iguais';
     }
-    return errors
-  }, [])
+    if (!values.password || !values.passwordConfirmation) {
+      errors.password = 'Required';
+      errors.passwordConfirmation = 'Required';
+    }
+    return errors;
+  }, []);
 
-  
   return (
     <>
-      <Formik 
+      <Formik
         initialValues={{
-        password: '',
-        passwordConfirmation: ""
-          }}
-          validate={validateSubmit}
-          onSubmit={handleSubmit}
-          >
-          {({ isSubmitting }) => (
+          password: '',
+          passwordConfirmation: '',
+        }}
+        validate={validateSubmit}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting }) => (
           <Wrapper>
             <Form>
               <InputTextContainer>
-                <InputPassword 
-                  label="Escolha uma nova senha" 
-                  placeholder="Digite sua nova senha" 
-                  name="password"
-                  />
                 <InputPassword
-                  label="Confirmação de nova senha" 
-                  placeholder="Confirme sua nova senha" 
+                  label="Escolha uma nova senha"
+                  placeholder="Digite sua nova senha"
+                  name="password"
+                />
+                <InputPassword
+                  label="Confirmação de nova senha"
+                  placeholder="Confirme sua nova senha"
                   name="passwordConfirmation"
-                  />
-                </InputTextContainer>
-                {isError && <Message isError>Alguma coisa não está certa. Tente novamente.</Message>}
+                />
+              </InputTextContainer>
+              {isError && (
+                <Message isError>
+                  Alguma coisa não está certa. Tente novamente.
+                </Message>
+              )}
               <FormButton type="submit" disabled={isSubmitting}>
                 ATUALIZAR SENHA
               </FormButton>
-              <Span onClick={() => setIsVisible(!isVisible)}> Ainda está com problemas? </Span>
+              <Span onClick={() => setIsVisible(!isVisible)}>
+                {' '}
+                Ainda está com problemas?{' '}
+              </Span>
             </Form>
           </Wrapper>
-          )
-          }        
-        </Formik>
-        <Modal isVisible={isVisible} setFunction={setIsVisible} success={false}/>
-        <Modal isVisible={isSuccess} setFunction={setIsVisible} success/>
-      </>
-  )
-}
+        )}
+      </Formik>
+      <Modal isVisible={isVisible} setFunction={setIsVisible} success={false} />
+      <Modal isVisible={isSuccess} setFunction={setIsVisible} success />
+    </>
+  );
+};
 
-export default PasswordChange
+export default PasswordChange;

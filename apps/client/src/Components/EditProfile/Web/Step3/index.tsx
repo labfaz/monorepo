@@ -1,10 +1,21 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
+import * as yup from 'yup';
 
-import { SelectInput } from 'Components/Inputs/SelectInput'
-import { FileInput } from 'Components/Inputs/FileInput'
+import { SelectInput } from 'Components/Inputs/SelectInput';
+import { FileInput } from 'Components/Inputs/FileInput';
 
-import { OnlyNumbers } from 'Utils/inputRegex'
+import { OnlyNumbers } from 'Utils/inputRegex';
+import { profilePictureMaxSize } from 'Utils/userUtils';
+
+import {
+  facebookUserRegex,
+  instagramUserRegex,
+  linkedinUserRegex,
+  tiktokUserRegex,
+  twitterUserRegex,
+  youtubeUserRegex,
+} from 'Utils/regex';
 
 import {
   Container,
@@ -17,16 +28,57 @@ import {
   SelectContainer,
   PrivacityText,
   InputTextContainer,
-} from './style'
+} from './style';
 
-export const Step3: FC = () => {
-  const { values, setFieldValue } = useFormikContext<any>()
+export const schemaStep03 = yup.object({
+  profilePicture: yup
+    .mixed()
+    .test(
+      'fileSize',
+      'Arquivo muito grande',
+      (value) =>
+        (value && !value.name) ||
+        value === null ||
+        (value && value.size <= profilePictureMaxSize)
+    ),
+  email: yup.string().email('Email inválido').required('Email obrigatório'),
+  artist: yup.object({
+    show_name: yup.string().required('Como quer ser chamado?'),
+    contact: yup.object({
+      whatsapp: yup.string(),
+      twitter: yup
+        .string()
+        .trim()
+        .matches(twitterUserRegex, 'formato inválido'),
+      facebook: yup
+        .string()
+        .trim()
+        .matches(facebookUserRegex, 'formato inválido'),
+      instagram: yup
+        .string()
+        .trim()
+        .matches(instagramUserRegex, 'formato inválido'),
+      linkedin: yup
+        .string()
+        .trim()
+        .matches(linkedinUserRegex, 'formato inválido'),
+      tiktok: yup.string().trim().matches(tiktokUserRegex, 'formato inválido'),
+      youtube: yup
+        .string()
+        .trim()
+        .matches(youtubeUserRegex, 'formato inválido'),
+    }),
+  }),
+});
+
+export const Step03: FC = () => {
+  const { values, setFieldValue } = useFormikContext<any>();
 
   const options = [
     { value: 'nome', label: values.artist.name },
     { value: 'nome social', label: values.artist.social_name },
     { value: 'nome artistico', label: values.artist.artistic_name },
-  ]
+  ];
 
   return (
     <Container>
@@ -141,5 +193,5 @@ export const Step3: FC = () => {
         </RightSideContent>
       </RightSide>
     </Container>
-  )
-}
+  );
+};

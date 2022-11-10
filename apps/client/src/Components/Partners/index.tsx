@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import Display from "./Display";
+import Display from './Display';
 
-import { HomePartners } from "Api/HomePartners";
+import { HomePartners } from 'Api/HomePartners';
 
 export interface PartnersProps {
   partners: HomePartners[];

@@ -135,8 +135,8 @@ export const CidadesDF = [
   {
     value: 'Vicente Pires',
     label: 'Vicente Pires',
-  }
-]
+  },
+];
 
 export const CidadesEntorno = [
   {
@@ -230,8 +230,8 @@ export const CidadesEntorno = [
   {
     value: 'Cabeceira Grande',
     label: 'Cabeceira Grande',
-  }
-]
+  },
+];
 
 export const Estados = [
   {
@@ -283,62 +283,62 @@ export const Estados = [
     label: 'Minas Gerais',
   },
   {
-    value: "Pará",
-    label: "Pará",
+    value: 'Pará',
+    label: 'Pará',
   },
   {
-    value: "Paraíba",
-    label: "Paraíba",
+    value: 'Paraíba',
+    label: 'Paraíba',
   },
   {
-    value: "Paraná",
-    label: "Paraná",
+    value: 'Paraná',
+    label: 'Paraná',
   },
   {
-    value: "Pernambuco",
-    label: "Pernambuco",
+    value: 'Pernambuco',
+    label: 'Pernambuco',
   },
   {
-    value: "Piauí",
-    label: "Piauí",
+    value: 'Piauí',
+    label: 'Piauí',
   },
   {
-    value: "Rio de Janeiro",
-    label: "Rio de Janeiro",
+    value: 'Rio de Janeiro',
+    label: 'Rio de Janeiro',
   },
   {
-    value: "Rio Grande do Norte",
-    label: "Rio Grande do Norte",
+    value: 'Rio Grande do Norte',
+    label: 'Rio Grande do Norte',
   },
   {
-    value: "Rio Grande do Sul",
-    label: "Rio Grande do Sul",
+    value: 'Rio Grande do Sul',
+    label: 'Rio Grande do Sul',
   },
   {
-    value: "Rondônia",
-    label: "Rondônia",
+    value: 'Rondônia',
+    label: 'Rondônia',
   },
   {
-    value: "Roraima",
-    label: "Roraima",
+    value: 'Roraima',
+    label: 'Roraima',
   },
   {
-    value: "Santa Catarina",
-    label: "Santa Catarina",
+    value: 'Santa Catarina',
+    label: 'Santa Catarina',
   },
   {
-    value: "São Paulo",
-    label: "São Paulo",
+    value: 'São Paulo',
+    label: 'São Paulo',
   },
   {
-    value: "Sergipe",
-    label: "Sergipe",
+    value: 'Sergipe',
+    label: 'Sergipe',
   },
   {
-    value: "Tocantins",
-    label: "Tocantins",
-  }
-]
+    value: 'Tocantins',
+    label: 'Tocantins',
+  },
+];
 
 export const idiomOptions = [
   {
@@ -370,10 +370,22 @@ export const idiomOptions = [
     value: 'Italiano',
   },
   {
+    label: 'Gestuno',
+    value: 'Gestuno',
+  },
+  {
+    label: 'LIBRAS',
+    value: 'LIBRAS',
+  },
+  {
+    label: 'Língua inglesa de sinais',
+    value: 'Língua inglesa de sinais',
+  },
+  {
     label: 'Outro',
     value: 'Outro',
-  }
-]
+  },
+];
 
 export const formationOptions = [
   {
@@ -404,7 +416,7 @@ export const formationOptions = [
     label: 'Pós Graduação',
     value: 'pos',
   },
-]
+];
 
 export const certificationOptionsMobile = [
   {
@@ -413,7 +425,8 @@ export const certificationOptionsMobile = [
   },
   {
     label: 'NR04',
-    value: 'NR 04 – Serviços Especializados em Engenharia de Segurança e em Medicina do Trabalho',
+    value:
+      'NR 04 – Serviços Especializados em Engenharia de Segurança e em Medicina do Trabalho',
   },
   {
     label: 'NR05',
@@ -425,11 +438,13 @@ export const certificationOptionsMobile = [
   },
   {
     label: 'NR07',
-    value: 'NR 07 – Programas de Controle Médico de Saúde Ocupacional – PCMSONR 07 – Nova – Programas de Controle Médico de Saúde Ocupacional – PCMSO (Vigência 09/03/2021)',
+    value:
+      'NR 07 – Programas de Controle Médico de Saúde Ocupacional – PCMSONR 07 – Nova – Programas de Controle Médico de Saúde Ocupacional – PCMSO (Vigência 09/03/2021)',
   },
   {
     label: 'NR09',
-    value: 'NR 09 – Programas de Prevenção de Riscos Ambientais NR 09 – Avaliação e Controle das Exposições Ocupacionais a Agentes Físicos, Químicos e Biológicos',
+    value:
+      'NR 09 – Programas de Prevenção de Riscos Ambientais NR 09 – Avaliação e Controle das Exposições Ocupacionais a Agentes Físicos, Químicos e Biológicos',
   },
   {
     label: 'NR10',
@@ -437,7 +452,8 @@ export const certificationOptionsMobile = [
   },
   {
     label: 'NR11',
-    value: 'NR 11 – Transporte, Movimentação, Armazenagem e Manuseio de Materiais',
+    value:
+      'NR 11 – Transporte, Movimentação, Armazenagem e Manuseio de Materiais',
   },
   {
     label: 'NR12',
@@ -475,7 +491,7 @@ export const certificationOptionsMobile = [
     label: 'NR35',
     value: 'NR 35 – Trabalho em Altura',
   },
-]
+];
 
 export const certificationOptionsPage1 = [
   {
@@ -485,7 +501,8 @@ export const certificationOptionsPage1 = [
   {
     label:
       'NR 04 – Serviços Especializados em Engenharia de Segurança e em Medicina do Trabalho',
-    value: 'NR 04 – Serviços Especializados em Engenharia de Segurança e em Medicina do Trabalho',
+    value:
+      'NR 04 – Serviços Especializados em Engenharia de Segurança e em Medicina do Trabalho',
   },
   {
     label: 'NR 05 – Comissão Interna de Prevenção de Acidentes',
@@ -498,24 +515,27 @@ export const certificationOptionsPage1 = [
   {
     label:
       'NR 07 – Programas de Controle Médico de Saúde Ocupacional – PCMSONR 07 – Nova – Programas de Controle Médico de Saúde Ocupacional – PCMSO (Vigência 09/03/2021)',
-    value: 'NR 07 – Programas de Controle Médico de Saúde Ocupacional – PCMSONR 07 – Nova – Programas de Controle Médico de Saúde Ocupacional – PCMSO (Vigência 09/03/2021)',
+    value:
+      'NR 07 – Programas de Controle Médico de Saúde Ocupacional – PCMSONR 07 – Nova – Programas de Controle Médico de Saúde Ocupacional – PCMSO (Vigência 09/03/2021)',
   },
   {
     label:
       'NR 09 – Programas de Prevenção de Riscos Ambientais NR 09 – Avaliação e Controle das Exposições Ocupacionais a Agentes Físicos, Químicos e Biológicos',
-    value: 'NR 09 – Programas de Prevenção de Riscos Ambientais NR 09 – Avaliação e Controle das Exposições Ocupacionais a Agentes Físicos, Químicos e Biológicos',
+    value:
+      'NR 09 – Programas de Prevenção de Riscos Ambientais NR 09 – Avaliação e Controle das Exposições Ocupacionais a Agentes Físicos, Químicos e Biológicos',
   },
   {
     label: 'NR 10 – Segurança em Instalações e Serviços em Eletricidade',
     value: 'NR 10 – Segurança em Instalações e Serviços em Eletricidade',
   },
-]
+];
 
 export const certificationOptionsPage2 = [
   {
     label:
       'NR 11 – Transporte, Movimentação, Armazenagem e Manuseio de Materiais',
-    value: 'NR 11 – Transporte, Movimentação, Armazenagem e Manuseio de Materiais',
+    value:
+      'NR 11 – Transporte, Movimentação, Armazenagem e Manuseio de Materiais',
   },
   {
     label: 'NR 12 – Segurança no Trabalho em Máquinas e Equipamentos',
@@ -553,74 +573,101 @@ export const certificationOptionsPage2 = [
     label: 'NR 35 – Trabalho em Altura',
     value: 'NR 35 – Trabalho em Altura',
   },
-]
+];
 
 export const Areas = [
   {
-    label: "Áudio",
-    value: "Áudio"
+    label: 'Áudio',
+    value: 'Áudio',
   },
   {
-    label: "Iluminação",
-    value: "Iluminação"
+    label: 'Iluminação',
+    value: 'Iluminação',
   },
   {
-    label: "Cenografia",
-    value: "Cenografia"
+    label: 'Cenografia',
+    value: 'Cenografia',
   },
   {
-    label: "Figurino",
-    value: "Figurino"
+    label: 'Figurino',
+    value: 'Figurino',
   },
   {
-    label: "Maquiagem/Visagismo",
-    value: "Maquiagem/Visagismo"
+    label: 'Maquiagem/Visagismo',
+    value: 'Maquiagem/Visagismo',
   },
   {
-    label: "Audiovisual",
-    value: "Audiovisual"
+    label: 'Audiovisual',
+    value: 'Audiovisual',
   },
   {
-    label: "Montagem de palco e infra-estrutura",
-    value: "Montagem de palco e infra-estrutura"
+    label: 'Montagem de palco e infra-estrutura',
+    value: 'Montagem de palco e infra-estrutura',
   },
   {
-    label: "Montagem de exposições",
-    value: "Montagem de exposições"
+    label: 'Montagem de exposições',
+    value: 'Montagem de exposições',
   },
   {
-    label: "Produção técnica",
-    value: "Produção técnica"
+    label: 'Produção técnica',
+    value: 'Produção técnica',
   },
   {
-    label: "Novas tecnologias",
-    value: "Novas tecnologias"
+    label: 'Novas tecnologias',
+    value: 'Novas tecnologias',
   },
   {
-    label: "Tecnologias Assistivas",
-    value: "Tecnologias Assistivas"
+    label: 'Tecnologias Assistivas',
+    value: 'Tecnologias Assistivas',
   },
   {
-    label: "Serviços Gerais",
-    value: "Serviços Gerais"
-  }
-]
+    label: 'Serviços Gerais',
+    value: 'Serviços Gerais',
+  },
+];
 
 export const Experience = [
   {
-    value: "drtOnly",
-    label: "DRT"
+    value: 'drtOnly',
+    label: 'DRT',
   },
   {
-    value: "cpnjOnly",
-    label: "CNPJ"
+    value: 'cpnjOnly',
+    label: 'CNPJ',
   },
   {
-    value: "ceacOnly",
-    label: "CEAC"
+    value: 'ceacOnly',
+    label: 'CEAC',
   },
   {
-    value: "meiOnly",
-    label: "MEI"
-  }
-]
+    value: 'meiOnly',
+    label: 'MEI',
+  },
+];
+
+export const deficiencyOptions = [
+  {
+    value: 'Deficiência Física',
+    label: 'Deficiência Física',
+  },
+  {
+    value: 'Deficiência Intelectual',
+    label: 'Deficiência Intelectual',
+  },
+  {
+    value: 'Deficiência Visual',
+    label: 'Deficiência Visual',
+  },
+  {
+    value: 'Deficiência Auditiva',
+    label: 'Deficiência Auditiva',
+  },
+  {
+    value: 'Transtorno de Espectro Autista',
+    label: 'Transtorno de Espectro Autista',
+  },
+  {
+    value: 'Outro',
+    label: 'Outro',
+  },
+];

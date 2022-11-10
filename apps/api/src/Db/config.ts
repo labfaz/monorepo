@@ -35,7 +35,7 @@ export const getDbConnConfig: () => PostgresConnectionOptions = () => {
   }
 
   // else, throw
-  throw new Error("Invalid DB config. Check environment variables")
+  throw new Error("Configurações de DB inválidas. Confira variáveis de ambiente.")
 }
 
 export const getTypeOrmConfig = () => {

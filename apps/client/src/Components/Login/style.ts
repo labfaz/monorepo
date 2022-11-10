@@ -1,22 +1,22 @@
-import styled, { css } from 'styled-components'
-import { Link } from 'react-router-dom'
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import { DesktopSmall, Mobile } from 'Utils/breakpoints'
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
-import { Title } from 'Components/Typography/Title'
-import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton'
-import { TextInput } from 'Components/Inputs/TextInput'
-import { PasswordInput } from 'Components/Inputs/PasswordInput'
+import { Title } from 'Components/Typography/Title';
+import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
+import { TextInput } from 'Components/Inputs/TextInput';
+import { PasswordInput } from 'Components/Inputs/PasswordInput';
 
 interface ContainerProps {
-  openToastMessage: boolean
+  openToastMessage: boolean;
 }
 
 export const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-`
+`;
 
 export const Container = styled.div`
   position: relative;
@@ -26,15 +26,15 @@ export const Container = styled.div`
 
   align-items: center;
 
-  overflow-x: hidden; 
-`
+  overflow-x: hidden;
+`;
 
 export const LoginTitle = styled(Title)`
-  color: #FC0061;
+  color: #fc0061;
 
   font-size: var(--font-size-title-xxxlarge);
 
-  border-bottom: 2px solid #FC0061;
+  border-bottom: 2px solid #fc0061;
 
   margin-top: 3.5rem;
 
@@ -48,10 +48,10 @@ export const LoginTitle = styled(Title)`
     font-size: var(--font-size-title-xlarge);
     line-height: 40px;
   `)}
-`
+`;
 
 export const LabfazText = styled(Title)`
-  color: #FC0061;
+  color: #fc0061;
 
   font-size: var(--font-size-title-small);
 
@@ -67,7 +67,7 @@ export const LabfazText = styled(Title)`
   ${Mobile(css`
     display: none;
   `)}
-`
+`;
 
 export const FormContainer = styled.div<ContainerProps>`
   .errorMessage {
@@ -75,7 +75,7 @@ export const FormContainer = styled.div<ContainerProps>`
 
     white-space: nowrap;
 
-    color: #FFEC99;
+    color: #ffec99;
     padding: 0.2rem 0rem 0.2rem 0.5rem;
 
     border-radius: 5px;
@@ -85,10 +85,10 @@ export const FormContainer = styled.div<ContainerProps>`
 
     animation: toast 1s forwards;
 
-    background-color: #FC0061;
+    background-color: #fc0061;
 
-    display: ${({ openToastMessage }) => openToastMessage ? 'block' : 'none'};
-  
+    display: ${({ openToastMessage }) => (openToastMessage ? 'block' : 'none')};
+
     ${Mobile(css`
       top: 5.5rem;
       right: 1rem;
@@ -108,18 +108,16 @@ export const FormContainer = styled.div<ContainerProps>`
     }
 
     ${DesktopSmall(css`
-
       padding: 0rem 0.5rem;
-  
+
       span {
         font-size: var(--font-size-medium);
       }
     `)}
 
     ${Mobile(css`
-
       padding: 0.2rem 0rem 0.2rem 0.5rem;
-      
+
       span {
         font-size: var(--font-size-short);
       }
@@ -130,7 +128,6 @@ export const FormContainer = styled.div<ContainerProps>`
     `)}
   }
 
-  
   @keyframes toast {
     0% {
       transform: translateX(100%);
@@ -158,7 +155,7 @@ export const FormContainer = styled.div<ContainerProps>`
     position: relative;
 
     margin-top: 2rem;
-    
+
     border: 5px solid rgba(17, 16, 16, 0.5);
     box-shadow: 0px 0px 10px rgba(64, 64, 64, 0.6);
     border-radius: 7px;
@@ -180,13 +177,13 @@ export const FormContainer = styled.div<ContainerProps>`
       border-radius: 0px;
     `)}
   }
-`
+`;
 
 export const LeftSide = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #CECECE;
-  
+  background-color: #cecece;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,10 +202,9 @@ export const LeftSide = styled.div`
     /* width: 100%;
     height: 100%; */
   }
-`
+`;
 
 export const RightSide = styled.div`
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -230,11 +226,11 @@ export const RightSide = styled.div`
   ${Mobile(css`
     background-color: black;
   `)}
-`
+`;
 export const Button = styled.button`
   border: 0;
-  background-color: #FC0061;
-  color: #FFEC99;
+  background-color: #fc0061;
+  color: #ffec99;
   padding: 0.25rem 0;
   cursor: pointer;
 
@@ -244,7 +240,6 @@ export const Button = styled.button`
   background-color: rbga(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
 
-
   :hover {
     box-shadow: 3px 3px 0px rgba(255, 236, 153, 1);
     opacity: 1;
@@ -252,14 +247,13 @@ export const Button = styled.button`
   }
 
   ${DesktopSmall(css`
-
     font-size: 10px;
 
     padding: 0.25rem 6rem;
 
     white-space: nowrap;
   `)}
-`
+`;
 
 export const RegisterButton = styled(InternalLinkButton)`
   padding: 0.25rem 7.8rem;
@@ -279,7 +273,6 @@ export const RegisterButton = styled(InternalLinkButton)`
   }
 
   ${DesktopSmall(css`
-
     font-size: 10px;
 
     padding: 0.25rem 5rem;
@@ -290,8 +283,8 @@ export const RegisterButton = styled(InternalLinkButton)`
   ${Mobile(css`
     font-size: 13px;
     padding: 0.25rem 4rem;
-  `)}  
-`
+  `)}
+`;
 
 export const InputTextContainer = styled.div`
   display: flex;
@@ -310,11 +303,10 @@ export const InputTextContainer = styled.div`
     margin-top: 4.3rem;
     width: 13.16rem;
     row-gap: 3.5rem;
-  `)}  
-`
+  `)}
+`;
 
 export const InputText = styled(TextInput)`
-
   position: relative;
 
   margin: 0;
@@ -324,9 +316,9 @@ export const InputText = styled(TextInput)`
 
     ${Mobile(css`
       width: 100%;
-    `)}     
+    `)}
   }
-`
+`;
 
 export const InputPassword = styled(PasswordInput)`
   input {
@@ -334,17 +326,17 @@ export const InputPassword = styled(PasswordInput)`
 
     ${Mobile(css`
       width: 100%;
-    `)} 
+    `)}
   }
-`
+`;
 
-export const Form = styled.form``
+export const Form = styled.form``;
 
 export const NavLink = styled(Link)`
   font-size: var(--font-size-short);
   font-weight: 600;
 
-  color: #FAFAFA;
+  color: #fafafa;
 
   display: flex;
   justify-content: center;
@@ -354,7 +346,7 @@ export const NavLink = styled(Link)`
   ${DesktopSmall(css`
     margin-top: 1.24rem;
   `)}
-`
+`;
 
 export const ButtonContainer = styled.div`
   display: flex;
@@ -369,8 +361,8 @@ export const ButtonContainer = styled.div`
 
   ${Mobile(css`
     width: 13.2rem;
-  `)}  
-`
+  `)}
+`;
 export const CheckboxInputContainer = styled.div`
   margin-top: 3.33rem;
   margin-bottom: 3.7rem;
@@ -390,10 +382,9 @@ export const CheckboxInputContainer = styled.div`
   `)}
 
   div .checkbox_input {
-    
     ${Mobile(css`
-      width: 22px;
+      width: 20px;
       height: 20px;
     `)}
   }
-`
+`;

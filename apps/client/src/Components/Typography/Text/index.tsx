@@ -1,20 +1,11 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { StyledText } from './style'
+import { StyledText } from './style';
 
 export interface TextProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-export const Text: FC<TextProps> = ({
-  children,
-  ...props
-}) => {
-
-  return (
-    <StyledText 
-      children={children}
-      {...props}
-    />
-  )
-}
+export const Text: FC<TextProps> = ({ children, ...props }) => {
+  return <StyledText children={children} {...props} />;
+};

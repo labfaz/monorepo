@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { Mobile } from "Utils/breakpoints";
-import { Title } from "Components/Typography/Title";
-import { Text } from "Components/Typography/Text";
+import styled, { css } from 'styled-components';
+import { Mobile } from 'Utils/breakpoints';
+import { Title } from 'Components/Typography/Title';
+import { Text } from 'Components/Typography/Text';
 
 interface DateProps {
   size: string;
@@ -14,8 +14,8 @@ export const Container = styled.div`
   grid-template-columns: minmax(5%, auto) minmax(450px, 800px) minmax(5%, auto);
   grid-template-rows: minmax(0, 3fr) auto;
   grid-template-areas:
-    ". content ."
-    ".    .    .";
+    '. content .'
+    '.    .    .';
   ${Mobile(css`
     grid-template-columns: minmax(8%, auto) minmax(250px, 700px) minmax(
         8%,
@@ -40,11 +40,11 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   margin: 100px 0 50px 0;
-  
+
   ${Mobile(css`
     flex-direction: column;
     align-items: center;
-    margin: 60px 0 30px 0;   
+    margin: 60px 0 30px 0;
   `)}
 `;
 
@@ -92,7 +92,7 @@ export const BottomWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  ${Mobile(css`    
+  ${Mobile(css`
     margin: 25px 0 0 0;
   `)}
 `;
@@ -112,7 +112,7 @@ export const DateContainer = styled.div`
 
 export const Date = styled(Text)<DateProps>`
   width: 100%;
-  font-size: ${(p) => (p.size ? p.size : "var(--font-size-subtitle)")};
+  font-size: ${(p) => (p.size ? p.size : 'var(--font-size-subtitle)')};
   font-weight: 600;
   color: var(--color-text-pink);
   text-align: center;

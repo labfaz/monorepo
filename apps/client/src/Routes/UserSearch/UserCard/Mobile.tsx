@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 import {
   Container,
   MobileWrapper,
@@ -10,12 +10,12 @@ import {
   LabelWrapper,
   VerifiedWrapper,
   TitleWrapper,
-} from "./styles";
+} from './styles';
 
-import Label from "../../../Components/Label";
-import { getIcon } from "../../../Utils/IconDictionary";
-import { Link } from "react-router-dom";
-import verifiedIcon from "./verified.png";
+import Label from '../../../Components/Label';
+import { getIcon } from '../../../Utils/IconDictionary';
+import { Link } from 'react-router-dom';
+import verifiedIcon from './verified.png';
 
 interface UserCardData {
   data: {
@@ -35,10 +35,10 @@ export const Mobile: FC<UserCardData> = ({ data }) => {
   area.length = 2;
 
   return (
-    <Link 
+    <Link
       to={`/profile/${id}`}
       style={{
-        width: "100%"
+        width: '100%',
       }}
     >
       <Container>
@@ -62,7 +62,12 @@ export const Mobile: FC<UserCardData> = ({ data }) => {
           <LabelWrapper>
             {area.map((a) => {
               return (
-                <Label name={a.name} image={getIcon(a.name)} lightMode={true} />
+                <Label
+                  name={a.name}
+                  alt={a.name}
+                  image={getIcon(a.name)}
+                  lightMode={true}
+                />
               );
             })}
           </LabelWrapper>

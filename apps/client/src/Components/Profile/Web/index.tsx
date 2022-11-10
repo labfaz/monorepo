@@ -1,13 +1,10 @@
-import React, { FC } from 'react'
-import { IoMdCloudDownload } from 'react-icons/io'
-import { GoGear } from 'react-icons/go'
+import React, { FC } from 'react';
+import { IoMdCloudDownload } from 'react-icons/io';
+import { GoGear } from 'react-icons/go';
 
-import { User } from 'Context/LoggedUserToken'
+import { User } from 'Context/LoggedUserToken';
 
-import {
-  FaCheckCircle,
-  FaCheckSquare,
-} from 'react-icons/fa'
+import { FaCheckCircle, FaCheckSquare } from 'react-icons/fa';
 
 import {
   Container,
@@ -25,28 +22,28 @@ import {
   ContentTitle,
   ContentText,
   UserVerified,
-} from './style'
+} from './style';
 
-import idiom_icon from '../idiomIcon.svg'
-import isVerified from '../isVerified.svg'
-import { getUserName } from 'Utils/userUtils'
-import { SocialMediaLinks } from '../SocialMediaLink'
-import { useHistory } from 'react-router'
-import { showEditProfile } from 'FeatureFlags'
+import idiom_icon from '../idiomIcon.svg';
+import isVerified from '../isVerified.svg';
+import { getUserName } from 'Utils/userUtils';
+import { SocialMediaLinks } from '../SocialMediaLink';
+import { useHistory } from 'react-router';
+import { showEditProfile } from 'FeatureFlags';
 
 interface ProfileProps {
-  data: User
-  personalProfilePage: boolean
+  data: User;
+  personalProfilePage: boolean;
 }
 
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
 const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
-  const history = useHistory()
+  const history = useHistory();
 
   const handleRedirectToEditProfile = () => {
-    history.push('/edit-profile')
-  }
+    history.push('/edit-profile');
+  };
 
   return (
     <Container>
@@ -82,8 +79,22 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
 
           <ButtonContainer>
             {data.artist.curriculum && (
-              <a className="downloadCurriculum" href={data.artist.curriculum} download>
+              <a
+                className="downloadFile"
+                href={data.artist.curriculum}
+                download
+              >
                 <IoMdCloudDownload /> BAIXAR CV
+              </a>
+            )}
+
+            {data.artist.medicalReport && (
+              <a
+                className="downloadFile"
+                href={data.artist.medicalReport}
+                download
+              >
+                <IoMdCloudDownload /> BAIXAR LAUDO
               </a>
             )}
 
@@ -105,6 +116,7 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
           <ContentHeader>
             <a href="#Sobre">Sobre</a>
             <a href="#Formacao">Formação</a>
+            <a href="#RecursosDeAcessibilidade">Recursos de acessibilidade</a>
             <a href="#Certificacoes">Certificações</a>
             <a href="#Contato">Contato</a>
           </ContentHeader>
@@ -136,6 +148,17 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
               </ul>
             </div>
           </div>
+          {data.artist.accessibility_resources_description && (
+            <div className="profileInformation" id="RecursosDeAcessibilidade">
+              <ContentTitle level={1}>Recursos De Acessibilidade</ContentTitle>
+
+              <div>
+                <ContentText>
+                  {data.artist.accessibility_resources_description}
+                </ContentText>
+              </div>
+            </div>
+          )}
 
           <div className="profileInformation" id="Formacao">
             <ContentTitle level={1}>Formação</ContentTitle>
@@ -151,7 +174,7 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
                 {data.artist.technical.idiom &&
                   data.artist.technical.idiom.map((idiom, index) => (
                     <li key={index}>
-                      <img src={idiom_icon} alt="" /> {idiom.name}
+                      <img src={idiom_icon} alt={idiom.name} /> {idiom.name}
                     </li>
                   ))}
               </ul>
@@ -189,7 +212,7 @@ const Web: FC<ProfileProps> = ({ data, personalProfilePage }) => {
         </Content>
       </ProfileContentContainer>
     </Container>
-  )
-}
+  );
+};
 
-export default Web
+export default Web;

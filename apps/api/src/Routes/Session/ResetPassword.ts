@@ -24,11 +24,11 @@ export const ResetPassword: (
   const { password, token } = req.body
 
   if (!token || !password) {
-    return badRequestError(res, "Incomplete request body!!")
+    return badRequestError(res, "Requisição incompleta!!")
   }
 
   if (typeof token !== "string" || typeof password !== "string") {
-    return badRequestError(res, "Invalid request body!!")
+    return badRequestError(res, "Requisição inválida!!")
   }
 
   const decoded = verify(token, authConfig.token.secret);
@@ -51,10 +51,10 @@ export const ResetPassword: (
     user.password = await UserRepo.generateHash(password);
     await UserRepo.save(user);
   } else {
-    return unauthenticatedError(res, "Token is not valid!!")
+    return unauthenticatedError(res, "O token de autenticação não é válido!!")
   }
 
-  return actionSuccessful(res, "Password Changed Sucessfully !!");
+  return actionSuccessful(res, "Senha alterada com sucesso!!");
 };
 
 export default ResetPassword;

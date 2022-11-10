@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components'
-import { DesktopSmall, Mobile, MobileLarge } from "Utils/breakpoints"
-
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile, MobileLarge } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   max-width: 100vw;
@@ -18,7 +17,7 @@ export const Container = styled.div`
   ${Mobile(css`
     max-height: 100vh;
   `)}
-`
+`;
 
 export const Span = styled.p`
   font-size: var(--font-size-title-small);
@@ -42,4 +41,4 @@ export const Span = styled.p`
   ${MobileLarge(css`
     display: none;
   `)}
-`
+`;

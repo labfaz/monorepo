@@ -1,14 +1,14 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 import { ExternalLinkButton } from 'Components/Buttons/ExternalLinkButton';
-import { Text } from 'Components/Typography/Text'
+import { Text } from 'Components/Typography/Text';
 import { Mobile, DesktopSmall } from 'Utils/breakpoints';
 
 export const LogoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 export const Title = styled(Text)`
   && {
     text-transform: uppercase;
@@ -24,12 +24,12 @@ export const Title = styled(Text)`
       font-weight: 500;
     `)}
   }
-`
+`;
 
 export const IconContainer = styled.div`
   display: flex;
   gap: 0.5rem;
-`
+`;
 
 export const Icon = styled(ExternalLinkButton)`
   box-shadow: none;
@@ -40,7 +40,6 @@ export const Icon = styled(ExternalLinkButton)`
   display: flex;
   align-items: center;
 
-  
   svg {
     width: 20px;
     height: 20px;

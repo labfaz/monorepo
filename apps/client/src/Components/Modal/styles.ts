@@ -1,9 +1,13 @@
-import styled, { css } from "styled-components"
-import { MobileSmall, Mobile, DesktopSmall, DesktopLarge } from "Utils/breakpoints"
-
+import styled, { css } from 'styled-components';
+import {
+  MobileSmall,
+  Mobile,
+  DesktopSmall,
+  DesktopLarge,
+} from 'Utils/breakpoints';
 
 interface ModalProps {
-  isVisible: boolean
+  isVisible: boolean;
 }
 
 export const ModalDiv = styled.div`
@@ -14,9 +18,9 @@ export const ModalDiv = styled.div`
   height: 75vh;
   width: 40vw;
   max-width: 640px;
-  border: 5px solid rgba(40,40,40,0.5);
+  border: 5px solid rgba(40, 40, 40, 0.5);
   box-sizing: border-box;
-  box-shadow: 0px 0px 20px rgba(10,10,10,0.8),
+  box-shadow: 0px 0px 20px rgba(10, 10, 10, 0.8),
     inset 0px 0px 20px rgba(10, 10, 10, 0.8);
 
   backdrop-filter: blur(15px);
@@ -33,7 +37,6 @@ export const ModalDiv = styled.div`
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
-
 
   ${MobileSmall(css`
     min-height: 530px;
@@ -78,14 +81,19 @@ export const ModalDiv = styled.div`
       margin-top: 0;
     }
   `)}
-`
+`;
 
 export const ModalLine = styled.div`
   min-height: 2px;
   min-width: 80%;
-  box-shadow: 0px 3px 5px #0B0B0B;
+  box-shadow: 0px 3px 5px #0b0b0b;
   margin-bottom: 2.3rem;
-  background: linear-gradient(to right, rgba(40, 40, 40, 0.1), rgba(40, 40, 40, 1), rgba(40, 40, 40, 0.1) );
+  background: linear-gradient(
+    to right,
+    rgba(40, 40, 40, 0.1),
+    rgba(40, 40, 40, 1),
+    rgba(40, 40, 40, 0.1)
+  );
 `;
 
 export const ModalContent = styled.div`
@@ -99,10 +107,9 @@ export const ModalContent = styled.div`
   height: inherit;
 
   background: linear-gradient(180deg, #202020 0%, rgba(32, 32, 32, 0.7) 100%);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -5px 14px rgba(22, 22, 22, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+    inset 0px -5px 14px rgba(22, 22, 22, 0.8);
   border-radius: 5px;
-
-
 
   h3 {
     color: white;
@@ -122,7 +129,6 @@ export const ModalContent = styled.div`
   p:nth-child(3) {
     font-weight: 700;
   }
-  
 
   > button {
     margin: 0;
@@ -139,7 +145,7 @@ export const ModalContent = styled.div`
     }
 
     a {
-     * {
+      * {
         color: white;
         max-width: 30px;
       }
@@ -160,13 +166,10 @@ export const ModalContent = styled.div`
   }
 
   ${MobileSmall(css`
-
-
     p {
       font-size: var(--font-size-short);
       max-width: 80%;
     }
-
 
     button {
       max-width: 80%;
@@ -211,7 +214,6 @@ export const ModalContent = styled.div`
       max-width: 80%;
     }
 
-
     div {
       margin-top: 1em;
     }
@@ -234,14 +236,11 @@ export const ModalContent = styled.div`
     div {
       margin-top: 1em;
     }
-
   `)}
-
-`
-
+`;
 
 export const Container = styled.div<ModalProps>`
-  display: ${props => props.isVisible ? "grid" : "none"};
+  display: ${(props) => (props.isVisible ? 'grid' : 'none')};
   position: fixed;
   top: 10vh;
   left: 0;
@@ -252,9 +251,7 @@ export const Container = styled.div<ModalProps>`
   max-height: 85vh;
   background-color: rgba(255, 255, 255, 0);
   backdrop-filter: blur(15px);
-
-`
-
+`;
 
 export const Button = styled.button`
   max-width: 150px;
@@ -270,4 +267,4 @@ export const Button = styled.button`
   background-color: rgba(252, 0, 97, 1);
 
   cursor: pointer;
-`
+`;

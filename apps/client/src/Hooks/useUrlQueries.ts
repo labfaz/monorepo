@@ -1,5 +1,5 @@
-import { useLocation } from "react-router"
+import { useLocation } from 'react-router';
 
-export const useQueries = () => new URLSearchParams(useLocation().search)
+export const useQueries = () => new URLSearchParams(useLocation().search);
 
-export default useQueries
+export default useQueries;

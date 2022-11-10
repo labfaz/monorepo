@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 import {
   MainTextContainer,
@@ -6,13 +6,13 @@ import {
   DateContainer,
   Date,
   Divisor,
-} from "./styles";
+} from './styles';
 
-import { formatPostDate } from "Utils/formatPostDate";
+import { formatPostDate } from 'Utils/formatPostDate';
 
-import Markdown from "Components/Markdown";
+import Markdown from 'Components/Markdown';
 
-import SocialMediaIcons from "Components/SocialMediaIcons";
+import SocialMediaIcons from 'Components/SocialMediaIcons';
 
 interface DisplayProps {
   title: string;
@@ -39,13 +39,13 @@ export const Web: FC<DisplayProps> = ({ title, created_at, content }) => {
         <Date
           size={
             isYear
-              ? "var(--font-size-title-medium)"
-              : "var(--font-size-subtitle)"
+              ? 'var(--font-size-title-medium)'
+              : 'var(--font-size-subtitle)'
           }
         >
           {formatPostDate(created_at)?.hour}
         </Date>
-      </DateContainer>{" "}
+      </DateContainer>{' '}
     </>
   );
 };

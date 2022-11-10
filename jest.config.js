@@ -1,6 +1,5 @@
 module.exports = {
   projects: [
-    "<rootDir>/libs/adder",
     "<rootDir>/apps/*",
   ],
   

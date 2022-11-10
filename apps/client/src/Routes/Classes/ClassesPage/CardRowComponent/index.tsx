@@ -1,4 +1,4 @@
-import React, { FC, useRef } from "react";
+import React, { FC, useRef } from 'react';
 
 import {
   MainTitle,
@@ -8,15 +8,15 @@ import {
   ClassesWrapper,
   CardWrapper,
   IconContainer,
-} from "./styles";
+} from './styles';
 
-import Card from "../Card";
+import Card from '../Card';
 
-import { Course } from "Api/Courses";
+import { Course } from 'Api/Courses';
 
-import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
-import useMobile from "Hooks/useMobile";
+import useMobile from 'Hooks/useMobile';
 
 export interface Props {
   title: string;
@@ -36,7 +36,7 @@ export const CardRowComponent: FC<Props> = ({
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handleNav = (direction: string) => {
-    if (direction === "left") {
+    if (direction === 'left') {
       return cardRef ? (cardRef.current!.scrollLeft -= 250) : null;
     } else {
       return cardRef ? (cardRef.current!.scrollLeft += 250) : null;
@@ -60,7 +60,7 @@ export const CardRowComponent: FC<Props> = ({
           <FaChevronLeft
             color="#FFFFFF"
             size="30px"
-            onClick={() => handleNav("left")}
+            onClick={() => handleNav('left')}
             cursor="pointer"
           />
         )}
@@ -89,7 +89,7 @@ export const CardRowComponent: FC<Props> = ({
           <FaChevronRight
             color="#FFFFFF"
             size="30px"
-            onClick={() => handleNav("right")}
+            onClick={() => handleNav('right')}
             cursor="pointer"
           />
         )}

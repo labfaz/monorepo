@@ -56,16 +56,16 @@ export const parseMultedFiles =
     
     const fieldFiles = getFieldFiles(req, fieldName)
     if (fieldFiles.length < min)
-      return badRequestError(res, `Needed at least ${min} files for ${fieldName} field`)
+      return badRequestError(res, `Necessário no mínimo ${min} arquivos para ${fieldName}`)
 
     if (fieldFiles.length > max)
-      return badRequestError(res, `Too many files sent for ${fieldName} field`)
+      return badRequestError(res, `Muitos arquivos enviados para ${fieldName}`)
 
     if (fieldFiles.some(file => file.size > maxSize))
-      return badRequestError(res, `File too big for ${fieldName} field. Maximum file size is ${byteNumToString(maxSize)}`)
+      return badRequestError(res, `Arquivo muito grande para o campo ${fieldName}. O tamanho máximo é ${byteNumToString(maxSize)}`)
 
     if (fieldFiles.some(file => !fileIsOfType(file, type)))
-      return badRequestError(res, `Incorrect filetype for ${fieldName} field`)
+      return badRequestError(res, `Tipo de arquivo inválido para ${fieldName}`)
 
     req.parsedFiles![fieldName as T] = fieldFiles
   }

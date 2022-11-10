@@ -13,7 +13,6 @@
 		"fabiospampinato.vscode-terminals",
 		"vincaslt.highlight-matching-tag",
 		"kamikillerto.vscode-colorize",
-		"jpoissonnier.vscode-styled-components",
 
 		// icons
 		"vscode-icons-team.vscode-icons",
@@ -24,14 +23,10 @@
 		// git
 		"mhutchie.git-graph",
 		"donjayamanne.githistory",
-		"vtrois.gitmoji-vscode",
-		// "eamodio.gitlens",
 
 		// live share
 		"ms-vsliveshare.vsliveshare",
 		"ms-vsliveshare.vsliveshare-audio",
-		// "lostintangent.vsls-whiteboard",
-
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": [

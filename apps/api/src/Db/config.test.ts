@@ -75,7 +75,7 @@ describe('TypeORM config', () => {
       delete process.env.DB_NAME
       delete process.env.DATABASE_URL
       
-      expect(getDbConnConfig).toThrow("Invalid DB config. Check environment variables")
+      expect(getDbConnConfig).toThrow("Configurações de DB inválidas. Confira variáveis de ambiente.")
     })
   })
 

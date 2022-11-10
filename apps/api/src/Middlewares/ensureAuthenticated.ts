@@ -26,7 +26,7 @@ export default function ensureAuthenticated(
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {
-    return unauthenticatedError(res, "JWT token is missing")
+    return unauthenticatedError(res, "Token JWT não encontrado")
   }
 
   const [, token] = authHeader.split(" ");
@@ -36,12 +36,12 @@ export default function ensureAuthenticated(
     const { id } = decoded as ITokenPayload;
 
     if (!id) {
-      return unauthenticatedError(res, "Invalid JWT token")
+      return unauthenticatedError(res, "JWT inválido")
     }
 
     req.user = { id }
     return next();
   } catch {
-    return unauthenticatedError(res, "Invalid JWT token")
+    return unauthenticatedError(res, "JWT inválido")
   }
 }

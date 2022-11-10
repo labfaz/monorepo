@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import Wireframe from 'Components/Wireframe'
-import Image from "../Image"
-import { Text, Content, Rectangle2 } from './style'
+import Wireframe from '../../../Components/Wireframe';
+import Image from '../Image';
+import { Text, Content, Rectangle2 } from './style';
 
 export const Web: FC = () => {
   return (
@@ -10,13 +10,11 @@ export const Web: FC = () => {
       <Content>
         <Rectangle2>
           <Image />
-          <Text>
-            A página que você está procurando não existe.
-          </Text>
+          <Text>A página que você está procurando não existe.</Text>
         </Rectangle2>
       </Content>
     </Wireframe>
-  )
-}
+  );
+};
 
-export default Web
+export default Web;

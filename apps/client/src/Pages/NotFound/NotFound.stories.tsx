@@ -1,12 +1,12 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 
-import NotFound from './'
-import Web from './Web'
-import Mobile from './Mobile'
+import NotFound from './';
+import Web from './Web';
+import Mobile from './Mobile';
 
-storiesOf("Pages/NotFound", module)
+storiesOf('Pages/NotFound', module)
   .addParameters({ component: NotFound })
-  .add("responsive", () => <NotFound />)
-  .add("web", () => <Web />)
-  .add("mobile", () => <Mobile />)
+  .add('responsive', () => <NotFound />)
+  .add('web', () => <Web />)
+  .add('mobile', () => <Mobile />);

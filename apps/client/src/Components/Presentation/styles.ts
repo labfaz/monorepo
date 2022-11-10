@@ -1,11 +1,11 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 import {
   DesktopSmall,
   Mobile,
   MobileSmall,
   Desktop,
   DesktopLarge,
-} from "Utils/breakpoints";
+} from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;

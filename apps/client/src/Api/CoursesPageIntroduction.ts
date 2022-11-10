@@ -1,7 +1,7 @@
-import { strapi } from "Api";
-import { Asset2Image, Image } from "Utils/Image";
-import useFetchApi from "Hooks/useFetchApi";
-import StrapiAsset from "Utils/StrapiAsset";
+import { strapi } from '.';
+import { Asset2Image, Image } from '../Utils/Image';
+import useFetchApi from '../Hooks/useFetchApi';
+import StrapiAsset from '../Utils/StrapiAsset';
 
 export interface CoursesPageIntroduction {
   title: string;
@@ -15,17 +15,16 @@ export interface StrapiCoursesPageIntroduction {
   image: StrapiAsset;
 }
 
-export const fetchCoursesPageIntroduction: () => Promise<
-  CoursesPageIntroduction
-> = () =>
-  strapi
-    .get<StrapiCoursesPageIntroduction>(`/courses-page-introduction`)
-    .then(({ data }) => data)
-    .then(({ title, description, image }) => ({
-      title,
-      description,
-      image: Asset2Image(image),
-    }));
+export const fetchCoursesPageIntroduction: () => Promise<CoursesPageIntroduction> =
+  () =>
+    strapi
+      .get<StrapiCoursesPageIntroduction>(`/courses-page-introduction`)
+      .then(({ data }) => data)
+      .then(({ title, description, image }) => ({
+        title,
+        description,
+        image: Asset2Image(image),
+      }));
 
 export const useCoursesPageIntroduction = () =>
   useFetchApi<CoursesPageIntroduction>(

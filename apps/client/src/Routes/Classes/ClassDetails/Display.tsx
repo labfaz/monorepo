@@ -1,17 +1,17 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import { Course } from "Api/Courses";
+import { Course } from 'Api/Courses';
 
-import About from "./About";
-import Details from "./Details";
-import Introduction from "./Introduction";
+import About from './About';
+import Details from './Details';
+import Introduction from './Introduction';
 
-import Wireframe from "Components/Wireframe";
+import Wireframe from 'Components/Wireframe';
 
-import { Container, FirstRow, SecondRow } from "./styles";
+import { Container, FirstRow, SecondRow } from './styles';
 
-import useMobile from "Hooks/useMobile";
-import MobileCoursePage from "./Mobile";
+import useMobile from 'Hooks/useMobile';
+import MobileCoursePage from './Mobile';
 
 export interface Props {
   data: Course;

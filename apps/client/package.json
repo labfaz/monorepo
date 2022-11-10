@@ -1,13 +1,16 @@
 {
   "name": "@labfaz/client",
-  "version": "21.1.1",
+  "version": "21.2.2",
+  "proxy": "http://localhost:1337/",
   "license": "MIT",
   "dependencies": {
+    "@djpfs/react-vlibras": "^2.0.2",
     "@labfaz/server-conn-info": "^21.0.1",
     "@testing-library/dom": "^7.28.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^12.5.0",
+    "@types/eslint": "^8.4.6",
     "@types/jest": "^24.0.0",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
@@ -52,7 +55,9 @@
     "serve": "serve ./build -l ${PORT:-4000} -s -n",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
     "build-storybook": "build-storybook -s public --no-dll",
-    "cy:open": "yarn run cypress open"
+    "cy:open": "yarn run cypress open",
+    "prettier": "prettier src --write",
+    "lint": "eslint 'src/**/*.tsx'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -85,6 +90,7 @@
     "babel-loader": "^8.1.0",
     "cypress": "^6.0.0",
     "cypress-react-selector": "^2.2.1",
+    "prettier": "2.7.1",
     "react-is": "^17.0.1"
   }
 }

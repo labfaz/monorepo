@@ -20,7 +20,7 @@ export const EmailConfirmation: (deps: ConfirmEmailInterface) => RouteHandler<Re
   const user = await UserRepo.findById(userId)
 
   if(!user){
-    return badRequestError(res, "Invalid user")
+    return badRequestError(res, "Usuário Inválido")
   }
   
   user.active = true

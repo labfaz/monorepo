@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { Text } from "Components/Typography/Text";
-import { ExternalLinkButton } from "Components/Buttons/ExternalLinkButton";
-import { Mobile } from "Utils/breakpoints";
+import styled, { css } from 'styled-components';
+import { Text } from 'Components/Typography/Text';
+import { ExternalLinkButton } from 'Components/Buttons/ExternalLinkButton';
+import { Mobile } from 'Utils/breakpoints';
 
 export const Wrapper = styled.div`
   width: 100%;

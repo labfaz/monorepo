@@ -32,12 +32,12 @@ export const GetSubscriptionIfExists: (
   const { id } = req.user ?? {}
   const { course_id } = req.params
 
-  if (!id) return badRequestError(res, "user id missing")
-  if (!course_id) return badRequestError(res, "course id missing")
+  if (!id) return badRequestError(res, "ID de usuário faltando")
+  if (!course_id) return badRequestError(res, "ID de curso faltando")
 
   return RequestRepo.getRequest({ userId: id, courseId: course_id })
     .then(request => fetchedSuccessfully(res, { request, exists: !!request }))
-    .catch(error => unidentifiedError(res, "unknown server error", { error }))
+    .catch(error => unidentifiedError(res, "Erro de servidor desconhecido", { error }))
 }
 
 export default GetSubscriptionIfExists

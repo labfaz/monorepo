@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
-import { IoMdCloudDownload } from 'react-icons/io'
-import { MdContactPhone } from 'react-icons/md'
-import { GoGear } from 'react-icons/go'
+import React, { FC } from 'react';
+import { IoMdCloudDownload } from 'react-icons/io';
+import { MdContactPhone } from 'react-icons/md';
+import { GoGear } from 'react-icons/go';
 
-import { User } from 'Context/LoggedUserToken'
+import { User } from 'Context/LoggedUserToken';
 
-import { FaCheckCircle, FaCheckSquare } from 'react-icons/fa'
+import { FaCheckCircle, FaCheckSquare } from 'react-icons/fa';
 
 import {
   Container,
@@ -23,28 +23,28 @@ import {
   UserPhotoContainer,
   UserInformation,
   UserVerified,
-} from './style'
+} from './style';
 
-import idiom_icon from '../idiomIcon.svg'
-import isVerified from '../isVerified.svg'
-import { getUserName } from 'Utils/userUtils'
-import { SocialMediaLinks } from '../SocialMediaLink'
-import { useHistory } from 'react-router'
-import { showEditProfile } from 'FeatureFlags'
+import idiom_icon from '../idiomIcon.svg';
+import isVerified from '../isVerified.svg';
+import { getUserName } from 'Utils/userUtils';
+import { SocialMediaLinks } from '../SocialMediaLink';
+import { useHistory } from 'react-router';
+import { showEditProfile } from 'FeatureFlags';
 
 interface ProfileProps {
-  data: User
-  PersonalProfilePage: boolean
+  data: User;
+  PersonalProfilePage: boolean;
 }
 
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
 const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
-  const history = useHistory()
+  const history = useHistory();
 
   const handleRedirectToEditProfile = () => {
-    history.push('/edit-profile')
-  }
+    history.push('/edit-profile');
+  };
 
   return (
     <Container>
@@ -58,7 +58,7 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
             </UserPhoto>
           </UserPhotoContainer>
           {showEditProfile && PersonalProfilePage && (
-            <GoGear onClick={() => handleRedirectToEditProfile()}/>
+            <GoGear onClick={() => handleRedirectToEditProfile()} />
           )}
         </Header>
         <Content>
@@ -74,15 +74,33 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
                   </UserVerified>
                 )}
               </div>
-
-              {data.artist.curriculum && (
-                <a className="downloadCurriculum" href={data.artist.curriculum} download>
-                  {/* <button className="downloadCurriculum"> */}
+              <div className="downloadables">
+                {data.artist.curriculum && (
+                  <a
+                    className="downloadFile"
+                    href={data.artist.curriculum}
+                    download
+                  >
+                    {/* <button className="downloadFile"> */}
                     <IoMdCloudDownload />
                     CV
-                  {/* </button> */}
-                </a>
-              )}
+                    {/* </button> */}
+                  </a>
+                )}
+
+                {data.artist.medicalReport && (
+                  <a
+                    className="downloadFile"
+                    href={data.artist.medicalReport}
+                    download
+                  >
+                    {/* <button className="downloadFile"> */}
+                    <IoMdCloudDownload />
+                    Laudo
+                    {/* </button> */}
+                  </a>
+                )}
+              </div>
             </div>
             <div className="container">
               <div>
@@ -115,6 +133,11 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
           <UserInformation>
             <div className="Header">
               <a href="#Sobre">Sobre</a>
+              {data.artist.accessibility_resources_description && (
+                <a href="#RecursosDeAcessibilidade">
+                  Recursos de acessibilidade
+                </a>
+              )}
               <a href="#Formacao">Formação</a>
               <a href="#Certificacoes">Certificações</a>
 
@@ -130,6 +153,16 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
                 </ContentText>
               </div>
             </div>
+
+            {data.artist.accessibility_resources_description && (
+              <div className="profileInformation" id="RecursosDeAcessibilidade">
+                <ContentTitle level={1}>Reursos de acessibilidade</ContentTitle>
+
+                <ContentText>
+                  {data.artist.accessibility_resources_description}
+                </ContentText>
+              </div>
+            )}
 
             <div className="profileInformation" id="Formacao">
               <ContentTitle level={1}>Formação</ContentTitle>
@@ -185,7 +218,7 @@ const Mobile: FC<ProfileProps> = ({ data, PersonalProfilePage }) => {
         </Content>
       </ProfileContentContainer>
     </Container>
-  )
-}
+  );
+};
 
-export default Mobile
+export default Mobile;

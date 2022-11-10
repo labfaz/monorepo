@@ -1,9 +1,9 @@
-import { Field } from "formik"
-import styled, { css } from "styled-components"
-import { DesktopSmall, Mobile } from "Utils/breakpoints"
+import { Field } from 'formik';
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 interface ContainerProps {
-  paddingLeft: number
+  paddingLeft: number;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -22,7 +22,6 @@ export const Container = styled.div<ContainerProps>`
     left: 2.2rem;
   }
 
-
   input {
     position: absolute;
     width: 100%;
@@ -37,13 +36,12 @@ export const Container = styled.div<ContainerProps>`
     width: 1rem;
     height: 1rem;
 
-
     border-radius: 50%;
     border: 1px solid rgba(250, 250, 250, 0.7);
 
     box-sizing: border-box;
-  
-    background: #090909;  
+
+    background: #090909;
 
     padding: 5px;
 
@@ -62,31 +60,30 @@ export const Container = styled.div<ContainerProps>`
       width: 7px;
       height: 7px;
     `)}
-  
+
     border-radius: 50%;
 
     display: block;
 
-    background-color: #FC0061;
+    background-color: #fc0061;
 
     transform: scale(0);
 
     transition: transform 0.15s;
   }
 
-  input:checked  + .radio_input::after {
+  input:checked + .radio_input::after {
     transform: scale(1);
   }
 
   label {
     font-weight: 600;
-    color: #FAFAFA;
+    color: #fafafa;
     display: block;
 
-    padding-left: 1.20rem;
+    padding-left: 1.2rem;
     padding-right: 0.5rem;
 
-    
     ${DesktopSmall(css`
       font-size: var(--font-size-short);
     `)}
@@ -122,7 +119,7 @@ export const Container = styled.div<ContainerProps>`
     span {
       display: none;
       position: absolute;
-      
+
       padding: 0.5rem;
 
       width: 13rem;
@@ -130,9 +127,9 @@ export const Container = styled.div<ContainerProps>`
       font-size: 10px;
       z-index: 3;
 
-      background-color: #6C6C6C;
+      background-color: #6c6c6c;
       color: #fff;
-    
+
       font-weight: 400;
 
       right: 2.2rem;
@@ -146,10 +143,10 @@ export const Container = styled.div<ContainerProps>`
       svg {
         width: 15px;
         height: 15px;
-        color: #6C6C6C;
-      }     
+        color: #6c6c6c;
+      }
     }
   }
-`
+`;
 
-export const Input = styled(Field)``
+export const Input = styled(Field)``;
