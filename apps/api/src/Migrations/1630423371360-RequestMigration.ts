@@ -19,7 +19,7 @@ export class RequestMigration1630423371360 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`ALTER TABLE "request" DROP CONSTRAINT "FK_227e30f1fd810f592afd1e16fe1"`);
         await queryRunner.query(`ALTER TABLE "request" DROP CONSTRAINT "FK_75f23983b423a20777e71c12bf3"`);
-        await queryRunner.query(`ALTER TABLE "course" DROP CONSTRAINT "FK_3e002f760e8099dd5796e5dc93b"`);
+        await queryRunner.query(`ALTER TABLE "course" DROP CONSTRAINT IF EXISTS "FK_3e002f760e8099dd5796e5dc93b"`);
         // await queryRunner.query(`ALTER TABLE "user" DROP COLUMN "banned"`);
         // await queryRunner.query(`ALTER TABLE "user" DROP COLUMN "isVerified"`);
         // await queryRunner.query(`ALTER TABLE "user" ADD "name" character varying NOT NULL`);
