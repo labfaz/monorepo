@@ -1,9 +1,9 @@
-import { Field } from "formik"
-import styled, { css } from "styled-components"
-import { DesktopSmall, Mobile } from "Utils/breakpoints"
+import { Field } from 'formik';
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 interface ContainerProps {
-  validationError: boolean
+  validationError: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -16,7 +16,7 @@ export const Container = styled.div<ContainerProps>`
     position: absolute;
     width: 1px;
     height: 22px;
-    background-color: #C4C4C4;
+    background-color: #c4c4c4;
 
     right: 3.03rem;
     top: 25%;
@@ -57,7 +57,6 @@ export const Container = styled.div<ContainerProps>`
       padding: 0px 9px;
       background-color: #000000;
       height: 1.8rem;
-
     `)}
   }
 
@@ -82,7 +81,7 @@ export const Container = styled.div<ContainerProps>`
       .obrigatory {
         display: inline;
         color: red;
-        
+
         font-size: var(--font-size-default);
 
         ${DesktopSmall(css`
@@ -104,9 +103,8 @@ export const Container = styled.div<ContainerProps>`
           font-size: 8px;
           top: 0.9rem;
         `)}
-
       }
-      
+
       ${DesktopSmall(css`
         font-size: var(--font-size-small);
         /* margin-bottom: 0.5rem; */
@@ -118,8 +116,6 @@ export const Container = styled.div<ContainerProps>`
     }
   }
 
-
-
   select {
     width: 12.4rem;
     height: 2.55rem;
@@ -130,7 +126,8 @@ export const Container = styled.div<ContainerProps>`
     color: rgba(255, 255, 255, 0.25);
     background-color: #090909;
 
-    border: ${({ validationError }) => validationError ? '1px solid red' : '1px solid rgba(250, 250, 250, 0.7)'};
+    border: ${({ validationError }) =>
+      validationError ? '1px solid red' : '1px solid rgba(250, 250, 250, 0.7)'};
 
     ${DesktopSmall(css`
       width: 8.33rem;
@@ -158,6 +155,10 @@ export const Container = styled.div<ContainerProps>`
       ${Mobile(css`
         font-size: var(--font-size-large);
       `)}
+
+      &[value=""] {
+        display: none;
+      }
     }
   }
 
@@ -165,7 +166,7 @@ export const Container = styled.div<ContainerProps>`
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus,
   select:-webkit-autofill:active {
-    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
     -webkit-transition-delay: 9999s;
   }
 
@@ -178,7 +179,7 @@ export const Container = styled.div<ContainerProps>`
     right: 0.64rem;
     top: 25%;
 
-    color: #FAFAFA;
+    color: #fafafa;
 
     pointer-events: none;
 
@@ -193,6 +194,6 @@ export const Container = styled.div<ContainerProps>`
       right: 1rem;
     `)}
   }
-`
+`;
 
-export const Input = styled(Field)``
+export const Input = styled(Field)``;

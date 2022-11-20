@@ -1,45 +1,42 @@
-let loggedFirstAttempt = false
-
 module.exports = ({ env }) => {
+  const settings = parseURL(env('DATABASE_URL')) || {};
 
-  const databaseUrl = env("DATABASE_URL", "")
-  const dbUriRegex = /^(?<client>postgres):\/\/(?<username>\w+):(?<password>\w+)@(?<host>.+):(?<port>\d+)\/(?<database>\w+)$/
-  const result = dbUriRegex.exec(databaseUrl)
-  
-  const client    = result ? result.groups.client   : env('DB_CLIENT', 'postgres')
-  const host      = result ? result.groups.host     : env('DB_HOST', '127.0.0.1')
-  const username  = result ? result.groups.username : env('DB_USER', 'user')
-  const password  = result ? result.groups.password : env('DB_PASS', 'password')
-  const port      = result ? result.groups.port     : env.int('DB_PORT', 5432)
-  const database  = result ? result.groups.database : env('DB_NAME', 'labfaz-strapi')
+  settings.client   = settings.client   || 'postgres';
+  settings.host     = settings.host     || env('DB_HOST', 'localhost');
+  settings.port     = settings.port     || env.int('DB_PORT', 5432);
+  settings.username = settings.username || env('DB_USER');
+  settings.password = settings.password || env('DB_PASS');
+  settings.database = settings.database || env('DB_NAME', 'labfaz-strapi');
+  settings.ssl      = env('NODE_ENV') === 'production';
 
-  if (!loggedFirstAttempt) {
-    loggedFirstAttempt = true
-    console.log("DB CONNECTION ATTEMPT with", 
-      `client: ${client}`,
-      `host: ${host}`,
-      `username: ${username}`, 
-      `port: ${port}`,
-      `database: ${database}`,
-    )
-  }
-  
+  let password = '[hidden]';
+  console.log('DB CONNECTION ATTEMPT with', { ...settings, password });
+
   return {
     defaultConnection: 'default',
     connections: {
       default: {
         connector: 'bookshelf',
-        settings: {
-          client,
-          host,
-          port,
-          database,
-          username,
-          password,
-          ssl: { "rejectUnauthorized": false },
-        },
+        settings,
         options: {}
       },
     },
+  };
+};
+
+function parseURL(url) {
+  try {
+    let data = new URL(url);
+
+    return {
+      client: data.protocol.replace(/:$/, ''),
+      host: data.hostname,
+      port: data.port,
+      username: data.username,
+      password: data.password,
+      database: data.pathname.replace(/^[/]/, ''),
+    };
+  } catch (err) {
+    return null;
   }
 }

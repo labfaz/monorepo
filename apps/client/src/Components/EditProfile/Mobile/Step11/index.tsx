@@ -1,10 +1,11 @@
-import { useFormikContext } from 'formik'
-import React, { FC } from 'react'
-import { useRef } from 'react'
-import { useState } from 'react'
-import { IoMdArrowDropdownCircle } from 'react-icons/io'
+import { useFormikContext } from 'formik';
+import React, { FC } from 'react';
+import { useRef } from 'react';
+import { useState } from 'react';
+import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
-import { formationOptions, idiomOptions } from 'Utils/selectOptionsData'
+import { formationOptions, idiomOptions } from 'Utils/selectOptionsData';
 
 import {
   Container,
@@ -15,12 +16,12 @@ import {
   LabelText,
   InputRadio,
   InputSelect,
-  IdiomOptionsContainer,
+  OptionsContainer,
   CheckboxContainer,
   InputCheckbox,
   InputText,
   InputTextContainer,
-} from './style'
+} from './style';
 
 interface Step11Props {
   artist: {
@@ -34,14 +35,14 @@ interface Step11Props {
 export const Step11: FC = () => {
   const { values, errors } = useFormikContext<Step11Props>()
 
-  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false)
-  const modalRef = useRef<HTMLInputElement | null>(null)
+  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false);
+  const modalRef = useRef<HTMLInputElement | null>(null);
 
   const closeModal = (e: any) => {
     if (modalRef.current === e.target) {
       setIsIdiomOptionsOpen(false)
     }
-  }
+  };
 
   return (
     <Container>
@@ -90,10 +91,18 @@ export const Step11: FC = () => {
               />
             </InputTextContainer>
           )}
+
+          <LabelText>Você é uma pessoa com deficiência?</LabelText>
+          <InputRadioContainer>
+            <RadioInput name="isPcd" value="true" label="Sim" />
+          </InputRadioContainer>
+          <InputRadioContainer>
+            <RadioInput name="isPcd" value="false" label="Não" />
+          </InputRadioContainer>
         </Content>
       </ContentContainer>
 
-      <IdiomOptionsContainer
+      <OptionsContainer
         ref={modalRef}
         onClick={closeModal}
         isOpen={isIdiomOptionsOpen}
@@ -109,7 +118,7 @@ export const Step11: FC = () => {
             />
           ))}
         </CheckboxContainer>
-      </IdiomOptionsContainer>
+      </OptionsContainer>
     </Container>
   )
 }

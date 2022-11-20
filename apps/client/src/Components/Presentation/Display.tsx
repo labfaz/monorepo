@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC } from 'react';
 
 import { YoutubePlayer } from 'Components/YoutubePlayer';
 import {
@@ -7,17 +7,15 @@ import {
   YoutubePlayerResponsive,
   TextTitle,
   Subtitle,
-  Line
-} from './styles'
+  Line,
+} from './styles';
 export interface DisplayProps {
-  Title: string,
-  SubTitle: string,
-  Video: string
+  Title: string;
+  SubTitle: string;
+  Video: string;
 }
 
-export const Display: FC<DisplayProps> = ({
-  Title, SubTitle, Video
-}) => {
+export const Display: FC<DisplayProps> = ({ Title, SubTitle, Video }) => {
   return (
     <Container>
       <Line />
@@ -31,7 +29,7 @@ export const Display: FC<DisplayProps> = ({
         </TextBlock>
       </div>
     </Container>
-  )
-}
+  );
+};
 
-export default Display
+export default Display;

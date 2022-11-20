@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components'
-import { DesktopLarge, DesktopSmall, Mobile } from 'Utils/breakpoints'
-
+import styled, { css } from 'styled-components';
+import { DesktopLarge, DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 export const FormDiv = styled.div`
   max-width: var(--max-content-small);
@@ -13,7 +12,7 @@ export const FormDiv = styled.div`
     padding-left: 1em;
     margin-bottom: 2rem;
   `)}
-`
+`;
 
 export const OptionsDiv = styled.div`
   max-width: 100vw;
@@ -23,17 +22,17 @@ export const OptionsDiv = styled.div`
   justify-content: space-between;
   > div:nth-child(2) {
     margin-top: 1rem;
-    margin-bottom: 0.5rem
+    margin-bottom: 0.5rem;
   }
 
   > div:first-child {
-    margin-bottom: 0.5rem
+    margin-bottom: 0.5rem;
   }
 
   ${Mobile(css`
     > div:first-child {
       margin-top: 2rem;
-    } 
+    }
   `)}
 
   ${DesktopLarge(css`
@@ -43,7 +42,7 @@ export const OptionsDiv = styled.div`
   ${DesktopSmall(css`
     min-height: 400px;
   `)}
-`
+`;
 
 export const OptionWrapper = styled.div`
   display: flex;
@@ -51,16 +50,16 @@ export const OptionWrapper = styled.div`
   span:first-child {
     margin-left: 0;
   }
-`
+`;
 
 export const OptionDiv = styled.div`
   display: grid;
   grid-template-columns: 150px auto;
   max-height: min-content;
   align-items: center;
-  
+
   * {
-    color: white
+    color: white;
   }
 
   h4 {
@@ -75,8 +74,8 @@ export const OptionDiv = styled.div`
     label:first-child {
       margin-left: 0;
     }
-`)}
-`
+  `)}
+`;
 
 export const Label = styled.div`
   display: inline-flex;
@@ -94,10 +93,9 @@ export const Label = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-all;
-  
 
   p {
-    font-size: var(--font-size-short)
+    font-size: var(--font-size-short);
   }
 
   :hover {
@@ -109,8 +107,7 @@ export const Label = styled.div`
   :active {
     background-color: rgba(252, 0, 97, 1);
   }
-`
-
+`;
 
 export const Select = styled.select`
   border: 1px solid gray;
@@ -125,20 +122,20 @@ export const Select = styled.select`
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
-    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
     -webkit-transition-delay: 9999s;
   }
 
   ::placeholder {
     color: white;
-    font-size: var(--font-size-short)
+    font-size: var(--font-size-short);
   }
 
   ${Mobile(css`
     min-width: 275px;
     max-width: 100%;
   `)}
-`
+`;
 
 export const SelectDiv = styled.div`
   display: grid;
@@ -158,14 +155,13 @@ export const SelectDiv = styled.div`
     grid-template-columns: auto;
     margin-bottom: 1em;
   `)}
-`
+`;
 
 export const BadgeInput = styled.input`
-
   opacity: 1;
   float: left;
   width: 18px;
-`
+`;
 
 export const BadgeDiv = styled.span`
   display: flex;
@@ -182,7 +178,7 @@ export const BadgeDiv = styled.span`
   max-width: auto;
   overflow: hidden;
   font-size: var(--font-size-short);
-  
+
   label {
     font-size: var(--font-size-short);
     padding: 0 0.5em;
@@ -190,7 +186,7 @@ export const BadgeDiv = styled.span`
     z-index: 1;
   }
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     position: absolute;
     margin: 0;
     height: 100%;
@@ -204,8 +200,7 @@ export const BadgeDiv = styled.span`
     }
   }
 
-
-  input[type="radio"] {
+  input[type='radio'] {
     position: absolute;
     margin: 0;
     height: 100%;
@@ -220,9 +215,9 @@ export const BadgeDiv = styled.span`
   }
 
   ${Mobile(css`
-    margin: 0.5rem
+    margin: 0.5rem;
   `)}
-`
+`;
 
 export const Header = styled.div`
   display: flex;
@@ -232,7 +227,7 @@ export const Header = styled.div`
   align-items: center;
 
   ${Mobile(css`
-    width: 90vw
+    width: 90vw;
   `)}
 
   ${DesktopSmall(css`
@@ -253,10 +248,10 @@ export const Header = styled.div`
     line-height: var(--line-height-medium);
 
     ${Mobile(css`
-      font-size: var(--font-size-medium)
+      font-size: var(--font-size-medium);
     `)}
   }
-`
+`;
 
 export const ContentDiv = styled.div`
   display: flex;
@@ -268,4 +263,4 @@ export const ContentDiv = styled.div`
   ${Mobile(css`
     margin: 0 1rem;
   `)}
-`
+`;

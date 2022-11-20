@@ -17,9 +17,9 @@ export const ShowCurrentUser: (
   const user = await UserRepo.findById(id ?? "")
 
   if (!user)
-    return unauthenticatedError(res, "Not logged in")
+    return unauthenticatedError(res, "Usuário não autenticado")
   if (!user.active)
-    return unauthorizedError(res, "This user didn't confirm his account in the email!!");
+    return unauthorizedError(res, "Esse usuário não confirmou usa conta pelo email!");
 
   const { password: _, ...userWithoutPassword } = user
 

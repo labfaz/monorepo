@@ -1,11 +1,11 @@
-import React, { FC, Fragment } from "react";
+import React, { FC, Fragment } from 'react';
 
-import { Container, Content, Wrapper } from "./styles";
+import { Container, Content, Wrapper } from './styles';
 
-import { BlogPost } from "Api/BlogPost";
-import Web from "./Web";
-import Mobile from "./Mobile";
-import useMobile from "Hooks/useMobile";
+import { BlogPost } from 'Api/BlogPost';
+import Web from './Web';
+import Mobile from './Mobile';
+import useMobile from 'Hooks/useMobile';
 
 interface DisplayProps {
   post: BlogPost;

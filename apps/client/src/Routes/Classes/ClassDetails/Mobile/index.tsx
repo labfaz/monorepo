@@ -1,14 +1,14 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 // import { Banner, CourseInfo, CourseResume, ResumeInfo } from './styles'
-import FullPage from "Components/FullPage";
-import { Course } from "Api/Courses";
-import Banner from "./Components/Banner";
-import CourseInfo from "./Components/CourseInfo";
-import CourseResume from "./Components/Resume";
+import FullPage from 'Components/FullPage';
+import { Course } from 'Api/Courses';
+import Banner from './Components/Banner';
+import CourseInfo from './Components/CourseInfo';
+import CourseResume from './Components/Resume';
 
-import Header from "Components/Header";
-import Footer from "Components/Footer";
+import Header from 'Components/Header';
+import Footer from 'Components/Footer';
 
 interface MobileProps {
   course: Course;

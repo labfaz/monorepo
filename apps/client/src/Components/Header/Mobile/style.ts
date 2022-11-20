@@ -1,12 +1,12 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
-import { InternalLinkButton  } from 'Components/Buttons/InternalLinkButton';
+import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
 
 export interface PropsCloseMenu {
-  open: boolean,
+  open: boolean;
 }
 export interface PropsButton {
-  BackgroundColor?: string,
+  BackgroundColor?: string;
 }
 export const Container = styled.div`
   z-index: 920;
@@ -49,23 +49,19 @@ export const NavLink = styled(InternalLinkButton)`
     border: none;
     background-color: transparent;
   }
-`
+`;
 
 export const Button = styled(InternalLinkButton)<PropsButton>`
   --font-size-short: 11px;
   display: flex;
-  ${props => 
-    props.BackgroundColor === "login" ?
-      'background-color: var(--background-pink);'
-      : 
-      'background-color: var(--color-text-yellow);'
-  };
-  ${props => 
-    props.BackgroundColor === "login" ?
-      'color: var(--color-text-yellow);'
-      : 
-      'color: var(--background-pink);'
-  };
+  ${(props) =>
+    props.BackgroundColor === 'login'
+      ? 'background-color: var(--background-pink);'
+      : 'background-color: var(--color-text-yellow);'};
+  ${(props) =>
+    props.BackgroundColor === 'login'
+      ? 'color: var(--color-text-yellow);'
+      : 'color: var(--background-pink);'};
   justify-content: center;
   align-items: center;
   height: 2rem;
@@ -75,7 +71,6 @@ export const Button = styled(InternalLinkButton)<PropsButton>`
 `;
 
 export const LogoutButton = styled.button`
-  
   flex-grow: 0.8;
   font-size: var(--font-size-short);
   color: var(--background-pink);
@@ -86,7 +81,7 @@ export const LogoutButton = styled.button`
   &:hover {
     cursor: pointer;
   }
-`
+`;
 
 export const CloseMenu = styled.div<PropsCloseMenu>`
   background-color: transparent;
@@ -95,8 +90,8 @@ export const CloseMenu = styled.div<PropsCloseMenu>`
   z-index: 900;
   position: fixed;
   cursor: pointer;
-  display: ${props => props.open ? 'flex' : 'none'};
-`
+  display: ${(props) => (props.open ? 'flex' : 'none')};
+`;
 
 export const ContainerIcon = styled.div`
   background-color: var(--backgound-black-gray);
@@ -109,8 +104,7 @@ export const ContainerIcon = styled.div`
     align-items: center;
     width: 90%;
   }
-  
-`
+`;
 
 export const IconButton = styled.button`
   background: transparent;
@@ -129,4 +123,4 @@ export const LogoLink = styled(InternalLinkButton)`
   padding: 0;
   display: flex;
   align-items: center;
-`
+`;

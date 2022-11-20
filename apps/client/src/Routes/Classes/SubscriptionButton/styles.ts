@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 export const ButtonStyled = styled.button`
   min-width: 211px;

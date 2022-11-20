@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { Title } from "Components/Typography/Title";
-import { Text } from "Components/Typography/Text";
-import { Rectangle } from "Pages/Construction/Web/style";
-import { DesktopSmall } from "Utils/breakpoints";
+import { Title } from '../../../Components/Typography/Title';
+import { Text } from '../../../Components/Typography/Text';
+import { Rectangle } from '../../Construction/Web/style';
+import { DesktopSmall } from '../../../Utils/breakpoints';
 
 export const Content = styled.div`
   padding: 5rem 0;

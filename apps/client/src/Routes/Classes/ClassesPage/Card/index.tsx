@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { Link } from "react-router-dom"
+import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   Container,
@@ -14,24 +14,24 @@ import {
   ButtonLayer,
   Button,
   ButtonText,
-} from "./styles";
+} from './styles';
 
 import {
   CardDescription,
   DateText,
-} from "../../../../Components/CoursesPresentation/Card/styles";
+} from '../../../../Components/CoursesPresentation/Card/styles';
 
-import Label from "Components/Label";
+import Label from 'Components/Label';
 
-import { format } from "date-fns";
-import { Course } from "Api/Courses";
+import { format } from 'date-fns';
+import { Course } from 'Api/Courses';
 
 export interface CardProps extends Course {
   tag: string;
 }
 
-const formatDate = (dateStr: string) => format(dateStr, "DD-MM-YYYY")
-    .replace(/-/g, "/")
+const formatDate = (dateStr: string) =>
+  format(dateStr, 'DD-MM-YYYY').replace(/-/g, '/');
 
 export const Card: FC<CardProps> = ({
   id,
@@ -45,27 +45,31 @@ export const Card: FC<CardProps> = ({
   subscription_start_date,
   class_dates,
 }) => {
+  const firstClassDateStr = class_dates?.length > 0 && class_dates[0];
+  const lastClassDate =
+    class_dates?.length > 0
+      ? new Date(class_dates[class_dates.length - 1]).getTime()
+      : -Infinity;
+  const now = new Date().getTime();
+  const subscriptionStart = new Date(subscription_start_date).getTime();
+  const subscriptionFinish = new Date(subscription_finish_date).getTime();
 
-  const firstClassDateStr = class_dates?.length > 0 && class_dates[0]
-  const lastClassDate = class_dates?.length > 0 ? (new Date(class_dates[class_dates.length-1])).getTime() : -Infinity
-  const now = (new Date()).getTime()
-  const subscriptionStart = new Date(subscription_start_date).getTime()
-  const subscriptionFinish = new Date(subscription_finish_date).getTime()
-
-  const isAvailable = available && (
-    (!has_subscription && lastClassDate > now) ||
-    (has_subscription && subscriptionStart < now && now < subscriptionFinish)
-  )
-  const willStart = has_subscription && subscriptionStart > now
+  const isAvailable =
+    available &&
+    ((!has_subscription && lastClassDate > now) ||
+      (has_subscription &&
+        subscriptionStart < now &&
+        now < subscriptionFinish));
+  const willStart = has_subscription && subscriptionStart > now;
   // const notAvailable = !isAvailable && !willStart
 
-  const path = "classes"
+  const path = 'classes';
   const route = `/${path}/${id}`;
 
   return (
     <Container>
       <Link to={route}>
-        <Image src={banner} alt="" />
+        <Image src={banner} alt="Imagem do banner" />
       </Link>
       <TextWrapper>
         <CardTitle>{name}</CardTitle>
@@ -73,35 +77,38 @@ export const Card: FC<CardProps> = ({
           <CardDescription>{short_description}</CardDescription>
         </DescriptionWrapper>
         <LabelWrapper>
-          <Label name={tag} image={undefined} />
+          <Label name={tag} alt={name} image={undefined} />
         </LabelWrapper>
         <SubscribeWrapper>
           {/* {!!date && */}
-            <DateContainer>
-              <DateText>
-                {
-                  willStart ? "Iniciará em" :
-                  isAvailable ? "Inscreva-se até" : "Encerrado em"}
-              </DateText>
-              <DateText>
-                {isAvailable
-                  ? has_subscription
-                    ? formatDate(subscription_finish_date)
-                    : firstClassDateStr && formatDate(firstClassDateStr)
-                  : willStart ? formatDate(subscription_start_date)
+          <DateContainer>
+            <DateText>
+              {willStart
+                ? 'Iniciará em'
+                : isAvailable
+                ? 'Inscreva-se até'
+                : 'Encerrado em'}
+            </DateText>
+            <DateText>
+              {isAvailable
+                ? has_subscription
+                  ? formatDate(subscription_finish_date)
                   : firstClassDateStr && formatDate(firstClassDateStr)
-                }
-              </DateText>
-            </DateContainer>
+                : willStart
+                ? formatDate(subscription_start_date)
+                : firstClassDateStr && formatDate(firstClassDateStr)}
+            </DateText>
+          </DateContainer>
           {/* } */}
           <ButtonWrapper>
             <ButtonLayer />
             <Button href={route}>
               <ButtonText>
-                {
-                  !isAvailable ? "encerrado" :
-                  has_subscription ? "inscreva-se" : "aberto"
-                }
+                {!isAvailable
+                  ? 'encerrado'
+                  : has_subscription
+                  ? 'inscreva-se'
+                  : 'aberto'}
               </ButtonText>
             </Button>
           </ButtonWrapper>

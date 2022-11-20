@@ -39,7 +39,7 @@ export const originChecker = (allowedOrigins: RegExp[]) => (origin: string | und
 
   if (!isAllowed) {
     console.log("Rejecter request because of CORS policy.", `allowedOrigins: `, allowedOrigins, `origin: `, origin)
-    const msg = `The CORS policy for this site does not allow access from the specified Origin (${origin})`
+    const msg = `A política CORS para este site não permite acesso da Origem especificada (${origin})`
     return callback(new Error(msg), false)
   }
   return callback(null, true)

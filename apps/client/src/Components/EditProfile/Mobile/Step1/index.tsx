@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
 import {
   Container,
@@ -6,7 +6,7 @@ import {
   Content,
   InputText,
   InputTextContainer,
-} from './style'
+} from './style';
 
 export const Step1: FC = () => {
   return (
@@ -41,5 +41,5 @@ export const Step1: FC = () => {
         </Content>
       </ContentContainer>
     </Container>
-  )
-}
+  );
+};

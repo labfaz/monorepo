@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import render from "Utils/render";
-import Presentation from "./";
-import Display from "./Display";
+import render from 'Utils/render';
+import Presentation from './';
+import Display from './Display';
 
-it("renders Presentation component", () => {
-  const mockedTitle: string = "Exemplo";
-  const mockedSubtitle: string = "Exemplo";
-  const mockedVideo: string = "https://www.youtube.com/watch?v=UrUJyKsLQeU";
+it('renders Presentation component', () => {
+  const mockedTitle: string = 'Exemplo';
+  const mockedSubtitle: string = 'Exemplo';
+  const mockedVideo: string = 'https://www.youtube.com/watch?v=UrUJyKsLQeU';
 
   expect(() =>
     render(
@@ -20,7 +20,7 @@ it("renders Presentation component", () => {
   ).not.toThrow();
 });
 
-describe("check content of Presentation Component", () => {
+describe('check content of Presentation Component', () => {
   const { getByText } = render(
     <Display
       Title="LABFAZ"
@@ -31,10 +31,10 @@ describe("check content of Presentation Component", () => {
       Video="https://www.youtube.com/watch?v=5qap5aO4i9A"
     />
   );
-  it("check component block text", () => {
-    expect(getByText("LABFAZ")).toHaveTextContent("LABFAZ");
-    expect(getByText("Aenean commodo", { exact: false })).toHaveTextContent(
-      "Lorem ipsum"
+  it('check component block text', () => {
+    expect(getByText('LABFAZ')).toHaveTextContent('LABFAZ');
+    expect(getByText('Aenean commodo', { exact: false })).toHaveTextContent(
+      'Lorem ipsum'
     );
   });
 });

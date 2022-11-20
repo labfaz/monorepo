@@ -1,13 +1,13 @@
-import styled, { css } from "styled-components";
-import { Title } from "Components/Typography/Title";
-import { Text } from "Components/Typography/Text";
-import { InternalLinkButton } from "Components/Buttons/InternalLinkButton";
-import { Mobile, DesktopSmall } from "Utils/breakpoints";
+import styled, { css } from 'styled-components';
+import { Title } from 'Components/Typography/Title';
+import { Text } from 'Components/Typography/Text';
+import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
+import { Mobile, DesktopSmall } from 'Utils/breakpoints';
 import {
   DescriptionBox,
   BottomWrapper,
   DateWrapper,
-} from "../../../../Components/CoursesPresentation/Card/styles";
+} from '../../../../Components/CoursesPresentation/Card/styles';
 
 export const Container = styled.div`
   width: 260px;

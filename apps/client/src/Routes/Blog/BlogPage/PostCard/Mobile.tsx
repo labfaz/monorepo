@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 import {
   MainTextContainer,
@@ -13,9 +13,9 @@ import {
   DateContainer,
   Date,
   Divisor,
-} from "./styles";
+} from './styles';
 
-import { formatPostDate } from "Utils/formatPostDate";
+import { formatPostDate } from 'Utils/formatPostDate';
 
 interface DisplayProps {
   title: string;
@@ -57,7 +57,7 @@ export const Mobile: FC<DisplayProps> = ({
             {formatPostDate(created_at)?.hour}
           </Date>
         </DateContainer>
-      </ButtonWrapper>{" "}
+      </ButtonWrapper>{' '}
     </>
   );
 };

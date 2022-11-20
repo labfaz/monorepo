@@ -1,8 +1,8 @@
-import { Field } from "formik"
-import styled, { css } from "styled-components"
-import { DesktopSmall, Mobile } from "Utils/breakpoints"
+import { Field } from 'formik';
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
-export const Container = styled.div`
+export const Container = styled.label`
   display: inline-flex;
   cursor: pointer;
 
@@ -27,7 +27,7 @@ export const Container = styled.div`
   input {
     opacity: 0;
     position: absolute;
-  
+
     z-index: 2;
 
     &:hover {
@@ -43,12 +43,12 @@ export const Container = styled.div`
     border: 1px solid rgba(250, 250, 250, 0.7);
 
     ${Mobile(css`
-      width: 30px;
+      width: 20px;
       height: 20px;
       padding: 7px;
     `)}
 
-    background: rgba(0, 0, 0, 0.46);  
+    background: rgba(0, 0, 0, 0.46);
 
     &:hover {
       cursor: pointer;
@@ -57,36 +57,32 @@ export const Container = styled.div`
 
   .checkbox_input::after {
     content: '';
-
     width: 6px;
     height: 6px;
 
     border-radius: 50%;
-
     display: block;
-
-    background-color: #FC0061;
-
+    background-color: #fc0061;
     transform: scale(0);
-
     transition: transform 0.15s;
   }
 
-  input:checked  + .checkbox_input::after {
+  input:checked + .checkbox_input::after {
     transform: scale(1);
   }
-  
-  label {
+
+  span {
     font-weight: 600;
     color: var(--color-text-black);
     display: block;
 
     color: #fafafa;
+    text-decoration: none !important;
 
     line-height: 22px;
-    
+
     padding: 0;
-    padding-left: 1.20rem;
+    padding-left: 1.2rem;
     margin-top: 0;
     margin-bottom: 0;
 
@@ -105,10 +101,10 @@ export const Container = styled.div`
 
   a {
     font-weight: 600;
-    color: var(--color-text-black);
-    font-size: var(--font-size-small);
+    color: currentColor;
+    font-size: 1em;
     text-decoration: underline;
   }
-`
+`;
 
-export const Input = styled(Field)``
+export const Input = styled(Field)``;

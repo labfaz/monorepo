@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-
+import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
   background: var(--backgound-black-gray);
@@ -15,5 +14,4 @@ export const FooterContainer = styled.div`
     justify-content: space-around;
     align-items: flex-start;
   }
-  
-`
+`;

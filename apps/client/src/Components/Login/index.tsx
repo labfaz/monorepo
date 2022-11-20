@@ -1,17 +1,17 @@
-import React, { FC, useCallback, useContext, useState } from 'react'
-import * as yup from 'yup'
-import { useHistory } from 'react-router-dom'
-import { Formik, Form } from 'formik'
+import React, { FC, useCallback, useContext, useState } from 'react';
+import * as yup from 'yup';
+import { Redirect } from 'react-router-dom';
+import { Formik, Form } from 'formik';
 
-import { login } from 'Api/Session'
-import { ErrorObject } from 'Api'
+import { login } from 'Api/Session';
+import { ErrorObject } from 'Api';
 
-import useQueries from 'Hooks/useUrlQueries'
+import useQueries from 'Hooks/useUrlQueries';
 
-import { CheckboxInput } from 'Components/Inputs/CheckboxInput'
-import { CurrentUserTokenContext } from 'Context/LoggedUserToken'
+import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+import { CurrentUserTokenContext } from 'Context/LoggedUserToken';
 
-import Icon from './Icon.svg'
+import Icon from './Icon.svg';
 
 import {
   Container,
@@ -29,55 +29,57 @@ import {
   CheckboxInputContainer,
   InputPassword,
   Img,
-} from './style'
-import { useLoginInfo } from 'Api/LoginAssets'
-import { showForgotPassword } from 'FeatureFlags'
-import { navLinks } from 'Utils/navLinks'
-import { Modal } from 'Components/Modal/LoginModal'
+} from './style';
+import { useLoginInfo } from 'Api/LoginAssets';
+import { showForgotPassword } from 'FeatureFlags';
+import { navLinks } from 'Utils/navLinks';
+import { Modal } from 'Components/Modal/LoginModal';
 
 interface FormProps {
-  email: string
-  password: string
-  stayConnected?: boolean
+  email: string;
+  password: string;
+  stayConnected?: boolean;
 }
 
 export interface LoginComponentProps {
-  onSubmit: FormSubmitFn
-  buttonType?: 'submit' | 'button' | 'reset'
+  buttonType?: 'submit' | 'button' | 'reset';
 }
 
-export type FormSubmitFn = (values: FormProps) => any
+export type FormSubmitFn = (values: FormProps) => any;
 
 export const Login: FC<LoginComponentProps> = ({ buttonType }) => {
-  const { setToken } = useContext(CurrentUserTokenContext)
-  const [error, setError] = useState<ErrorObject | undefined>(undefined)
-  const [toastMessage, setToastMessage] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
-  
-  const { data: infoData } = useLoginInfo()
-
-  const history = useHistory()
-  const queries = useQueries()
-  const redirect_to = queries.get("redirect_to")
+  const queries = useQueries();
+  const { setToken } = useContext(CurrentUserTokenContext);
+  const [error, setError] = useState<ErrorObject | undefined>(undefined);
+  const [toastMessage, setToastMessage] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [doRedirect, setDoRedirect] = useState(false);
+  const { data: infoData } = useLoginInfo();
 
   const handleSubmit = useCallback(
     (values: FormProps) => {
       login(values.email, values.password)
         .then(({ token }) => {
-          setToken(token)
-          history.push(`/${redirect_to ?? "home"}`)
+          // A ordem parece errada mas, enfim...
+          setDoRedirect(true);
+          setToken(token);
         })
-        .catch((err) => [setError(err), setToastMessage(true)])
+        .catch((err) => [setError(err), setToastMessage(true)]);
     },
-    [setToken, redirect_to, history]
-  )
+    [setToken]
+  );
+
+  if (doRedirect) return <Redirect to={queries.get('redirect_to') ?? 'home'} />;
 
   return (
     <Container>
       <FormContainer openToastMessage={toastMessage}>
         <div className="formContainer">
           <LeftSide>
-            <Img src={infoData?.imagem?.url ?? Icon} alt="" />
+            <Img
+              src={infoData?.imagem?.url ?? Icon}
+              alt="Imagem da página de login"
+            />
           </LeftSide>
           <RightSide>
             <Formik
@@ -119,15 +121,24 @@ export const Login: FC<LoginComponentProps> = ({ buttonType }) => {
                   </CheckboxInputContainer>
 
                   <ButtonContainer>
-                    <Button type={buttonType ? buttonType : 'submit'}>
-                      ENTRAR
-                    </Button>
+                    <Button type={buttonType || 'submit'}>ENTRAR</Button>
 
-                    <RegisterButton href={navLinks.cadastro.path}>CADASTRE-SE</RegisterButton>
+                    <RegisterButton href={navLinks.cadastro.path}>
+                      CADASTRE-SE
+                    </RegisterButton>
                   </ButtonContainer>
 
-                  { showForgotPassword && <NavLink to={navLinks.forgotPass.path}>{navLinks.forgotPass.label}</NavLink> }
-                  {error && error.message==="Email confimation needed" && <span onClick={() => setIsVisible(true)}> Reenviar email de confirmação ? </span> }
+                  {showForgotPassword && (
+                    <NavLink to={navLinks.forgotPass.path}>
+                      {navLinks.forgotPass.label}
+                    </NavLink>
+                  )}
+                  {error && error.message === 'Email confimation needed' && (
+                    <span onClick={() => setIsVisible(true)}>
+                      {' '}
+                      Reenviar email de confirmação ?{' '}
+                    </span>
+                  )}
                 </Form>
               )}
             </Formik>
@@ -146,5 +157,5 @@ export const Login: FC<LoginComponentProps> = ({ buttonType }) => {
         children="Laboratorio dos Fazeres e Saberes Tecnicos da Economia Criativa"
       />
     </Container>
-  )
-}
+  );
+};

@@ -68,7 +68,7 @@ const Subscription: FC<ActionProps> = (props) => {
       setSubscripitons(res.data.requests)
     })
     .catch(error => {
-      console.log("DEU RUIM", error)
+      console.error("[Admin Subscription]: ", error)
     })
   }, [])
 
@@ -85,7 +85,7 @@ const Subscription: FC<ActionProps> = (props) => {
         setAnwseredSubs(res.data.requests)
       })
       .catch(error => {
-        console.log("DEU RUIM", error)
+        console.error("[Admin Subscription]: ", error)
       })
     }, [])
 

@@ -1,21 +1,21 @@
-import React, { FC } from 'react'
-import { useField } from 'formik'
-import InputMask from 'react-input-mask'
+import React, { FC } from 'react';
+import { useField } from 'formik';
+import InputMask from 'react-input-mask';
 
-import { Container, Input } from './style'
-import { IoMdInformationCircle } from 'react-icons/io'
+import { Container, Input } from './style';
+import { IoMdInformationCircle } from 'react-icons/io';
 
 export interface InputProps {
-  label?: string
-  placeholder?: string
-  name: string
-  width?: number
-  height?: number
-  inputMask?: string
-  informationText?: string
-  obrigatory?: boolean
-  disabled?: boolean
-  onChange?: (ev: any) => void
+  label?: string;
+  placeholder?: string;
+  name: string;
+  width?: number;
+  height?: number;
+  inputMask?: string;
+  informationText?: string;
+  obrigatory?: boolean;
+  disabled?: boolean;
+  onChange?: (ev: any) => void;
 }
 
 export const TextInput: FC<InputProps> = ({
@@ -30,49 +30,54 @@ export const TextInput: FC<InputProps> = ({
   children,
   ...props
 }) => {
-  const [inputProps, meta] = useField(props)
+  const [inputProps, meta] = useField(props);
 
   return (
     <Container
       {...props}
       validationError={meta.touched && meta.error ? true : false}
     >
-      {label && (
+      <label>
         <div className="labelContainer">
           <div className="labelContent">
-            <label htmlFor={props.name}>
-              {label}
+            {label && (
+              <>
+                <span className="labelLine">
+                  {label}
 
-              {obrigatory && <p className="obrigatory"> * </p>}
+                  {obrigatory && <p className="obrigatory"> * </p>}
+                </span>
 
-              {informationText && (
-                <>
-                  <div className="svgContainer">
-                    <IoMdInformationCircle />
-                    <p className="information">{informationText}</p>
-                  </div>
-                </>
-              )}
-            </label>
-
-            {meta.touched && meta.error && <span>{meta.error}</span>}
+                {informationText && (
+                  <>
+                    <div className="svgContainer">
+                      <IoMdInformationCircle />
+                      <p className="information">{informationText}</p>
+                    </div>
+                  </>
+                )}
+              </>
+            )}
+            {meta.touched && meta.error && (
+              <span className="error">{meta.error}</span>
+            )}
           </div>
         </div>
-      )}
 
-      <Input>
-        {() => (
-          <InputMask
-            mask={inputMask ? inputMask : ''}
-            id={props.name}
-            style={{ width: `${width}rem`, height: `${height}rem` }}
-            type="text"
-            placeholder={placeholder}
-            {...inputProps}
-            disabled={disabled}
-          />
-        )}
-      </Input>
+        <Input>
+          {() => (
+            <InputMask
+              mask={inputMask ? inputMask : ''}
+              id={props.name}
+              style={{ width: `${width}rem`, height: `${height}rem` }}
+              type="text"
+              placeholder={placeholder}
+              {...inputProps}
+              disabled={disabled}
+            />
+          )}
+        </Input>
+      </label>
     </Container>
-  )
-}
+  );
+};

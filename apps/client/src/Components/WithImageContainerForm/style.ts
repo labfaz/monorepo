@@ -1,6 +1,11 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { MobileSmall, DesktopSmall, Mobile, MobileLarge } from 'Utils/breakpoints';
+import {
+  MobileSmall,
+  DesktopSmall,
+  Mobile,
+  MobileLarge,
+} from 'Utils/breakpoints';
 
 export const Container = styled.div`
   display: flex;
@@ -10,7 +15,6 @@ export const Container = styled.div`
   max-height: 860px;
   min-height: 80%;
   min-width: 67%;
-
 
   ${MobileSmall(css`
     min-width: 100%;
@@ -34,7 +38,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: flex-start;
   `)}
-  `;
+`;
 
 export const Frame = styled.img`
   width: 100%;
@@ -45,14 +49,12 @@ export const Frame = styled.img`
   ${MobileSmall(css`
     display: none;
   `)}
-  
-
 
   ${DesktopSmall(css`
     background-color: aqua;
     display: block;
   `)}
-`
+`;
 
 export const ImageDiv = styled.div`
   display: flex;
@@ -76,23 +78,27 @@ export const ImageDiv = styled.div`
     display: none;
     border: none;
   `)}
-`
+`;
 
 export const Line = styled.div`
   min-height: 2px;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1));
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 1)
+  );
   width: 100%;
   box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.05);
   margin-bottom: 2rem;
 
   ${MobileLarge(css`
-    display: none
+    display: none;
   `)}
 
   ${MobileSmall(css`
-    display: none
+    display: none;
   `)}
-`
+`;
 
 export const PageTitle = styled.h1`
   font-size: var(--font-size-title-xxlarge);
@@ -112,7 +118,7 @@ export const PageTitle = styled.h1`
   ${MobileSmall(css`
     display: none;
   `)}
-`
+`;
 
 export const Content = styled.div`
   display: flex;
@@ -124,12 +130,11 @@ export const Content = styled.div`
   align-content: center;
   justify-items: center;
 
-  
   box-sizing: border-box;
-  
+
   border: 5px solid rgba(17, 16, 16, 0.5);
-    box-shadow: 0px 0px 10px rgba(64, 64, 64, 0.6);
-    border-radius: 7px;
+  box-shadow: 0px 0px 10px rgba(64, 64, 64, 0.6);
+  border-radius: 7px;
 
   ${DesktopSmall(css`
     min-height: 100%;
@@ -138,4 +143,4 @@ export const Content = styled.div`
   ${Mobile(css`
     min-width: 80%;
   `)}
-`
+`;

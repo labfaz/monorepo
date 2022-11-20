@@ -1,14 +1,14 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 
-import { CurrentUserProvider } from 'Context/LoggedUserToken'
+import { CurrentUserProvider } from 'Context/LoggedUserToken';
 
-import TestLogin from './'
+import TestLogin from './';
 
-storiesOf("Components/TestLogin", module)
+storiesOf('Components/TestLogin', module)
   .addParameters({ component: TestLogin })
-  .add("input", () => (
+  .add('input', () => (
     <CurrentUserProvider>
-      <TestLogin/>
+      <TestLogin />
     </CurrentUserProvider>
-  ))
+  ));

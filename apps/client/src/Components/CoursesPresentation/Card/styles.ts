@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { Mobile, DesktopSmall } from "Utils/breakpoints";
-import { css } from "styled-components";
-import { Text } from "Components/Typography/Text";
-import { InternalLinkButton } from "Components/Buttons/InternalLinkButton";
+import styled from 'styled-components';
+import { Mobile, DesktopSmall } from 'Utils/breakpoints';
+import { css } from 'styled-components';
+import { Text } from 'Components/Typography/Text';
+import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
 
 interface GridProps {
   position: any;
@@ -24,9 +24,9 @@ export const Container = styled.div`
     );
   grid-template-rows: minmax(325px, 430px) minmax(5%, auto) minmax(325px, 430px);
   grid-template-areas:
-    "CardContainer . CardContainer"
-    "      .       .        .     "
-    "CardContainer . CardContainer";
+    'CardContainer . CardContainer'
+    '      .       .        .     '
+    'CardContainer . CardContainer';
 
   ${Mobile(css`
     grid-template-columns: minmax(250px, 300px);
@@ -35,15 +35,15 @@ export const Container = styled.div`
         420px
       );
     grid-template-areas:
-      "CardContainer"
-      "      .      "
-      "CardContainer";
+      'CardContainer'
+      '      .      '
+      'CardContainer';
     margin: 30px 0;
   `)}
 `;
 
 export const CardContainer = styled.div<GridProps>`
-  grid-area: "CardContainer";
+  grid-area: 'CardContainer';
   grid-column: ${(p) => p.position.column};
   grid-row: ${(p) => p.position.row};
   width: 100%;

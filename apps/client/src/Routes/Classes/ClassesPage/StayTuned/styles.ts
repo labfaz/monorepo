@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
-import { Title } from "Components/Typography/Title";
-import { Text } from "Components/Typography/Text";
-import { ExternalLinkButton } from "Components/Buttons/ExternalLinkButton";
-import { Mobile, DesktopSmall } from "Utils/breakpoints";
+import styled, { css } from 'styled-components';
+import { Title } from 'Components/Typography/Title';
+import { Text } from 'Components/Typography/Text';
+import { ExternalLinkButton } from 'Components/Buttons/ExternalLinkButton';
+import { Mobile, DesktopSmall } from 'Utils/breakpoints';
 
 export const Wrapper = styled.div`
   height: 365px;
@@ -120,7 +120,6 @@ export const Button = styled(ExternalLinkButton)`
 
   background-color: rbga(297, 0, 97, 1);
   box-shadow: 1px 1px 0px rgba(255, 236, 153, 1);
-
 
   :hover {
     box-shadow: 3px 3px 0px rgba(255, 236, 153, 1);

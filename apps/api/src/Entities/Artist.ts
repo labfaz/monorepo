@@ -65,6 +65,7 @@ export interface IArtist {
   address: IAddress;
   contact: IContact;
   technical: ITechnical;
+  accessibility_resources_description: string;
 }
 
 @Entity()
@@ -102,6 +103,12 @@ export class Artist {
 
   @Column({ nullable: true })
   curriculum?: string;
+
+  @Column({ nullable: true }) //adicionado 12:27
+  medicalReport?: string;
+
+  @Column({ nullable: true })
+  accessibility_resources_description?: string;
 
   @Column()
   name: string;

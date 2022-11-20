@@ -1,8 +1,5 @@
-import styled, { css } from "styled-components";
-import {
-  DesktopSmall,
-  Mobile,
-} from "Utils/breakpoints";
+import styled, { css } from 'styled-components';
+import { DesktopSmall, Mobile } from 'Utils/breakpoints';
 
 export const Container = styled.div`
   margin-top: 50px;

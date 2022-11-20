@@ -1,7 +1,7 @@
-import { strapi } from "Api";
-import { Asset2Image, Image } from "Utils/Image";
-import useFetchApi from "Hooks/useFetchApi";
-import StrapiAsset from "Utils/StrapiAsset";
+import { strapi } from '.';
+import { Asset2Image, Image } from '../Utils/Image';
+import useFetchApi from '../Hooks/useFetchApi';
+import StrapiAsset from '../Utils/StrapiAsset';
 
 export interface ApiStayTuned {
   title: string;

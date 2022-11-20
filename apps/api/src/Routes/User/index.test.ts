@@ -96,25 +96,25 @@ describe('User Router', () => {
         .post('/user')
         .send({})
         .expect('Content-Type', /json/ )
-        .expect(400, ErrorObj(400, 'Incomplete request body' ))
+        .expect(400, ErrorObj(400, 'Requisição incompleta' ))
 
       const onlyName = agent
         .post('/user')
         .send({ name: 'John Doe' })
         .expect('Content-Type', /json/ )
-        .expect(400, ErrorObj(400, 'Incomplete request body' ))
+        .expect(400, ErrorObj(400, 'Requisição incompleta' ))
 
       const onlyEmail = agent
         .post('/user')
         .send({ email: 'johndoe@email.com' })
         .expect('Content-Type', /json/ )
-        .expect(400, ErrorObj(400, 'Incomplete request body' ))
+        .expect(400, ErrorObj(400, 'Requisição incompleta' ))
 
       const onlyPassword = agent
         .post('/user')
         .send({ password: '123456' })
         .expect('Content-Type', /json/ )
-        .expect(400, ErrorObj(400, 'Incomplete request body' ))
+        .expect(400, ErrorObj(400, 'Requisição incompleta' ))
 
         Promise
           .all([ emptyBody, onlyName, onlyEmail, onlyPassword ])
@@ -146,7 +146,7 @@ describe('User Router', () => {
         .post('/user')
         .send({ name: 123, email: 'johndoe@email.com', password: true })
         .expect('Content-Type', /json/ )
-        .expect(400, ErrorObj(400, 'Incomplete request body' ))
+        .expect(400, ErrorObj(400, 'Requisição incompleta' ))
         .then(() => {
           expect(mockTable.length).toBe(0)
           done()

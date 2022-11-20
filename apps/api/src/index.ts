@@ -31,7 +31,7 @@ Db()
 
   app.use("/", Routes({ conn }))
   app.get('/hello', (_, res) => actionSuccessful(res, { msg: 'world' }))
-  app.use("*", (_, res) => badRequestError(res, "Route doesn't exist" ))
+  app.use("*", (_, res) => badRequestError(res, "Essa rota não existe" ))
 
   // error handling
   app.use(errorHandler)

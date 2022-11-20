@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 import {
   Container,
   Divider,
@@ -9,11 +9,11 @@ import {
   ButtonLayer,
   Button,
   ButtonText,
-} from "./styles";
-import { useMobile } from "Hooks/useMobile";
-import Card from "./Card";
-import { Homepage } from "Api/Homepage";
-import { CoursePresentation } from "Api/CoursePresentation";
+} from './styles';
+import { useMobile } from 'Hooks/useMobile';
+import Card from './Card';
+import { Homepage } from 'Api/Homepage';
+import { CoursePresentation } from 'Api/CoursePresentation';
 
 interface DisplayProps {
   texts: Homepage;

@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 import { InternalLinkButton } from 'Components/Buttons/InternalLinkButton';
-import { Text } from 'Components/Typography/Text'
-import { DesktopSmall } from 'Utils/breakpoints'
+import { Text } from 'Components/Typography/Text';
+import { DesktopSmall } from 'Utils/breakpoints';
 
 export const NavigationContainer = styled.div`
   width: 18rem;
@@ -15,7 +15,7 @@ export const NavigationContainer = styled.div`
     width: 13rem;
     height: 5.5rem;
   `)}
-`
+`;
 
 export const Title = styled(Text)`
   && {
@@ -28,7 +28,7 @@ export const Title = styled(Text)`
       font-size: var(--font-size-short);
     `)}
   }
-`
+`;
 
 export const Navbar = styled.div`
   display: flex;
@@ -52,4 +52,4 @@ export const NavLink = styled(InternalLinkButton)`
       font-size: var(--font-size-short);
     `)}
   }
-`
+`;

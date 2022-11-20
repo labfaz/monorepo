@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 import {
   MainTextContainer,
@@ -11,9 +11,9 @@ import {
   DateContainer,
   Date,
   Divisor,
-} from "./styles";
+} from './styles';
 
-import { formatPostDate } from "Utils/formatPostDate";
+import { formatPostDate } from 'Utils/formatPostDate';
 
 interface DisplayProps {
   title: string;
@@ -28,7 +28,7 @@ export const Web: FC<DisplayProps> = ({
   description,
   image,
   created_at,
-  id
+  id,
 }) => {
   const yearRegExp = /[0-9]{4}/;
   const isYear = yearRegExp.test(formatPostDate(created_at)?.hour);
@@ -54,13 +54,13 @@ export const Web: FC<DisplayProps> = ({
         <Date
           size={
             isYear
-              ? "var(--font-size-title-medium)"
-              : "var(--font-size-subtitle)"
+              ? 'var(--font-size-title-medium)'
+              : 'var(--font-size-subtitle)'
           }
         >
           {formatPostDate(created_at)?.hour}
         </Date>
-      </DateContainer>{" "}
+      </DateContainer>{' '}
     </>
   );
 };

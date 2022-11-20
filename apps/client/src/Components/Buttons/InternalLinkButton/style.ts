@@ -1,8 +1,7 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const StyledButton = styled(Link)`
-
   cursor: pointer;
   border: 0;
   padding: 0.5rem 2rem;
@@ -17,11 +16,9 @@ export const StyledButton = styled(Link)`
   color: var(--color-text-yellow);
   border-color: var(--button-color-yellow);
 
-
-
   &.empty-black {
-    border: .175em solid black;
-    border-radius: .5em;
+    border: 0.175em solid black;
+    border-radius: 0.5em;
     color: black;
   }
-`
+`;

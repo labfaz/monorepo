@@ -1,6 +1,12 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { NewsletterContainer, Button, Input, Title, FormContainer } from './style'
+import {
+  NewsletterContainer,
+  Button,
+  Input,
+  Title,
+  FormContainer,
+} from './style';
 
 const NewsLetter: FC = () => {
   // Implementar logica de email no backend
@@ -9,18 +15,13 @@ const NewsLetter: FC = () => {
     <NewsletterContainer id="newsletter-container">
       <Title>Receba novidades e lançamentos</Title>
       <FormContainer>
-        <Input
-          type="text"
-          placeholder="Seu e-mail"
-          data-testid="input"
-        />
-        <Button
-          type="button"
-          data-testid="button"
-        >Receber</Button>
+        <Input type="text" placeholder="Seu e-mail" data-testid="input" />
+        <Button type="button" data-testid="button">
+          Receber
+        </Button>
       </FormContainer>
     </NewsletterContainer>
-  )
-}
+  );
+};
 
 export default NewsLetter;

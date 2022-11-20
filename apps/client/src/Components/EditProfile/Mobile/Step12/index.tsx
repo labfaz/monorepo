@@ -1,186 +1,127 @@
-import React, { FC, useRef, useState } from 'react'
-import { useFormikContext } from 'formik'
+import { useFormikContext } from 'formik';
+import React, { FC, useRef, useState } from 'react';
+import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import { RadioInput } from 'Components/Inputs/RadioInput';
+import { FileInput } from 'Components/Inputs/FileInput';
 
-import { RadioInput } from 'Components/Inputs/RadioInput'
+import { deficiencyOptions } from 'Utils/selectOptionsData';
 
 import {
   Container,
   ContentContainer,
+  TextLabel,
   Content,
+  InputRadioContainer,
   SelectContainer,
-  IdiomOptionsContainer,
   InputSelect,
+  OptionsContainer,
   CheckboxContainer,
-  OtherTechnicalArea,
-  LabelText
-} from './style'
-import { TextInput } from 'Components/Inputs/TextInput'
-import { IoMdArrowDropdownCircle } from 'react-icons/io'
+  InputCheckbox,
+  InputSmallText,
+  InputText,
+  InputTextContainer,
+  FileContainer,
+} from './style';
 
-interface ErrorProps {
+interface Step12Props {
+  deficiencies?: string[];
+  isPcd?: string;
+  medicalReport?: string;
   artist: {
-    technical: {
-      areas: {
-        technical_formation: string
-        name: string
-      }
-    }
-  }
+    accessibility_resources_description?: string;
+  };
 }
 
 export const Step12: FC = () => {
-  const { values, errors } = useFormikContext<ErrorProps>()
+  const { values } = useFormikContext<Step12Props>();
 
-  const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false)
-  const modalRef = useRef<HTMLInputElement | null>(null)
+  const [isDeficiencyOptionsOpen, setIsDeficiencyOptionsOpen] = useState(false);
+  const modalRefDeficiencies = useRef<HTMLInputElement | null>(null);
 
   const closeModal = (e: any) => {
-    if (modalRef.current === e.target) {
-      setIsIdiomOptionsOpen(false)
+    if (modalRefDeficiencies.current === e.target) {
+      setIsDeficiencyOptionsOpen(false);
     }
-  }
+  };
 
   return (
     <Container>
       <ContentContainer>
         <Content>
+          <TextLabel>Você é uma pessoa com deficiência?</TextLabel>
+          <InputRadioContainer>
+            <RadioInput name="isPcd" value="true" label="Sim" />
+          </InputRadioContainer>
+          <InputRadioContainer>
+            <RadioInput name="isPcd" value="false" label="Não" />
+          </InputRadioContainer>
           <SelectContainer
-            onClick={() => setIsIdiomOptionsOpen(!isIdiomOptionsOpen)}
+            onClick={() => setIsDeficiencyOptionsOpen(!isDeficiencyOptionsOpen)}
           >
-            <LabelText>
-            O seu trabalho na técnica está ligado à qual dessas áreas?
-              <label className="obrigatory"> *</label>
-              <span>
-                {errors.artist?.technical?.areas?.name &&
-                  errors.artist.technical.areas.name}
-              </span>
-            </LabelText>
-            <InputSelect>
-              {values.artist?.technical?.areas.name
-                ? values.artist.technical?.areas.name
-                : 'Selecione'}
-              <IoMdArrowDropdownCircle />
-            </InputSelect>
+            {values.isPcd === 'true' && (
+              <InputSelect>
+                {values.deficiencies && values.deficiencies[0]
+                  ? values.deficiencies[0]
+                  : 'Selecione'}
+                <IoMdArrowDropdownCircle />
+              </InputSelect>
+            )}
           </SelectContainer>
+          {values.isPcd === 'true' && (
+            <FileContainer>
+              <label htmlFor="medicalReport" className="fileLabel">
+                Laudo médico
+              </label>
 
-          {values.artist.technical.areas.name === 'Outro' && (
-            <OtherTechnicalArea
-              label="Qual outra area?"
-              name="Other_TechnicalArea"
-              placeholder="Informe sua area"
-            />
+              <FileInput
+                name="medicalReport"
+                value="medicalReport"
+                label="Enviar laudo"
+                accept="application/pdf"
+              />
+            </FileContainer>
           )}
 
-          <SelectContainer>
-            <label>Qual a sua profissão dentro desse setor?</label>
-            <TextInput
-              name="artist.technical.profession"
-              placeholder="Digite sua profissão"
-            />
-          </SelectContainer>
+          {values.deficiencies?.find((values: any) => values === 'Outro') && (
+            <InputTextContainer>
+              <TextLabel>Qual outra deficiência?</TextLabel>
 
-          <SelectContainer>
-            <label>Em qual ano você começou a trabalhar nessa área?</label>
-            <TextInput
-              name="artist.technical.areas.started_year"
-              placeholder="2010"
-              inputMask="9999"
-              obrigatory
-            />
-          </SelectContainer>
+              <InputSmallText
+                name="other_deficiency"
+                placeholder="Digite sua deficiência"
+                width={14.4}
+              />
+            </InputTextContainer>
+          )}
+          <TextLabel>
+            Em caso de possuir deficiências, quais recursos de acessibilidade
+            seriam necessários para você?
+          </TextLabel>
+
+          <InputText
+            component="textarea"
+            name="artist.accessibility_resources_description"
+          />
         </Content>
-        <IdiomOptionsContainer
-          ref={modalRef}
-          onClick={closeModal}
-          isOpen={isIdiomOptionsOpen}
-        >
-          <CheckboxContainer>
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Áudio"
-              label="Áudio"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Iluminação"
-              label="Iluminação"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Cenografia"
-              label="Cenografia"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Figurino"
-              label="Figurino"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Maquiagem/Visagismo"
-              label="Maquiagem/Visagismo"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Audiovisual"
-              label="Audiovisual"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Montagem de palco e infra-estrutura"
-              label="Montagem palco/infra-estrutura"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Montagem de exposições"
-              label="Montagem de exposições"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Produção Técnica"
-              label="Produção Técnica"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Produção Operacional e logística"
-              label="Produção Operacional e logística"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Novas tecnologias"
-              label="Novas tecnologias"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Tecnologias Assistivas"
-              label="Tecnologias Assistivas"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Serviços Gerais"
-              label="Serviços Gerais"
-            />
-
-            <RadioInput
-              name="artist.technical.areas.name"
-              value="Outro"
-              label="Outro"
-            />
-          </CheckboxContainer>
-        </IdiomOptionsContainer>
       </ContentContainer>
+
+      <OptionsContainer
+        ref={modalRefDeficiencies}
+        onClick={closeModal}
+        isOpen={isDeficiencyOptionsOpen}
+      >
+        <CheckboxContainer>
+          {deficiencyOptions.map((deficiencyOption, index) => (
+            <InputCheckbox
+              key={index}
+              inputRightSide
+              name="deficiencies"
+              value={deficiencyOption.value}
+              label={deficiencyOption.label}
+            />
+          ))}
+        </CheckboxContainer>
+      </OptionsContainer>
     </Container>
-  )
-}
+  );
+};

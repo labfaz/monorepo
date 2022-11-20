@@ -27,7 +27,7 @@ export const CreateUser: (
 
   const checkUserExists = await UserRepo.findByEmail(email);
   if (!!checkUserExists)
-    return badRequestError(res, "Email address already exists.");
+    return badRequestError(res, "Esse email já está sendo utilizado.");
 
   try {
     const curriculum = req.parsedFiles?.curriculum ?? [];
@@ -57,11 +57,11 @@ export const CreateUser: (
         let { password: _, ...newUser } = user;
         return createdSuccessfully(res, removeCircularity(newUser));
       })
-      .catch((err) => databaseError(res, "Error trying to create user.", err));
+      .catch((err) => databaseError(res, "Erro ao tentar criar usuário.", err));
   } catch {
     return badRequestError(
       res,
-      "Error trying to create curriculum or profilePicture"
+      "Erro ao enviar currículo, laudo ou foto de perfil. "
     );
   }
 };

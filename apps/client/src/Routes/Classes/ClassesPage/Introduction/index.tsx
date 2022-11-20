@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import { Container, TitleWrapper, MainTitle, TitleText, Image } from "./styles";
+import { Container, TitleWrapper, MainTitle, TitleText, Image } from './styles';
 
-import { CoursesPageIntroduction } from "Api/CoursesPageIntroduction";
+import { CoursesPageIntroduction } from 'Api/CoursesPageIntroduction';
 
 export interface Props {
   data: CoursesPageIntroduction;

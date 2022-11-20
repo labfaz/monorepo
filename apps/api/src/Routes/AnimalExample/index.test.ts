@@ -51,23 +51,23 @@ describe.skip('AnimalExample Router', () => {
   //   it("should 400 with an incomplete AnimalExample in the request body", async (done) => {
   //     const emptyBody = agent
   //       .post("/animal-example/create")
-  //       .send({})   // send incomplete request body
+  //       .send({})   // send Requisição incompleta
   //       .expect('Content-Type', /json/)
-  //       .expect(400, { error: "Incomplete request body" })
+  //       .expect(400, { error: "Requisição incompleta" })
   //       // .then(() => expect(RepoConfig.table.length).toBe(0))
 
   //     const onlyName = agent
   //       .post("/animal-example/create")
-  //       .send({ name: "incomplete" })   // send incomplete request body
+  //       .send({ name: "incomplete" })   // send Requisição incompleta
   //       .expect('Content-Type', /json/)
-  //       .expect(400, { error: "Incomplete request body" })
+  //       .expect(400, { error: "Requisição incompleta" })
   //       // .then(() => expect(RepoConfig.table.length).toBe(0))
 
   //     const onlyRank = agent
   //       .post("/animal-example/create")
-  //       .send({ rank: 12 })   // send incomplete request body
+  //       .send({ rank: 12 })   // send Requisição incompleta
   //       .expect('Content-Type', /json/)
-  //       .expect(400, { error: "Incomplete request body" })
+  //       .expect(400, { error: "Requisição incompleta" })
   //       // .then(() => expect(RepoConfig.table.length).toBe(0))
         
   //     // end test after all tests are done
@@ -81,7 +81,7 @@ describe.skip('AnimalExample Router', () => {
   //       .post("/animal-example/create")
   //       .send({ name: 12, rank: true })
   //       .expect('Content-Type', /json/)
-  //       .expect(400, { error: "Invalid request body" })
+  //       .expect(400, { error: "Requisição inválida" })
   //       .then(() => expect(RepoConfig.table).toHaveLength(0))
   //       .then(() => done())
   //   })

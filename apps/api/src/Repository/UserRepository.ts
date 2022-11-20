@@ -160,6 +160,7 @@ export class UserRepository extends Repository<User> {
     createdArtist.race = artist.race;
     createdArtist.rg = artist.rg;
     createdArtist.photo_url = profilePicture.url;
+    createdArtist.accessibility_resources_description = artist.accessibility_resources_description;
     if (curriculum)
       createdArtist.curriculum = curriculum.url;
 
@@ -342,6 +343,10 @@ export class UserRepository extends Repository<User> {
         user.artist.birthday = artist.birthday;
       }
 
+      if (artist.accessibility_resources_description) {
+        user.artist.accessibility_resources_description = artist.accessibility_resources_description;
+      }
+
       if (artist.cpf) {
         user.artist.cpf = artist.cpf;
       }
@@ -412,7 +417,7 @@ export class UserRepository extends Repository<User> {
     const { secret, expiresIn } = authConfig.jwt;
 
     const user = await this.findOne({ where: { email } });
-    if (!user) throw new Error("No user found");
+    if (!user) throw new Error("Usuário não encontrado");
 
     const token = sign({ id: user.id }, secret, { expiresIn });
     return token;
@@ -422,7 +427,7 @@ export class UserRepository extends Repository<User> {
     const { secret, expiresIn } = authConfig.token;
 
     const user = await this.findOne({ where: { email } });
-    if (!user) throw new Error("No user found");
+    if (!user) throw new Error("Usuário não encontrado");
 
     const token = sign({ id: user.id }, secret, { expiresIn });
     return token;

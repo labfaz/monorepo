@@ -1,20 +1,20 @@
-import React, { FC } from 'react'
-import { IoMdInformationCircle } from 'react-icons/io'
+import React, { FC } from 'react';
+import { IoMdInformationCircle } from 'react-icons/io';
 
-import { Container, Input } from './style'
+import { Container, Input } from './style';
 export interface InputProps {
-  label?: string
-  placeholder?: string
-  name: string
-  type?: string
-  width?: number
-  height?: number
-  value?: string
-  text?: string
-  inputMask?: string
-  id?: string
-  paddingLeft?: number
-  information?: string
+  label?: string;
+  placeholder?: string;
+  name: string;
+  type?: string;
+  width?: number;
+  height?: number;
+  value?: string;
+  text?: string;
+  inputMask?: string;
+  id?: string;
+  paddingLeft?: number;
+  information?: string;
 }
 
 export const RadioInput: FC<InputProps> = ({
@@ -41,14 +41,13 @@ export const RadioInput: FC<InputProps> = ({
       <div className="informationContainer">
         <label htmlFor={id ? id : value}>{label}</label>
 
-
         {information && (
           <div className="svgContainer">
             <IoMdInformationCircle />
-          {information && <span className="information">{information}</span>}
+            {information && <span className="information">{information}</span>}
           </div>
         )}
       </div>
     </Container>
-  )
-}
+  );
+};

@@ -1,22 +1,22 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { Text } from 'Components/Typography/Text'
+import { Text } from 'Components/Typography/Text';
 import { Mobile, DesktopSmall, Desktop } from 'Utils/breakpoints';
 
 export const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
-  
+
   ${Desktop(css`
     height: min-content;
   `)}
-  
+
   .icons {
     display: flex;
     flex-direction: column;
     ${DesktopSmall(css`
       gap: 0.2rem;
-  `)}
+    `)}
   }
 
   ${DesktopSmall(css`
@@ -26,7 +26,7 @@ export const ContactContainer = styled.div`
   ${Mobile(css`
     align-items: center;
   `)}
-`
+`;
 export const Icon = styled.div`
   color: var(--button-color-pink);
   display: flex;
@@ -59,7 +59,7 @@ export const Title = styled(Text)`
       color: var(--color-text-white-gray);
     `)}
   }
-`
+`;
 
 export const Subtitle = styled(Text)`
   && {
@@ -71,4 +71,4 @@ export const Subtitle = styled(Text)`
       font-size: var(--font-size-short);
     `)}
   }
-`
+`;

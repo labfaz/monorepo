@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import RectangleImage from '../Rectangle.png'
-import { DesktopLarge, DesktopSmall } from 'Utils/breakpoints'
-import { Title } from 'Components/Typography/Title'
+import RectangleImage from '../Rectangle.png';
+import { DesktopLarge, DesktopSmall } from '../../../Utils/breakpoints';
+import { Title } from '../../../Components/Typography/Title';
 
 export const Container = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export const Container = styled.div`
   background-color: var(--background-black);
   padding: 0 3rem;
 
-  ${ DesktopLarge(css`
+  ${DesktopLarge(css`
     padding: 0 5rem;
   `)}
 `;
