@@ -7,7 +7,7 @@ module.exports = ({ env }) => {
   settings.username = settings.username || env('DB_USER');
   settings.password = settings.password || env('DB_PASS');
   settings.database = settings.database || env('DB_NAME', 'labfaz-strapi');
-  settings.ssl      = env('NODE_ENV') === 'production';
+  settings.ssl      = env('NODE_ENV') === 'production' ? { rejectUnauthorized: false } : false;
 
   let password = '[hidden]';
   console.log('DB CONNECTION ATTEMPT with', { ...settings, password });
