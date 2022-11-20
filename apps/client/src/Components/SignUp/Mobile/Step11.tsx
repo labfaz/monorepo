@@ -43,7 +43,7 @@ export const schemaStep11 = yup.object({
 });
 
 export const Step11: FC = () => {
-  const { values, errors } = useFormikContext<Step11Props>()
+  const { errors } = useFormikContext<Step11Props>()
 
   const [isIdiomOptionsOpen, setIsIdiomOptionsOpen] = useState(false);
   const modalRef = useRef<HTMLInputElement | null>(null);

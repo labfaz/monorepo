@@ -15,7 +15,6 @@ import {
   OtherTechnicalArea,
   LabelText,
 } from './Step13.style';
-import { TextInput } from 'Components/Inputs/TextInput';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
 
 interface ErrorProps {

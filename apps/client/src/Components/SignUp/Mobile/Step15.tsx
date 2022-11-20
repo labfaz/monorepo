@@ -2,15 +2,12 @@ import { useFormikContext } from 'formik';
 import React, { FC } from 'react';
 import * as yup from 'yup';
 
-import { FileInput } from 'Components/Inputs/FileInput';
-
 import {
   Container,
   ContentContainer,
   TextLabel,
   Content,
   InputText,
-  FileContainer,
 } from './Step15.style';
 
 import { curriculumMaxSize } from 'Utils/userUtils';
