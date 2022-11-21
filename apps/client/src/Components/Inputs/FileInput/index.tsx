@@ -30,6 +30,7 @@ export const FileInput: FC<InputProps> = ({
   inputMask,
   height,
   options,
+  accept,
   ...props
 }) => {
   const [, meta] = useField(props);
