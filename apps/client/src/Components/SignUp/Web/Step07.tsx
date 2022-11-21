@@ -251,22 +251,22 @@ export const Step07: FC = () => {
             />
           </SelectContainer> */}
 
-          <label htmlFor="TecnicalArea" className="radioLabel">
+          {/* <label htmlFor="TecnicalArea" className="radioLabel">
             Em qual ano você começou a trabalhar nessa área?
             {errors.artist?.technical?.areas && (
               <span className="errorMessage">
                 {errors.artist.technical.areas.started_year}
               </span>
             )}
-          </label>
+          </label> */}
 
-          <SelectContainer className="selectContent">
+          {/* <SelectContainer className="selectContent">
             <TextInput
               name="artist.technical.areas.started_year"
               inputMask="9999"
               placeholder="2010"
             />
-          </SelectContainer>
+          </SelectContainer> */}
 
           <label htmlFor="technical_formation" className="radioLabel">
             Formação técnica e profissional <p className="obrigatory"> *</p>

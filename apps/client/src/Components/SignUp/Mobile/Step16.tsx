@@ -56,7 +56,7 @@ export const Step16: FC = () => {
     <Container>
       <ContentContainer>
         <Content>
-          <SelectContainer
+          {/* <SelectContainer
             onClick={() => setIsIdiomOptionsOpen(!isIdiomOptionsOpen)}
           >
             <label>Voce possui certificacoes de treinamento?</label>
@@ -64,7 +64,7 @@ export const Step16: FC = () => {
               Selecione
               <IoMdArrowDropdownCircle />
             </InputSelect>
-          </SelectContainer>
+          </SelectContainer> */}
 
           <LabelText>
             Você possui Certificação/DRT? <p className="obrigatory"> *</p>
