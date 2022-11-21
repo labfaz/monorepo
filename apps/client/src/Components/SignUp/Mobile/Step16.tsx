@@ -1,6 +1,5 @@
 import React, { FC, useRef, useState } from 'react';
 import { useFormikContext } from 'formik';
-import { IoMdArrowDropdownCircle } from 'react-icons/io';
 import * as yup from 'yup';
 
 import { TextInput } from 'Components/Inputs/TextInput';
@@ -13,12 +12,10 @@ import {
   ContentContainer,
   Content,
   InputRadioContainer,
-  SelectContainer,
   LabelText,
   CheckboxContainer,
   CertificationOptionsContainer,
   InputCheckbox,
-  InputSelect,
   TechnicalContainer,
 } from './Step16.style';
 

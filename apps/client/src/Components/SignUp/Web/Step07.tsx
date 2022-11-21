@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
 import * as yup from 'yup';
 
-import { TextInput } from 'Components/Inputs/TextInput';
 import { RadioInput } from 'Components/Inputs/RadioInput';
 import { FileInput } from 'Components/Inputs/FileInput';
 import { curriculumMaxSize } from 'Utils/userUtils';
@@ -14,7 +13,6 @@ import {
   RightSide,
   RightSideContent,
   InputRadioContainer,
-  SelectContainer,
   FileContainer,
 } from './Step07.style';
 
