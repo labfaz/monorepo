@@ -69,7 +69,8 @@ export const ClassesPage: FC = () => {
         stayTuned={stayTuned.data}
         sections={{
           first_subtitle: '',
-          first_title: 'Cursos IATEC',
+          // NOTE: Renamed as a workaround, rollback to IATEC later
+          first_title: 'Cursos Certificados',
           second_title: 'Oficinas',
           second_subtitle: '',
           third_title: 'Lives',
