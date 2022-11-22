@@ -316,7 +316,7 @@ export const Step07: FC = () => {
             />
           </InputRadioContainer>
 
-          <FileContainer>
+          {/* <FileContainer>
             <label htmlFor="curriculum" className="fileLabel">
               Curriculo (opcional)
             </label>
@@ -326,7 +326,7 @@ export const Step07: FC = () => {
               value="curriculum"
               label="Enviar curriculo"
             />
-          </FileContainer>
+          </FileContainer> */}
         </RightSideContent>
       </RightSide>
     </Container>

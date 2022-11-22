@@ -40,18 +40,18 @@ export const schemaStep02 = yup.object({
       (value) => value && value.size <= profilePictureMaxSize
     ),
   artist: yup.object({
-    show_name: yup.string().required('Como quer ser chamado?'),
+    show_name: yup.string(),
   }),
 });
 
 export const Step02: FC = () => {
   const { values } = useFormikContext<Step2Props>();
 
-  const options = [
-    { value: 'nome', label: values.artist?.name },
-    { value: 'nome social', label: values.artist?.social_name },
-    { value: 'nome artistico', label: values.artist?.artistic_name },
-  ].filter((name) => name.label.trim());
+  // const options = [
+  //   { value: 'nome', label: values.artist?.name },
+  //   { value: 'nome social', label: values.artist?.social_name },
+  //   { value: 'nome artistico', label: values.artist?.artistic_name },
+  // ].filter((name) => name.label.trim());
 
   return (
     <Container>
@@ -76,14 +76,14 @@ export const Step02: FC = () => {
             />
           </FileInputContainer>
 
-          <SelectContainer htmlFor="main_name">
+          {/* <SelectContainer htmlFor="main_name">
             <SelectInput
               label="Nome principal"
               name="artist.show_name"
               options={options}
               obrigatory
             />
-          </SelectContainer>
+          </SelectContainer> */}
         </Content>
       </ContentContainer>
     </Container>

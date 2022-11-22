@@ -10,6 +10,8 @@ import { formationOptions, idiomOptions } from 'Utils/selectOptionsData';
 
 import {
   Container,
+  Content,
+  ContentContainer,
   LeftSide,
   LeftSideContent,
   RightSide,
@@ -43,7 +45,10 @@ export const Step06: FC = () => {
 
   return (
     <Container>
-      <LeftSide>
+      <ContentContainer>
+        <Content>
+
+      {/* <LeftSide>
         <LeftSideContent>
           <LabelText>Você domina outro idioma além do português?</LabelText>
           {idiomOptions.map((idiomOption, index) => (
@@ -60,7 +65,7 @@ export const Step06: FC = () => {
       </LeftSide>
 
       <RightSide>
-        <RightSideContent>
+        <RightSideContent> */}
           <LabelText>
             Formação escolar
             <p className="obrigatory"> *</p>
@@ -88,8 +93,10 @@ export const Step06: FC = () => {
               <TextInput name="other_idiom" placeholder="Digite outro idioma" />
             </TextInputContainer>
           )}
-        </RightSideContent>
-      </RightSide>
+        {/* </RightSideContent>
+      </RightSide> */}
+        </Content>
+      </ContentContainer>
     </Container>
   );
 };

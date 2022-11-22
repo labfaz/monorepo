@@ -79,7 +79,7 @@ export const Step11: FC = () => {
           {/* <SelectContainer
             onClick={() => setIsIdiomOptionsOpen(!isIdiomOptionsOpen)}
           >
-            <label>Voce domina algum idioma?</label>
+            <label>Você domina outro idioma além do português?</label>
             <InputSelect>
               {values.artist?.technical?.idiom[0]
                 ? values.artist.technical.idiom[0]

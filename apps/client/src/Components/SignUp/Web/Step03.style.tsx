@@ -10,6 +10,26 @@ export const Container = styled.div`
   background-color: #111010;
 `;
 
+export const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 50rem;
+  width: 50vw;
+
+  scroll-snap-align: start;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+`;
+
 export const LeftSide = styled.div`
   width: 35.5rem;
   height: 50rem;

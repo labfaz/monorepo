@@ -18,7 +18,8 @@ import {
 
 import {
   Container,
-  LeftSide,
+  Content,
+  ContentContainer,
   LeftSideContent,
   RightSide,
   RightSideContent,
@@ -39,7 +40,7 @@ export const schemaStep03 = yup.object({
     ),
   email: yup.string().email('Email inválido').required('Email obrigatório'),
   artist: yup.object({
-    show_name: yup.string().required('Como quer ser chamado?'),
+    show_name: yup.string(),
     contact: yup.object({
       whatsapp: yup.string(),
       twitter: yup
@@ -70,16 +71,18 @@ export const schemaStep03 = yup.object({
 export const Step03: FC = () => {
   const { values } = useFormikContext<any>();
 
-  const options = [
-    { value: 'nome', label: values.artist.name },
-    { value: 'nome social', label: values.artist.social_name },
-    { value: 'nome artistico', label: values.artist.artistic_name },
-  ].filter((name) => name.label.trim());
+  // const options = [
+  //   { value: 'nome', label: values.artist.name },
+  //   { value: 'nome social', label: values.artist.social_name },
+  //   { value: 'nome artistico', label: values.artist.artistic_name },
+  // ].filter((name) => name.label.trim());
 
   return (
     <Container>
-      <LeftSide>
-        <LeftSideContent>
+      {/* <LeftSide>
+        <LeftSideContent> */}
+        <ContentContainer>
+        <Content>
           <AvatarInput>
             <img
               src={
@@ -97,19 +100,19 @@ export const Step03: FC = () => {
             label="Clique para enviar foto"
           />
 
-          <SelectContainer htmlFor="main_name">
+          {/* <SelectContainer htmlFor="main_name">
             <SelectInput
               name="artist.show_name"
               label="Nome principal"
               options={options}
               obrigatory
             />
-          </SelectContainer>
-        </LeftSideContent>
+          </SelectContainer> */}
+        {/* </LeftSideContent>
       </LeftSide>
 
       <RightSide>
-        <RightSideContent>
+        <RightSideContent> */}
           <div>
             <InputTextContainer>
               <FormInputText
@@ -175,9 +178,11 @@ export const Step03: FC = () => {
               label="YouTube"
               placeholder="@seuyoutube"
             />
-          </div> */}
-        </RightSideContent>
+          </div> </RightSideContent>
       </RightSide>
+      */}
+      </Content>
+      </ContentContainer>
     </Container>
   );
 };

@@ -20,6 +20,26 @@ export const Container = styled.div`
   }
 `;
 
+export const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 50rem;
+  width: 50vw;
+
+  scroll-snap-align: start;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  gap: 2rem;
+`;
+
 export const LabelText = styled(Text)`
   margin-bottom: 1.5rem;
   font-weight: 600;
