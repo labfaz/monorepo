@@ -102,6 +102,7 @@ const filterUser =
     nameOrProfession,
   }: UserSearchParams) =>
   (user: User): boolean => {
+    // TODO: remove log
     console.log('pcdOnly', pcdOnly);
 
     // if a *_filer value is true, the user passes the filter
