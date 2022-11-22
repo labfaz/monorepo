@@ -19,6 +19,7 @@ export const GetAllCourses: (
 
   // separate activities by type
   const initial: {[k in ActivityType]: Course[]} = {
+    [ActivityType.SESI]: [],
     [ActivityType.CURSO]: [],
     [ActivityType.LIVE]: [],
     [ActivityType.OFICINA]: [],
