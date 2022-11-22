@@ -6,6 +6,7 @@ import OptionGender from '../Form/Options/OptionGender';
 import OptionsExperience from '../Form/Options/OptionsExperience';
 import UserCard from '../UserCard';
 import Wireframe from 'Components/Wireframe';
+import OptionIsPcD from '../Form/Options/OptionIsPcd';
 import Loading from 'Components/Loading';
 import useTimeout from 'Hooks/useTimeout';
 import { Title } from 'Components/Typography/Title';
@@ -35,6 +36,7 @@ export const Display: FC<UserSearchInterface> = ({ title, description }) => {
     cpnjOnly: false,
     ceacOnly: false,
     meiOnly: false,
+    pcdOnly: false,
     showNothing: true,
   });
 
@@ -54,6 +56,7 @@ export const Display: FC<UserSearchInterface> = ({ title, description }) => {
             <SelectInput label="area" setInput={setFormData} />
             <OptionGender setFunction={setFormData} />
             <OptionsExperience setFunction={setFormData} />
+            <OptionIsPcD setFunction={setFormData} />
           </OptionsDiv>
         </Form>
       </FormDiv>
