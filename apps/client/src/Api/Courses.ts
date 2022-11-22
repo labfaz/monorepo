@@ -31,6 +31,7 @@ export interface CourseData {
 export interface Courses {
   status: string;
   data: {
+    SESI: Course[];
     Curso: Course[];
     Live: Course[];
     Oficina: Course[];
@@ -159,6 +160,7 @@ export const fetchCourses = () =>
     .then(({ data }) => data)
     .then(({ status, data, code }) => {
       const orderedData: Courses['data'] = {
+        SESI: data.SESI.sort(sortCourses),
         'Roda de conversa': data['Roda de conversa'].sort(sortCourses),
         Curso: data.Curso.sort(sortCourses),
         Live: data.Live.sort(sortCourses),

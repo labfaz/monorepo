@@ -10,6 +10,7 @@ import { nanoid } from "nanoid";
 import Request from "./Requests";
 
 export enum ActivityType {
+  SESI = 'SESI',
   CURSO = 'Curso',
   LIVE = 'Live',
   OFICINA = 'Oficina',

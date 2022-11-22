@@ -64,7 +64,7 @@ export const ClassesPage: FC = () => {
   if (courses.error || sections.error)
     return (
       <Display
-        data={{ Curso: [], Live: [], Oficina: [], 'Roda de conversa': [] }}
+        data={{ SESI: [], Curso: [], Live: [], Oficina: [], 'Roda de conversa': [] }}
         introduction={introduction.data}
         stayTuned={stayTuned.data}
         sections={{

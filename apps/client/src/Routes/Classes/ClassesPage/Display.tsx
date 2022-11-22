@@ -17,6 +17,7 @@ import { Course } from 'Api/Courses';
 
 export interface Props {
   data: {
+    SESI: Course[];
     Curso: Course[];
     Live: Course[];
     Oficina: Course[];
@@ -33,6 +34,7 @@ export const Display: FC<Props> = ({
   stayTuned,
   sections,
 }) => {
+  const coursesSesi = data.SESI;
   const courses = data.Curso;
   const lives = data.Live;
   const workshops = data.Oficina;
@@ -45,6 +47,21 @@ export const Display: FC<Props> = ({
       <MainContainer>
         <MainContent>
           {introduction ? <Introduction data={introduction} /> : <></>}
+          {coursesSesi.length > 0 ? (
+            <CardRowComponent
+              title={'Cursos SESI'}
+              subtitle={''}
+              classes={coursesSesi}
+              color={
+                isMobile
+                  ? 'linear-gradient(to bottom, rgba(12, 116, 255, 1), rgba(0, 0, 0, 1))'
+                  : 'linear-gradient(to bottom, rgba(252, 0, 97, 0.1), rgba(0, 0, 0, 1))'
+              }
+              fontColor={'var(--color-text-white)'}
+            />
+          ) : (
+            <></>
+          )}
           {courses.length > 0 ? (
             <CardRowComponent
               title={sections.first_title}
