@@ -79,7 +79,6 @@ export const UpdateUser: (
       artist,
       password,
       artistCurriculum,
-      artistMedicalReport,
       artistProfilePicture,
     )
       .then((user) => {
