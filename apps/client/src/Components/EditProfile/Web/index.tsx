@@ -47,7 +47,8 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
           old_password: '',
           other_idiom: '',
           other_deficiency: '',
-          deficiencies: data?.deficiencies.map((deficiency) => deficiency.name),
+          // NOTE: comment out for now, causes white screen on prod
+          // deficiencies: data?.deficiencies.map((deficiency) => deficiency.name),
           isPcd: data?.artist.medicalReport != null,
           use_terms: '',
           profilePicture: data?.artist.photo_url,
