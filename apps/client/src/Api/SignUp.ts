@@ -15,7 +15,7 @@ const bodyFormParse = (values: any) => {
 
   formData.append('artist[name]', values.artist?.name);
   // NOTE: avoid select with only one option on signup
-  formData.append('artist[show_name]', values.artist?.name);
+  formData.append('artist[show_name]', 'nome');
   formData.append('artist[social_name]', values.artist?.social_name);
   formData.append('artist[artistic_name]', values.artist?.artistic_name);
 
