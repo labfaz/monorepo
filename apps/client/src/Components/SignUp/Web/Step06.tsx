@@ -2,23 +2,23 @@ import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
 import * as yup from 'yup';
 
-import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
+// import { CheckboxInput } from 'Components/Inputs/CheckboxInput';
 import { TextInput } from 'Components/Inputs/TextInput';
 import { RadioInput } from 'Components/Inputs/RadioInput';
 
-import { formationOptions, idiomOptions } from 'Utils/selectOptionsData';
+import { formationOptions, /* idiomOptions */ } from 'Utils/selectOptionsData';
 
 import {
   Container,
   Content,
   ContentContainer,
-  LeftSide,
-  LeftSideContent,
-  RightSide,
-  RightSideContent,
+  // LeftSide,
+  // LeftSideContent,
+  // RightSide,
+  // RightSideContent,
   LabelText,
   InputRadioContainer,
-  InputCheckBoxContainer,
+  // InputCheckBoxContainer,
   TextInputContainer,
 } from './Step06.style';
 

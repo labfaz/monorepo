@@ -3,14 +3,14 @@ import { useFormikContext } from 'formik';
 import * as yup from 'yup';
 
 import { FileInput } from 'Components/Inputs/FileInput';
-import { SelectInput } from 'Components/Inputs/SelectInput';
+// import { SelectInput } from 'Components/Inputs/SelectInput';
 import { profilePictureMaxSize } from 'Utils/userUtils';
 import {
   Container,
   ContentContainer,
   Content,
   AvatarInput,
-  SelectContainer,
+  // SelectContainer,
   FileInputContainer,
 } from './Step02.style';
 

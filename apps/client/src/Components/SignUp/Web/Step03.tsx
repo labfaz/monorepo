@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useFormikContext } from 'formik';
 import * as yup from 'yup';
 
-import { SelectInput } from 'Components/Inputs/SelectInput';
+// import { SelectInput } from 'Components/Inputs/SelectInput';
 import { FileInput } from 'Components/Inputs/FileInput';
 // import { OnlyNumbers } from 'Utils/inputRegex';
 import { profilePictureMaxSize } from 'Utils/userUtils';
@@ -20,12 +20,12 @@ import {
   Container,
   Content,
   ContentContainer,
-  LeftSideContent,
-  RightSide,
-  RightSideContent,
+  // LeftSideContent,
+  // RightSide,
+  // RightSideContent,
   FormInputText,
   AvatarInput,
-  SelectContainer,
+  // SelectContainer,
   InputTextContainer,
 } from './Step03.style';
 

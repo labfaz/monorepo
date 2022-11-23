@@ -3,7 +3,7 @@ import { useFormikContext } from 'formik';
 import * as yup from 'yup';
 
 import { RadioInput } from 'Components/Inputs/RadioInput';
-import { FileInput } from 'Components/Inputs/FileInput';
+// import { FileInput } from 'Components/Inputs/FileInput';
 import { curriculumMaxSize } from 'Utils/userUtils';
 
 import {
@@ -13,7 +13,7 @@ import {
   RightSide,
   RightSideContent,
   InputRadioContainer,
-  FileContainer,
+  // FileContainer,
 } from './Step07.style';
 
 import { OtherTechnicalArea } from './all.style';
