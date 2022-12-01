@@ -1,49 +1,72 @@
-import { EntityRepository, Repository } from "typeorm"
+import { EntityRepository, Not, Repository } from "typeorm";
 
-import Request from "Entities/Requests"
-import User from "Entities/User"
-import Course from "Entities/Courses"
+import Request from "Entities/Requests";
+import User from "Entities/User";
+import Course from "Entities/Courses";
 
 @EntityRepository(Request)
 export class RequestRepository extends Repository<Request> {
-
   checkExistingRequest(courseId: string, UserId: string): Promise<boolean> {
     return this.find({
-      where: { 
+      where: {
         course: courseId,
-        student: UserId
-      }
-    })
-    .then(course => course.length !== 0)
+        student: UserId,
+      },
+    }).then((course) => course.length !== 0);
   }
 
-  getRequest({ userId, courseId }: { userId: User["id"], courseId: Course["id"]}) {
+  getRequest({
+    userId,
+    courseId,
+  }: {
+    userId: User["id"];
+    courseId: Course["id"];
+  }) {
     return this.findOne({
-      where: { 
+      where: {
         course: courseId,
-        student: userId
+        student: userId,
       },
       loadEagerRelations: false,
       loadRelationIds: false,
-    })
+    });
   }
-
 
   async createRequest(user: User, course: Course) {
     try {
-      const exists = await this.checkExistingRequest(course.id, user.id)
-      if (exists) return null
+      const exists = await this.checkExistingRequest(course.id, user.id);
+      if (exists) return null;
 
       const createRequest = this.create({
         course,
-        student: user
-      })
+        student: user,
+      });
 
-      return createRequest.save()
+      return createRequest.save();
     } catch {
-      return null
+      return null;
     }
+  }
+
+  getOpenRequests(courseId: Course["id"]) {
+    return this.find({
+      where: {
+        course: courseId,
+        status: "pending",
+      },
+      relations: ["student", "student.artist", "student.artist.contact"],
+    });
+  }
+
+  getProcessedRequests(courseId: Course["id"]) {
+    return this.find({
+      where: {
+        course: courseId,
+        status: Not("pending"),
+      },
+      relations: ["student", "student.artist", "student.artist.contact"],
+    });
   }
 }
 
-export default RequestRepository
+export default RequestRepository;
