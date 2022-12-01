@@ -1,30 +1,126 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from "react";
 
-import { 
-  Button, 
-  H2, 
-  Header, 
+import {
+  Button,
+  H2,
+  Header,
   Text,
   Table,
   TableRow,
   TableCell,
   TableBody,
+  TableHead,
   H3,
-} from '@adminjs/design-system'
-import { ActionProps, useRecord, ApiClient } from 'adminjs'
-import { Status, Actions } from "./style"
+} from "@adminjs/design-system";
+import { ActionProps, useRecord, ApiClient } from "adminjs";
+import { Status, Actions } from "./style";
 
 interface student {
-  email: string
+  email: string;
+  whatsapp?: string;
+  name: string;
 }
 export interface Inscricoes {
-  id: string,
-  status: string,
-  student: student
+  id: string;
+  status: string;
+  student: student;
 }
 
+const CourseSubscriptionTable = ({
+  subscriptions,
+  handleAction,
+}: {
+  subscriptions: Inscricoes[];
+  handleAction: (id: string, newStatus: "denied" | "accepted") => Promise<void>;
+}) => {
+  return (
+    <Table>
+      <TableHead>
+        <TableRow>
+          <TableCell>
+            <Text>Nome</Text>
+          </TableCell>
+          <TableCell>
+            <Text>Email</Text>
+          </TableCell>
+          <TableCell>
+            <Text>Telefone</Text>
+          </TableCell>
+          <TableCell>
+            <Text>Status</Text>
+          </TableCell>
+          <TableCell>
+            <Text>Ações</Text>
+          </TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody
+        style={{
+          marginBottom: "1rem",
+        }}
+      >
+        {subscriptions.length !== 0 ? (
+          subscriptions.map((subscription) => {
+            console.log(subscription.student);
+            return (
+              <TableRow>
+                <TableCell>
+                  <Text>{subscription.student.name}</Text>
+                </TableCell>
+                <TableCell>
+                  <Text>{subscription.student.email}</Text>
+                </TableCell>
+                <TableCell>
+                  <Text>{subscription.student.whatsapp}</Text>
+                </TableCell>
+                <TableCell>
+                  <Text
+                    color="orange"
+                    as="p"
+                    style={{
+                      fontWeight: 700,
+                    }}
+                  >
+                    {subscription.status}
+                  </Text>
+                </TableCell>
+                <TableCell>
+                  <Actions>
+                    <Button
+                      size="sm"
+                      variant="success"
+                      onClick={() => {
+                        handleAction(subscription.id, "accepted");
+                      }}
+                    >
+                      {" "}
+                      Aceitar{" "}
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="danger"
+                      onClick={() => {
+                        handleAction(subscription.id, "denied");
+                      }}
+                    >
+                      {" "}
+                      Recusar{" "}
+                    </Button>
+                  </Actions>
+                </TableCell>
+              </TableRow>
+            );
+          })
+        ) : (
+          <Text> Sem inscrições </Text>
+        )}
+      </TableBody>
+    </Table>
+  );
+};
+
 const Subscription: FC<ActionProps> = (props) => {
-  const { record: initialRecord, resource } = props
+  const { record: initialRecord, resource } = props;
 
   const handleAction = async (id: string, newStatus: "denied" | "accepted") => {
     await api.recordAction({
@@ -32,67 +128,66 @@ const Subscription: FC<ActionProps> = (props) => {
       recordId: id,
       actionName: "updateStatus",
       responseType: "json",
-      method: 'POST',
+      method: "POST",
       data: {
-        status: newStatus
-      }
-    })
-
-    setSubscripitons(subs => {
-      const newSubs = subs.slice(0)
-      const idToBeChanged = subs.findIndex(sub => sub.id == id)
-      newSubs[idToBeChanged] = {...subs[idToBeChanged], status: newStatus}
-      return newSubs
-    })
-  }
-
-  const {
-    record,
-  } = useRecord(initialRecord, resource.id)
-  const api = new ApiClient()
-
-  const [subscriptions, setSubscripitons] = useState<Inscricoes[]>([])
-  const [anwseredSubs, setAnwseredSubs] = useState<Inscricoes[]>([])
-  
-  useEffect(() => {
-  api.resourceAction({
-      resourceId: "Request",
-      responseType: 'json',
-      actionName: "getOpenSubscriptions",
-      params: {
-        courseId: record.id
+        status: newStatus,
       },
-    })
-    .then(res => {
-      ""
-      setSubscripitons(res.data.requests)
-    })
-    .catch(error => {
-      console.error("[Admin Subscription]: ", error)
-    })
-  }, [])
+    });
+
+    setSubscripitons((subs) => {
+      const newSubs = subs.slice(0);
+      const idToBeChanged = subs.findIndex((sub) => sub.id == id);
+      newSubs[idToBeChanged] = { ...subs[idToBeChanged], status: newStatus };
+      return newSubs;
+    });
+  };
+
+  const { record } = useRecord(initialRecord, resource.id);
+  const api = new ApiClient();
+
+  const [subscriptions, setSubscripitons] = useState<Inscricoes[]>([]);
+  const [anwseredSubs, setAnwseredSubs] = useState<Inscricoes[]>([]);
 
   useEffect(() => {
-    api.resourceAction({
+    api
+      .resourceAction({
         resourceId: "Request",
-        responseType: 'json',
-        actionName: "getRequests",
+        responseType: "json",
+        actionName: "getOpenSubscriptions",
         params: {
-          courseId: record.id
+          courseId: record.id,
         },
       })
-      .then(res => {
-        setAnwseredSubs(res.data.requests)
+      .then((res) => {
+        ("");
+        setSubscripitons(res.data.requests);
       })
-      .catch(error => {
-        console.error("[Admin Subscription]: ", error)
+      .catch((error) => {
+        console.error("[Admin Subscription]: ", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    api
+      .resourceAction({
+        resourceId: "Request",
+        responseType: "json",
+        actionName: "getRequests",
+        params: {
+          courseId: record.id,
+        },
       })
-    }, [])
+      .then((res) => {
+        setAnwseredSubs(res.data.requests);
+      })
+      .catch((error) => {
+        console.error("[Admin Subscription]: ", error);
+      });
+  }, []);
 
+  const { name, available } = record.params;
 
-  const { name, available } = record.params
-
-  const date = record.params.subscription_start_date as string
+  const date = record.params.subscription_start_date as string;
 
   const treatedDate = new Date(date);
 
@@ -100,108 +195,35 @@ const Subscription: FC<ActionProps> = (props) => {
     <>
       <Header>
         <H2> {name} </H2>
-        <Status isAvailable={available}>{available ? "aberto" : "fechado"} para inscrições </Status>    
-        <Text> Começa das inscrições: {`${treatedDate.getDay()}/${treatedDate.getMonth()}/${treatedDate.getFullYear()}`} </Text>
+        <Status isAvailable={available}>
+          {available ? "aberto" : "fechado"} para inscrições{" "}
+        </Status>
+        <Text>
+          {" "}
+          Começa das inscrições:{" "}
+          {`${treatedDate.getDay()}/${treatedDate.getMonth()}/${treatedDate.getFullYear()}`}{" "}
+        </Text>
       </Header>
-      <Table>
-      <H3> <strong> INSCRICOES PENDENTES </strong> </H3>
-        <TableBody style={{
-          marginBottom: '1rem'
-        }}>
-          {subscriptions.length !== 0 ? 
-            subscriptions.map(subscription => {
-                return (
-                  <TableRow>
-                    <TableCell>
-                      <Text>
-                        {subscription.student.email}
-                      </Text>
-                    </TableCell>
-                    <TableCell>
-                      <Text
-                        color="orange"
-                        as="p"
-                        style={{
-                          fontWeight: 700
-                        }}
-                      >
-                        {subscription.status}
-                      </Text>
-                    </TableCell>
-                    <TableCell>
-                      <Actions>
-                        <Button 
-                          size="sm" 
-                          variant="success"
-                          onClick={() => {
-                            handleAction(subscription.id, "accepted")
-                          }}
-                          > Aceitar </Button>
-                          <Button 
-                          size="sm" 
-                          variant="danger"
-                          onClick={() => {
-                            handleAction(subscription.id, "denied")
-                          }}
-                          > Recusar </Button>
-                      </Actions>
-                    </TableCell>
-                  </TableRow>
-                )
-            })  :
-          <Text> Sem inscrições </Text>
-        }
-        </TableBody>
 
-        <H3> <strong> INSCRICOES PROCESSADAS </strong> </H3>
-        <TableBody>
-          {anwseredSubs.length !== 0 ? 
-            anwseredSubs.map(subscription => {
-                return (
-                  <TableRow>
-                    <TableCell>
-                      <Text>
-                        {subscription.student.email}
-                      </Text>
-                    </TableCell>
-                    <TableCell>
-                      <Text
-                        color="orange"
-                        as="p"
-                        style={{
-                          fontWeight: 700
-                        }}
-                      >
-                        {subscription.status}
-                      </Text>
-                    </TableCell>
-                    <TableCell>
-                      <Actions>
-                        <Button 
-                          size="sm" 
-                          variant="success"
-                          onClick={() => {
-                            handleAction(subscription.id, "accepted")
-                          }}
-                          > Aceitar </Button>
-                          <Button 
-                          size="sm" 
-                          variant="danger"
-                          onClick={() => {
-                            handleAction(subscription.id, "denied")
-                          }}
-                          > Recusar </Button>
-                      </Actions>
-                    </TableCell>
-                  </TableRow>
-                )
-            })  :
-          <Text> Sem inscrições </Text>
-        }
-        </TableBody>
-      </Table>
+      <H3>
+        {" "}
+        <strong> INSCRICOES PENDENTES </strong>{" "}
+      </H3>
+      <CourseSubscriptionTable
+        handleAction={handleAction}
+        subscriptions={subscriptions}
+      />
+
+      <H3>
+        {" "}
+        <strong> INSCRICOES PROCESSADAS </strong>{" "}
+      </H3>
+      <CourseSubscriptionTable
+        handleAction={handleAction}
+        subscriptions={anwseredSubs}
+      />
     </>
-  )
-}
+  );
+};
 
-export default Subscription
+export default Subscription;
