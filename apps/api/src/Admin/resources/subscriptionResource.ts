@@ -62,8 +62,8 @@ const subscriptionResource = (conn: Connection): ResourceWithOptions => {
               record.update({
                 status,
               });
-              console.log("ON SUBSCRIPTION RESOURCE ******");
-              console.log(record);
+              // console.log("ON SUBSCRIPTION RESOURCE ******");
+              // console.log(record);
               record.save();
             } catch (e) {
               return {
@@ -100,13 +100,9 @@ const subscriptionResource = (conn: Connection): ResourceWithOptions => {
                   courseName,
                   courseLink,
                   courseDates
-                ).then(() =>
-                  console.log("sent confirmation email to", userEmail)
                 );
               } else {
-                await sendNotAprovedEmail(userEmail, userName, courseName).then(
-                  () => console.log("sent rejection email to", userEmail)
-                );
+                await sendNotAprovedEmail(userEmail, userName, courseName);
               }
             } catch {
               return {
@@ -167,7 +163,7 @@ const subscriptionResource = (conn: Connection): ResourceWithOptions => {
 
             if (!courseId) return response;
             const requests = await requestRepo
-            .getProcessedRequests(courseId)
+              .getProcessedRequests(courseId)
               .then((req) => {
                 const subscriptions = [] as Inscricoes[];
                 req.map((r) => {
