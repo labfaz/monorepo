@@ -178,7 +178,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
                 .string()
                 .required('Data de nascimento obrigatório')
                 .min(8, 'Data incompleta'),
-              rg: yup.string().min(7, 'Rg incompleto'),
+              rg: yup.string(),
               expedition_department: yup.string(),
             }),
           })}

@@ -32,7 +32,7 @@ export const schemaStep01 = yup.object({
       .string()
       .required('Data de nascimento obrigatório')
       .min(8, 'Data incompleta'),
-    rg: yup.string().min(7, 'Rg incompleto'),
+    rg: yup.string(),
     expedition_department: yup.string(),
     address: yup.object({
       cep: yup.string(),
