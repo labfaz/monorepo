@@ -1,5 +1,14 @@
 version: "3.3"
 services:
+  mailcatcher:
+    restart: always
+    image: dockage/mailcatcher
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+    expose:
+      - "1025"
+
   strapi-db:
     image: postgres
     ports:
