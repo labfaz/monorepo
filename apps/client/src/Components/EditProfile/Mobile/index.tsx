@@ -289,10 +289,10 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
           validationSchema={yup.object({
             artist: yup.object({
               address: yup.object({
-                cep: yup.string(), //.required('CEP obrigatório'),
-                neighbourhood: yup.string(), //.required('Bairro obrigatório'),
-                number: yup.string(), //.required('Número obrigatório'),
-                complement: yup.string(), //.required('Endereço obrigatório'),
+                cep: yup.string().required('CEP obrigatório'),
+                neighbourhood: yup.string().required('Bairro obrigatório'),
+                number: yup.string().required('Número obrigatório'),
+                complement: yup.string().required('Endereço obrigatório'),
               }),
             }),
           })}

@@ -27,7 +27,7 @@ export const schemaStep01 = yup.object({
     name: yup.string().required('Nome obrigatório'),
     social_name: yup.string(),
     artistic_name: yup.string(),
-    cpf: yup.string().min(11, 'Cpf incompleto'),
+    cpf: yup.string().default('').min(11, 'Cpf incompleto'),
     birthday: yup
       .string()
       .required('Data de nascimento obrigatório')
@@ -35,10 +35,10 @@ export const schemaStep01 = yup.object({
     rg: yup.string(),
     expedition_department: yup.string(),
     address: yup.object({
-      cep: yup.string(),
-      neighbourhood: yup.string(),
-      number: yup.string(),
-      complement: yup.string(),
+      cep: yup.string().required('CEP obrigatório'),
+      neighbourhood: yup.string().required('Bairro obrigatório'),
+      number: yup.string().required('Número obrigatório'),
+      complement: yup.string().required('Endereço obrigatório'),
       residency: yup.string(),
       state: yup.string().default('null'),
       city: yup.string().required('Cidade obrigatória'),
@@ -105,7 +105,7 @@ export const Step01: FC = () => {
                 onChange={(ev: any) =>
                   setFieldValue('artist.cpf', ev.target.value)
                 }
-                // obrigatory
+                obrigatory
               />
             </InputTextContainer>
 
@@ -231,7 +231,7 @@ export const Step01: FC = () => {
                 label="CEP"
                 placeholder="Digite seu cep"
                 inputMask="99999-999"
-                // obrigatory
+                obrigatory
                 onChange={(ev: any) => {
                   if (OnlyNumbers(ev.target.value).length === 8) {
                     checkCEP(OnlyNumbers(ev.target.value));
@@ -248,7 +248,7 @@ export const Step01: FC = () => {
                 name="artist.address.address"
                 label="Endereco"
                 placeholder="Digite seu logradouro"
-                // obrigatory
+                obrigatory
               />
             </InputTextContainer>
 
@@ -257,7 +257,7 @@ export const Step01: FC = () => {
                 name="artist.address.neighbourhood"
                 label="Bairro"
                 placeholder="Digite seu bairro"
-                // obrigatory
+                obrigatory
               />
             </InputTextContainer>
           </div>
@@ -274,7 +274,7 @@ export const Step01: FC = () => {
                     OnlyNumbers(ev.target.value)
                   )
                 }
-                // obrigatory
+                obrigatory
               />
             </InputTextContainer>
 
@@ -283,6 +283,7 @@ export const Step01: FC = () => {
                 name="artist.address.complement"
                 label="Complemento"
                 placeholder="Digite seu complemento"
+                obrigatory
               />
             </InputTextContainer>
           </div>

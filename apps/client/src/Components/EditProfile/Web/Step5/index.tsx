@@ -12,7 +12,7 @@ interface ErrorProps {
 
 export const schemaStep05 = yup.object({
   artist: yup.object({
-    accessibility_resources_description: yup.string(),
+    accessibility_resources_description: yup.string().nullable(),
   }),
 });
 
