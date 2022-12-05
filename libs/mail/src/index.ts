@@ -27,17 +27,31 @@ interface SendEmail {
 export class MailProvider implements SendEmail {
   private readonly transponder: Mail
   constructor () {
-    this.transponder = nodemailer.createTransport({
-      host: `smtp.${process.env.HOST}.email`,
-      service: process.env.HOST,
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.APPPASS
-      },
-      requireTLS: true
-    })
+    function getOptions(){
+      if (
+        process.env.NODE_ENV === "production" ||
+        process.env.NODE_ENV === "staging" ||
+        process.env.NODE_ENV === "preview"
+      ) {
+        return {
+          host: `smtp.${process.env.HOST}.email`,
+          service: process.env.HOST,
+          port: 465,
+          secure: true,
+          auth: {
+            user: process.env.EMAIL,
+            pass: process.env.APPPASS
+          },
+          requireTLS: true
+        }
+      }
+      // NOTE: mailcatcher config, see root docker-compose.yml for info
+      return {
+        host: "localhost",
+        port: 1025
+      }
+    }
+    this.transponder = nodemailer.createTransport(getOptions())
   }
 
   async sendEmail(data: EmailInfo): Promise<SentMessageInfo> {
