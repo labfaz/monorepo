@@ -34,5 +34,4 @@ coverage/
 .netlify
 
 #asdf files
-.tool-versions 
-*.patch
+.tool-versions
