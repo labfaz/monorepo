@@ -23,7 +23,10 @@ const bodyFormParse = (values: any) => {
   formData.append('artist[gender_specific]', values.artist?.gender_specific);
   if (values.artist.cpf !== '')
     formData.append('artist[cpf]', values.artist.cpf);
-  formData.append('artist[birthday]', values.artist?.birthday);
+  const reverseDate = (date: string) => {
+    return date.substring(4)+date.substring(2,4)+date.substring(0,2)
+  }
+  formData.append('artist[birthday]', reverseDate(values.artist?.birthday));
   formData.append('artist[rg]', values.artist?.rg);
   formData.append(
     'artist[expedition_department]',

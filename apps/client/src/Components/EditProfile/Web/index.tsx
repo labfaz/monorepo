@@ -37,6 +37,10 @@ interface ButtonProps {
 }
 
 export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
+  const dateFormatter = (date: Date | string | undefined) => {
+    return date ? new Intl.DateTimeFormat('pt-BR').format(new Date(date)) : undefined
+  }
+
   return (
     <Container>
       <FormikStepper
@@ -65,7 +69,7 @@ export const Web: FC<ButtonProps> = ({ buttonType, data, token }) => {
             gender_specific: data?.artist.gender_specifics,
             other_gender: '',
             cpf: data?.artist.cpf ?? '',
-            birthday: data?.artist.birthday,
+            birthday: dateFormatter(data?.artist.birthday),
             rg: data?.artist.rg,
             expedition_department: data?.artist.expedition_department,
             race: data?.artist.race,

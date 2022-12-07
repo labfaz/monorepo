@@ -57,6 +57,10 @@ const curriculumSize = 10 * 1024 * 1024;
 // const medicalReportMaxSize = 10 * 1024 * 1024
 
 export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
+  const dateFormatter = (date: Date | string | undefined) => {
+    return date ? new Intl.DateTimeFormat('pt-BR').format(new Date(date)) : undefined
+  }
+
   return (
     <>
       <FormHeader />
@@ -86,7 +90,7 @@ export const Mobile: FC<ButtonProps> = ({ buttonType, data, token }) => {
             gender_specific: data?.artist.gender_specifics,
             other_gender: '',
             cpf: data?.artist.cpf ?? '',
-            birthday: data?.artist.birthday,
+            birthday: dateFormatter(data?.artist.birthday),
             rg: data?.artist.rg,
             expedition_department: data?.artist.expedition_department,
             race: data?.artist.race,
