@@ -1,14 +1,22 @@
-import { MailProvider, Addres } from "@labfaz/mail"
-import { AutoEmail } from "Mailer"
+import { MailProvider, Addres } from "@labfaz/mail";
+import { AutoEmail } from "Mailer";
 
-export const sendAprovedEmail = async (userEmail: string, userName: string, courseName: string, courseLink: string, courseDates: Date[]) => {
-  const mailer = new MailProvider()
+const ShowClassHour = process.env.EMAIL_SHOW_CLASS_TIME !== "false";
+
+export const sendAprovedEmail = async (
+  userEmail: string,
+  userName: string,
+  courseName: string,
+  courseLink: string,
+  courseDates: Date[]
+) => {
+  const mailer = new MailProvider();
   const from: Addres = {
     name: "LabFaz",
     email: "noreply@labfaz.com.br",
-  }
+  };
 
-  const padStart = (num: number) => `${num}`.padStart(2, '0')
+  const padStart = (num: number) => `${num}`.padStart(2, "0");
 
   const html = `
     <div>
@@ -21,12 +29,21 @@ export const sendAprovedEmail = async (userEmail: string, userName: string, cour
 
       <p><strong>Em quais dias teremos aulas?</strong> A(s) aula(s) do curso ${courseName} ocorrerá(ão) no(s) dia(s):</p>
       <ul>${courseDates
-        .map(date =>
-          // `<li>${date.getDate()}/${date.getMonth()}, às ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}</li>`
-          `<li>${padStart(date.getDate())}/${padStart(date.getMonth()+1)}</li>`
+        .flat()
+        .map((date) =>
+          ShowClassHour
+            ? `<li>${date.getDate()}/${date.getMonth()}, às ${date
+                .getHours()
+                .toString()
+                .padStart(2, "0")}:${date
+                .getMinutes()
+                .toString()
+                .padStart(2, "0")}</li>`
+            : `<li>${padStart(date.getDate())}/${padStart(
+                date.getMonth() + 1
+              )}</li>`
         )
-        .join("\n")
-      }</ul>
+        .join("\n")}</ul>
 
       <h3>INFORMAÇÕES ÚTEIS E ORIENTAÇÕES DE BOAS PRÁTICAS PARA AS AULAS:</h3>
       <ul>
@@ -55,7 +72,7 @@ export const sendAprovedEmail = async (userEmail: string, userName: string, cour
       <p>Abraço,<br />LabFaz</p>
       ${AutoEmail}
     </div>
-  `
+  `;
 
   const emailInfo = {
     to: {
@@ -65,18 +82,21 @@ export const sendAprovedEmail = async (userEmail: string, userName: string, cour
     from: from,
     subject: `Resposta de inscrição - Curso ${courseName}`,
     html,
-  }
-  return mailer.sendEmail(emailInfo)
+  };
+  return mailer.sendEmail(emailInfo);
   // console.log("sending mail", emailInfo)
-}
+};
 
-export const sendNotAprovedEmail = async (userEmail: string, userName: string, courseName: string) => {
-  const mailer = new MailProvider()
+export const sendNotAprovedEmail = async (
+  userEmail: string,
+  userName: string,
+  courseName: string
+) => {
+  const mailer = new MailProvider();
   const from: Addres = {
     name: "LabFaz",
     email: "noreply@labfaz.com.br",
-  }
-
+  };
 
   const html = `
     <div>
@@ -90,8 +110,8 @@ export const sendNotAprovedEmail = async (userEmail: string, userName: string, c
 
       <p>Abraço,<br />LabFaz</p>
     </div>
-  `
-  
+  `;
+
   const emailInfo = {
     to: {
       name: userName,
@@ -100,7 +120,8 @@ export const sendNotAprovedEmail = async (userEmail: string, userName: string, c
     from: from,
     subject: `Resposta de inscrição - Curso ${courseName}`,
     html,
-  }
-  return mailer.sendEmail(emailInfo)
+  };
+  console.log("sending");
+  return mailer.sendEmail(emailInfo);
   // console.log("sending mail", emailInfo)
-}
+};

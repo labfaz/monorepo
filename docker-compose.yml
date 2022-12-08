@@ -1,0 +1,24 @@
+version: "3.3"
+services:
+  # postgres
+  strapi-db:
+    image: postgres
+    expose:
+      - 5432
+    environment:
+      POSTGRES_DB: prisma
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
+    volumes:
+      - /tmp/postgres/labfaz-monorepo/strapi-db:/var/lib/postgresql/data
+
+  api-db:
+    image: postgres
+    ports:
+      - "5431:5432"
+    environment:
+      POSTGRES_DB: database
+      POSTGRES_USER: database
+      POSTGRES_PASSWORD: database
+    volumes:
+      - /tmp/postgres/labfaz-monorepo/api-db:/var/lib/postgresql/data
