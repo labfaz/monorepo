@@ -23,7 +23,7 @@ import { Step07, schemaStep07 } from './Step07';
 import { Step09, schemaStep09 } from './Step09';
 // import { Step10, schemaStep10 } from './Step10';
 import { Step11, schemaStep11 } from './Step11';
-// import { Step12, schemaStep12 } from './Step12';
+import { Step12, schemaStep12 } from './Step12';
 import { Step13, schemaStep13 } from './Step13';
 import { Step14, schemaStep14 } from './Step14';
 import { Step15, schemaStep15 } from './Step15';
@@ -157,9 +157,9 @@ export const Mobile: FC<ButtonProps> = ({ buttonType }) => {
         <FormikStep validationSchema={schemaStep11}>
           <Step11 />
         </FormikStep>
-        {/* <FormikStep validationSchema={schemaStep12}>
+        <FormikStep validationSchema={schemaStep12}>
           <Step12 />
-        </FormikStep> */}
+        </FormikStep>
         <FormikStep validationSchema={schemaStep13}>
           <Step13 />
         </FormikStep>

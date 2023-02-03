@@ -9,8 +9,8 @@ import { useSocialNetworksLabfaz } from 'Api/SocialNetworksLabfaz';
 import { Step01, schemaStep01 } from './Step01';
 import { Step02, schemaStep02 } from './Step02';
 import { Step03, schemaStep03 } from './Step03';
-// import { Step04, schemaStep04 } from './Step04';
-// import { Step05, schemaStep05 } from './Step05';
+import { Step04, schemaStep04 } from './Step04';
+import { Step05, schemaStep05 } from './Step05';
 import { Step06, schemaStep06 } from './Step06';
 import { Step07, schemaStep07 } from './Step07';
 import { Step08, schemaStep08 } from './Step08';
@@ -131,13 +131,13 @@ export const Web: FC<ButtonProps> = ({ buttonType }) => {
           <Step03 />
         </FormikStep>
 
-        {/* <FormikStep validationSchema={schemaStep04}>
+        <FormikStep validationSchema={schemaStep04}>
           <Step04 />
-        </FormikStep> */}
+        </FormikStep>
 
-        {/* <FormikStep validationSchema={schemaStep05}>
+        <FormikStep validationSchema={schemaStep05}>
           <Step05 />
-        </FormikStep> */}
+        </FormikStep>
 
         <FormikStep validationSchema={schemaStep06}>
           <Step06 />
