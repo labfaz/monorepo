@@ -53,6 +53,36 @@ export const Step12: FC = () => {
       setIsDeficiencyOptionsOpen(false);
     }
   };
+  
+
+  console.log("MOBIEL")
+  console.log("MOBIEL")
+
+  console.log("MOBIEL")
+  console.log("MOBIEL")
+
+  console.log("MOBIEL")
+  console.log("MOBIEL")
+
+
+  console.log("MOBIEL")
+  console.log("MOBIEL")
+
+  console.log("MOBIEL")
+  console.log("MOBIEL")
+
+  console.log("MOBIEL")
+  console.log("MOBIEL")
+
+
+  console.log("MOBIEL")
+  console.log("MOBIEL")
+
+  console.log("MOBIEL")
+  console.log("MOBIEL")
+
+  console.log("MOBIEL")
+  console.log("MOBIEL")
 
   return (
     <Container>

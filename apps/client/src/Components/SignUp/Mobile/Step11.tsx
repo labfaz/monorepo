@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { useRef } from 'react';
 import { useState } from 'react';
 // import { IoMdArrowDropdownCircle } from 'react-icons/io';
-// import { RadioInput } from 'Components/Inputs/RadioInput';
+import { RadioInput } from 'Components/Inputs/RadioInput';
 
 import { formationOptions, idiomOptions } from 'Utils/selectOptionsData';
 
@@ -102,13 +102,13 @@ export const Step11: FC = () => {
             </InputTextContainer>
           )}
  */}
-          {/* <LabelText>Você é uma pessoa com deficiência?</LabelText>
+          <LabelText>Você é uma pessoa com deficiência?</LabelText>
           <InputRadioContainer>
             <RadioInput name="isPcd" value="true" label="Sim" />
           </InputRadioContainer>
           <InputRadioContainer>
             <RadioInput name="isPcd" value="false" label="Não" />
-          </InputRadioContainer> */}
+          </InputRadioContainer>
         </Content>
       </ContentContainer>
 
